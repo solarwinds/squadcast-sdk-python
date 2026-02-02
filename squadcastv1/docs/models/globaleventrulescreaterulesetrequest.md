@@ -1,0 +1,9 @@
+# GlobalEventRulesCreateRulesetRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ger_id`                                                                                             | *int*                                                                                                | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `v3_global_event_rules_create_ruleset_request`                                                       | [models.V3GlobalEventRulesCreateRulesetRequest](../models/v3globaleventrulescreaterulesetrequest.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

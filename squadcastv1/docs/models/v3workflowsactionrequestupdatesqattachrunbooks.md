@@ -1,0 +1,9 @@
+# V3WorkflowsActionRequestUpdateSqAttachRunbooks
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `name`                                                                                                 | [models.V3WorkflowsActionRequestUpdateName](../models/v3workflowsactionrequestupdatename.md)           | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `data`                                                                                                 | [Optional[models.V3WorkflowsActionRequestUpdateData]](../models/v3workflowsactionrequestupdatedata.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

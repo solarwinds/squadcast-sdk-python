@@ -1,0 +1,12 @@
+# V3EscalationPoliciesEscalationEntity
+
+Represents an entity to be notified in an escalation rule.
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                     | *Optional[str]*                                                                                          | :heavy_minus_sign:                                                                                       | The unique identifier of the entity (user, squad, or schedule v1).                                       |
+| `pid`                                                                                                    | *Optional[int]*                                                                                          | :heavy_minus_sign:                                                                                       | The unique identifier of the entity (schedule v2).                                                       |
+| `type`                                                                                                   | [models.V3EscalationPoliciesEscalationEntityType](../models/v3escalationpoliciesescalationentitytype.md) | :heavy_check_mark:                                                                                       | The type of the entity.                                                                                  |

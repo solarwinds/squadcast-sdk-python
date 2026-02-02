@@ -1,0 +1,10 @@
+# V3GlobalEventRulesUpdateRuleRequest
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `description`                                                                                          | *Optional[str]*                                                                                        | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `expression`                                                                                           | *Optional[str]*                                                                                        | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `action`                                                                                               | [Optional[models.V3GlobalEventRulesRuleActionUpdate]](../models/v3globaleventrulesruleactionupdate.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

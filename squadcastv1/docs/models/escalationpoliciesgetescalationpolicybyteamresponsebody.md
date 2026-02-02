@@ -1,0 +1,11 @@
+# EscalationPoliciesGetEscalationPolicyByTeamResponseBody
+
+The request has succeeded.
+
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `data`                                                                                                                 | List[[models.V3EscalationPoliciesEscalationPolicyResponse](../models/v3escalationpoliciesescalationpolicyresponse.md)] | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `meta`                                                                                                                 | [models.EscalationPoliciesGetEscalationPolicyByTeamMeta](../models/escalationpoliciesgetescalationpolicybyteammeta.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |

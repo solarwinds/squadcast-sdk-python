@@ -1,0 +1,9 @@
+# PostmortemsCreatePostmortemRequest
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `incident_id`                                                                                                      | *str*                                                                                                              | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `v3_incidents_postmortems_create_postmortem_request`                                                               | [models.V3IncidentsPostmortemsCreatePostmortemRequest](../models/v3incidentspostmortemscreatepostmortemrequest.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |

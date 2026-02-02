@@ -1,0 +1,9 @@
+# WorkflowsUpdateWorkflowRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `workflow_id`                                                                                        | *str*                                                                                                | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `v3_workflows_create_workflow_request_update`                                                        | [models.V3WorkflowsCreateWorkflowRequestUpdate](../models/v3workflowscreateworkflowrequestupdate.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

@@ -1,0 +1,9 @@
+# ServicesDelayedNotificationConfigRequest
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `service_id`                                                                                             | *str*                                                                                                    | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `v3_services_notification_delay_config_request`                                                          | [models.V3ServicesNotificationDelayConfigRequest](../models/v3servicesnotificationdelayconfigrequest.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

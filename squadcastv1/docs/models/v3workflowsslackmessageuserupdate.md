@@ -1,0 +1,9 @@
+# V3WorkflowsSlackMessageUserUpdate
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `name`                                                                                                       | [models.V3WorkflowsSlackMessageUserUpdateName](../models/v3workflowsslackmessageuserupdatename.md)           | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `data`                                                                                                       | [Optional[models.V3WorkflowsSlackMessageUserUpdateData]](../models/v3workflowsslackmessageuserupdatedata.md) | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |

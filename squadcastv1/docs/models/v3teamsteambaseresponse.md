@@ -1,0 +1,18 @@
+# V3TeamsTeamBaseResponse
+
+
+## Fields
+
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `id`                                                             | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |
+| `created_at`                                                     | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |
+| `updated_at`                                                     | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |
+| `created_by`                                                     | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |
+| `organization_id`                                                | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |
+| `name`                                                           | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |
+| `description`                                                    | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |
+| `slug`                                                           | *str*                                                            | :heavy_check_mark:                                               | N/A                                                              |
+| `members`                                                        | List[[models.V3TeamsTeamMember](../models/v3teamsteammember.md)] | :heavy_check_mark:                                               | N/A                                                              |
+| `roles`                                                          | List[[models.V3TeamsTeamRole](../models/v3teamsteamrole.md)]     | :heavy_check_mark:                                               | N/A                                                              |
+| `default`                                                        | *bool*                                                           | :heavy_check_mark:                                               | N/A                                                              |

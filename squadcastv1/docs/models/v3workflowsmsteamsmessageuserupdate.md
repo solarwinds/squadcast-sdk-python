@@ -1,0 +1,9 @@
+# V3WorkflowsMsTeamsMessageUserUpdate
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                           | [models.V3WorkflowsMsTeamsMessageUserUpdateName](../models/v3workflowsmsteamsmessageuserupdatename.md)           | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `data`                                                                                                           | [Optional[models.V3WorkflowsMsTeamsMessageUserUpdateData]](../models/v3workflowsmsteamsmessageuserupdatedata.md) | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

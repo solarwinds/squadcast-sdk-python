@@ -1,0 +1,10 @@
+# IssuesUpdateIssueRequest
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `statuspage_id`                                                                                    | *str*                                                                                              | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `issue_id`                                                                                         | *str*                                                                                              | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `v4_status_pages_issues_update_issue_request`                                                      | [models.V4StatusPagesIssuesUpdateIssueRequest](../models/v4statuspagesissuesupdateissuerequest.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

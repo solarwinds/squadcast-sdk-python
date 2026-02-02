@@ -1,0 +1,11 @@
+# V3AuditLogsListAuditLogsExportHistoryResponse
+
+Response model for listing audit logs export history
+
+
+## Fields
+
+| Field                                                                                                                              | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `data`                                                                                                                             | List[[models.V3AuditLogsAuditLogsExportHistoryResponse](../models/v3auditlogsauditlogsexporthistoryresponse.md)]                   | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `metadata`                                                                                                                         | [models.V3AuditLogsListAuditLogsExportHistoryResponseMetadata](../models/v3auditlogslistauditlogsexporthistoryresponsemetadata.md) | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |

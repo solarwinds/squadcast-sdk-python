@@ -1,0 +1,9 @@
+# V3WorkflowsSlackMessageChannelUpdate
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `name`                                                                                                             | [models.V3WorkflowsSlackMessageChannelUpdateName](../models/v3workflowsslackmessagechannelupdatename.md)           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `data`                                                                                                             | [Optional[models.V3WorkflowsSlackMessageChannelUpdateData]](../models/v3workflowsslackmessagechannelupdatedata.md) | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |

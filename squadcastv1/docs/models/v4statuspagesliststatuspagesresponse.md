@@ -1,0 +1,9 @@
+# V4StatusPagesListStatusPagesResponse
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `data`                                                                                                   | List[[models.V4StatusPagesStatusPage](../models/v4statuspagesstatuspage.md)]                             | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `meta`                                                                                                   | [models.V4StatusPagesListStatusPagesResponseMeta](../models/v4statuspagesliststatuspagesresponsemeta.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

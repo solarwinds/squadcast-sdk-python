@@ -1,0 +1,14 @@
+# V3IncidentsIncidentExportAsyncRequest
+
+Request body for async incident export.
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `owner_id`                                                                               | *str*                                                                                    | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `type`                                                                                   | [models.V3IncidentsExportFormat](../models/v3incidentsexportformat.md)                   | :heavy_check_mark:                                                                       | Type of export, can be csv or json                                                       |
+| `start_time`                                                                             | [date](https://docs.python.org/3/library/datetime.html#date-objects)                     | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `end_time`                                                                               | [date](https://docs.python.org/3/library/datetime.html#date-objects)                     | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `incident_filters`                                                                       | [models.V3IncidentsExportIncidentsFilter](../models/v3incidentsexportincidentsfilter.md) | :heavy_check_mark:                                                                       | Filter criteria for incidents in an export.                                              |

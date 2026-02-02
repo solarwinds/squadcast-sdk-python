@@ -1,0 +1,16 @@
+# V4SquadsSquadResponse
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `id`                                                                 | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `org_id`                                                             | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `team_id`                                                            | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `name`                                                               | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `members`                                                            | List[[models.V4SquadsSquadMember](../models/v4squadssquadmember.md)] | :heavy_check_mark:                                                   | N/A                                                                  |
+| `created_at`                                                         | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `created_by`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `updated_at`                                                         | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `updated_by`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |

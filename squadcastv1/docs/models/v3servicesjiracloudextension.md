@@ -1,0 +1,12 @@
+# V3ServicesJiraCloudExtension
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `jira_client_key`                                                            | *str*                                                                        | :heavy_check_mark:                                                           | N/A                                                                          |
+| `project`                                                                    | [models.V3ServicesJiraProject](../models/v3servicesjiraproject.md)           | :heavy_check_mark:                                                           | N/A                                                                          |
+| `issue_type`                                                                 | [models.V3ServicesJiraIssueType](../models/v3servicesjiraissuetype.md)       | :heavy_check_mark:                                                           | N/A                                                                          |
+| `statusmaps`                                                                 | List[[models.V3ServicesJiraStatusMap](../models/v3servicesjirastatusmap.md)] | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `is_manual`                                                                  | *bool*                                                                       | :heavy_check_mark:                                                           | N/A                                                                          |

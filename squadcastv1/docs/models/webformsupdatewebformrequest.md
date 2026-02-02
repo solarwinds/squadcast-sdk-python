@@ -1,0 +1,9 @@
+# WebformsUpdateWebformRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `webform_id`                                                                                         | *int*                                                                                                | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `v3_webforms_create_or_update_webform_request`                                                       | [models.V3WebformsCreateOrUpdateWebformRequest](../models/v3webformscreateorupdatewebformrequest.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

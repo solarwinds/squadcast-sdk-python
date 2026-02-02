@@ -1,0 +1,10 @@
+# V4StatusPagesListSubscribersResponseMeta
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `total_subscribers_count`                                                                              | [Optional[models.V4StatusPagesTotalSubscribersCount]](../models/v4statuspagestotalsubscriberscount.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `maximum_subscribers_limit`                                                                            | *int*                                                                                                  | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `last_week_subscribers_count`                                                                          | *int*                                                                                                  | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

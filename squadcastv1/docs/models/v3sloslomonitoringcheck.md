@@ -1,0 +1,18 @@
+# V3SLOSLOMonitoringCheck
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `id`                                                                 | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `slo_id`                                                             | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `name`                                                               | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `threshold`                                                          | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `owner_type`                                                         | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `owner_id`                                                           | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `org_id`                                                             | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `is_checked`                                                         | *OptionalNullable[bool]*                                             | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `updated_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `deleted_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | N/A                                                                  |

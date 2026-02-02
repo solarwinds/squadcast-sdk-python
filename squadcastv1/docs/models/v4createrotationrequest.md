@@ -1,0 +1,19 @@
+# V4CreateRotationRequest
+
+
+## Fields
+
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `name`                                                             | *str*                                                              | :heavy_check_mark:                                                 | N/A                                                                |
+| `color`                                                            | *Optional[str]*                                                    | :heavy_minus_sign:                                                 | N/A                                                                |
+| `start_date`                                                       | *str*                                                              | :heavy_check_mark:                                                 | N/A                                                                |
+| `period`                                                           | *str*                                                              | :heavy_check_mark:                                                 | N/A                                                                |
+| `custom_period_frequency`                                          | *Optional[int]*                                                    | :heavy_minus_sign:                                                 | N/A                                                                |
+| `custom_period_unit`                                               | *Optional[str]*                                                    | :heavy_minus_sign:                                                 | N/A                                                                |
+| `shift_time_slots`                                                 | List[[models.V4ShiftTimeSlot](../models/v4shifttimeslot.md)]       | :heavy_minus_sign:                                                 | N/A                                                                |
+| `change_participants_frequency`                                    | *int*                                                              | :heavy_check_mark:                                                 | N/A                                                                |
+| `change_participants_unit`                                         | *str*                                                              | :heavy_check_mark:                                                 | N/A                                                                |
+| `end_date`                                                         | *Optional[str]*                                                    | :heavy_minus_sign:                                                 | N/A                                                                |
+| `ends_after_iterations`                                            | *Optional[int]*                                                    | :heavy_minus_sign:                                                 | N/A                                                                |
+| `participant_groups`                                               | List[[models.V4ParticipantGroup](../models/v4participantgroup.md)] | :heavy_check_mark:                                                 | N/A                                                                |

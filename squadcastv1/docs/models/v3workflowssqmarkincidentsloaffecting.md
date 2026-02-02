@@ -1,0 +1,9 @@
+# V3WorkflowsSqMarkIncidentSLOAffecting
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                     | [models.V3WorkflowsSqMarkIncidentSLOAffectingName](../models/v3workflowssqmarkincidentsloaffectingname.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `data`                                                                                                     | [models.V3WorkflowsSqMarkIncidentSLOAffectingData](../models/v3workflowssqmarkincidentsloaffectingdata.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

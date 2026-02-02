@@ -1,0 +1,9 @@
+# WorkflowsEnabledisableWorkflowRequest
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `workflow_id`                                                                                          | *str*                                                                                                  | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `v3_workflows_enable_disable_workflow_request`                                                         | [models.V3WorkflowsEnableDisableWorkflowRequest](../models/v3workflowsenabledisableworkflowrequest.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |

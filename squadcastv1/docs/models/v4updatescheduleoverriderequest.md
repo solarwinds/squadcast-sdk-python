@@ -1,0 +1,12 @@
+# V4UpdateScheduleOverrideRequest
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `start_time`                                                                 | *str*                                                                        | :heavy_check_mark:                                                           | N/A                                                                          |
+| `end_time`                                                                   | *str*                                                                        | :heavy_check_mark:                                                           | N/A                                                                          |
+| `reason`                                                                     | *str*                                                                        | :heavy_check_mark:                                                           | N/A                                                                          |
+| `overridden_participant`                                                     | [models.V4OverrideParticipantGroup](../models/v4overrideparticipantgroup.md) | :heavy_check_mark:                                                           | N/A                                                                          |
+| `override_with`                                                              | [models.V4OverrideParticipantGroup](../models/v4overrideparticipantgroup.md) | :heavy_check_mark:                                                           | N/A                                                                          |

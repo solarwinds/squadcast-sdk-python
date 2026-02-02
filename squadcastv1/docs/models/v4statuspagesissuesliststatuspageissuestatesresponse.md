@@ -1,0 +1,16 @@
+# V4StatusPagesIssuesListStatusPageIssueStatesResponse
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `id`                                                                 | *int*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `idx`                                                                | *int*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `page_id`                                                            | *int*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `name`                                                               | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `color`                                                              | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `default_message`                                                    | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `created_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `updated_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `deleted_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |

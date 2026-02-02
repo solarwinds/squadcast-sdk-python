@@ -1,0 +1,29 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Squadcast:
+        inputs:
+            - location: https://raw.githubusercontent.com/solarwinds-cloud/sq-squadcast-public-api-docs/main/build/openapi3/openapi.json
+              authHeader: Authorization
+              authSecret: $openapi_doc_auth_token
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        output: .speakeasy/out.openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/swo/incident-response/squadcast
+targets:
+    squadcast-sdk:
+        target: python
+        source: Squadcast
+        output: squadcastv1
+        publish:
+            pypi:
+                token: $pypi_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/swo/incident-response/squadcast-typescript-typescript-python-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false
+        testing:
+            enabled: false

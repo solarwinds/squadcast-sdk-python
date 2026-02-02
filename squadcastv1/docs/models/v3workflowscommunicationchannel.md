@@ -1,0 +1,10 @@
+# V3WorkflowsCommunicationChannel
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `display_text`                                                                                 | *str*                                                                                          | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `link`                                                                                         | *str*                                                                                          | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `type`                                                                                         | [models.V3WorkflowsCommunicationChannelType](../models/v3workflowscommunicationchanneltype.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

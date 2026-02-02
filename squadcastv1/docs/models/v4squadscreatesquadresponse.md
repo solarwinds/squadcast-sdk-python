@@ -1,0 +1,15 @@
+# V4SquadsCreateSquadResponse
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `organization_id`                                                    | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `owner_id`                                                           | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `id`                                                                 | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `name`                                                               | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `slug`                                                               | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `members`                                                            | List[[models.V4SquadsSquadMember](../models/v4squadssquadmember.md)] | :heavy_check_mark:                                                   | N/A                                                                  |
+| `created_at`                                                         | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `created_by`                                                         | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |

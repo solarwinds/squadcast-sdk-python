@@ -1,0 +1,9 @@
+# V3WorkflowsSlackCreateIncidentChannel
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                     | [models.V3WorkflowsSlackCreateIncidentChannelName](../models/v3workflowsslackcreateincidentchannelname.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `data`                                                                                                     | [models.V3WorkflowsSlackCreateIncidentChannelData](../models/v3workflowsslackcreateincidentchanneldata.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

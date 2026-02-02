@@ -1,0 +1,12 @@
+# V3WorkflowsWorkflowFilters
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `type`                                                                             | *Optional[str]*                                                                    | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `key`                                                                              | *Optional[str]*                                                                    | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `value`                                                                            | *Optional[str]*                                                                    | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `condition`                                                                        | [Optional[models.Condition]](../models/condition.md)                               | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `filters`                                                                          | List[[models.V3WorkflowsWorkflowFilters](../models/v3workflowsworkflowfilters.md)] | :heavy_minus_sign:                                                                 | N/A                                                                                |

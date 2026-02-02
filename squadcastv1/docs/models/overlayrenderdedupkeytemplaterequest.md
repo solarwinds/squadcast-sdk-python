@@ -1,0 +1,9 @@
+# OverlayRenderDedupKeyTemplateRequest
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `service_id`                                                                                                         | *str*                                                                                                                | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `v3_services_overlay_render_dedup_key_template_request`                                                              | [models.V3ServicesOverlayRenderDedupKeyTemplateRequest](../models/v3servicesoverlayrenderdedupkeytemplaterequest.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

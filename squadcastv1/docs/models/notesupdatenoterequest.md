@@ -1,0 +1,10 @@
+# NotesUpdateNoteRequest
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `incident_id`                                                                              | *str*                                                                                      | :heavy_check_mark:                                                                         | Required                                                                                   |
+| `note_id`                                                                                  | *str*                                                                                      | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `v3_incidents_notes_update_note_request`                                                   | [models.V3IncidentsNotesUpdateNoteRequest](../models/v3incidentsnotesupdatenoterequest.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |

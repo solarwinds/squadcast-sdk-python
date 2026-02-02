@@ -1,0 +1,10 @@
+# V3GlobalOncallReminderRulesCreateGlobalOncallReminderRulesRequest
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `is_enabled`                                                                                 | *bool*                                                                                       | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `owner_id`                                                                                   | *str*                                                                                        | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `rules`                                                                                      | List[[models.V3GlobalOncallReminderRulesRule](../models/v3globaloncallreminderrulesrule.md)] | :heavy_check_mark:                                                                           | N/A                                                                                          |

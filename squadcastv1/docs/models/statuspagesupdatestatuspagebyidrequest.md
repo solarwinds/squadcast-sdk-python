@@ -1,0 +1,9 @@
+# StatusPagesUpdateStatusPageByIDRequest
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `statuspage_id`                                                                                          | *str*                                                                                                    | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `v4_status_pages_update_status_page_by_id_request`                                                       | [models.V4StatusPagesUpdateStatusPageByIDRequest](../models/v4statuspagesupdatestatuspagebyidrequest.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

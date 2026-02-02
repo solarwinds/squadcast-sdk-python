@@ -1,0 +1,9 @@
+# OverridesGetOverrideByIDRequest
+
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `schedule_id`      | *str*              | :heavy_check_mark: | N/A                |
+| `override_id`      | *str*              | :heavy_check_mark: | N/A                |

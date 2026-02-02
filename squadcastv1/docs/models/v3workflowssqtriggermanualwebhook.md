@@ -1,0 +1,9 @@
+# V3WorkflowsSqTriggerManualWebhook
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `name`                                                                                             | [models.V3WorkflowsSqTriggerManualWebhookName](../models/v3workflowssqtriggermanualwebhookname.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `data`                                                                                             | [models.V3WorkflowsSqTriggerManualWebhookData](../models/v3workflowssqtriggermanualwebhookdata.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

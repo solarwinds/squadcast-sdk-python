@@ -1,0 +1,9 @@
+# V3WorkflowsSqCreateStatusPageIssue
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `name`                                                                                               | [models.V3WorkflowsSqCreateStatusPageIssueName](../models/v3workflowssqcreatestatuspageissuename.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `data`                                                                                               | [models.V3WorkflowsSqCreateStatusPageIssueData](../models/v3workflowssqcreatestatuspageissuedata.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

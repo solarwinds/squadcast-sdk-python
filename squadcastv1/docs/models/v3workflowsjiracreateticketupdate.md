@@ -1,0 +1,9 @@
+# V3WorkflowsJiraCreateTicketUpdate
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `name`                                                                                                       | [models.V3WorkflowsJiraCreateTicketUpdateName](../models/v3workflowsjiracreateticketupdatename.md)           | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `data`                                                                                                       | [Optional[models.V3WorkflowsJiraCreateTicketUpdateData]](../models/v3workflowsjiracreateticketupdatedata.md) | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |

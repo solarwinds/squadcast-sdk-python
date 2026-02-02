@@ -1,0 +1,9 @@
+# V3ServicesRoutingRulesRoutingRuleRouteTo
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `entity_type`                                                                                                  | [models.V3ServicesRoutingRulesRoutingRuleEntityType](../models/v3servicesroutingrulesroutingruleentitytype.md) | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| `entity_id`                                                                                                    | *str*                                                                                                          | :heavy_check_mark:                                                                                             | N/A                                                                                                            |

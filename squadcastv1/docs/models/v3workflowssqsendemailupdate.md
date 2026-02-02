@@ -1,0 +1,9 @@
+# V3WorkflowsSqSendEmailUpdate
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `name`                                                                                             | [models.V3WorkflowsSqSendEmailUpdateName](../models/v3workflowssqsendemailupdatename.md)           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `data`                                                                                             | [Optional[models.V3WorkflowsSqSendEmailUpdateData]](../models/v3workflowssqsendemailupdatedata.md) | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

@@ -1,0 +1,9 @@
+# PostmortemsGetAllPostmortemsData
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `result`                                                                                                           | List[[models.V3IncidentsPostmortemsPostmortemListResult](../models/v3incidentspostmortemspostmortemlistresult.md)] | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `total_count`                                                                                                      | List[[models.V3IncidentsPostmortemsTotalPostmortemCount](../models/v3incidentspostmortemstotalpostmortemcount.md)] | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |

@@ -1,0 +1,11 @@
+# V3WorkflowsSqMakeHTTPCallData
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `method`                                                                                     | [models.V3WorkflowsSqMakeHTTPCallMethod](../models/v3workflowssqmakehttpcallmethod.md)       | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `url`                                                                                        | *str*                                                                                        | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `headers`                                                                                    | List[[models.V3WorkflowsSqMakeHTTPCallHeader](../models/v3workflowssqmakehttpcallheader.md)] | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `body`                                                                                       | *Optional[str]*                                                                              | :heavy_minus_sign:                                                                           | N/A                                                                                          |

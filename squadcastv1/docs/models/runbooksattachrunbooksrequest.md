@@ -1,0 +1,9 @@
+# RunbooksAttachRunbooksRequest
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `incident_id`                                                                                            | *str*                                                                                                    | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `v3_incidents_runbooks_attach_runbooks_request`                                                          | [models.V3IncidentsRunbooksAttachRunbooksRequest](../models/v3incidentsrunbooksattachrunbooksrequest.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

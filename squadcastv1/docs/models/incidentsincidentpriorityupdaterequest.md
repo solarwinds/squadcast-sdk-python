@@ -1,0 +1,9 @@
+# IncidentsIncidentPriorityUpdateRequest
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `incident_id`                                                                                            | *str*                                                                                                    | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `v3_incidents_incident_priority_update_request`                                                          | [models.V3IncidentsIncidentPriorityUpdateRequest](../models/v3incidentsincidentpriorityupdaterequest.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

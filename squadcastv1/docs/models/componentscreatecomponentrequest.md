@@ -1,0 +1,9 @@
+# ComponentsCreateComponentRequest
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `statuspage_id`                                                                                                    | *str*                                                                                                              | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `v4_status_pages_components_create_component_request`                                                              | [models.V4StatusPagesComponentsCreateComponentRequest](../models/v4statuspagescomponentscreatecomponentrequest.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |

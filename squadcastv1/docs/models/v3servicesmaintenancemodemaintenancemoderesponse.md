@@ -1,0 +1,17 @@
+# V3ServicesMaintenanceModeMaintenanceModeResponse
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `service_id`                                                         | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `maintenance_from`                                                   | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `maintenance_till`                                                   | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `repetition_daily`                                                   | *bool*                                                               | :heavy_check_mark:                                                   | N/A                                                                  |
+| `repetition_weekly`                                                  | *bool*                                                               | :heavy_check_mark:                                                   | N/A                                                                  |
+| `repetition_two_weekly`                                              | *bool*                                                               | :heavy_check_mark:                                                   | N/A                                                                  |
+| `repetition_three_weekly`                                            | *bool*                                                               | :heavy_check_mark:                                                   | N/A                                                                  |
+| `repetition_monthly`                                                 | *bool*                                                               | :heavy_check_mark:                                                   | N/A                                                                  |
+| `deleted`                                                            | *bool*                                                               | :heavy_check_mark:                                                   | N/A                                                                  |
+| `repeat_till`                                                        | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_check_mark:                                                   | N/A                                                                  |

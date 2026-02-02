@@ -1,0 +1,10 @@
+# OverridesUpdateScheduleOverrideRequest
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `schedule_id`                                                                          | *str*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `override_id`                                                                          | *str*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `v4_update_schedule_override_request`                                                  | [models.V4UpdateScheduleOverrideRequest](../models/v4updatescheduleoverriderequest.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |

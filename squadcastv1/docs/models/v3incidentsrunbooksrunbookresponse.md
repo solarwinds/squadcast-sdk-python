@@ -1,0 +1,14 @@
+# V3IncidentsRunbooksRunbookResponse
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `id`                                                                 | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `incident_id`                                                        | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `runbook_id`                                                         | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `name`                                                               | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `steps`                                                              | List[[models.Step](../models/step.md)]                               | :heavy_check_mark:                                                   | N/A                                                                  |
+| `deleted`                                                            | *Optional[bool]*                                                     | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `deleted_at`                                                         | [date](https://docs.python.org/3/library/datetime.html#date-objects) | :heavy_minus_sign:                                                   | N/A                                                                  |

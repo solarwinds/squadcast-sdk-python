@@ -1,0 +1,10 @@
+# V3GlobalEventRulesCreateRulesetRequest
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `alert_source_shortname`                                                                   | *str*                                                                                      | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `alert_source_version`                                                                     | *str*                                                                                      | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `catch_all_action`                                                                         | [Optional[models.V3GlobalEventRulesRuleAction]](../models/v3globaleventrulesruleaction.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |

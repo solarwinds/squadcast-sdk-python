@@ -1,0 +1,9 @@
+# V3WorkflowsGetWorkflowLogsResponse
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `data`                                                                                                     | List[[models.V3WorkflowsGetWorkflowLogsResponseData](../models/v3workflowsgetworkflowlogsresponsedata.md)] | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `meta`                                                                                                     | [models.V3WorkflowsGetWorkflowLogsResponseMeta](../models/v3workflowsgetworkflowlogsresponsemeta.md)       | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

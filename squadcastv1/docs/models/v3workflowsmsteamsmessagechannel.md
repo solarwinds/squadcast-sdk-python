@@ -1,0 +1,9 @@
+# V3WorkflowsMsTeamsMessageChannel
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `name`                                                                                           | [models.V3WorkflowsMsTeamsMessageChannelName](../models/v3workflowsmsteamsmessagechannelname.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `data`                                                                                           | [models.V3WorkflowsMsTeamsMessageChannelData](../models/v3workflowsmsteamsmessagechanneldata.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
