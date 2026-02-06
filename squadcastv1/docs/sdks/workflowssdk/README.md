@@ -494,7 +494,7 @@ with SquadcastSDK(
 
 ### Response
 
-**[models.V3WorkflowsActionResponse](../../models/v3workflowsactionresponse.md)**
+**[models.WorkflowsUpdateWorkflowActionResponse](../../models/workflowsupdateworkflowactionresponse.md)**
 
 ### Errors
 

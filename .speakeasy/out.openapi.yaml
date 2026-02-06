@@ -23784,7 +23784,44 @@ paths:
           description: "The request has succeeded."
           content:
             "application/json":
-              schema: {"$ref": "#/components/schemas/V3.Workflows.ActionResponse"}
+              schema:
+                anyOf:
+                  - type: "object"
+                    required:
+                      - "name"
+                      - "data"
+                    properties:
+                      "name":
+                        type: "string"
+                        enum:
+                          - "sq_attach_runbooks"
+                      "data":
+                        type: "object"
+                        properties:
+                          "runbooks":
+                            type: "array"
+                            items: {"$ref": "#/components/schemas/V3.Workflows.RunbookResponse"}
+                        required:
+                          - "runbooks"
+                    allOf:
+                      - {"$ref": "#/components/schemas/V3.Workflows.BaseAction"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SqMarkIncidentSLOAffecting"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SqTriggerManualWebhook"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.UpdateIncidentPriority"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SqCreateStatusPageIssue"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SqAddIncidentNote"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SlackArchiveChannel"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SqAddCommunicationChannel"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SlackMessageChannel"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SlackMessageUser"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SqMakeHTTPCall"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SlackCreateIncidentChannel"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.JiraCreateTicket"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.MsTeamsMessageChannel"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.MsTeamsMessageUser"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.SqSendEmail"}
+                  - {"$ref": "#/components/schemas/V3.Workflows.MsTeamsCreateMeetingLink"}
+                  - {}
         "400":
           description: "The server could not understand the request due to invalid syntax."
           content:
@@ -31009,9 +31046,6 @@ components:
           type: "string"
         "previousCursor":
           type: "string"
-    "SubExpressionsItem":
-      type: "array"
-      items: {"$ref": "#/components/schemas/V3.Services.TaggingRules.ExpressionBranch"}
     "V3.Analytics.AnalyticsResponse":
       type: "object"
       required:
@@ -36242,6 +36276,9 @@ components:
               format: "int32"
             - type: "number"
               format: "float"
+    "V3.Services.TaggingRules.SubExpressions":
+      type: "array"
+      items: {"$ref": "#/components/schemas/V3.Services.TaggingRules.ExpressionBranch"}
     "V3.Services.TaggingRules.TagConfigObject":
       type: "object"
       required:
@@ -36263,7 +36300,7 @@ components:
           description: "The 'tags' field cannot be empty unless the 'expression' or 'basic_expression' explicitly uses 'addTag' or 'addTags' functions."
         "is_basic":
           type: "boolean"
-        "basic_expression": {"$ref": "#/components/schemas/SubExpressionsItem"}
+        "basic_expression": {"$ref": "#/components/schemas/V3.Services.TaggingRules.SubExpressions"}
     "V3.Services.TaggingRules.TaggingRuleResponse":
       type: "object"
       allOf:

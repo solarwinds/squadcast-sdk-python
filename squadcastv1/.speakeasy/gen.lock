@@ -1,31 +1,31 @@
 lockVersion: 2.0.0
 id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
-  docChecksum: 53ff1f9dcf717cdb49d8871b8544f612
+  docChecksum: a583783b41a8a019867dadfb8ae962ed
   docVersion: 1.0.0
-  speakeasyVersion: 1.700.2
-  generationVersion: 2.801.2
-  releaseVersion: 0.4.0
-  configChecksum: 56a02d033320bd6cf86750f61dc7f4a8
-  repoURL: https://github.com/SquadcastHub/squadcast-sdk-python.git
+  speakeasyVersion: 1.706.1
+  generationVersion: 2.809.2
+  releaseVersion: 0.5.0
+  configChecksum: a758f09b04b4dcf3be0c0958eea936de
+  repoURL: https://github.com/solarwinds/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
-  installationURL: https://github.com/SquadcastHub/squadcast-sdk-python.git#subdirectory=squadcastv1
+  installationURL: https://github.com/solarwinds/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: d5056738-af37-4706-8eac-55026315c99f
-  pristine_commit_hash: 018e864fec7b97c015938ef5d3d3004334cf23e8
-  pristine_tree_hash: b6dcfa4c686e7b78e0fcbd86a0819f4522c8726b
+  generation_id: 826e4c28-badc-4e58-ba7b-dded1d9a47bd
+  pristine_commit_hash: d17ee388280b8e29aa135b6da32470edfdc504e2
+  pristine_tree_hash: 131cfee92c25f1d7b274d837c9c246ee5f2dc297
 features:
   python:
     additionalDependencies: 1.0.0
-    core: 5.23.18
+    core: 6.0.3
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
     errorUnions: 1.0.2
     flatRequests: 1.0.1
     flattening: 3.1.1
-    globalSecurity: 3.0.4
+    globalSecurity: 3.0.5
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
     globalServerURLs: 3.2.0
@@ -34,7 +34,7 @@ features:
     nameOverrides: 3.0.1
     nullables: 1.0.2
     pagination: 3.0.7
-    responseFormat: 1.0.1
+    responseFormat: 1.1.0
     retries: 3.0.3
     sdkHooks: 1.2.1
     unions: 3.1.2
@@ -1628,6 +1628,10 @@ trackedFiles:
     id: 402a8f099f01
     last_write_checksum: sha1:6413144f69a46d951d43d839d638a8a03a352bd9
     pristine_git_object: 893038cac52d6a2bc0d1e0614dcb43e15f44f49e
+  docs/models/sqattachrunbooks.md:
+    id: 432c9da5f0af
+    last_write_checksum: sha1:270ef0ec5dcb6af190d8f9a60eab9c5f2f51d82a
+    pristine_git_object: 71e7a45fdb0ae61374c9fef44bcfb9f419639cea
   docs/models/squads.md:
     id: d3f28a1f9c46
     last_write_checksum: sha1:c27fa7632d9fc2d68be878f9e0cbbaa8fcb6b22a
@@ -4356,10 +4360,22 @@ trackedFiles:
     id: 225b234b4dcc
     last_write_checksum: sha1:01b21da569169c4991e520134697bcff57ef818c
     pristine_git_object: 0849c8ea714ead0615e5a1ed8a13055d4bfb8c7d
+  docs/models/workflowsupdateworkflowactiondata.md:
+    id: 68000fdac572
+    last_write_checksum: sha1:f38d259412520c04a5d9f479603eeb603140afcc
+    pristine_git_object: 852159c3f8afbee4dbafdd24489eb41504d40286
+  docs/models/workflowsupdateworkflowactionname.md:
+    id: 192a4dbfb4c8
+    last_write_checksum: sha1:5a78f6b90f5adf94ac949c87a58fd67011b59880
+    pristine_git_object: c550c9e3527ff36f3e4c9977b11e2daffb4af540
   docs/models/workflowsupdateworkflowactionrequest.md:
     id: 33f99b0de8c8
     last_write_checksum: sha1:48a233cf56622605a427ea9d7d2af78869e63f60
     pristine_git_object: 197bd78e6f310dfb2b14d9af1c65267093182e2e
+  docs/models/workflowsupdateworkflowactionresponse.md:
+    id: 990ce816cd39
+    last_write_checksum: sha1:5332a765377409d80b29ee18494ec76a3d4bfb69
+    pristine_git_object: bf9d0fee404ff80cddf919ef6fa99821fdd33c5a
   docs/models/workflowsupdateworkflowrequest.md:
     id: 9ac251630862
     last_write_checksum: sha1:03d4e165ca9990062ca15630830e6bb6d239315b
@@ -4698,24 +4714,24 @@ trackedFiles:
     pristine_git_object: 67c8f14f32c19b2121890a6a1c256ac3ca50c4db
   docs/sdks/workflowssdk/README.md:
     id: 5ea762cb6c5d
-    last_write_checksum: sha1:50b8b84c4cf46440c07e0d23697565ad6eabcbad
-    pristine_git_object: 0d68b43a896acbe867db9e3eb59dcccb47ffc353
+    last_write_checksum: sha1:fcfcf03c9426f6574e56dec54fe02e21e9a641b7
+    pristine_git_object: 4763df345e12e15cbc04df3a7c6b28f39411517a
   py.typed:
     id: 258c3ed47ae4
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
     pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   pylintrc:
     id: 7ce8b9f946e6
-    last_write_checksum: sha1:119a7102c8d96c4ae67aa079d5fdbf6f81c40143
-    pristine_git_object: 3172e4517bbe56588dc7300d4d4a4bce158a9246
+    last_write_checksum: sha1:0df3d02a2f8332bb508b750c55aec87d16caf427
+    pristine_git_object: cd1d0eae015fe3da19d38639d3e1b18d9a504703
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:d0b6d68a5fa2c6759ffb99382b0cdb2273318565
-    pristine_git_object: 05cbb6e09a49505612c9c941e99a66ee7bc27edb
+    last_write_checksum: sha1:b671c6c0f387f3966c566089350d83c4e7962567
+    pristine_git_object: c69a204b1acb9a8e2a7f149ad9b67f7579221152
   scripts/prepare_readme.py:
     id: e0c5957a6035
-    last_write_checksum: sha1:aea9a9664ef9aff4e7b7b5c85f26027796f49ca0
-    pristine_git_object: e3d691543d12dca05ad7dae4c64255ed0bc0d575
+    last_write_checksum: sha1:c17385f6eeb6b012d35db025c20ee43540959a53
+    pristine_git_object: 6ebab814a4b90873e191e9ec66ca3c58c71bd5cd
   scripts/publish.sh:
     id: fe273b08f514
     last_write_checksum: sha1:b290b25b36dca3d5eb1a2e66a2e1bcf2e7326cf3
@@ -4738,8 +4754,8 @@ trackedFiles:
     pristine_git_object: 28a85ed5e041bd88f09388cdbd7c0d9e84461a4d
   src/squadcast_sdk/_version.py:
     id: 4f595f70b00c
-    last_write_checksum: sha1:b6d2fcad13a0104db734c66c14d1bd25a49416ca
-    pristine_git_object: c9ba7dd9cf2447d4f63610b5059f448638419753
+    last_write_checksum: sha1:601e42e2a4ee31be38c2a3809ab4e31566f63c0a
+    pristine_git_object: a3edfa21282d9cb6835b172c413b10557c9b6851
   src/squadcast_sdk/additionalresponders.py:
     id: b928e2200f63
     last_write_checksum: sha1:6173958904ab7d26b7544464810f5fdbd5247ee0
@@ -4934,8 +4950,8 @@ trackedFiles:
     pristine_git_object: d529a417549f17ed85875009a46548854dbf86bc
   src/squadcast_sdk/models/__init__.py:
     id: 21ef35ea4c18
-    last_write_checksum: sha1:d4e8514652c0ce7d5eabc46650610e71ce6e20db
-    pristine_git_object: bf991c3de5e84e66cfa4f0948d3f8dc8019b2361
+    last_write_checksum: sha1:30bd6c757abed088c671fdfb7cc153ec515911cb
+    pristine_git_object: eb6b324fe14cc7e264c05fb29ecf6391d182bebd
   src/squadcast_sdk/models/additionalresponders_addadditionalrespondersop.py:
     id: 8659dba914dd
     last_write_checksum: sha1:c515be7a9989d3e3533ea4c32ac725c4e8e016f7
@@ -7402,8 +7418,8 @@ trackedFiles:
     pristine_git_object: 4726d493dacce714d0d8714e65998d8d1b367e55
   src/squadcast_sdk/models/workflows_updateworkflowactionop.py:
     id: ffc327dacd47
-    last_write_checksum: sha1:689f9c452fc2ec8f11d3960c0967845e0a76f96d
-    pristine_git_object: 9b25537d35fee55718c200abd93bcdd7a99bd160
+    last_write_checksum: sha1:289694547b23c25edf5a8818babd6e87b16110ff
+    pristine_git_object: 0d8143ee618d72b958fc18e5365bff9bafaca5fa
   src/squadcast_sdk/models/workflows_updateworkflowop.py:
     id: 5a01cb21440e
     last_write_checksum: sha1:cde1f68ba00b91844fb899a2d93e824da70afee7
@@ -7598,8 +7614,8 @@ trackedFiles:
     pristine_git_object: df72bc92e50993feea8536bc841cfc7d3617ef74
   src/squadcast_sdk/utils/__init__.py:
     id: 798ce69b4324
-    last_write_checksum: sha1:398211d49b762a067ec6d10197a4b11dfd258ff5
-    pristine_git_object: c906e1e0192e9017fc13851eb23fc0c2753429c8
+    last_write_checksum: sha1:a1f6ae620fb6a3ccc30e99b427e49a0c8be463af
+    pristine_git_object: 15394a08a7e30033d319e44dd5734664ddb587e5
   src/squadcast_sdk/utils/annotations.py:
     id: 346ffbb234d8
     last_write_checksum: sha1:a4824ad65f730303e4e1e3ec1febf87b4eb46dbc
@@ -7614,8 +7630,8 @@ trackedFiles:
     pristine_git_object: 3324e1bc2668c54c4d5f5a1a845675319757a828
   src/squadcast_sdk/utils/eventstreaming.py:
     id: f664d46b5fbb
-    last_write_checksum: sha1:bababae5d54b7efc360db701daa49e18a92c2f3b
-    pristine_git_object: 0969899bfc491e5e408d05643525f347ea95e4fc
+    last_write_checksum: sha1:ffa870a25a7e4e2015bfd7a467ccd3aa1de97f0e
+    pristine_git_object: f2052fc22d9fd6c663ba3dce019fe234ca37108b
   src/squadcast_sdk/utils/forms.py:
     id: ddad2afc2275
     last_write_checksum: sha1:15fa7e9ab1611e062a9984cf06cb20969713d295
@@ -7646,8 +7662,8 @@ trackedFiles:
     pristine_git_object: 88a91b10cd2076b4a2c6cff2ac6bfaa5e3c5ad13
   src/squadcast_sdk/utils/security.py:
     id: fbcaa925017b
-    last_write_checksum: sha1:a17130ace2c0db6394f38dd941ad2b700cc755c8
-    pristine_git_object: 295a3f40031dbb40073ad227fd4a355660f97ab2
+    last_write_checksum: sha1:435dd8b180cefcd733e635b9fa45512da091d9c0
+    pristine_git_object: 17996bd54b8624009802fbbdf30bcb4225b8dfed
   src/squadcast_sdk/utils/serializers.py:
     id: 2164f6763d8c
     last_write_checksum: sha1:ce1d8d7f500a9ccba0aeca5057cee9c271f4dfd7
@@ -7682,8 +7698,8 @@ trackedFiles:
     pristine_git_object: 21d7cd3b3cb8c62e9dc841093164c0ed68e151eb
   src/squadcast_sdk/workflows_sdk.py:
     id: 585f692b0a75
-    last_write_checksum: sha1:454caa6646a86f126c824e147d337373355f81c7
-    pristine_git_object: 74e807d193e08e56f4a57112fbc34f2651cdc319
+    last_write_checksum: sha1:987b8afcfed04ac186119bd27f7677baf541844d
+    pristine_git_object: b600d7a719b35eb0778b8a3068acde47f0c5f449
 examples:
   Analytics_getOrgAnalytics:
     speakeasy-default-analytics-get-org-analytics:
