@@ -1,9 +1,9 @@
-speakeasyVersion: 1.709.1
+speakeasyVersion: 1.709.4
 sources:
     Squadcast:
         sourceNamespace: squadcast
-        sourceRevisionDigest: sha256:1c4b443d6b192a6fdf3eb357eff3b90be7194d67fe6bec01c33e4621d5891941
-        sourceBlobDigest: sha256:6944856d2bd3c94a5f00c9365c850acdaa47d6456217f186bc9389404a927345
+        sourceRevisionDigest: sha256:1d31bc4d3fc77a8cd1b9700968b411888c1330c1a7eaa512a3da31aee9a15d5b
+        sourceBlobDigest: sha256:9d7b25d0d7663ba0faff3b3fdcd0aebe83b703f793a4c58adfd7908468a90805
         tags:
             - latest
             - speakeasy-sdk-regen-1770336306
@@ -12,10 +12,10 @@ targets:
     squadcast-sdk:
         source: Squadcast
         sourceNamespace: squadcast
-        sourceRevisionDigest: sha256:1c4b443d6b192a6fdf3eb357eff3b90be7194d67fe6bec01c33e4621d5891941
-        sourceBlobDigest: sha256:6944856d2bd3c94a5f00c9365c850acdaa47d6456217f186bc9389404a927345
+        sourceRevisionDigest: sha256:1d31bc4d3fc77a8cd1b9700968b411888c1330c1a7eaa512a3da31aee9a15d5b
+        sourceBlobDigest: sha256:9d7b25d0d7663ba0faff3b3fdcd0aebe83b703f793a4c58adfd7908468a90805
         codeSamplesNamespace: squadcast-typescript-typescript-python-code-samples
-        codeSamplesRevisionDigest: sha256:903e093e139a632a6a2403f88e9d2fc7e2bca491866aa064b0dad77971c7ba55
+        codeSamplesRevisionDigest: sha256:2cc255da97ba55f8ddddc2ffa55e8d1a53ac414810fe7f13612def18ef3c8bb7
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
