@@ -3,18 +3,18 @@ id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
   docChecksum: df7a4422fc789c0b9bf9786cbc3e3c75
   docVersion: 1.0.0
-  speakeasyVersion: 1.710.0
-  generationVersion: 2.818.4
+  speakeasyVersion: 1.713.2
+  generationVersion: 2.821.6
   releaseVersion: 0.5.0
-  configChecksum: 7ce14318078ec4c7300137368c2c22e8
+  configChecksum: 7a0de8c7c11937f549594095aeb966a0
   repoURL: https://github.com/solarwinds/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
   installationURL: https://github.com/solarwinds/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: c6ca2a1e-c18b-4430-9b47-1b824281b3da
-  pristine_commit_hash: 1bb4388f1d715b0546da89b8606dc30e7748f17f
-  pristine_tree_hash: 17a128f320381c1a38e87eef905bc1b8125bc8f6
+  generation_id: 769a2f72-0342-4c18-94fd-3b492439d393
+  pristine_commit_hash: 27c6f2da0f5457a74803b52db9465308bfe231f0
+  pristine_tree_hash: 295995312c3dfbc0d4db19360b9afd9e543c9ae5
 features:
   python:
     additionalDependencies: 1.0.0
@@ -37,7 +37,7 @@ features:
     responseFormat: 1.1.0
     retries: 3.0.3
     sdkHooks: 1.2.1
-    unions: 3.1.2
+    unions: 3.1.3
     uploadStreams: 1.0.0
 trackedFiles:
   .gitattributes:
@@ -4754,8 +4754,8 @@ trackedFiles:
     pristine_git_object: 28a85ed5e041bd88f09388cdbd7c0d9e84461a4d
   src/squadcast_sdk/_version.py:
     id: 4f595f70b00c
-    last_write_checksum: sha1:99dc58e33b61eb6a3f9e0afd7af49dac1e299160
-    pristine_git_object: fcce51ee1f611ad5351917f08f45e49e2031206d
+    last_write_checksum: sha1:2121e81e12f73d8da411b68735c1caffd92e9404
+    pristine_git_object: b6a58d1946cab78846ce907c7552d4406bc7aeed
   src/squadcast_sdk/additionalresponders.py:
     id: b928e2200f63
     last_write_checksum: sha1:6173958904ab7d26b7544464810f5fdbd5247ee0
