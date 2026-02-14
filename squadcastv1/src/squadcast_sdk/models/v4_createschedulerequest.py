@@ -40,3 +40,9 @@ class V4CreateScheduleRequest(BaseModel):
     time_zone: Annotated[str, pydantic.Field(alias="timeZone")]
 
     tags: List[V4Tag]
+
+
+try:
+    V4CreateScheduleRequest.model_rebuild()
+except NameError:
+    pass

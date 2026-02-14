@@ -34,3 +34,9 @@ class V4StatusPagesIssuesDeleteIssueByIDResponse(BaseModel):
                 m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesIssuesDeleteIssueByIDResponse.model_rebuild()
+except NameError:
+    pass

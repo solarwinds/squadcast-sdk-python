@@ -97,3 +97,13 @@ class V4StatusPagesMaintenancesMaintenance(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesMaintenancesMaintenanceComponent.model_rebuild()
+except NameError:
+    pass
+try:
+    V4StatusPagesMaintenancesMaintenance.model_rebuild()
+except NameError:
+    pass

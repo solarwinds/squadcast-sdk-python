@@ -85,3 +85,9 @@ class V4StatusPagesComponentsListComponentsResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesComponentsListComponentsResponse.model_rebuild()
+except NameError:
+    pass

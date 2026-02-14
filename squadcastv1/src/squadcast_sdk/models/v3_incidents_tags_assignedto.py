@@ -22,3 +22,9 @@ class V3IncidentsTagsAssignedTo(BaseModel):
     time_of_assignment: Annotated[datetime, pydantic.Field(alias="timeOfAssignment")]
 
     reason: str
+
+
+try:
+    V3IncidentsTagsAssignedTo.model_rebuild()
+except NameError:
+    pass

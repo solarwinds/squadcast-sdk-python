@@ -22,3 +22,9 @@ class V3AuditLogsTeam(BaseModel):
     name: str
 
     is_deleted: Annotated[bool, pydantic.Field(alias="isDeleted")]
+
+
+try:
+    V3AuditLogsTeam.model_rebuild()
+except NameError:
+    pass

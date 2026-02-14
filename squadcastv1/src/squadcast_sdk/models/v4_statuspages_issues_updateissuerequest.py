@@ -126,3 +126,17 @@ class V4StatusPagesIssuesUpdateIssueRequest(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesIssuesUpdateIssueRequestComponent.model_rebuild()
+except NameError:
+    pass
+try:
+    V4StatusPagesIssuesUpdateIssueRequestIssue.model_rebuild()
+except NameError:
+    pass
+try:
+    V4StatusPagesIssuesUpdateIssueRequest.model_rebuild()
+except NameError:
+    pass

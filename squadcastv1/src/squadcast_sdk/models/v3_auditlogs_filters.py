@@ -70,3 +70,9 @@ class V3AuditLogsFilters(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3AuditLogsFilters.model_rebuild()
+except NameError:
+    pass

@@ -118,3 +118,9 @@ class V4StatusPagesStatusPage(BaseModel):
     owner_type: Annotated[str, pydantic.Field(alias="ownerType")]
 
     owner_id: Annotated[str, pydantic.Field(alias="ownerID")]
+
+
+try:
+    V4StatusPagesStatusPage.model_rebuild()
+except NameError:
+    pass

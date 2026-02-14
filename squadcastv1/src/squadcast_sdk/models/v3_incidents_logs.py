@@ -110,3 +110,9 @@ class V3IncidentsLogs(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3IncidentsLogs.model_rebuild()
+except NameError:
+    pass

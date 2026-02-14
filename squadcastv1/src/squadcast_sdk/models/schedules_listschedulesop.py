@@ -158,3 +158,9 @@ class SchedulesListSchedulesResponse(BaseModel):
     next: Callable[[], Optional[SchedulesListSchedulesResponse]]
 
     result: SchedulesListSchedulesResponseBody
+
+
+try:
+    SchedulesListSchedulesResponseBody.model_rebuild()
+except NameError:
+    pass

@@ -58,3 +58,9 @@ class V3EscalationPoliciesEscalationPolicyRule(BaseModel):
 
     repeat_after: int
     r"""The time in minutes after which this rule should be repeated."""
+
+
+try:
+    V3EscalationPoliciesEscalationPolicyRule.model_rebuild()
+except NameError:
+    pass

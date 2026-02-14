@@ -340,3 +340,13 @@ class V3IncidentsIncidentResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3IncidentsIncidentResponseRetriggerPolicy.model_rebuild()
+except NameError:
+    pass
+try:
+    V3IncidentsIncidentResponse.model_rebuild()
+except NameError:
+    pass

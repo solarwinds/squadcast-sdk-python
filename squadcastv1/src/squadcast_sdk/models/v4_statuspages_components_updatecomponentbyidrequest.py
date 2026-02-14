@@ -57,3 +57,9 @@ class V4StatusPagesComponentsUpdateComponentByIDRequest(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesComponentsUpdateComponentByIDRequest.model_rebuild()
+except NameError:
+    pass

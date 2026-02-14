@@ -95,3 +95,9 @@ class V4StatusPagesGetStatusPageByIDResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesGetStatusPageByIDResponse.model_rebuild()
+except NameError:
+    pass

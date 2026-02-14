@@ -27,3 +27,9 @@ class V3IncidentsReassignIncidentRequest(BaseModel):
     r"""Request body for reassigning an incident."""
 
     reassign_to: Annotated[ReassignTo, pydantic.Field(alias="reassignTo")]
+
+
+try:
+    V3IncidentsReassignIncidentRequest.model_rebuild()
+except NameError:
+    pass

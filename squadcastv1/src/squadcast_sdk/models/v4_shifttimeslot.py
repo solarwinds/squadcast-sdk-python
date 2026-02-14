@@ -39,3 +39,9 @@ class V4ShiftTimeSlot(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4ShiftTimeSlot.model_rebuild()
+except NameError:
+    pass

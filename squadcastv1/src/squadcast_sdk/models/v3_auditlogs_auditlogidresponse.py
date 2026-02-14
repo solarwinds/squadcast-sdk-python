@@ -98,3 +98,9 @@ class V3AuditLogsAuditLogIDResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3AuditLogsAuditLogIDResponse.model_rebuild()
+except NameError:
+    pass

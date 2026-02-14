@@ -25,3 +25,9 @@ class V3IncidentsAnalyticsMetrics(BaseModel):
     escalation_policy_id: Annotated[str, pydantic.Field(alias="escalationPolicyId")]
 
     squad_id: Annotated[str, pydantic.Field(alias="squadId")]
+
+
+try:
+    V3IncidentsAnalyticsMetrics.model_rebuild()
+except NameError:
+    pass

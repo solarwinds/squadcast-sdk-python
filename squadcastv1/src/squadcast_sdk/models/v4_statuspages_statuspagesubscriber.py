@@ -58,3 +58,9 @@ class V4StatusPagesStatusPageSubscriber(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesStatusPageSubscriber.model_rebuild()
+except NameError:
+    pass

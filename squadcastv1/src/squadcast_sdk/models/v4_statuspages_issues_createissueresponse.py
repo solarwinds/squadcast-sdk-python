@@ -19,3 +19,9 @@ class V4StatusPagesIssuesCreateIssueResponse(BaseModel):
     component_i_ds: Annotated[List[int], pydantic.Field(alias="componentIDs")]
 
     title: str
+
+
+try:
+    V4StatusPagesIssuesCreateIssueResponse.model_rebuild()
+except NameError:
+    pass

@@ -26,3 +26,9 @@ class V4StatusPagesMaintenancesCreateMaintenanceRequest(BaseModel):
     start_time: Annotated[datetime, pydantic.Field(alias="startTime")]
 
     end_time: Annotated[datetime, pydantic.Field(alias="endTime")]
+
+
+try:
+    V4StatusPagesMaintenancesCreateMaintenanceRequest.model_rebuild()
+except NameError:
+    pass

@@ -92,3 +92,13 @@ class V3AuditLogsExportAuditLogsRequest(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    Filters.model_rebuild()
+except NameError:
+    pass
+try:
+    V3AuditLogsExportAuditLogsRequest.model_rebuild()
+except NameError:
+    pass

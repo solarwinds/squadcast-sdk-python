@@ -23,3 +23,9 @@ class V3IncidentsTagsResponseNote(BaseModel):
     note: str
 
     user_id: Annotated[str, pydantic.Field(alias="userId")]
+
+
+try:
+    V3IncidentsTagsResponseNote.model_rebuild()
+except NameError:
+    pass

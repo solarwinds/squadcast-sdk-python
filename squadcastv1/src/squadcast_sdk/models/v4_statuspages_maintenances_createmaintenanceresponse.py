@@ -49,3 +49,9 @@ class V4StatusPagesMaintenancesCreateMaintenanceResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesMaintenancesCreateMaintenanceResponse.model_rebuild()
+except NameError:
+    pass

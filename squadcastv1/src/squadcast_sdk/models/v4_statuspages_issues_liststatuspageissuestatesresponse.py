@@ -52,3 +52,9 @@ class V4StatusPagesIssuesListStatusPageIssueStatesResponse(BaseModel):
                 m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesIssuesListStatusPageIssueStatesResponse.model_rebuild()
+except NameError:
+    pass

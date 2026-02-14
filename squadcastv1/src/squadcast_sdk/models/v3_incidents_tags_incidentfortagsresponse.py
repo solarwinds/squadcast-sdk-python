@@ -338,3 +338,13 @@ class V3IncidentsTagsIncidentForTagsResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3IncidentsTagsIncidentForTagsResponseRetriggerPolicy.model_rebuild()
+except NameError:
+    pass
+try:
+    V3IncidentsTagsIncidentForTagsResponse.model_rebuild()
+except NameError:
+    pass

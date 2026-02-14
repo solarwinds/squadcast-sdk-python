@@ -55,3 +55,9 @@ class V4SquadsSquadResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4SquadsSquadResponse.model_rebuild()
+except NameError:
+    pass
