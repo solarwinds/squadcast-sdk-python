@@ -50,6 +50,8 @@ python:
   enableCustomCodeRegions: false
   enumFormat: union
   fixFlags:
+    asyncPaginationSep2025: false
+    conflictResistantModelImportsFeb2026: false
     responseRequiredSep2024: true
   flattenGlobalSecurity: true
   flattenRequests: true
