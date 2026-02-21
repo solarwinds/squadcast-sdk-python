@@ -3,22 +3,22 @@ id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
   docChecksum: df7a4422fc789c0b9bf9786cbc3e3c75
   docVersion: 1.0.0
-  speakeasyVersion: 1.722.7
-  generationVersion: 2.832.9
+  speakeasyVersion: 1.723.0
+  generationVersion: 2.835.2
   releaseVersion: 0.5.0
-  configChecksum: f9684b7a9a547ba62d8d3e9e47bcc957
+  configChecksum: a55105e4f46708e529dcdaf1d3bf5b23
   repoURL: https://github.com/solarwinds/squadcast-sdk-python.git
   repoSubDirectory: squadcastv1
   installationURL: https://github.com/solarwinds/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: 29721414-3bc3-468c-90a8-7b58c404e8c2
-  pristine_commit_hash: fa10fe0e7adcab404121baa5c2ad08b9d0518792
-  pristine_tree_hash: 99cea1f7b132d19c4e5344ee6d712d5858651d95
+  generation_id: 76fe2521-9ebd-42bc-937a-095a77d92386
+  pristine_commit_hash: 55f7222a43aa5e316a0f8d6571201c3925873f42
+  pristine_tree_hash: 7cae7ba495d2599d5508e6dde7961b5c62557a3b
 features:
   python:
     additionalDependencies: 1.0.0
-    core: 6.0.11
+    core: 6.0.12
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -31,7 +31,7 @@ features:
     globalServerURLs: 3.2.0
     groups: 3.0.1
     methodArguments: 1.0.2
-    nameOverrides: 3.0.1
+    nameOverrides: 3.0.3
     nullables: 1.0.2
     pagination: 3.0.7
     responseFormat: 1.1.0
@@ -4754,8 +4754,8 @@ trackedFiles:
     pristine_git_object: 28a85ed5e041bd88f09388cdbd7c0d9e84461a4d
   src/squadcast_sdk/_version.py:
     id: 4f595f70b00c
-    last_write_checksum: sha1:6d37d18b328906fbfaf37b963fe708edaf5a4acc
-    pristine_git_object: a4dfba426c592bc03a9332c5860490c79ad0b4b2
+    last_write_checksum: sha1:d49efffc2462af4a67f5b2a21f402cc1ed9af46b
+    pristine_git_object: f24c3ac6bd4ef4e35b742d2d4429ced721938f80
   src/squadcast_sdk/additionalresponders.py:
     id: b928e2200f63
     last_write_checksum: sha1:6173958904ab7d26b7544464810f5fdbd5247ee0
