@@ -12,8 +12,8 @@ management:
   installationURL: https://github.com/solarwinds/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: 76fe2521-9ebd-42bc-937a-095a77d92386
-  pristine_commit_hash: 55f7222a43aa5e316a0f8d6571201c3925873f42
+  generation_id: 28e8365e-4590-4323-b42f-6e5c3dc78ed3
+  pristine_commit_hash: 517c149f488f9d4c98f9b51db404495dd7ebdba4
   pristine_tree_hash: 7cae7ba495d2599d5508e6dde7961b5c62557a3b
 features:
   python:
