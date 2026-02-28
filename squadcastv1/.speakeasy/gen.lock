@@ -3,8 +3,8 @@ id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
   docChecksum: df7a4422fc789c0b9bf9786cbc3e3c75
   docVersion: 1.0.0
-  speakeasyVersion: 1.731.2
-  generationVersion: 2.845.1
+  speakeasyVersion: 1.734.1
+  generationVersion: 2.845.12
   releaseVersion: 0.5.0
   configChecksum: a55105e4f46708e529dcdaf1d3bf5b23
   repoURL: https://github.com/solarwinds/squadcast-sdk-python.git
@@ -12,13 +12,13 @@ management:
   installationURL: https://github.com/solarwinds/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: 6ffc1229-e6b6-433a-b6d2-d67c1da94d6d
-  pristine_commit_hash: ec24263a01a176cd22ca612cfab53f2d09ed289a
-  pristine_tree_hash: a9ed9bb6ddeff402b9399c65685f5ec9adce7331
+  generation_id: 6f133e42-86bc-4cea-9ba1-4a948849e27b
+  pristine_commit_hash: bc27e61b50e0d693225f608af44085609bebdab2
+  pristine_tree_hash: 6004fb0db0ee3a0e637311b70057bc66aa3ef522
 features:
   python:
     additionalDependencies: 1.0.0
-    core: 6.0.12
+    core: 6.0.15
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -28,7 +28,7 @@ features:
     globalSecurity: 3.0.5
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.2.0
+    globalServerURLs: 3.2.1
     groups: 3.0.1
     methodArguments: 1.0.2
     nameOverrides: 3.0.3
@@ -4754,8 +4754,8 @@ trackedFiles:
     pristine_git_object: 28a85ed5e041bd88f09388cdbd7c0d9e84461a4d
   src/squadcast_sdk/_version.py:
     id: 4f595f70b00c
-    last_write_checksum: sha1:4a26bc84e80b7939c43c9740b5027d56b65a44a2
-    pristine_git_object: c5bac69a3efa154d59cbb09eda8bfbf3f25fbeba
+    last_write_checksum: sha1:e801801821559494053edf6bd75e75f8d0f034f8
+    pristine_git_object: 59a251d2243cf2adb763ebcac78775f5bdb4232e
   src/squadcast_sdk/additionalresponders.py:
     id: b928e2200f63
     last_write_checksum: sha1:6173958904ab7d26b7544464810f5fdbd5247ee0
@@ -7506,8 +7506,8 @@ trackedFiles:
     pristine_git_object: 04ef368df94569a17c7cc63b748131b41cbdeeaf
   src/squadcast_sdk/sdk.py:
     id: 44b4d90db393
-    last_write_checksum: sha1:afaf5f3720f24f9430c868d1c9130ac7a49a5fd9
-    pristine_git_object: f425259589ac6a8f47003ede6983cc6a427827dd
+    last_write_checksum: sha1:3c162c88ef663e26dc8cbfee56615eda8bab802e
+    pristine_git_object: 587b564414af8c03f1dd2c1dfb7353468ba86f03
   src/squadcast_sdk/sdkconfiguration.py:
     id: 12d848ca6e5e
     last_write_checksum: sha1:b158971b5335aa35f76ec919065044f1486db576
