@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - staging
     paths:
       - 'squadcastv1/docs/**'
       - 'squadcastv1/*.md'
@@ -28,13 +29,31 @@ jobs:
           repository: ${{ env.CENTRAL_REPO }}
           token: ${{ secrets.DOCS_REPO_PAT }}
           path: central-docs
+          fetch-depth: 0
 
       - name: Create branch and sync docs
         run: |
-          BRANCH="docs-sync/${SDK_LANG}-${{ github.sha }}"
+          # Target staging in central repo when triggered from staging, else main
+          if [[ "${{ github.ref_name }}" == "staging" ]]; then
+            BASE_BRANCH="staging"
+          else
+            BASE_BRANCH="main"
+          fi
+
+          BRANCH="docs-sync/${SDK_LANG}-${BASE_BRANCH}-${{ github.sha }}"
           cd central-docs
           git config user.name "speakeasy-docs-bot"
           git config user.email "docs-bot@solarwinds.com"
+
+          # Ensure base branch exists in central repo; create from main if not
+          git fetch origin
+          if git ls-remote --exit-code --heads origin "$BASE_BRANCH" > /dev/null 2>&1; then
+            git checkout "$BASE_BRANCH"
+          else
+            git checkout -b "$BASE_BRANCH"
+            git push origin "$BASE_BRANCH"
+          fi
+
           git checkout -b "$BRANCH"
           rm -rf "${SDK_LANG}/"
           mkdir -p "${SDK_LANG}"
@@ -55,7 +74,7 @@ jobs:
           gh pr create \
             --repo "${CENTRAL_REPO}" \
             --head "$BRANCH" \
-            --base main \
+            --base "$BASE_BRANCH" \
             --title "docs(${SDK_LANG}): sync from squadcast-sdk-${SDK_LANG}" \
             --body "Automated docs sync triggered by commit [${{ github.sha }}](https://github.com/solarwinds/squadcast-sdk-${SDK_LANG}/commit/${{ github.sha }}) in \`squadcast-sdk-${SDK_LANG}\`."
         env:
