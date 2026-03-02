@@ -1,4 +1,4 @@
-speakeasyVersion: 1.736.1
+speakeasyVersion: 1.736.3
 sources:
     Squadcast:
         sourceNamespace: squadcast
@@ -6,7 +6,6 @@ sources:
         sourceBlobDigest: sha256:9d7b25d0d7663ba0faff3b3fdcd0aebe83b703f793a4c58adfd7908468a90805
         tags:
             - latest
-            - speakeasy-sdk-regen-1770336306
             - 1.0.0
 targets:
     squadcast-sdk:
