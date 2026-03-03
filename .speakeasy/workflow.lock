@@ -1,4 +1,4 @@
-speakeasyVersion: 1.736.3
+speakeasyVersion: 1.737.1
 sources:
     Squadcast:
         sourceNamespace: squadcast
@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:1d31bc4d3fc77a8cd1b9700968b411888c1330c1a7eaa512a3da31aee9a15d5b
         sourceBlobDigest: sha256:9d7b25d0d7663ba0faff3b3fdcd0aebe83b703f793a4c58adfd7908468a90805
         codeSamplesNamespace: squadcast-typescript-typescript-python-code-samples
-        codeSamplesRevisionDigest: sha256:2cc255da97ba55f8ddddc2ffa55e8d1a53ac414810fe7f13612def18ef3c8bb7
+        codeSamplesRevisionDigest: sha256:ecdee6208bbc56a86253a3bdbc8e01b5778e5bc780d13faa2c1723e629dc35f8
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
