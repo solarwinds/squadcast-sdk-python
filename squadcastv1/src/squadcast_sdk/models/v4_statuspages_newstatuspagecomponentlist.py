@@ -54,3 +54,9 @@ class V4StatusPagesNewStatusPageComponentList(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesNewStatusPageComponentList.model_rebuild()
+except NameError:
+    pass

@@ -116,3 +116,9 @@ class V3IncidentsIncidentActionsWebhookActionResponse(BaseModel):
     payload_type: str
 
     custom_payload: str
+
+
+try:
+    V3IncidentsIncidentActionsWebhookActionResponseHeader.model_rebuild()
+except NameError:
+    pass

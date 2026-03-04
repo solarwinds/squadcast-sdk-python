@@ -42,3 +42,9 @@ class V4StatusPagesComponentGroupsCreateComponentGroupResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesComponentGroupsCreateComponentGroupResponse.model_rebuild()
+except NameError:
+    pass

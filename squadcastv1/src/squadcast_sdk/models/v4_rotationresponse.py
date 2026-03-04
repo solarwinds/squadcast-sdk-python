@@ -100,3 +100,9 @@ class V4RotationResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4RotationResponse.model_rebuild()
+except NameError:
+    pass

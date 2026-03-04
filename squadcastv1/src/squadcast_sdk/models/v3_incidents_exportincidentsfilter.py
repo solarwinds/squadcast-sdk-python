@@ -52,3 +52,9 @@ class V3IncidentsExportIncidentsFilter(BaseModel):
     tags: List[str]
 
     notes: str
+
+
+try:
+    V3IncidentsExportIncidentsFilter.model_rebuild()
+except NameError:
+    pass

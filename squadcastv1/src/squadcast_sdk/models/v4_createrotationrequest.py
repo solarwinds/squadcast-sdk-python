@@ -88,3 +88,9 @@ class V4CreateRotationRequest(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4CreateRotationRequest.model_rebuild()
+except NameError:
+    pass

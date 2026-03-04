@@ -32,3 +32,9 @@ class V3AuditLogsListAuditLogsExportHistoryResponse(BaseModel):
     data: List[V3AuditLogsAuditLogsExportHistoryResponse]
 
     metadata: V3AuditLogsListAuditLogsExportHistoryResponseMetadata
+
+
+try:
+    V3AuditLogsListAuditLogsExportHistoryResponseMetadata.model_rebuild()
+except NameError:
+    pass

@@ -110,3 +110,9 @@ class V3IncidentsTagsLogs(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3IncidentsTagsLogs.model_rebuild()
+except NameError:
+    pass

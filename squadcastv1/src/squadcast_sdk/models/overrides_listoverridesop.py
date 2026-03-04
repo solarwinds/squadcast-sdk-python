@@ -86,3 +86,9 @@ class OverridesListOverridesResponse(BaseModel):
     data: List[V4OverrideResponse]
 
     page_info: Annotated[CommonV4PageInfo, pydantic.Field(alias="pageInfo")]
+
+
+try:
+    OverridesListOverridesResponse.model_rebuild()
+except NameError:
+    pass

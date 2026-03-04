@@ -36,3 +36,9 @@ class V4StatusPagesComponentGroupsDeleteComponentGroupByIDResponse(BaseModel):
                 m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesComponentGroupsDeleteComponentGroupByIDResponse.model_rebuild()
+except NameError:
+    pass

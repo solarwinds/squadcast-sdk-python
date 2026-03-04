@@ -50,3 +50,9 @@ class V3ExportExportResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3ExportExportResponse.model_rebuild()
+except NameError:
+    pass

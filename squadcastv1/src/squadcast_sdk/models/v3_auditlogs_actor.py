@@ -25,3 +25,9 @@ class V3AuditLogsActor(BaseModel):
     user_email: Annotated[str, pydantic.Field(alias="userEmail")]
 
     full_name: Annotated[str, pydantic.Field(alias="fullName")]
+
+
+try:
+    V3AuditLogsActor.model_rebuild()
+except NameError:
+    pass

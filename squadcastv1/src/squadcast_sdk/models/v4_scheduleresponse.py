@@ -70,3 +70,9 @@ class V4ScheduleResponse(BaseModel):
                 m[k] = val
 
         return m
+
+
+try:
+    V4ScheduleResponse.model_rebuild()
+except NameError:
+    pass

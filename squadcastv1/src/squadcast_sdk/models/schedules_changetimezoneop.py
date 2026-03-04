@@ -65,3 +65,9 @@ class SchedulesChangeTimezoneResponse(BaseModel):
     r"""The request has succeeded."""
 
     data: V4ChangeTimezoneResponse
+
+
+try:
+    SchedulesChangeTimezoneRequestBody.model_rebuild()
+except NameError:
+    pass

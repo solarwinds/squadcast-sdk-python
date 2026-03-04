@@ -44,3 +44,9 @@ class CommonV4PageInfo(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CommonV4PageInfo.model_rebuild()
+except NameError:
+    pass

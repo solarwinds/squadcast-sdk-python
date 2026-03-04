@@ -19,3 +19,9 @@ class V4RotationParticipantsResponse(BaseModel):
     participant_groups: Annotated[
         List[V4ParticipantGroup], pydantic.Field(alias="participantGroups")
     ]
+
+
+try:
+    V4RotationParticipantsResponse.model_rebuild()
+except NameError:
+    pass

@@ -738,3 +738,65 @@ class V3TeamsAbilities(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    EscalationPolicies.model_rebuild()
+except NameError:
+    pass
+try:
+    Schedules.model_rebuild()
+except NameError:
+    pass
+try:
+    Services.model_rebuild()
+except NameError:
+    pass
+try:
+    Squads.model_rebuild()
+except NameError:
+    pass
+try:
+    StakeholderGroups.model_rebuild()
+except NameError:
+    pass
+try:
+    Runbooks.model_rebuild()
+except NameError:
+    pass
+try:
+    Postmortems.model_rebuild()
+except NameError:
+    pass
+try:
+    StatusPages.model_rebuild()
+except NameError:
+    pass
+try:
+    TeamAnalytics.model_rebuild()
+except NameError:
+    pass
+try:
+    Slos.model_rebuild()
+except NameError:
+    pass
+try:
+    Webforms.model_rebuild()
+except NameError:
+    pass
+try:
+    Workflows.model_rebuild()
+except NameError:
+    pass
+try:
+    Ger.model_rebuild()
+except NameError:
+    pass
+try:
+    RoutingNumbers.model_rebuild()
+except NameError:
+    pass
+try:
+    GlobalOncallReminderRules.model_rebuild()
+except NameError:
+    pass

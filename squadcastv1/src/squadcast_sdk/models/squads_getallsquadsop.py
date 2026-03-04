@@ -36,3 +36,9 @@ class SquadsGetAllSquadsResponse(BaseModel):
     data: List[V4SquadsSquadResponse]
 
     page_info: Annotated[CommonV4PageInfo, pydantic.Field(alias="pageInfo")]
+
+
+try:
+    SquadsGetAllSquadsResponse.model_rebuild()
+except NameError:
+    pass

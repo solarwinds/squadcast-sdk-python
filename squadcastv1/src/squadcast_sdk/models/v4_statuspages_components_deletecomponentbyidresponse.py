@@ -21,3 +21,9 @@ class V4StatusPagesComponentsDeleteComponentByIDResponse(BaseModel):
     description: str
 
     allow_subscription: Annotated[bool, pydantic.Field(alias="allowSubscription")]
+
+
+try:
+    V4StatusPagesComponentsDeleteComponentByIDResponse.model_rebuild()
+except NameError:
+    pass

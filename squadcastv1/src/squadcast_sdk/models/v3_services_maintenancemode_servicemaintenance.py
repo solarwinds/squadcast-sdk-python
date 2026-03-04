@@ -56,3 +56,9 @@ class V3ServicesMaintenanceModeServiceMaintenance(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3ServicesMaintenanceModeServiceMaintenance.model_rebuild()
+except NameError:
+    pass

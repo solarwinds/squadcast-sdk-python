@@ -5,10 +5,79 @@ from .v3_workflows_actionrequestupdate import (
     V3WorkflowsActionRequestUpdate,
     V3WorkflowsActionRequestUpdateTypedDict,
 )
+from .v3_workflows_jiracreateticket import (
+    V3WorkflowsJiraCreateTicket,
+    V3WorkflowsJiraCreateTicketTypedDict,
+)
+from .v3_workflows_msteamscreatemeetinglink import (
+    V3WorkflowsMsTeamsCreateMeetingLink,
+    V3WorkflowsMsTeamsCreateMeetingLinkTypedDict,
+)
+from .v3_workflows_msteamsmessagechannel import (
+    V3WorkflowsMsTeamsMessageChannel,
+    V3WorkflowsMsTeamsMessageChannelTypedDict,
+)
+from .v3_workflows_msteamsmessageuser import (
+    V3WorkflowsMsTeamsMessageUser,
+    V3WorkflowsMsTeamsMessageUserTypedDict,
+)
+from .v3_workflows_runbookresponse import (
+    V3WorkflowsRunbookResponse,
+    V3WorkflowsRunbookResponseTypedDict,
+)
+from .v3_workflows_slackarchivechannel import (
+    V3WorkflowsSlackArchiveChannel,
+    V3WorkflowsSlackArchiveChannelTypedDict,
+)
+from .v3_workflows_slackcreateincidentchannel import (
+    V3WorkflowsSlackCreateIncidentChannel,
+    V3WorkflowsSlackCreateIncidentChannelTypedDict,
+)
+from .v3_workflows_slackmessagechannel import (
+    V3WorkflowsSlackMessageChannel,
+    V3WorkflowsSlackMessageChannelTypedDict,
+)
+from .v3_workflows_slackmessageuser import (
+    V3WorkflowsSlackMessageUser,
+    V3WorkflowsSlackMessageUserTypedDict,
+)
+from .v3_workflows_sqaddcommunicationchannel import (
+    V3WorkflowsSqAddCommunicationChannel,
+    V3WorkflowsSqAddCommunicationChannelTypedDict,
+)
+from .v3_workflows_sqaddincidentnote import (
+    V3WorkflowsSqAddIncidentNote,
+    V3WorkflowsSqAddIncidentNoteTypedDict,
+)
+from .v3_workflows_sqcreatestatuspageissue import (
+    V3WorkflowsSqCreateStatusPageIssue,
+    V3WorkflowsSqCreateStatusPageIssueTypedDict,
+)
+from .v3_workflows_sqmakehttpcall import (
+    V3WorkflowsSqMakeHTTPCall,
+    V3WorkflowsSqMakeHTTPCallTypedDict,
+)
+from .v3_workflows_sqmarkincidentsloaffecting import (
+    V3WorkflowsSqMarkIncidentSLOAffecting,
+    V3WorkflowsSqMarkIncidentSLOAffectingTypedDict,
+)
+from .v3_workflows_sqsendemail import (
+    V3WorkflowsSqSendEmail,
+    V3WorkflowsSqSendEmailTypedDict,
+)
+from .v3_workflows_sqtriggermanualwebhook import (
+    V3WorkflowsSqTriggerManualWebhook,
+    V3WorkflowsSqTriggerManualWebhookTypedDict,
+)
+from .v3_workflows_updateincidentpriority import (
+    V3WorkflowsUpdateIncidentPriority,
+    V3WorkflowsUpdateIncidentPriorityTypedDict,
+)
 import pydantic
 from squadcast_sdk.types import BaseModel
 from squadcast_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
-from typing_extensions import Annotated, TypedDict
+from typing import Any, List, Literal, Union
+from typing_extensions import Annotated, TypeAliasType, TypedDict
 
 
 class WorkflowsUpdateWorkflowActionRequestTypedDict(TypedDict):
@@ -34,3 +103,77 @@ class WorkflowsUpdateWorkflowActionRequest(BaseModel):
         V3WorkflowsActionRequestUpdate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
+
+
+WorkflowsUpdateWorkflowActionName = Literal["sq_attach_runbooks",]
+
+
+class WorkflowsUpdateWorkflowActionDataTypedDict(TypedDict):
+    runbooks: List[V3WorkflowsRunbookResponseTypedDict]
+
+
+class WorkflowsUpdateWorkflowActionData(BaseModel):
+    runbooks: List[V3WorkflowsRunbookResponse]
+
+
+class SqAttachRunbooksTypedDict(TypedDict):
+    name: WorkflowsUpdateWorkflowActionName
+    data: WorkflowsUpdateWorkflowActionDataTypedDict
+
+
+class SqAttachRunbooks(BaseModel):
+    name: WorkflowsUpdateWorkflowActionName
+
+    data: WorkflowsUpdateWorkflowActionData
+
+
+WorkflowsUpdateWorkflowActionResponseTypedDict = TypeAliasType(
+    "WorkflowsUpdateWorkflowActionResponseTypedDict",
+    Union[
+        V3WorkflowsSlackArchiveChannelTypedDict,
+        V3WorkflowsMsTeamsCreateMeetingLinkTypedDict,
+        V3WorkflowsSlackMessageChannelTypedDict,
+        V3WorkflowsSlackMessageUserTypedDict,
+        V3WorkflowsSqCreateStatusPageIssueTypedDict,
+        V3WorkflowsSqAddIncidentNoteTypedDict,
+        V3WorkflowsSqTriggerManualWebhookTypedDict,
+        V3WorkflowsSqAddCommunicationChannelTypedDict,
+        SqAttachRunbooksTypedDict,
+        V3WorkflowsUpdateIncidentPriorityTypedDict,
+        V3WorkflowsSqMakeHTTPCallTypedDict,
+        V3WorkflowsSlackCreateIncidentChannelTypedDict,
+        V3WorkflowsJiraCreateTicketTypedDict,
+        V3WorkflowsMsTeamsMessageChannelTypedDict,
+        V3WorkflowsMsTeamsMessageUserTypedDict,
+        V3WorkflowsSqSendEmailTypedDict,
+        V3WorkflowsSqMarkIncidentSLOAffectingTypedDict,
+        Any,
+    ],
+)
+r"""The request has succeeded."""
+
+
+WorkflowsUpdateWorkflowActionResponse = TypeAliasType(
+    "WorkflowsUpdateWorkflowActionResponse",
+    Union[
+        V3WorkflowsSlackArchiveChannel,
+        V3WorkflowsMsTeamsCreateMeetingLink,
+        V3WorkflowsSlackMessageChannel,
+        V3WorkflowsSlackMessageUser,
+        V3WorkflowsSqCreateStatusPageIssue,
+        V3WorkflowsSqAddIncidentNote,
+        V3WorkflowsSqTriggerManualWebhook,
+        V3WorkflowsSqAddCommunicationChannel,
+        SqAttachRunbooks,
+        V3WorkflowsUpdateIncidentPriority,
+        V3WorkflowsSqMakeHTTPCall,
+        V3WorkflowsSlackCreateIncidentChannel,
+        V3WorkflowsJiraCreateTicket,
+        V3WorkflowsMsTeamsMessageChannel,
+        V3WorkflowsMsTeamsMessageUser,
+        V3WorkflowsSqSendEmail,
+        V3WorkflowsSqMarkIncidentSLOAffecting,
+        Any,
+    ],
+)
+r"""The request has succeeded."""

@@ -32,3 +32,9 @@ class V4CreateScheduleOverrideRequest(BaseModel):
     override_with: Annotated[
         V4OverrideParticipantGroup, pydantic.Field(alias="overrideWith")
     ]
+
+
+try:
+    V4CreateScheduleOverrideRequest.model_rebuild()
+except NameError:
+    pass

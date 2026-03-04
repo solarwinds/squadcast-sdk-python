@@ -70,3 +70,9 @@ class V3WorkflowsCreateWorkflowFilter(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3WorkflowsCreateWorkflowFilter.model_rebuild()
+except NameError:
+    pass

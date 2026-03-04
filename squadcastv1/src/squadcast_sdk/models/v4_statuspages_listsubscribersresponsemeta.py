@@ -47,3 +47,9 @@ class V4StatusPagesListSubscribersResponseMeta(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesListSubscribersResponseMeta.model_rebuild()
+except NameError:
+    pass

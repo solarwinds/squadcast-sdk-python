@@ -26,3 +26,9 @@ class V3IncidentsRelevantPeopleLog(BaseModel):
     action_taken_by: Annotated[str, pydantic.Field(alias="actionTakenBy")]
 
     action_time: Annotated[datetime, pydantic.Field(alias="actionTime")]
+
+
+try:
+    V3IncidentsRelevantPeopleLog.model_rebuild()
+except NameError:
+    pass

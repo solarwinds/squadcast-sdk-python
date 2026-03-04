@@ -132,3 +132,9 @@ class V3IncidentsIncidentActionsCircleCIRebuildResponse(BaseModel):
     action_id: str
 
     circleci_response: CircleciResponse
+
+
+try:
+    BuildParameters.model_rebuild()
+except NameError:
+    pass

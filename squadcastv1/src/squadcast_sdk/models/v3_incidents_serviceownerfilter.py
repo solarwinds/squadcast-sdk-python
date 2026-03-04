@@ -42,3 +42,9 @@ class V3IncidentsServiceOwnerFilter(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    V3IncidentsServiceOwnerFilter.model_rebuild()
+except NameError:
+    pass

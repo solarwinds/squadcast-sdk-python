@@ -16,3 +16,9 @@ class V4UpdateRotationParticipantsRequest(BaseModel):
     participant_groups: Annotated[
         List[V4ParticipantGroup], pydantic.Field(alias="participantGroups")
     ]
+
+
+try:
+    V4UpdateRotationParticipantsRequest.model_rebuild()
+except NameError:
+    pass
