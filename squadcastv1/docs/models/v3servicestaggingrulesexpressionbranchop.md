@@ -1,5 +1,12 @@
 # V3ServicesTaggingRulesExpressionBranchOp
 
+## Example Usage
+
+```python
+from squadcast_sdk.models import V3ServicesTaggingRulesExpressionBranchOp
+value: V3ServicesTaggingRulesExpressionBranchOp = "is"
+```
+
 
 ## Values
 

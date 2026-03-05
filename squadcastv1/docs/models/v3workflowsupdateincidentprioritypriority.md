@@ -1,5 +1,12 @@
 # V3WorkflowsUpdateIncidentPriorityPriority
 
+## Example Usage
+
+```python
+from squadcast_sdk.models import V3WorkflowsUpdateIncidentPriorityPriority
+value: V3WorkflowsUpdateIncidentPriorityPriority = "P1"
+```
+
 
 ## Values
 

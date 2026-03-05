@@ -1,5 +1,12 @@
 # V3ExtensionsMSTeamsEventClassEnum
 
+## Example Usage
+
+```python
+from squadcast_sdk.models import V3ExtensionsMSTeamsEventClassEnum
+value: V3ExtensionsMSTeamsEventClassEnum = "incident_triggered"
+```
+
 
 ## Values
 

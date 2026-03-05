@@ -1,5 +1,12 @@
 # V3ServicesRoutingRulesExpressionBranchOp
 
+## Example Usage
+
+```python
+from squadcast_sdk.models import V3ServicesRoutingRulesExpressionBranchOp
+value: V3ServicesRoutingRulesExpressionBranchOp = "is"
+```
+
 
 ## Values
 

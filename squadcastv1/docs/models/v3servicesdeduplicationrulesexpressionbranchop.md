@@ -1,5 +1,12 @@
 # V3ServicesDeduplicationRulesExpressionBranchOp
 
+## Example Usage
+
+```python
+from squadcast_sdk.models import V3ServicesDeduplicationRulesExpressionBranchOp
+value: V3ServicesDeduplicationRulesExpressionBranchOp = "is"
+```
+
 
 ## Values
 

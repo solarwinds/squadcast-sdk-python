@@ -2,6 +2,13 @@
 
 Represents the name of a global RBAC ability.
 
+## Example Usage
+
+```python
+from squadcast_sdk.models import V3UsersGlobalRBACAbilityName
+value: V3UsersGlobalRBACAbilityName = "manage-api-tokens"
+```
+
 
 ## Values
 

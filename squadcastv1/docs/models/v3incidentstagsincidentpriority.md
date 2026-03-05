@@ -2,6 +2,13 @@
 
 Represents the priority of an incident.
 
+## Example Usage
+
+```python
+from squadcast_sdk.models import V3IncidentsTagsIncidentPriority
+value: V3IncidentsTagsIncidentPriority = "P1"
+```
+
 
 ## Values
 
