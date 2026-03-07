@@ -10,7 +10,5 @@ value: V3IncidentsIncidentExportRequestSortBy = "time"
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `TIME`     | time       |
-| `PRIORITY` | priority   |
+- `"time"`
+- `"priority"`

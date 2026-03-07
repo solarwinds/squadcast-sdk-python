@@ -10,6 +10,4 @@ value: V3WorkflowsMsTeamsMessageChannelName = "msteams_message_channel"
 
 ## Values
 
-| Name                      | Value                     |
-| ------------------------- | ------------------------- |
-| `MSTEAMS_MESSAGE_CHANNEL` | msteams_message_channel   |
+- `"msteams_message_channel"`

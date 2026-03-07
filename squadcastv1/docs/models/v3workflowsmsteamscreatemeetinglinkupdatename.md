@@ -10,6 +10,4 @@ value: V3WorkflowsMsTeamsCreateMeetingLinkUpdateName = "msteams_create_meeting_l
 
 ## Values
 
-| Name                          | Value                         |
-| ----------------------------- | ----------------------------- |
-| `MSTEAMS_CREATE_MEETING_LINK` | msteams_create_meeting_link   |
+- `"msteams_create_meeting_link"`

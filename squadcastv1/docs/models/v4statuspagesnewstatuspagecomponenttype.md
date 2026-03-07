@@ -10,7 +10,5 @@ value: V4StatusPagesNewStatusPageComponentType = "component"
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `COMPONENT` | component   |
-| `GROUP`     | group       |
+- `"component"`
+- `"group"`

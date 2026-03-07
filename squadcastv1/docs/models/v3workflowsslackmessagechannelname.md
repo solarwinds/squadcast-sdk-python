@@ -10,6 +10,4 @@ value: V3WorkflowsSlackMessageChannelName = "slack_message_channel"
 
 ## Values
 
-| Name                    | Value                   |
-| ----------------------- | ----------------------- |
-| `SLACK_MESSAGE_CHANNEL` | slack_message_channel   |
+- `"slack_message_channel"`

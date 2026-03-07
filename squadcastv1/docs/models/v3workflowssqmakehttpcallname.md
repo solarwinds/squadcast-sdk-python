@@ -10,6 +10,4 @@ value: V3WorkflowsSqMakeHTTPCallName = "sq_make_http_call"
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `SQ_MAKE_HTTP_CALL` | sq_make_http_call   |
+- `"sq_make_http_call"`

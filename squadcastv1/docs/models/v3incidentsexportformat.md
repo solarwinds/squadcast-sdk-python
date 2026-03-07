@@ -12,7 +12,5 @@ value: V3IncidentsExportFormat = "json"
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `JSON` | json   |
-| `CSV`  | csv    |
+- `"json"`
+- `"csv"`

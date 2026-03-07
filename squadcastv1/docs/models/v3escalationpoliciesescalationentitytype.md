@@ -12,9 +12,7 @@ value: V3EscalationPoliciesEscalationEntityType = "user"
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `USER`       | user         |
-| `SQUAD`      | squad        |
-| `SCHEDULE`   | schedule     |
-| `SCHEDULEV2` | schedulev2   |
+- `"user"`
+- `"squad"`
+- `"schedule"`
+- `"schedulev2"`

@@ -10,7 +10,5 @@ value: Action = "pause"
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `PAUSE`  | pause    |
-| `RESUME` | resume   |
+- `"pause"`
+- `"resume"`

@@ -10,8 +10,6 @@ value: V3GlobalEventRulesEntityOwnerType = "team"
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `TEAM`  | team    |
-| `USER`  | user    |
-| `SQUAD` | squad   |
+- `"team"`
+- `"user"`
+- `"squad"`

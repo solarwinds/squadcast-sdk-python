@@ -10,7 +10,5 @@ value: Condition = "and"
 
 ## Values
 
-| Name  | Value |
-| ----- | ----- |
-| `AND` | and   |
-| `OR`  | or    |
+- `"and"`
+- `"or"`

@@ -10,8 +10,6 @@ value: V3ServicesRoutingRulesRoutingRuleResponseEntityType = "user"
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `USER`              | user                |
-| `SQUAD`             | squad               |
-| `ESCALATION_POLICY` | escalation_policy   |
+- `"user"`
+- `"squad"`
+- `"escalation_policy"`

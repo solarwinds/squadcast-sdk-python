@@ -10,8 +10,6 @@ value: V3SLOSLOActionType = "SERVICE"
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `SERVICE` | SERVICE   |
-| `USER`    | USER      |
-| `SQUAD`   | SQUAD     |
+- `"SERVICE"`
+- `"USER"`
+- `"SQUAD"`

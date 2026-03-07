@@ -12,6 +12,4 @@ value: CommonV3RBACOwnerType = "team"
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `TEAM` | team   |
+- `"team"`

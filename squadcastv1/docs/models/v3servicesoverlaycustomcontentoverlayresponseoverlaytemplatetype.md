@@ -10,7 +10,5 @@ value: V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType = "messa
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `MESSAGE`     | message       |
-| `DESCRIPTION` | description   |
+- `"message"`
+- `"description"`

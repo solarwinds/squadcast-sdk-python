@@ -10,7 +10,5 @@ value: V4ScheduleResponseOwnerType = "user"
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `USER`  | user    |
-| `SQUAD` | squad   |
+- `"user"`
+- `"squad"`

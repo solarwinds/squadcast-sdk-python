@@ -10,10 +10,8 @@ value: StatusEnum = "queued"
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `QUEUED`     | queued       |
-| `RUNNING`    | running      |
-| `SUCCESSFUL` | successful   |
-| `PARTIAL`    | partial      |
-| `FAILED`     | failed       |
+- `"queued"`
+- `"running"`
+- `"successful"`
+- `"partial"`
+- `"failed"`

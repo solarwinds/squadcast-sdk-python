@@ -10,6 +10,4 @@ value: V3WorkflowsJiraCreateTicketUpdateName = "jira_create_ticket"
 
 ## Values
 
-| Name                 | Value                |
-| -------------------- | -------------------- |
-| `JIRA_CREATE_TICKET` | jira_create_ticket   |
+- `"jira_create_ticket"`

@@ -10,6 +10,4 @@ value: V3WorkflowsSqAddCommunicationChannelName = "sq_add_communication_channel"
 
 ## Values
 
-| Name                           | Value                          |
-| ------------------------------ | ------------------------------ |
-| `SQ_ADD_COMMUNICATION_CHANNEL` | sq_add_communication_channel   |
+- `"sq_add_communication_channel"`

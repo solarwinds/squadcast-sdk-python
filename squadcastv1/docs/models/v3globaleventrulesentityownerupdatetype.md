@@ -10,8 +10,6 @@ value: V3GlobalEventRulesEntityOwnerUpdateType = "team"
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `TEAM`  | team    |
-| `USER`  | user    |
-| `SQUAD` | squad   |
+- `"team"`
+- `"user"`
+- `"squad"`

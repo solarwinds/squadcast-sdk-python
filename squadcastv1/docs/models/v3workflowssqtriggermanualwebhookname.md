@@ -10,6 +10,4 @@ value: V3WorkflowsSqTriggerManualWebhookName = "sq_trigger_manual_webhook"
 
 ## Values
 
-| Name                        | Value                       |
-| --------------------------- | --------------------------- |
-| `SQ_TRIGGER_MANUAL_WEBHOOK` | sq_trigger_manual_webhook   |
+- `"sq_trigger_manual_webhook"`

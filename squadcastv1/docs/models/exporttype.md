@@ -10,7 +10,5 @@ value: ExportType = "csv"
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `CSV`  | csv    |
-| `JSON` | json   |
+- `"csv"`
+- `"json"`

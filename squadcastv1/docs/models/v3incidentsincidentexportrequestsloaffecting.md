@@ -10,8 +10,6 @@ value: V3IncidentsIncidentExportRequestSloAffecting = "yes"
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `YES`     | yes       |
-| `NO`      | no        |
-| `UNKNOWN` |           |
+- `"yes"`
+- `"no"`
+- `""`

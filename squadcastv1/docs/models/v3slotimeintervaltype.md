@@ -10,7 +10,5 @@ value: V3SLOTimeIntervalType = "fixed"
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `FIXED`   | fixed     |
-| `ROLLING` | rolling   |
+- `"fixed"`
+- `"rolling"`

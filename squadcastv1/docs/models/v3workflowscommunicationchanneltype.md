@@ -10,8 +10,6 @@ value: V3WorkflowsCommunicationChannelType = "chat_room"
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `CHAT_ROOM`        | chat_room          |
-| `VIDEO_CONFERENCE` | video_conference   |
-| `OTHER`            | other              |
+- `"chat_room"`
+- `"video_conference"`
+- `"other"`

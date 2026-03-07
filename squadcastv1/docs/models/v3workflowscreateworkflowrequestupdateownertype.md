@@ -10,7 +10,5 @@ value: V3WorkflowsCreateWorkflowRequestUpdateOwnerType = "user"
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `USER`  | user    |
-| `SQUAD` | squad   |
+- `"user"`
+- `"squad"`

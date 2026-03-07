@@ -10,8 +10,6 @@ value: V3UsersUpdateUserRequestRole = "account_owner"
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `ACCOUNT_OWNER` | account_owner   |
-| `USER`          | user            |
-| `STAKEHOLDER`   | stakeholder     |
+- `"account_owner"`
+- `"user"`
+- `"stakeholder"`

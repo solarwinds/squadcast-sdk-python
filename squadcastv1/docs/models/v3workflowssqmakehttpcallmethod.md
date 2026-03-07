@@ -10,10 +10,8 @@ value: V3WorkflowsSqMakeHTTPCallMethod = "GET"
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `GET`    | GET      |
-| `POST`   | POST     |
-| `PUT`    | PUT      |
-| `PATCH`  | PATCH    |
-| `DELETE` | DELETE   |
+- `"GET"`
+- `"POST"`
+- `"PUT"`
+- `"PATCH"`
+- `"DELETE"`

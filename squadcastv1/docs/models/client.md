@@ -10,8 +10,6 @@ value: Client = "web"
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `WEB`       | web         |
-| `MOBILE`    | mobile      |
-| `TERRAFORM` | terraform   |
+- `"web"`
+- `"mobile"`
+- `"terraform"`

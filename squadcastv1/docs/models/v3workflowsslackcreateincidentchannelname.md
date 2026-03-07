@@ -10,6 +10,4 @@ value: V3WorkflowsSlackCreateIncidentChannelName = "slack_create_incident_channe
 
 ## Values
 
-| Name                            | Value                           |
-| ------------------------------- | ------------------------------- |
-| `SLACK_CREATE_INCIDENT_CHANNEL` | slack_create_incident_channel   |
+- `"slack_create_incident_channel"`

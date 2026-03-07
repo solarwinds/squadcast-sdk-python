@@ -10,6 +10,4 @@ value: V3WorkflowsActionResponseName = "sq_attach_runbooks"
 
 ## Values
 
-| Name                 | Value                |
-| -------------------- | -------------------- |
-| `SQ_ATTACH_RUNBOOKS` | sq_attach_runbooks   |
+- `"sq_attach_runbooks"`

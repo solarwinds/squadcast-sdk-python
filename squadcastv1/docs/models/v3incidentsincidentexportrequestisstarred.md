@@ -10,7 +10,5 @@ value: V3IncidentsIncidentExportRequestIsStarred = "yes"
 
 ## Values
 
-| Name  | Value |
-| ----- | ----- |
-| `YES` | yes   |
-| `NO`  | no    |
+- `"yes"`
+- `"no"`

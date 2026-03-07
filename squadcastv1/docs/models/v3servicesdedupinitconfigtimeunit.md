@@ -10,7 +10,5 @@ value: V3ServicesDedupInitConfigTimeUnit = "minute"
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `MINUTE` | minute   |
-| `HOUR`   | hour     |
+- `"minute"`
+- `"hour"`

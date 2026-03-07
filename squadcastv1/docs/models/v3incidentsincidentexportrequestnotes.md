@@ -10,7 +10,5 @@ value: V3IncidentsIncidentExportRequestNotes = "present"
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `PRESENT` | present   |
-| `ABSENT`  | absent    |
+- `"present"`
+- `"absent"`

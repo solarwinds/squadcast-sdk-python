@@ -10,6 +10,4 @@ value: V3WorkflowsSlackMessageUserUpdateName = "slack_message_user"
 
 ## Values
 
-| Name                 | Value                |
-| -------------------- | -------------------- |
-| `SLACK_MESSAGE_USER` | slack_message_user   |
+- `"slack_message_user"`

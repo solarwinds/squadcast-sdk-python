@@ -10,6 +10,4 @@ value: V3WorkflowsUpdateIncidentPriorityUpdateName = "sq_update_incident_priorit
 
 ## Values
 
-| Name                          | Value                         |
-| ----------------------------- | ----------------------------- |
-| `SQ_UPDATE_INCIDENT_PRIORITY` | sq_update_incident_priority   |
+- `"sq_update_incident_priority"`

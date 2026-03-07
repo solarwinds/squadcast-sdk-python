@@ -10,6 +10,4 @@ value: V3WorkflowsSqMarkIncidentSLOAffectingName = "sq_mark_incident_slo_affecti
 
 ## Values
 
-| Name                             | Value                            |
-| -------------------------------- | -------------------------------- |
-| `SQ_MARK_INCIDENT_SLO_AFFECTING` | sq_mark_incident_slo_affecting   |
+- `"sq_mark_incident_slo_affecting"`
