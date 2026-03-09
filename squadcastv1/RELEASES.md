@@ -50,7 +50,7 @@ Based on:
 ### Releases
 - [PyPI v0.3.5] https://pypi.org/project/squadcast_sdk/0.3.5 - squadcastv1
 
-## 2026-03-08 00:05:35
+## 2026-03-09 00:05:44
 ### Changes
 Based on:
 - OpenAPI Doc  
