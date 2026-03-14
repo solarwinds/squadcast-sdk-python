@@ -14,14 +14,14 @@ Create a Ticket on Jira Server
 
 <!-- UsageSnippet language="python" operationID="IncidentActions_createATicketOnJiraServer" method="post" path="/v3/incidents/{incidentID}/actions/jira/new/jira-server" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.incidents.incident_actions.create_jira_ticket(incident_id="<id>")
+    res = squadcast_sdk.incidents.incident_actions.create_jira_ticket(incident_id="<id>")
 
     # Handle response
     print(res)

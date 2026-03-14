@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3WorkflowsCreateWorkflowRequestUpdateOwnerType
+from squadcast.models import V3WorkflowsCreateWorkflowRequestUpdateOwnerType
 value: V3WorkflowsCreateWorkflowRequestUpdateOwnerType = "user"
 ```
 

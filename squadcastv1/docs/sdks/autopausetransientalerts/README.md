@@ -15,14 +15,14 @@ Mark as Not Transient
 
 <!-- UsageSnippet language="python" operationID="Apta_markAsNotTransient" method="put" path="/v3/incidents/{incidentID}/mark-as-non-transient" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.incidents.auto_pause_transient_alerts.mark_as_not_transient(incident_id="<id>")
+    res = squadcast_sdk.incidents.auto_pause_transient_alerts.mark_as_not_transient(incident_id="<id>")
 
     # Handle response
     print(res)
@@ -65,14 +65,14 @@ Mark as Transient
 
 <!-- UsageSnippet language="python" operationID="Apta_markAsTransient" method="put" path="/v3/incidents/{incidentID}/mark-as-transient" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.incidents.auto_pause_transient_alerts.mark_as_transient(incident_id="<id>")
+    res = squadcast_sdk.incidents.auto_pause_transient_alerts.mark_as_transient(incident_id="<id>")
 
     # Handle response
     print(res)

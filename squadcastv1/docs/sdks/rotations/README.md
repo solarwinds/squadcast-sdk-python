@@ -20,14 +20,14 @@ List Schedule Rotations
 
 <!-- UsageSnippet language="python" operationID="Rotations_getScheduleRotations" method="get" path="/v4/schedules/{scheduleID}/rotations" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.rotations.list_by_schedule(schedule_id="<id>")
+    res = squadcast_sdk.rotations.list_by_schedule(schedule_id="<id>")
 
     # Handle response
     print(res)
@@ -61,14 +61,14 @@ Create Rotation
 
 <!-- UsageSnippet language="python" operationID="Rotations_createRotation" method="post" path="/v4/schedules/{scheduleID}/rotations" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.rotations.create(schedule_id="<id>", name="<value>", start_date="<value>", period="<value>", change_participants_frequency=62013, change_participants_unit="<value>", participant_groups=[])
+    res = squadcast_sdk.rotations.create(schedule_id="<id>", name="<value>", start_date="<value>", period="<value>", change_participants_frequency=62013, change_participants_unit="<value>", participant_groups=[])
 
     # Handle response
     print(res)
@@ -114,14 +114,14 @@ Delete Rotation
 
 <!-- UsageSnippet language="python" operationID="Rotations_deleteRotation" method="delete" path="/v4/schedules/{scheduleID}/rotations/{rotationID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.rotations.delete(schedule_id="<id>", rotation_id="<id>")
+    res = squadcast_sdk.rotations.delete(schedule_id="<id>", rotation_id="<id>")
 
     # Handle response
     print(res)
@@ -156,14 +156,14 @@ Get Schedule Rotation by ID
 
 <!-- UsageSnippet language="python" operationID="Rotations_getScheduleRotationById" method="get" path="/v4/schedules/{scheduleID}/rotations/{rotationID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.rotations.get_by_id(schedule_id="<id>", rotation_id="<id>")
+    res = squadcast_sdk.rotations.get_by_id(schedule_id="<id>", rotation_id="<id>")
 
     # Handle response
     print(res)
@@ -198,14 +198,14 @@ Update Rotation
 
 <!-- UsageSnippet language="python" operationID="Rotations_updateRotation" method="put" path="/v4/schedules/{scheduleID}/rotations/{rotationID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.rotations.update(schedule_id="<id>", rotation_id="<id>", name="<value>", start_date="<value>", period="<value>", change_participants_frequency=183098, change_participants_unit="<value>")
+    res = squadcast_sdk.rotations.update(schedule_id="<id>", rotation_id="<id>", name="<value>", start_date="<value>", period="<value>", change_participants_frequency=183098, change_participants_unit="<value>")
 
     # Handle response
     print(res)
@@ -251,14 +251,14 @@ Get Rotation Participants
 
 <!-- UsageSnippet language="python" operationID="Rotations_getRotationParticipants" method="get" path="/v4/schedules/{scheduleID}/rotations/{rotationID}/participants" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.rotations.get_participants(schedule_id="<id>", rotation_id="<id>")
+    res = squadcast_sdk.rotations.get_participants(schedule_id="<id>", rotation_id="<id>")
 
     # Handle response
     print(res)
@@ -293,14 +293,14 @@ Update Rotation Participants
 
 <!-- UsageSnippet language="python" operationID="Rotations_updateRotationParticipants" method="put" path="/v4/schedules/{scheduleID}/rotations/{rotationID}/participants" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.rotations.update_participants(schedule_id="<id>", rotation_id="<id>", participant_groups=[])
+    res = squadcast_sdk.rotations.update_participants(schedule_id="<id>", rotation_id="<id>", participant_groups=[])
 
     # Handle response
     print(res)

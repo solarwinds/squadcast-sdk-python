@@ -15,14 +15,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webhooks_getAllWebhooks" method="get" path="/v3/extensions/event-webhooks" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.extensions.webhooks.get_all()
+    res = squadcast_sdk.extensions.webhooks.get_all()
 
     # Handle response
     print(res)

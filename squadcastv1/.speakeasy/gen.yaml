@@ -32,7 +32,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 python:
-  version: 0.5.0
+  version: 0.6.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -74,7 +74,7 @@ python:
   maxMethodParams: 999
   mdoulename: squadcast_sdk
   methodArguments: infer-optional-args
-  moduleName: ""
+  moduleName: squadcast
   multipartArrayFormat: legacy
   outputModelSuffix: output
   packageManager: uv

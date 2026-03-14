@@ -17,14 +17,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_getAllTeamRoles" method="get" path="/v3/teams/{teamId}/roles" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.teams.roles.get_all(team_id="<id>")
+    res = squadcast_sdk.teams.roles.get_all(team_id="<id>")
 
     # Handle response
     print(res)
@@ -68,14 +68,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_createTeamRole" method="post" path="/v3/teams/{teamId}/roles" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.teams.roles.create(team_id="<id>", name="<value>", abilities={})
+    res = squadcast_sdk.teams.roles.create(team_id="<id>", name="<value>", abilities={})
 
     # Handle response
     print(res)
@@ -121,14 +121,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_updateTeamRole" method="put" path="/v3/teams/{teamId}/roles/{roleId}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.teams.roles.update(team_id="<id>", role_id="<id>")
+    res = squadcast_sdk.teams.roles.update(team_id="<id>", role_id="<id>")
 
     # Handle response
     print(res)

@@ -15,14 +15,14 @@ Get Suppression Rules
 
 <!-- UsageSnippet language="python" operationID="SuppressionRules_getSuppressionRules" method="get" path="/v3/services/{serviceID}/suppression-rules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.services.suppression_rules.get(service_id="<id>")
+    res = squadcast_sdk.services.suppression_rules.get(service_id="<id>")
 
     # Handle response
     print(res)
@@ -65,14 +65,14 @@ Create or Update Suppression Rules
 
 <!-- UsageSnippet language="python" operationID="SuppressionRules_createOrUpdateSuppressionRules" method="post" path="/v3/services/{serviceID}/suppression-rules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.services.suppression_rules.create_or_update(service_id="<id>", rules=[])
+    res = squadcast_sdk.services.suppression_rules.create_or_update(service_id="<id>", rules=[])
 
     # Handle response
     print(res)

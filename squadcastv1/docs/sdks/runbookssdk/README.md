@@ -19,14 +19,14 @@ Attach Runbooks
 
 <!-- UsageSnippet language="python" operationID="Runbooks_attachRunbooks" method="post" path="/v3/incidents/{IncidentId}/runbooks" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.runbooks.attach(incident_id="<id>", runbooks=[
+    res = squadcast_sdk.runbooks.attach(incident_id="<id>", runbooks=[
         "<value 1>",
         "<value 2>",
     ])
@@ -74,14 +74,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Runbooks_getAllRunbooksByTeam" method="get" path="/v3/runbooks" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.runbooks.get_all_by_team()
+    res = squadcast_sdk.runbooks.get_all_by_team()
 
     # Handle response
     print(res)
@@ -124,14 +124,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Runbooks_createRunbook" method="post" path="/v3/runbooks" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.runbooks.create(name="<value>", steps=[
+    res = squadcast_sdk.runbooks.create(name="<value>", steps=[
         {
             "content": "<value>",
         },
@@ -182,14 +182,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Runbooks_removeRunbook" method="delete" path="/v3/runbooks/{runbookID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.runbooks.delete(runbook_id="<id>")
+    res = squadcast_sdk.runbooks.delete(runbook_id="<id>")
 
     # Handle response
     print(res)
@@ -233,14 +233,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Runbooks_getRunbookById" method="get" path="/v3/runbooks/{runbookID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.runbooks.get_by_id(runbook_id="<id>")
+    res = squadcast_sdk.runbooks.get_by_id(runbook_id="<id>")
 
     # Handle response
     print(res)
@@ -284,14 +284,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Runbooks_updateRunbook" method="put" path="/v3/runbooks/{runbookID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.runbooks.update(runbook_id="<id>", name="<value>", steps=[
+    res = squadcast_sdk.runbooks.update(runbook_id="<id>", name="<value>", steps=[
         {
             "content": "<value>",
         },

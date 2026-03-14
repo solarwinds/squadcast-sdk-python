@@ -1,5 +1,0 @@
-# SquadcastSDK
-
-## Overview
-
-### Available Operations

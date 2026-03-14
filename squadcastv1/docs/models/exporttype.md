@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import ExportType
+from squadcast.models import ExportType
 value: ExportType = "csv"
 ```
 

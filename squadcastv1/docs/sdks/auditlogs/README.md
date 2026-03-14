@@ -20,14 +20,14 @@ Returns array of audit logs for given team and filters
 <!-- UsageSnippet language="python" operationID="AuditLogs_listAuditLogs" method="get" path="/v3/audit-logs" -->
 ```python
 from datetime import date
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.audit_logs.list(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
+    res = squadcast_sdk.audit_logs.list(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
 
     while res is not None:
         # Handle items
@@ -82,14 +82,14 @@ Initiates export of audit logs based on provided filters
 <!-- UsageSnippet language="python" operationID="AuditLogs_exportAuditLogs" method="post" path="/v3/audit-logs/export" -->
 ```python
 from datetime import date
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.audit_logs.export(filters={
+    res = squadcast_sdk.audit_logs.export(filters={
         "start_date": date.fromisoformat("2025-07-29"),
         "end_date": date.fromisoformat("2023-09-09"),
     }, name="<value>", export_type="json")
@@ -139,14 +139,14 @@ Returns array of audit logs export history
 
 <!-- UsageSnippet language="python" operationID="AuditLogs_listAuditLogsExportHistory" method="get" path="/v3/audit-logs/export/history" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.audit_logs.list_export_history(page_size=159672, page_number=351281)
+    res = squadcast_sdk.audit_logs.list_export_history(page_size=159672, page_number=351281)
 
     while res is not None:
         # Handle items
@@ -193,14 +193,14 @@ Returns audit log export history details for the specified ID
 
 <!-- UsageSnippet language="python" operationID="AuditLogs_getAuditLogsExportHistoryById" method="get" path="/v3/audit-logs/export/history/{id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.audit_logs.get_export_history_by_id(id="<id>")
+    res = squadcast_sdk.audit_logs.get_export_history_by_id(id="<id>")
 
     # Handle response
     print(res)
@@ -244,14 +244,14 @@ Returns audit log details for the specified ID
 
 <!-- UsageSnippet language="python" operationID="AuditLogs_getAuditLogById" method="get" path="/v3/audit-logs/{id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.audit_logs.get_by_id(id="<id>")
+    res = squadcast_sdk.audit_logs.get_by_id(id="<id>")
 
     # Handle response
     print(res)

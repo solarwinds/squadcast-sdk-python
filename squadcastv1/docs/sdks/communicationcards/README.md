@@ -15,14 +15,14 @@
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_getAllCommunicationCard" method="get" path="/v3/incidents/{IncidentId}/communication_cards" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.communication_cards.get_all(incident_id="<id>")
+    res = squadcast_sdk.communication_cards.get_all(incident_id="<id>")
 
     # Handle response
     print(res)

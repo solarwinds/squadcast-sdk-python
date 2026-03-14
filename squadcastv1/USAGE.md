@@ -1,12 +1,12 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 # Synchronous Example
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
-with SquadcastSDK() as ss_client:
+with SquadcastSDK() as squadcast_sdk:
 
-    res = ss_client.auth.auth_get_access_token(x_refresh_token="<value>")
+    res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>")
 
     # Handle response
     print(res)
@@ -19,13 +19,13 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 async def main():
 
-    async with SquadcastSDK() as ss_client:
+    async with SquadcastSDK() as squadcast_sdk:
 
-        res = await ss_client.auth.auth_get_access_token_async(x_refresh_token="<value>")
+        res = await squadcast_sdk.auth.auth_get_access_token_async(x_refresh_token="<value>")
 
         # Handle response
         print(res)

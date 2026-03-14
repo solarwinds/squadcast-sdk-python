@@ -14,14 +14,14 @@ Delete a GER Ruleset Rule by its ID.
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_deleteRuleById" method="delete" path="/v3/global-event-rules/{ger_id}/rulesets/{alert_source_version}/{alert_source_shortname}/rules/{rule_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.rules.delete_by_id(ger_id=921538, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
+    res = squadcast_sdk.rules.delete_by_id(ger_id=921538, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
 
     # Handle response
     print(res)

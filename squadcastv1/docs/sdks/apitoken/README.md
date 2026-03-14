@@ -15,14 +15,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_removeToken" method="delete" path="/v3/refresh-token/{refreshTokenID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.users.api_token.remove(refresh_token_id="<id>")
+    res = squadcast_sdk.users.api_token.remove(refresh_token_id="<id>")
 
     # Handle response
     print(res)

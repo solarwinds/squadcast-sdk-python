@@ -16,14 +16,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_getAllTeamMembers" method="get" path="/v3/teams/{teamId}/members" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.teams.members.list(team_id="<id>")
+    res = squadcast_sdk.teams.members.list(team_id="<id>")
 
     # Handle response
     print(res)
@@ -67,14 +67,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Teams_addTeamMember" method="post" path="/v3/teams/{teamId}/members" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.teams.members.add(team_id="<id>", user_id="<id>", role_ids=[])
+    res = squadcast_sdk.teams.members.add(team_id="<id>", user_id="<id>", role_ids=[])
 
     # Handle response
     print(res)

@@ -16,14 +16,14 @@
 
 <!-- UsageSnippet language="python" operationID="Postmortems_getAllPostmortems" method="get" path="/v3/incidents/postmortem" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.postmortems.get_all(from_date="<value>", to_date="<value>", owner_id="<id>", limit=221553)
+    res = squadcast_sdk.postmortems.get_all(from_date="<value>", to_date="<value>", owner_id="<id>", limit=221553)
 
     # Handle response
     print(res)
@@ -70,14 +70,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Postmortems_createPostmortem" method="post" path="/v3/incidents/{incidentID}/postmortem" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.postmortems.create(incident_id="<id>", owner_id="<id>", title="<value>", postmortem="<value>", status="published", follow_ups=[], attachments=[
+    res = squadcast_sdk.postmortems.create(incident_id="<id>", owner_id="<id>", title="<value>", postmortem="<value>", status="published", follow_ups=[], attachments=[
         {},
     ])
 

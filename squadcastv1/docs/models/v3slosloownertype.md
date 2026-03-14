@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3SLOSLOOwnerType
+from squadcast.models import V3SLOSLOOwnerType
 value: V3SLOSLOOwnerType = "user"
 ```
 

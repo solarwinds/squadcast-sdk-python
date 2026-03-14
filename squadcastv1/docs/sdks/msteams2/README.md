@@ -14,14 +14,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="MSTeams_createOrUpdateMsteamsConfiguration" method="post" path="/v3/extensions/msteams/config" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.extensions.msteams.create_or_update_config(default_conversation_name="<value>", default_conversation_id="<id>", is_active=False, is_default_active=False, is_custom_channels_active=True, triggers={
+    res = squadcast_sdk.extensions.msteams.create_or_update_config(default_conversation_name="<value>", default_conversation_id="<id>", is_active=False, is_default_active=False, is_custom_channels_active=True, triggers={
         "all_active": False,
         "custom": [],
     }, tenant_id="<id>", from_id="<id>", connected_teams=[

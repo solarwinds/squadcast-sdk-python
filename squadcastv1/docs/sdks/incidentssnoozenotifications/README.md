@@ -14,14 +14,14 @@ Unsnooze Incident Notifications
 
 <!-- UsageSnippet language="python" operationID="SnoozeNotifications_unsnoozeIncidentNotifications" method="put" path="/v3/incidents/{incidentID}/unsnooze" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.incidents.snooze_notifications.unsnooze(incident_id="<id>", reassign_to={
+    res = squadcast_sdk.incidents.snooze_notifications.unsnooze(incident_id="<id>", reassign_to={
         "id": "<id>",
         "type": "<value>",
     })

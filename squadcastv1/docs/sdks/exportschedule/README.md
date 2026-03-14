@@ -14,14 +14,14 @@ Refresh Schedule ICal Link
 
 <!-- UsageSnippet language="python" operationID="Export_refreshScheduleIcalLink" method="patch" path="/v4/schedules/{scheduleID}/ical-link" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.export_schedule.refresh_ical_link(schedule_id="<id>", my_on_call=True, request_body={})
+    res = squadcast_sdk.export_schedule.refresh_ical_link(schedule_id="<id>", my_on_call=True, request_body={})
 
     # Handle response
     print(res)

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import StatusEnum
+from squadcast.models import StatusEnum
 value: StatusEnum = "queued"
 ```
 

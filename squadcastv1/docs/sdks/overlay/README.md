@@ -15,14 +15,14 @@ Get Opt-in for Key Based Deduplication for a service
 
 <!-- UsageSnippet language="python" operationID="Overlay_getOptinForKeyBasedDeduplicationForAService" method="get" path="/v3/services/{serviceID}/config" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.services.overlay.get_optin_for_key_based_deduplication(service_id="<id>")
+    res = squadcast_sdk.services.overlay.get_optin_for_key_based_deduplication(service_id="<id>")
 
     # Handle response
     print(res)
@@ -65,14 +65,14 @@ Opt-in for Key Based Deduplication for a service
 
 <!-- UsageSnippet language="python" operationID="Overlay_optinForKeyBasedDeduplicationForAService" method="patch" path="/v3/services/{serviceID}/config" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.services.overlay.optin_for_key_based_deduplication(service_id="<id>")
+    res = squadcast_sdk.services.overlay.optin_for_key_based_deduplication(service_id="<id>")
 
     # Handle response
     print(res)

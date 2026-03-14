@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3IncidentsIncidentExportRequestSortBy
+from squadcast.models import V3IncidentsIncidentExportRequestSortBy
 value: V3IncidentsIncidentExportRequestSortBy = "time"
 ```
 

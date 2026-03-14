@@ -17,14 +17,14 @@ List Components
 
 <!-- UsageSnippet language="python" operationID="Components_listComponents" method="get" path="/v4/statuspages/{statuspageID}/components" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.components.list(statuspage_id="<id>")
+    res = squadcast_sdk.components.list(statuspage_id="<id>")
 
     # Handle response
     print(res)
@@ -67,14 +67,14 @@ Create Component
 
 <!-- UsageSnippet language="python" operationID="Components_createComponent" method="post" path="/v4/statuspages/{statuspageID}/components" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.components.create(statuspage_id="<id>", name="<value>")
+    res = squadcast_sdk.components.create(statuspage_id="<id>", name="<value>")
 
     # Handle response
     print(res)
@@ -122,14 +122,14 @@ Get Component By ID
 
 <!-- UsageSnippet language="python" operationID="Components_getComponentById" method="get" path="/v4/statuspages/{statuspageID}/components/{component_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.components.get_by_id(statuspage_id="<id>", component_id="<id>")
+    res = squadcast_sdk.components.get_by_id(statuspage_id="<id>", component_id="<id>")
 
     # Handle response
     print(res)
@@ -173,14 +173,14 @@ Update Component By ID
 
 <!-- UsageSnippet language="python" operationID="Components_updateComponentById" method="put" path="/v4/statuspages/{statuspageID}/components/{component_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.components.update_by_id(statuspage_id="<id>", component_id="<id>", name="<value>")
+    res = squadcast_sdk.components.update_by_id(statuspage_id="<id>", component_id="<id>", name="<value>")
 
     # Handle response
     print(res)

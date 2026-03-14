@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3ServicesDeduplicationRulesDeduplicationRuleResponseTimeUnit
+from squadcast.models import V3ServicesDeduplicationRulesDeduplicationRuleResponseTimeUnit
 value: V3ServicesDeduplicationRulesDeduplicationRuleResponseTimeUnit = "minute"
 ```
 

@@ -15,14 +15,14 @@ Create Slack Channel in Communication Card
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_createSlackChannelInCommunicationCard" method="post" path="/v3/extensions/slack_v2/channel" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.incidents.communication_card.create_slack_channel(channel_name="<value>", incident_id="<id>")
+    res = squadcast_sdk.incidents.communication_card.create_slack_channel(channel_name="<value>", incident_id="<id>")
 
     # Handle response
     print(res)
@@ -66,14 +66,14 @@ Archive Slack Channel
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_archiveSlackChannel" method="post" path="/v3/extensions/slack_v2/channel/archive" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.incidents.communication_card.archive_slack_channel(slack_channel_id="<id>")
+    res = squadcast_sdk.incidents.communication_card.archive_slack_channel(slack_channel_id="<id>")
 
     # Handle response
     print(res)

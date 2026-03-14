@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType
+from squadcast.models import V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType
 value: V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType = "message"
 ```
 

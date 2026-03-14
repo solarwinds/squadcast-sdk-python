@@ -15,14 +15,14 @@ Delete Maintenance By ID
 
 <!-- UsageSnippet language="python" operationID="Maintenances_deleteMaintenanceById" method="delete" path="/v4/statuspages/{statuspageID}/maintenance/{maintenance_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.maintenances.delete(statuspage_id="<id>", maintenance_id="<id>")
+    res = squadcast_sdk.maintenances.delete(statuspage_id="<id>", maintenance_id="<id>")
 
     # Handle response
     print(res)
@@ -66,15 +66,15 @@ Update Maintenance By ID
 
 <!-- UsageSnippet language="python" operationID="Maintenances_updateMaintenanceById" method="put" path="/v4/statuspages/{statuspageID}/maintenance/{maintenance_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
-from squadcast_sdk.utils import parse_datetime
+from squadcast import SquadcastSDK
+from squadcast.utils import parse_datetime
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.maintenances.update_by_id(statuspage_id="<id>", maintenance_id="<id>", title="<value>", note="<value>", start_time=parse_datetime("2024-07-22T17:12:15.919Z"), end_time=parse_datetime("2024-06-11T21:00:35.262Z"))
+    res = squadcast_sdk.maintenances.update_by_id(statuspage_id="<id>", maintenance_id="<id>", title="<value>", note="<value>", start_time=parse_datetime("2024-07-22T17:12:15.919Z"), end_time=parse_datetime("2024-06-11T21:00:35.262Z"))
 
     # Handle response
     print(res)

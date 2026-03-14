@@ -16,12 +16,12 @@ Send your refresh token (obtained from the Squadcast web application) in the
 
 <!-- UsageSnippet language="python" operationID="Auth_getAccessToken" method="get" path="/oauth/access-token" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
-with SquadcastSDK() as ss_client:
+with SquadcastSDK() as squadcast_sdk:
 
-    res = ss_client.auth.auth_get_access_token(x_refresh_token="<value>")
+    res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>")
 
     # Handle response
     print(res)

@@ -17,14 +17,14 @@ Delete Global Oncall Reminder Rules
 
 <!-- UsageSnippet language="python" operationID="GlobalOncallReminderRules_deleteGlobalOncallReminderRules" method="delete" path="/v3/global-oncall-reminder-rules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.global_oncall_reminder_rules.delete(owner_id="<id>")
+    res = squadcast_sdk.global_oncall_reminder_rules.delete(owner_id="<id>")
 
     # Handle response
     print(res)
@@ -67,14 +67,14 @@ Get Global Oncall Reminder Rules
 
 <!-- UsageSnippet language="python" operationID="GlobalOncallReminderRules_getGlobalOncallReminderRules" method="get" path="/v3/global-oncall-reminder-rules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.global_oncall_reminder_rules.get(owner_id="<id>")
+    res = squadcast_sdk.global_oncall_reminder_rules.get(owner_id="<id>")
 
     # Handle response
     print(res)
@@ -117,14 +117,14 @@ Create Global Oncall Reminder Rules
 
 <!-- UsageSnippet language="python" operationID="GlobalOncallReminderRules_createGlobalOncallReminderRules" method="post" path="/v3/global-oncall-reminder-rules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.global_oncall_reminder_rules.create(is_enabled=True, owner_id="<id>", rules=[])
+    res = squadcast_sdk.global_oncall_reminder_rules.create(is_enabled=True, owner_id="<id>", rules=[])
 
     # Handle response
     print(res)
@@ -169,14 +169,14 @@ Update Global Oncall Reminder Rules
 
 <!-- UsageSnippet language="python" operationID="GlobalOncallReminderRules_updateGlobalOncallReminderRules" method="put" path="/v3/global-oncall-reminder-rules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
     bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+) as squadcast_sdk:
 
-    res = ss_client.global_oncall_reminder_rules.update(owner_id="<id>", is_enabled=True, rules=[])
+    res = squadcast_sdk.global_oncall_reminder_rules.update(owner_id="<id>", is_enabled=True, rules=[])
 
     # Handle response
     print(res)
