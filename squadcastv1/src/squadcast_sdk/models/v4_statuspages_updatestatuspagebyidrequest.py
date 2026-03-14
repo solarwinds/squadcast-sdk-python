@@ -50,7 +50,7 @@ class V4StatusPagesUpdateStatusPageByIDRequestComponent1(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
@@ -94,7 +94,7 @@ class V4StatusPagesUpdateStatusPageByIDRequestComponent2(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
@@ -201,10 +201,24 @@ class V4StatusPagesUpdateStatusPageByIDRequest(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
                     m[k] = val
 
         return m
+
+
+try:
+    V4StatusPagesUpdateStatusPageByIDRequestComponent1.model_rebuild()
+except NameError:
+    pass
+try:
+    V4StatusPagesUpdateStatusPageByIDRequestComponent2.model_rebuild()
+except NameError:
+    pass
+try:
+    V4StatusPagesUpdateStatusPageByIDRequest.model_rebuild()
+except NameError:
+    pass

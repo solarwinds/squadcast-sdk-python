@@ -12,3 +12,9 @@ class V4ChangeTimezoneResponseTypedDict(TypedDict):
 
 class V4ChangeTimezoneResponse(BaseModel):
     time_zone: Annotated[str, pydantic.Field(alias="timeZone")]
+
+
+try:
+    V4ChangeTimezoneResponse.model_rebuild()
+except NameError:
+    pass

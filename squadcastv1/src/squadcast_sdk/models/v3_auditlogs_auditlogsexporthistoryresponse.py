@@ -43,3 +43,9 @@ class V3AuditLogsAuditLogsExportHistoryResponse(BaseModel):
 
     filters: V3AuditLogsFilters
     r"""Represents filters used in audit log queries"""
+
+
+try:
+    V3AuditLogsAuditLogsExportHistoryResponse.model_rebuild()
+except NameError:
+    pass

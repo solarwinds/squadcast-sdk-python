@@ -32,3 +32,9 @@ class V3IncidentsTagsAdditionalResponderDetails(BaseModel):
     name: str
 
     last_notified_at: datetime
+
+
+try:
+    V3IncidentsTagsAdditionalResponderDetails.model_rebuild()
+except NameError:
+    pass

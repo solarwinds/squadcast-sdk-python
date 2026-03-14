@@ -62,3 +62,9 @@ class V4StatusPagesIssuesGetIssueByIDResponse(BaseModel):
     page_id: Annotated[int, pydantic.Field(alias="pageID")]
 
     is_migrated: Annotated[bool, pydantic.Field(alias="isMigrated")]
+
+
+try:
+    V4StatusPagesIssuesGetIssueByIDResponse.model_rebuild()
+except NameError:
+    pass

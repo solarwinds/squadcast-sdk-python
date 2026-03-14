@@ -34,3 +34,9 @@ class V4UpdateScheduleRequest(BaseModel):
     ]
 
     tags: List[V4Tag]
+
+
+try:
+    V4UpdateScheduleRequest.model_rebuild()
+except NameError:
+    pass

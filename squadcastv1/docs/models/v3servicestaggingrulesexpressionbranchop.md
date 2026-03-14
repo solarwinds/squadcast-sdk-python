@@ -1,22 +1,27 @@
 # V3ServicesTaggingRulesExpressionBranchOp
 
+## Example Usage
+
+```python
+from squadcast_sdk.models import V3ServicesTaggingRulesExpressionBranchOp
+value: V3ServicesTaggingRulesExpressionBranchOp = "is"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `IS`           | is             |
-| `IS_NOT`       | is_not         |
-| `MATCHES`      | matches        |
-| `NOT_CONTAINS` | not_contains   |
-| `GT`           | gt             |
-| `LT`           | lt             |
-| `GT_EQ`        | gt_eq          |
-| `LT_EQ`        | lt_eq          |
-| `CALL`         | call           |
-| `FIELD_IS`     | field_is       |
-| `FIELD_IS_NOT` | field_is_not   |
-| `FIELD_GT`     | field_gt       |
-| `FIELD_LT`     | field_lt       |
-| `FIELD_GT_EQ`  | field_gt_eq    |
-| `FIELD_LT_EQ`  | field_lt_eq    |
+- `"is"`
+- `"is_not"`
+- `"matches"`
+- `"not_contains"`
+- `"gt"`
+- `"lt"`
+- `"gt_eq"`
+- `"lt_eq"`
+- `"call"`
+- `"field_is"`
+- `"field_is_not"`
+- `"field_gt"`
+- `"field_lt"`
+- `"field_gt_eq"`
+- `"field_lt_eq"`

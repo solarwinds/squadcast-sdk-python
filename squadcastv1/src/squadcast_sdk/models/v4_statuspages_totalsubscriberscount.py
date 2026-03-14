@@ -12,3 +12,9 @@ class V4StatusPagesTotalSubscribersCountTypedDict(TypedDict):
 
 class V4StatusPagesTotalSubscribersCount(BaseModel):
     total_count: Annotated[int, pydantic.Field(alias="totalCount")]
+
+
+try:
+    V4StatusPagesTotalSubscribersCount.model_rebuild()
+except NameError:
+    pass

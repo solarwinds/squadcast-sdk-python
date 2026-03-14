@@ -64,7 +64,7 @@ class OverridesListOverridesRequest(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
@@ -86,3 +86,9 @@ class OverridesListOverridesResponse(BaseModel):
     data: List[V4OverrideResponse]
 
     page_info: Annotated[CommonV4PageInfo, pydantic.Field(alias="pageInfo")]
+
+
+try:
+    OverridesListOverridesResponse.model_rebuild()
+except NameError:
+    pass

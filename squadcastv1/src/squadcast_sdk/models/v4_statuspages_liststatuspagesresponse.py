@@ -31,3 +31,9 @@ class V4StatusPagesListStatusPagesResponse(BaseModel):
     data: List[V4StatusPagesStatusPage]
 
     meta: V4StatusPagesListStatusPagesResponseMeta
+
+
+try:
+    V4StatusPagesListStatusPagesResponseMeta.model_rebuild()
+except NameError:
+    pass

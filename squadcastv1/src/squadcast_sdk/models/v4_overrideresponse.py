@@ -50,3 +50,9 @@ class V4OverrideResponse(BaseModel):
     created_at: Annotated[str, pydantic.Field(alias="createdAt")]
 
     updated_at: Annotated[str, pydantic.Field(alias="updatedAt")]
+
+
+try:
+    V4OverrideResponse.model_rebuild()
+except NameError:
+    pass

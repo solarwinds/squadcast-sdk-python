@@ -21,3 +21,9 @@ class V4StatusPagesDeleteStatusPageByIDResponse(BaseModel):
     organization_id: Annotated[str, pydantic.Field(alias="organizationID")]
 
     team_id: Annotated[str, pydantic.Field(alias="teamID")]
+
+
+try:
+    V4StatusPagesDeleteStatusPageByIDResponse.model_rebuild()
+except NameError:
+    pass

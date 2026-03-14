@@ -23,3 +23,9 @@ class V3ServicesMaintenanceModeCreateOrUpdateMaintenanceModeRequest(BaseModel):
         List[V3ServicesMaintenanceModeServiceMaintenance],
         pydantic.Field(alias="serviceMaintenance"),
     ]
+
+
+try:
+    V3ServicesMaintenanceModeCreateOrUpdateMaintenanceModeRequest.model_rebuild()
+except NameError:
+    pass
