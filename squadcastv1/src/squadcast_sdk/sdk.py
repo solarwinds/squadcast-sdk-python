@@ -18,6 +18,7 @@ if TYPE_CHECKING:
     from squadcast_sdk.additionalresponders import AdditionalResponders
     from squadcast_sdk.analytics import Analytics
     from squadcast_sdk.auditlogs import AuditLogs
+    from squadcast_sdk.auth import Auth
     from squadcast_sdk.communicationcards import CommunicationCards
     from squadcast_sdk.componentgroups import ComponentGroups
     from squadcast_sdk.components import Components
@@ -55,6 +56,61 @@ if TYPE_CHECKING:
 
 
 class SquadcastSDK(BaseSDK):
+    r"""Squadcast: ## Overview
+    The Squadcast API provides developers the capability to extend and utilize Squadcast in conjunction with other services. Our API has resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
+
+    > **Note:** Customers using the V2 version of the Squadcast API would need to migrate to Squadcast API V3, as the former would be deprecated shortly.
+
+    ### Service Regions
+
+    Squadcast allows customers to choose the geographic region of the Squadcast data centers that host their account. When signing up, you can choose the service region. Currently, the available options are the United States (US) and Europe (EU).
+
+    | Service Region | API Endpoints |
+    |---|---|
+    | US | Authentication: https://auth.squadcast.com · Other APIs: https://api.squadcast.com |
+    | EU | Authentication: https://auth.eu.squadcast.com · Other APIs: https://api.eu.squadcast.com |
+
+    ### Authentication
+
+    In order to access the API programmatically, HTTP bearer authentication needs to be used. HTTP bearer authentication must be constructed using an `access_token`, passed as the `Authorization` header for each request, for example `Authorization: Bearer eyJleHAiOjE2MzU1OTE1OTIsImp0aSI6Im`.
+
+    Steps to procure the `access_token`:
+
+    1. Generate a `refresh_token` (API Token) from the Squadcast web app. More details on how to get the `refresh_token` can be found in the Squadcast support documentation.
+    2. Call the authentication API with the `refresh_token` to obtain an `access_token`.
+    3. Use the `access_token` as a Bearer token in the `Authorization` header for all subsequent API requests.
+
+    #### Example — Generating an Access Token
+
+    ```bash
+    curl --location --request GET 'https://auth.squadcast.com/oauth/access-token' \ 
+    --header 'X-Refresh-Token: 0d2a1a9a454dxxxxxxxxxxxx'
+    ```
+
+    The API response will look similar to:
+
+    ```json
+    {
+    \"data\": {
+    \"access_token\": \"eyJhbGciOiJIUxxxxx.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx\",
+    \"expires_at\": 1587412870,
+    \"issued_at\": 1587240070,
+    \"refresh_token\": \"0d2a1a9a454dxxxxxxxxxxxx\",
+    \"type\": \"bearer\" 
+    }
+    }
+    ```
+
+    ### Access Control
+
+    There are three different types of user roles in Squadcast: `account_owner`, `stakeholder`, and `user`. Refresh tokens upon creation are mapped with one of the mentioned user roles, and access to different resources is dependent on the permissions granted to these roles. For more information, please refer to the Squadcast support documentation.
+
+    ### Authorization
+
+    The access token authorizes users the ability to access different APIs, based on the user roles described above. Pass the access token as a Bearer token in the `Authorization` header of every request.
+    """
+
+    auth: "Auth"
     analytics: "Analytics"
     audit_logs: "AuditLogs"
     escalation_policies: "EscalationPoliciesSDK"
@@ -93,6 +149,7 @@ class SquadcastSDK(BaseSDK):
     statuspages: "StatuspagesSDK2"
     subscribers: "Subscribers"
     _sub_sdk_map = {
+        "auth": ("squadcast_sdk.auth", "Auth"),
         "analytics": ("squadcast_sdk.analytics", "Analytics"),
         "audit_logs": ("squadcast_sdk.auditlogs", "AuditLogs"),
         "escalation_policies": (
@@ -149,7 +206,7 @@ class SquadcastSDK(BaseSDK):
 
     def __init__(
         self,
-        bearer_auth: Union[str, Callable[[], str]],
+        bearer_auth: Optional[Union[Optional[str], Callable[[], Optional[str]]]] = None,
         server_idx: Optional[int] = None,
         url_params: Optional[Dict[str, str]] = None,
         server_url: Optional[str] = None,

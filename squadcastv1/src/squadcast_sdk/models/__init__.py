@@ -68,6 +68,13 @@ if TYPE_CHECKING:
         AuditLogsListAuditLogsResponseTypedDict,
         Client,
     )
+    from .auth_getaccesstokenop import (
+        AUTH_GET_ACCESS_TOKEN_OP_SERVERS,
+        AuthGetAccessTokenRequest,
+        AuthGetAccessTokenRequestTypedDict,
+        AuthGetAccessTokenResponse,
+        AuthGetAccessTokenResponseTypedDict,
+    )
     from .common_v3_entityowner import CommonV3EntityOwner, CommonV3EntityOwnerTypedDict
     from .common_v3_errormeta import (
         CommonV3ErrorMeta,
@@ -1339,6 +1346,10 @@ if TYPE_CHECKING:
         V3AuditLogsListAuditLogsResponseTypedDict,
     )
     from .v3_auditlogs_team import V3AuditLogsTeam, V3AuditLogsTeamTypedDict
+    from .v3_auth_accesstokendata import (
+        V3AuthAccessTokenData,
+        V3AuthAccessTokenDataTypedDict,
+    )
     from .v3_escalationpolicies_createescalationpolicyrequest import (
         V3EscalationPoliciesCreateEscalationPolicyRequest,
         V3EscalationPoliciesCreateEscalationPolicyRequestTypedDict,
@@ -3197,6 +3208,7 @@ if TYPE_CHECKING:
 __all__ = [
     "ACL",
     "ACLTypedDict",
+    "AUTH_GET_ACCESS_TOKEN_OP_SERVERS",
     "Abilities",
     "AbilitiesTypedDict",
     "Action",
@@ -3242,6 +3254,10 @@ __all__ = [
     "AuditLogsListAuditLogsRequestTypedDict",
     "AuditLogsListAuditLogsResponse",
     "AuditLogsListAuditLogsResponseTypedDict",
+    "AuthGetAccessTokenRequest",
+    "AuthGetAccessTokenRequestTypedDict",
+    "AuthGetAccessTokenResponse",
+    "AuthGetAccessTokenResponseTypedDict",
     "BuildParameters",
     "BuildParametersTypedDict",
     "CircleciResponse",
@@ -4175,6 +4191,8 @@ __all__ = [
     "V3AuditLogsListAuditLogsResponseTypedDict",
     "V3AuditLogsTeam",
     "V3AuditLogsTeamTypedDict",
+    "V3AuthAccessTokenData",
+    "V3AuthAccessTokenDataTypedDict",
     "V3EscalationPoliciesCreateEscalationPolicyRequest",
     "V3EscalationPoliciesCreateEscalationPolicyRequestTypedDict",
     "V3EscalationPoliciesEscalationEntity",
@@ -5287,6 +5305,11 @@ _dynamic_imports: dict[str, str] = {
     "AuditLogsListAuditLogsResponse": ".auditlogs_listauditlogsop",
     "AuditLogsListAuditLogsResponseTypedDict": ".auditlogs_listauditlogsop",
     "Client": ".auditlogs_listauditlogsop",
+    "AUTH_GET_ACCESS_TOKEN_OP_SERVERS": ".auth_getaccesstokenop",
+    "AuthGetAccessTokenRequest": ".auth_getaccesstokenop",
+    "AuthGetAccessTokenRequestTypedDict": ".auth_getaccesstokenop",
+    "AuthGetAccessTokenResponse": ".auth_getaccesstokenop",
+    "AuthGetAccessTokenResponseTypedDict": ".auth_getaccesstokenop",
     "CommonV3EntityOwner": ".common_v3_entityowner",
     "CommonV3EntityOwnerTypedDict": ".common_v3_entityowner",
     "CommonV3ErrorMeta": ".common_v3_errormeta",
@@ -6154,6 +6177,8 @@ _dynamic_imports: dict[str, str] = {
     "V3AuditLogsListAuditLogsResponseTypedDict": ".v3_auditlogs_listauditlogsresponse",
     "V3AuditLogsTeam": ".v3_auditlogs_team",
     "V3AuditLogsTeamTypedDict": ".v3_auditlogs_team",
+    "V3AuthAccessTokenData": ".v3_auth_accesstokendata",
+    "V3AuthAccessTokenDataTypedDict": ".v3_auth_accesstokendata",
     "V3EscalationPoliciesCreateEscalationPolicyRequest": ".v3_escalationpolicies_createescalationpolicyrequest",
     "V3EscalationPoliciesCreateEscalationPolicyRequestTypedDict": ".v3_escalationpolicies_createescalationpolicyrequest",
     "V3EscalationPoliciesEscalationEntity": ".v3_escalationpolicies_escalationentity",

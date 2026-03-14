@@ -1,10 +1,10 @@
 lockVersion: 2.0.0
 id: 03cdd445-0210-4c34-8201-e581ca90c83e
 management:
-  docChecksum: df7a4422fc789c0b9bf9786cbc3e3c75
+  docChecksum: a358bc228184cab5434e34aca340ad18
   docVersion: 1.0.0
-  speakeasyVersion: 1.753.0
-  generationVersion: 2.862.0
+  speakeasyVersion: 1.755.0
+  generationVersion: 2.865.2
   releaseVersion: 0.5.0
   configChecksum: a55105e4f46708e529dcdaf1d3bf5b23
   repoURL: https://github.com/solarwinds/squadcast-sdk-python.git
@@ -12,9 +12,9 @@ management:
   installationURL: https://github.com/solarwinds/squadcast-sdk-python.git#subdirectory=squadcastv1
   published: true
 persistentEdits:
-  generation_id: 26a6faa1-ea98-4fc5-aadd-13602d811552
-  pristine_commit_hash: d8e32798cdff464914398f76280688a77e44edb3
-  pristine_tree_hash: 20b16078c51e44468739e17acc896690908cac5d
+  generation_id: 43a00431-450c-4d46-8b38-98851616353f
+  pristine_commit_hash: b76ad7995b27f369a6667f83f04d829f97ae7d04
+  pristine_tree_hash: fd5f6dcc0e3716b0e02d022d9e398fbf074b15b7
 features:
   python:
     additionalDependencies: 1.0.0
@@ -31,6 +31,7 @@ features:
     globalServerURLs: 3.2.1
     groups: 3.0.1
     methodArguments: 1.0.2
+    methodServerURLs: 3.1.2
     nameOverrides: 3.0.3
     nullables: 1.0.2
     pagination: 3.0.7
@@ -50,8 +51,8 @@ trackedFiles:
     pristine_git_object: 8d79f0abb72526f1fb34a4c03e5bba612c6ba2ae
   USAGE.md:
     id: 3aed33ce6e6f
-    last_write_checksum: sha1:c46ac2c4353ce70afff42a9b20ef086dbb572fd7
-    pristine_git_object: 370fa5bd1d30818a43a6ae83cd95b23c0dbb8a65
+    last_write_checksum: sha1:381ddb732386b3b3fbf9970df377c15ee8268966
+    pristine_git_object: c4cdd4f53ba44ebd85740d3a2aca95b987c54556
   docs/errors/badgatewayerror.md:
     id: 272bd11a6fef
     last_write_checksum: sha1:701e0f59181e259006d7ac3984bc81ec022bd136
@@ -208,6 +209,14 @@ trackedFiles:
     id: 15f07be8d273
     last_write_checksum: sha1:2e373c609bb50e0e92bb559c6681c3b53c8ce33e
     pristine_git_object: 11333598f2d72da63005eb9474273ea91eff757e
+  docs/models/authgetaccesstokenrequest.md:
+    id: 43db6a1bc864
+    last_write_checksum: sha1:706f01aef416dbf3f7dff90ad77a5f80ab70651d
+    pristine_git_object: 5ab6255a40deec50790273047c6d37c0d2186725
+  docs/models/authgetaccesstokenresponse.md:
+    id: ea2e35e22da4
+    last_write_checksum: sha1:96b664658696b8464aa67a64da7435a11f405f0b
+    pristine_git_object: 96043b98420e6d6e82bccf19a661e50572ae4a8b
   docs/models/buildparameters.md:
     id: a7dd35c6b09c
     last_write_checksum: sha1:b1531a408ca1ab6bcf9904bf2b4a2ad96ee56b7b
@@ -1438,8 +1447,8 @@ trackedFiles:
     pristine_git_object: c88e2afe9f7929ce26d86606a60ff8e724b16a83
   docs/models/security.md:
     id: 452e4d4eb67a
-    last_write_checksum: sha1:745572e344516e941da7093c8bdf34061fa9e292
-    pristine_git_object: f218fa1efc4f957fa52215140d475e7b2758128a
+    last_write_checksum: sha1:b92237f55b89698b718cee58634a51a5cdb29edb
+    pristine_git_object: 8ca6325b43081d6b8849bf8cfab3d65678d3d386
   docs/models/services.md:
     id: d85d7acbad0a
     last_write_checksum: sha1:7a343a8261d7f7e1194ff491a83250e1532f4577
@@ -2088,6 +2097,10 @@ trackedFiles:
     id: 1b1d6410fd41
     last_write_checksum: sha1:ec00a53374980146f48a86b210dc8b9bb761d99a
     pristine_git_object: b140690595fdd60267b91f6d8732e8e9415b827a
+  docs/models/v3authaccesstokendata.md:
+    id: 139daac5c1ad
+    last_write_checksum: sha1:558d7bd65537235d019ab4cb40fcfd41e68a77fd
+    pristine_git_object: aeab90a40db4f5a72c64d96a285bf6417b57bdc2
   docs/models/v3escalationpoliciescreateescalationpolicyrequest.md:
     id: 904e6dabc32a
     last_write_checksum: sha1:fa99b34e4fd8517932276a6bc0c8520b710eeb6a
@@ -4404,6 +4417,10 @@ trackedFiles:
     id: 4ed8509e422e
     last_write_checksum: sha1:fa6ba328a096ba09c829ac9e8c8a4e8debb0ce0e
     pristine_git_object: d7678f3a452832de67eb9a725ad27a26c050d103
+  docs/sdks/auth/README.md:
+    id: e9724f17945f
+    last_write_checksum: sha1:5a9774e15a266f22da9056052774a3b844acee5f
+    pristine_git_object: 62a82e04f7361bfad0929284a6da2c560db32ba0
   docs/sdks/autopausetransientalerts/README.md:
     id: 599212b917fb
     last_write_checksum: sha1:df4956524deca8329fd5107a69a529b89bf5dcba
@@ -4754,8 +4771,8 @@ trackedFiles:
     pristine_git_object: 28a85ed5e041bd88f09388cdbd7c0d9e84461a4d
   src/squadcast_sdk/_version.py:
     id: 4f595f70b00c
-    last_write_checksum: sha1:0b3cee1740d4d12ce8e350995737bf7dfa63835f
-    pristine_git_object: 90b5eccdde2ee8213d2c141170d2d111f29108dc
+    last_write_checksum: sha1:c006b5957c1446d6b2fafb61a9d27534354cd497
+    pristine_git_object: 01f66c9ba9733a33a2edb44c78f999c9243d0c11
   src/squadcast_sdk/additionalresponders.py:
     id: b928e2200f63
     last_write_checksum: sha1:6173958904ab7d26b7544464810f5fdbd5247ee0
@@ -4776,6 +4793,10 @@ trackedFiles:
     id: 5f6ff56139a4
     last_write_checksum: sha1:4bd70d1db13e5cb0423bac41250dd9ca7cfdf1d5
     pristine_git_object: dec547f50ce0f04a467c4fb6d47eb19a93632521
+  src/squadcast_sdk/auth.py:
+    id: 7ca8a3d73a2a
+    last_write_checksum: sha1:9da990119a7deacf6ab10b906707888ae2ec2200
+    pristine_git_object: d67098e4f921a5439545c7ca64ae93f9a337b3a7
   src/squadcast_sdk/autopausetransientalerts.py:
     id: 96a661a45a0c
     last_write_checksum: sha1:dd7277f0bd1c92c62f365f281dedd111eba528cf
@@ -4818,10 +4839,10 @@ trackedFiles:
     pristine_git_object: 7766a716788b8af96728ebefb2d21c0702cce3b5
   src/squadcast_sdk/errors/__init__.py:
     id: 15a1adfc4ebb
-    last_write_checksum: sha1:222932460ba24b1d3129d29f823785e95f48ff08
-    pristine_git_object: e7a9bfe879eabd33d747fa5588b2da9c466c2fba
-  src/squadcast_sdk/errors/analytics_getorganalyticsop.py:
-    id: b91a17c30c94
+    last_write_checksum: sha1:f2b1d662ec7167e767faf0846c9aa7232d6de724
+    pristine_git_object: 3aa03b1d1039272cb9b5c6e799fbe0047eed6f94
+  src/squadcast_sdk/errors/auth_getaccesstokenop.py:
+    id: 8cd2e91277af
     last_write_checksum: sha1:584ba869aa2f4b0c8e47786767726789bd24c8e7
     pristine_git_object: 24fad7643373ec97f44b0466894434b65baf146c
   src/squadcast_sdk/errors/common_v4_error.py:
@@ -4950,8 +4971,8 @@ trackedFiles:
     pristine_git_object: d529a417549f17ed85875009a46548854dbf86bc
   src/squadcast_sdk/models/__init__.py:
     id: 21ef35ea4c18
-    last_write_checksum: sha1:19b77abbfe00c221be05a55a1f7882a9ed1a989f
-    pristine_git_object: 982b84aa34ed962a4e2303804292c1b62b8750e1
+    last_write_checksum: sha1:21b4100ca533b3480419cb307e3f7d78986de094
+    pristine_git_object: c9b38f54a6097f0cae8440c7381bde2881dbc0dd
   src/squadcast_sdk/models/additionalresponders_addadditionalrespondersop.py:
     id: 8659dba914dd
     last_write_checksum: sha1:c515be7a9989d3e3533ea4c32ac725c4e8e016f7
@@ -4996,6 +5017,10 @@ trackedFiles:
     id: 587effdc37c9
     last_write_checksum: sha1:4a7a00dba06d3b0318e4410545ebecefe24fc571
     pristine_git_object: 769d7bec731470375c79b0b04636dfad04c2d47a
+  src/squadcast_sdk/models/auth_getaccesstokenop.py:
+    id: 9748a92a8797
+    last_write_checksum: sha1:33e1364def29b594d7171a5ef11e874bddb056fa
+    pristine_git_object: 1030698c9cd52e75698bebeca24296f4e1f63367
   src/squadcast_sdk/models/common_v3_entityowner.py:
     id: 823ba6808a6b
     last_write_checksum: sha1:f7658729a1d3fc8dc311520bba8f9ac108645ddc
@@ -5546,8 +5571,8 @@ trackedFiles:
     pristine_git_object: 396fb50fa8993427716b8b682aea7ca460dc656f
   src/squadcast_sdk/models/security.py:
     id: 1d1232846468
-    last_write_checksum: sha1:7b196b0cccf2f3f3168ca9800cb712e9d8f76943
-    pristine_git_object: 223350f9caa8ff9097f2f6036d68fdf67ecb8a10
+    last_write_checksum: sha1:e5fc71e943f9f1653d46014e2176b714c7a9c477
+    pristine_git_object: 6829ad8751c65e5ddea2472a69235065c7f51779
   src/squadcast_sdk/models/services_createorupdateaptaconfigop.py:
     id: 475b5d13b76f
     last_write_checksum: sha1:124c6f607d68537be0b00502b2d1e5024179dcd3
@@ -5856,6 +5881,10 @@ trackedFiles:
     id: c03a569a652a
     last_write_checksum: sha1:c60077c8ffc61499f5c532460eca9ea86a10fcc8
     pristine_git_object: 6ca22c2ffe80b9d2317104fb4355a40ffd0533eb
+  src/squadcast_sdk/models/v3_auth_accesstokendata.py:
+    id: 10d1859e7971
+    last_write_checksum: sha1:ba362fd1aa6068b4d584f01ffe5544834988bd1c
+    pristine_git_object: 6494fab4b3f5522f64dd6e0a8c1483141d6900b3
   src/squadcast_sdk/models/v3_escalationpolicies_createescalationpolicyrequest.py:
     id: 15a105c2909b
     last_write_checksum: sha1:cdef33d585a41ca903b33637a0a20d8bebde3da6
@@ -7506,12 +7535,12 @@ trackedFiles:
     pristine_git_object: 04ef368df94569a17c7cc63b748131b41cbdeeaf
   src/squadcast_sdk/sdk.py:
     id: 44b4d90db393
-    last_write_checksum: sha1:3c162c88ef663e26dc8cbfee56615eda8bab802e
-    pristine_git_object: 587b564414af8c03f1dd2c1dfb7353468ba86f03
+    last_write_checksum: sha1:f21e6df211c0eb7cc8fb0e562b86c65e078ec966
+    pristine_git_object: 5a19c27259c66e066ba0e0ae439a6e9380e553b8
   src/squadcast_sdk/sdkconfiguration.py:
     id: 12d848ca6e5e
-    last_write_checksum: sha1:b158971b5335aa35f76ec919065044f1486db576
-    pristine_git_object: dfc3c6e4b0fb759c3a802a755ecddfd567ea3e64
+    last_write_checksum: sha1:0ca1cfdb357e4d5e010a5fa3f36e952d6bd5e8b7
+    pristine_git_object: fb06bf2d9b79311021d7a169ef34c97914d8f5a6
   src/squadcast_sdk/servicenow.py:
     id: bfd41231c752
     last_write_checksum: sha1:a704eeb5a8317f69c08d573dd5cd90e1e5b20623
@@ -14381,7 +14410,40 @@ examples:
           application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
         "504":
           application/json: {"meta": {"status": "<value>", "error_message": "<value>"}}
+  Auth_getAccessToken:
+    speakeasy-default-auth-get-access-token:
+      parameters:
+        header:
+          X-Refresh-Token: "<value>"
+      responses:
+        "200":
+          application/json: {"data": {"access_token": "<value>", "expires_at": 55533, "issued_at": 163978, "refresh_token": "<value>", "type": "<value>"}}
+        "400":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "401":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "402":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "403":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "404":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "409":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "422":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "500":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "502":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "503":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
+        "504":
+          application/json: {"meta": {"status": 565328, "error_message": "<value>"}}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Python SDK Changes:
+  * `squadcast_sdk.auth.auth_get_access_token()`: **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
