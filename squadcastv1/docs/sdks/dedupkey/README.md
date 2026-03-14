@@ -18,7 +18,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.overlays.dedup_key.get_for_alert_source(service_id="<id>", alert_source="<value>")

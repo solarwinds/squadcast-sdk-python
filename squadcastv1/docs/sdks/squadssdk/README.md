@@ -23,7 +23,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.squads.list(owner_id="<id>")
@@ -65,7 +65,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.squads.get_by_id(squad_id="<id>")
@@ -109,7 +109,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.squads.update_v4(squad_id="<id>")
@@ -156,7 +156,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.squads.remove_member(squad_id="<id>", member_id="<id>", replace_with="<value>")
@@ -200,7 +200,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.squads.delete(squad_id="<id>")

@@ -24,7 +24,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.rotations.list_by_schedule(schedule_id="<id>")
@@ -65,7 +65,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.rotations.create(schedule_id="<id>", name="<value>", start_date="<value>", period="<value>", change_participants_frequency=62013, change_participants_unit="<value>", participant_groups=[])
@@ -118,7 +118,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.rotations.delete(schedule_id="<id>", rotation_id="<id>")
@@ -160,7 +160,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.rotations.get_by_id(schedule_id="<id>", rotation_id="<id>")
@@ -202,7 +202,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.rotations.update(schedule_id="<id>", rotation_id="<id>", name="<value>", start_date="<value>", period="<value>", change_participants_frequency=183098, change_participants_unit="<value>")
@@ -255,7 +255,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.rotations.get_participants(schedule_id="<id>", rotation_id="<id>")
@@ -297,7 +297,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.rotations.update_participants(schedule_id="<id>", rotation_id="<id>", participant_groups=[])

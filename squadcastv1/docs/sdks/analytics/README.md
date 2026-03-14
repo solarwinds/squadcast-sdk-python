@@ -19,7 +19,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
@@ -72,7 +72,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.analytics.get_team(owner_id="<id>", from_="<value>", to="<value>")

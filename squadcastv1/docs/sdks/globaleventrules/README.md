@@ -22,7 +22,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.list(owner_id="<id>")
@@ -78,7 +78,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.create_rule(name="<value>", description="majestically effector headline dampen eek middle like shrill", owner_id="<id>", entity_owner={
@@ -134,7 +134,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.delete_by_id(ger_id=491102)
@@ -184,7 +184,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.get_by_id(ger_id=292040)
@@ -234,7 +234,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.update_by_id(ger_id=885894)

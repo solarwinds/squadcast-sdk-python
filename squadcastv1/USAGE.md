@@ -4,9 +4,11 @@
 from squadcast import SquadcastSDK
 
 
-with SquadcastSDK() as squadcast_sdk:
+with SquadcastSDK(
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>")
+    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -23,9 +25,11 @@ from squadcast import SquadcastSDK
 
 async def main():
 
-    async with SquadcastSDK() as squadcast_sdk:
+    async with SquadcastSDK(
+        refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+    ) as squadcast_sdk:
 
-        res = await squadcast_sdk.auth.auth_get_access_token_async(x_refresh_token="<value>")
+        res = await squadcast_sdk.analytics.get_org_analytics_async(from_="<value>", to="<value>")
 
         # Handle response
         print(res)

@@ -5,11 +5,6 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *squa
 [![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=squadcast-sdk&utm_campaign=python)
 [![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
 
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/swo/incident-response). Delete this section before > publishing to a package manager.
-
 <!-- Start Summary [summary] -->
 ## Summary
 
@@ -176,9 +171,11 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 from squadcast import SquadcastSDK
 
 
-with SquadcastSDK() as squadcast_sdk:
+with SquadcastSDK(
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>")
+    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -195,9 +192,11 @@ from squadcast import SquadcastSDK
 
 async def main():
 
-    async with SquadcastSDK() as squadcast_sdk:
+    async with SquadcastSDK(
+        refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+    ) as squadcast_sdk:
 
-        res = await squadcast_sdk.auth.auth_get_access_token_async(x_refresh_token="<value>")
+        res = await squadcast_sdk.analytics.get_org_analytics_async(from_="<value>", to="<value>")
 
         # Handle response
         print(res)
@@ -213,20 +212,20 @@ asyncio.run(main())
 
 This SDK supports the following security scheme globally:
 
-| Name          | Type | Scheme      |
-| ------------- | ---- | ----------- |
-| `bearer_auth` | http | HTTP Bearer |
+| Name                 | Type | Scheme      |
+| -------------------- | ---- | ----------- |
+| `refresh_token_auth` | http | Custom HTTP |
 
-To authenticate with the API the `bearer_auth` parameter must be set when initializing the SDK client instance. For example:
+To authenticate with the API the `refresh_token_auth` parameter must be set when initializing the SDK client instance. For example:
 ```python
 from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
-    res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>")
+    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -256,10 +255,6 @@ with SquadcastSDK(
 * [list_export_history](docs/sdks/auditlogs/README.md#list_export_history) - List all Audit Logs export history
 * [get_export_history_by_id](docs/sdks/auditlogs/README.md#get_export_history_by_id) - Get details of Audit Logs export history by ID
 * [get_by_id](docs/sdks/auditlogs/README.md#get_by_id) - Get audit log by ID
-
-### [Auth](docs/sdks/auth/README.md)
-
-* [auth_get_access_token](docs/sdks/auth/README.md#auth_get_access_token) - Get Access Token
 
 ### [CommunicationCards](docs/sdks/communicationcards/README.md)
 
@@ -740,7 +735,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.audit_logs.list(page_size=832442, page_number=555332, start_date=date.fromisoformat("2023-03-04"), end_date=date.fromisoformat("2024-08-07"))
@@ -768,7 +763,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.escalation_policies.update(escalation_policy_id="<id>", v3_escalation_policies_update_escalation_policy_request=open("example.file", "rb"))
@@ -790,9 +785,11 @@ from squadcast import SquadcastSDK
 from squadcast.utils import BackoffStrategy, RetryConfig
 
 
-with SquadcastSDK() as squadcast_sdk:
+with SquadcastSDK(
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>",
+    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -808,9 +805,10 @@ from squadcast.utils import BackoffStrategy, RetryConfig
 
 with SquadcastSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
-    res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>")
+    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -837,11 +835,13 @@ with SquadcastSDK(
 from squadcast import SquadcastSDK, errors
 
 
-with SquadcastSDK() as squadcast_sdk:
+with SquadcastSDK(
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
     res = None
     try:
 
-        res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>")
+        res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
 
         # Handle response
         print(res)
@@ -886,9 +886,9 @@ with SquadcastSDK() as squadcast_sdk:
 
 
 **Inherit from [`SquadcastSDKError`](./src/squadcast/errors/squadcastsdkerror.py)**:
-* [`CommonV4Error`](./src/squadcast/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 231 methods.*
-* [`ResponseBodyError1`](./src/squadcast/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 231 methods.*
-* [`ResponseBodyError2`](./src/squadcast/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 231 methods.*
+* [`CommonV4Error`](./src/squadcast/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 230 methods.*
+* [`ResponseBodyError1`](./src/squadcast/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
+* [`ResponseBodyError2`](./src/squadcast/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
 * [`ResponseValidationError`](./src/squadcast/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
@@ -916,7 +916,7 @@ from squadcast import SquadcastSDK
 
 with SquadcastSDK(
     server_idx=0,
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
@@ -935,26 +935,10 @@ from squadcast import SquadcastSDK
 
 with SquadcastSDK(
     server_url="https://api.squadcast.com",
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
-
-    # Handle response
-    print(res)
-
-```
-
-### Override Server URL Per-Operation
-
-The server URL can also be overridden on a per-operation basis, provided a server list was specified for the operation. For example:
-```python
-from squadcast import SquadcastSDK
-
-
-with SquadcastSDK() as squadcast_sdk:
-
-    res = squadcast_sdk.auth.auth_get_access_token(x_refresh_token="<value>", server_url="https://auth.eu.squadcast.com")
 
     # Handle response
     print(res)
@@ -1054,14 +1038,18 @@ The `SquadcastSDK` class implements the context manager protocol and registers a
 from squadcast import SquadcastSDK
 def main():
 
-    with SquadcastSDK() as squadcast_sdk:
+    with SquadcastSDK(
+        refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+    ) as squadcast_sdk:
         # Rest of application here...
 
 
 # Or when using async:
 async def amain():
 
-    async with SquadcastSDK() as squadcast_sdk:
+    async with SquadcastSDK(
+        refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+    ) as squadcast_sdk:
         # Rest of application here...
 ```
 <!-- End Resource Management [resource-management] -->

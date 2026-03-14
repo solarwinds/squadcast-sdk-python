@@ -20,7 +20,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.postmortems.get_all(from_date="<value>", to_date="<value>", owner_id="<id>", limit=221553)
@@ -74,7 +74,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.postmortems.create(incident_id="<id>", owner_id="<id>", title="<value>", postmortem="<value>", status="published", follow_ups=[], attachments=[

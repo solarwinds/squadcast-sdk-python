@@ -18,7 +18,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.extensions.msteams.create_or_update_config(default_conversation_name="<value>", default_conversation_id="<id>", is_active=False, is_default_active=False, is_custom_channels_active=True, triggers={

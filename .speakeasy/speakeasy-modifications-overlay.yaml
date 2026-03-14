@@ -8,6 +8,36 @@ info:
     before: ""
     type: speakeasy-modifications
 actions:
+  # Auth is handled by the SDK hook, so the auth endpoint should not be exposed.
+  - target: $["paths"]["/oauth/access-token"]
+    remove: true
+  - target: "$.tags[?(@.name=='Auth')]"
+    remove: true
+  # Replace BearerAuth with a custom RefreshTokenAuth scheme.
+  # The SDK will generate Security{refresh_token_auth} instead of Security{bearer_auth}.
+  # The BeforeRequest hook in src/squadcast/_hooks/refreshtokenhook.py handles the
+  # token exchange and sets the Authorization header on every request.
+  - target: $["components"]["securitySchemes"]["BearerAuth"]
+    remove: true
+  - target: $["components"]["securitySchemes"]
+    update:
+      RefreshTokenAuth:
+        type: http
+        scheme: custom
+        x-speakeasy-custom-security-scheme:
+          schema:
+            type: object
+            properties:
+              refreshToken:
+                type: string
+                description: Squadcast refresh token used to obtain short-lived bearer tokens.
+            required:
+              - refreshToken
+  - target: "$.security[?(@.BearerAuth)]"
+    remove: true
+  - target: $["security"]
+    update:
+      - RefreshTokenAuth: []
   - target: $["paths"]["/v3/incidents/{incidentID}/additional-responders/{responderID}"]["delete"]
     update:
       x-speakeasy-group: additionalResponders

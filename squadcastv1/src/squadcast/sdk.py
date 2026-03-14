@@ -18,7 +18,6 @@ if TYPE_CHECKING:
     from squadcast.additionalresponders import AdditionalResponders
     from squadcast.analytics import Analytics
     from squadcast.auditlogs import AuditLogs
-    from squadcast.auth import Auth
     from squadcast.communicationcards import CommunicationCards
     from squadcast.componentgroups import ComponentGroups
     from squadcast.components import Components
@@ -110,7 +109,6 @@ class SquadcastSDK(BaseSDK):
     The access token authorizes users the ability to access different APIs, based on the user roles described above. Pass the access token as a Bearer token in the `Authorization` header of every request.
     """
 
-    auth: "Auth"
     analytics: "Analytics"
     audit_logs: "AuditLogs"
     escalation_policies: "EscalationPoliciesSDK"
@@ -149,7 +147,6 @@ class SquadcastSDK(BaseSDK):
     statuspages: "StatuspagesSDK2"
     subscribers: "Subscribers"
     _sub_sdk_map = {
-        "auth": ("squadcast.auth", "Auth"),
         "analytics": ("squadcast.analytics", "Analytics"),
         "audit_logs": ("squadcast.auditlogs", "AuditLogs"),
         "escalation_policies": (
@@ -203,7 +200,7 @@ class SquadcastSDK(BaseSDK):
 
     def __init__(
         self,
-        bearer_auth: Optional[Union[Optional[str], Callable[[], Optional[str]]]] = None,
+        refresh_token_auth: Union[str, Callable[[], str]],
         server_idx: Optional[int] = None,
         url_params: Optional[Dict[str, str]] = None,
         server_url: Optional[str] = None,
@@ -215,7 +212,7 @@ class SquadcastSDK(BaseSDK):
     ) -> None:
         r"""Instantiates the SDK configuring it with the provided parameters.
 
-        :param bearer_auth: The bearer_auth required for authentication
+        :param refresh_token_auth: The refresh_token_auth required for authentication
         :param server_idx: The index of the server to use for all methods
         :param server_url: The server URL to use for all methods
         :param url_params: Parameters to optionally template the server URL with
@@ -246,11 +243,11 @@ class SquadcastSDK(BaseSDK):
         ), "The provided async_client must implement the AsyncHttpClient protocol."
 
         security: Any = None
-        if callable(bearer_auth):
+        if callable(refresh_token_auth):
             # pylint: disable=unnecessary-lambda-assignment
-            security = lambda: models.Security(bearer_auth=bearer_auth())
+            security = lambda: models.Security(refresh_token_auth=refresh_token_auth())
         else:
-            security = models.Security(bearer_auth=bearer_auth)
+            security = models.Security(refresh_token_auth=refresh_token_auth)
 
         if server_url is not None:
             if url_params is not None:

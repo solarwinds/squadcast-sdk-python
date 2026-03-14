@@ -18,7 +18,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.incidents.actions.rebuild_circleci_project(incident_id="<id>", build_number="<value>", vcs_type="<value>", username="Dora.Waelchi", reponame="<value>")

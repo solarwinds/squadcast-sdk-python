@@ -19,7 +19,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.maintenances.delete(statuspage_id="<id>", maintenance_id="<id>")
@@ -71,7 +71,7 @@ from squadcast.utils import parse_datetime
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.maintenances.update_by_id(statuspage_id="<id>", maintenance_id="<id>", title="<value>", note="<value>", start_time=parse_datetime("2024-07-22T17:12:15.919Z"), end_time=parse_datetime("2024-06-11T21:00:35.262Z"))

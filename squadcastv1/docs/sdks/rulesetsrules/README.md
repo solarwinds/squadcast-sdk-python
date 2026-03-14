@@ -22,7 +22,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.rulesets.rules.list(ger_id=894010, alert_source_version="<value>", alert_source_shortname="<value>")
@@ -79,7 +79,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.rulesets.rules.create(ger_id=934313, alert_source_version="<value>", alert_source_shortname="<value>", description="ha newsprint within beside scientific", expression="<value>", action={
@@ -136,7 +136,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.rulesets.rules.get_by_id(ger_id=518804, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
@@ -189,7 +189,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.rulesets.rules.update_by_id(ger_id=140241, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
@@ -245,7 +245,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.global_event_rules.rulesets.rules.reorder(ger_id=281260, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")

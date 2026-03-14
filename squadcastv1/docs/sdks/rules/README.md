@@ -18,7 +18,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
     res = squadcast_sdk.rules.delete_by_id(ger_id=921538, alert_source_version="<value>", alert_source_shortname="<value>", rule_id="<id>")
