@@ -16,13 +16,13 @@ _EXPIRY_SKEW = timedelta(seconds=30)
 
 
 @dataclass
-class _CachedToken:
+class _CachedAccessToken:
     token: str
     expiry: datetime
 
 
-class _TokenCache:
-    _token: Optional[_CachedToken]
+class _AccessTokenCache:
+    _token: Optional[_CachedAccessToken]
 
     def __init__(self) -> None:
         self._token = None
@@ -38,12 +38,12 @@ class _TokenCache:
         return self._token.token
 
     def set(self, token: str, expiry: datetime) -> None:
-        self._token = _CachedToken(token=token, expiry=expiry)
+        self._token = _CachedAccessToken(token=token, expiry=expiry)
 
 
-class RefreshTokenHook(BeforeRequestHook):
+class AccessTokenHook(BeforeRequestHook):
     def __init__(self) -> None:
-        self._cache = _TokenCache()
+        self._cache = _AccessTokenCache()
 
     def before_request(
         self, hook_ctx: BeforeRequestContext, request: httpx.Request
@@ -60,7 +60,7 @@ class RefreshTokenHook(BeforeRequestHook):
         refresh_url = _resolve_refresh_url(hook_ctx.base_url, request.url)
 
         try:
-            token, expiry = _fetch_bearer_token(refresh_url, refresh_token)
+            token, expiry = _fetch_access_token(refresh_url, refresh_token)
         except Exception as exc:  # pragma: no cover - passthrough to generated flow
             return exc
 
@@ -123,7 +123,7 @@ def _auth_host_for_api_host(api_host: str) -> str:
     return "auth.squadcast.com"
 
 
-def _fetch_bearer_token(refresh_url: str, refresh_token: str) -> tuple[str, datetime]:
+def _fetch_access_token(refresh_url: str, refresh_token: str) -> tuple[str, datetime]:
     response = httpx.get(
         refresh_url,
         headers={
