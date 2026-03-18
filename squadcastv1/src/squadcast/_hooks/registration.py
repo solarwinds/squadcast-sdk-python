@@ -1,5 +1,5 @@
 from .types import Hooks
-from .refreshtokenhook import AccessTokenHook
+from .accesstokenhook import AccessTokenHook
 
 
 # This file is only ever generated once on the first generation and then is free to be modified.
