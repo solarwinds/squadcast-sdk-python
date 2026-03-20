@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3IncidentsIncidentExportRequestIsStarred
+from squadcast.models import V3IncidentsIncidentExportRequestIsStarred
 value: V3IncidentsIncidentExportRequestIsStarred = "yes"
 ```
 

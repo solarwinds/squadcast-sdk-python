@@ -23,14 +23,14 @@ deduped - if set to true, it will return only the deduplicated events. if set to
 
 <!-- UsageSnippet language="python" operationID="Incidents_getIncidentEvents" method="get" path="/v3/incidents/{incidentID}/events" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.events.get(incident_id="<id>", offset="<value>", limit="<value>", sort="<value>", deduped="<value>")
+    res = squadcast_sdk.incidents.events.get(incident_id="<id>", offset="<value>", limit="<value>", sort="<value>", deduped="<value>")
 
     # Handle response
     print(res)

@@ -14,14 +14,14 @@ Get workflow logs
 
 <!-- UsageSnippet language="python" operationID="Workflows_getWorkflowLogs" method="get" path="/v3/workflows/{workflowID}/logs" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.workflows.logs.get(workflow_id="<id>")
+    res = squadcast_sdk.workflows.logs.get(workflow_id="<id>")
 
     while res is not None:
         # Handle items

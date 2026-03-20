@@ -15,14 +15,14 @@ Update Tag
 
 <!-- UsageSnippet language="python" operationID="Tags_updateTag" method="put" path="/v3/incidents/{IncidentId}/tags" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.tags.update(incident_id="<id>", tags={})
+    res = squadcast_sdk.incidents.tags.update(incident_id="<id>", tags={})
 
     # Handle response
     print(res)
@@ -66,14 +66,14 @@ Append Tag
 
 <!-- UsageSnippet language="python" operationID="Tags_appendTag" method="patch" path="/v3/incidents/{IncidentId}/tags" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.tags.append(incident_id="<id>")
+    res = squadcast_sdk.incidents.tags.append(incident_id="<id>")
 
     # Handle response
     print(res)

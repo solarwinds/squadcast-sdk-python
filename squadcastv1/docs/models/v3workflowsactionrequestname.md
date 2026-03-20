@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3WorkflowsActionRequestName
+from squadcast.models import V3WorkflowsActionRequestName
 value: V3WorkflowsActionRequestName = "sq_attach_runbooks"
 ```
 

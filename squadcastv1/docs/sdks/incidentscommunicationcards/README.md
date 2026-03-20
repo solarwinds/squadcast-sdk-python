@@ -16,14 +16,14 @@ Create Communication Card
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_createCommunicationCard" method="post" path="/v3/incidents/{IncidentId}/communication_cards" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.communication_cards.create(incident_id="<id>", type_="<value>", url="https://oily-injunction.info", title="<value>")
+    res = squadcast_sdk.incidents.communication_cards.create(incident_id="<id>", type_="<value>", url="https://oily-injunction.info", title="<value>")
 
     # Handle response
     print(res)
@@ -71,14 +71,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_deleteCommunicationCard" method="delete" path="/v3/incidents/{IncidentId}/communication_cards/{communicationCardId}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.communication_cards.delete(incident_id="<id>", communication_card_id="<id>")
+    res = squadcast_sdk.incidents.communication_cards.delete(incident_id="<id>", communication_card_id="<id>")
 
     # Handle response
     print(res)
@@ -122,14 +122,14 @@ Update Communication Card
 
 <!-- UsageSnippet language="python" operationID="CommunicationCards_updateCommunicationCard" method="put" path="/v3/incidents/{IncidentId}/communication_cards/{communicationCardId}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.communication_cards.update(incident_id="<id>", communication_card_id="<id>", title="<value>", type_="<value>", url="https://major-cantaloupe.com/")
+    res = squadcast_sdk.incidents.communication_cards.update(incident_id="<id>", communication_card_id="<id>", title="<value>", type_="<value>", url="https://major-cantaloupe.com/")
 
     # Handle response
     print(res)

@@ -15,14 +15,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="MSTeams_getMsteamsConfig" method="get" path="/v3/extensions/msteams/config" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.extensions.ms_teams.get_config()
+    res = squadcast_sdk.extensions.ms_teams.get_config()
 
     # Handle response
     print(res)

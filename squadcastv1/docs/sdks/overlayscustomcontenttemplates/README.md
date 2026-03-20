@@ -16,14 +16,14 @@ Render Custom Content Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_renderCustomContentOverlay" method="post" path="/v3/services/{serviceID}/overlays/custom-content/render" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.overlays.custom_content_templates.render(service_id="<id>", overlay_template_type="<value>", template="<value>", payload="<value>")
+    res = squadcast_sdk.services.overlays.custom_content_templates.render(service_id="<id>", overlay_template_type="<value>", template="<value>", payload="<value>")
 
     # Handle response
     print(res)
@@ -69,14 +69,14 @@ Delete Notification Template Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_deleteNotificationTemplateOverlay" method="delete" path="/v3/services/{serviceID}/overlays/custom-content/{alertSource}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.overlays.custom_content_templates.delete(service_id="<id>", alert_source="<value>")
+    res = squadcast_sdk.services.overlays.custom_content_templates.delete(service_id="<id>", alert_source="<value>")
 
     # Handle response
     print(res)
@@ -120,14 +120,14 @@ Get Custom Content Template Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_getCustomContentTemplateOverlay" method="get" path="/v3/services/{serviceID}/overlays/custom-content/{alertSource}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.overlays.custom_content_templates.get(service_id="<id>", alert_source="<value>")
+    res = squadcast_sdk.services.overlays.custom_content_templates.get(service_id="<id>", alert_source="<value>")
 
     # Handle response
     print(res)

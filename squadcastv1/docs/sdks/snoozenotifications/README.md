@@ -14,14 +14,14 @@ Snooze Incident Notifications
 
 <!-- UsageSnippet language="python" operationID="SnoozeNotifications_snoozeIncidentNotifications" method="put" path="/v3/incidents/{incidentID}/snooze" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.snooze_notifications.snooze(incident_id="<id>", snooze_duration_in_mins=42279)
+    res = squadcast_sdk.snooze_notifications.snooze(incident_id="<id>", snooze_duration_in_mins=42279)
 
     # Handle response
     print(res)

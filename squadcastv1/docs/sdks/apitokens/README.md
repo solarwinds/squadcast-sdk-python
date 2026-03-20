@@ -16,14 +16,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_getAllTokens" method="get" path="/v3/refresh-token" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.api_tokens.list()
+    res = squadcast_sdk.users.api_tokens.list()
 
     # Handle response
     print(res)
@@ -66,14 +66,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_createToken" method="post" path="/v3/refresh-token" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.api_tokens.create(user_id="<id>")
+    res = squadcast_sdk.users.api_tokens.create(user_id="<id>")
 
     # Handle response
     print(res)

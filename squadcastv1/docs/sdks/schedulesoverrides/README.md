@@ -16,14 +16,14 @@ List Overrides
 
 <!-- UsageSnippet language="python" operationID="Overrides_listOverrides" method="get" path="/v4/schedules/{scheduleID}/overrides" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.overrides.list(schedule_id="<id>", start_time="<value>", end_time="<value>")
+    res = squadcast_sdk.schedules.overrides.list(schedule_id="<id>", start_time="<value>", end_time="<value>")
 
     # Handle response
     print(res)
@@ -62,14 +62,14 @@ Create Schedule Override
 
 <!-- UsageSnippet language="python" operationID="Overrides_createScheduleOverride" method="post" path="/v4/schedules/{scheduleID}/overrides" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.overrides.create(schedule_id="<id>", start_time="<value>", end_time="<value>", reason="<value>", overridden_participant={
+    res = squadcast_sdk.schedules.overrides.create(schedule_id="<id>", start_time="<value>", end_time="<value>", reason="<value>", overridden_participant={
         "group": [
             {
                 "id": "<id>",
@@ -122,14 +122,14 @@ Update Schedule Override
 
 <!-- UsageSnippet language="python" operationID="Overrides_updateScheduleOverride" method="put" path="/v4/schedules/{scheduleID}/overrides/{overrideID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.overrides.update(schedule_id="<id>", override_id="<id>", start_time="<value>", end_time="<value>", reason="<value>", overridden_participant={
+    res = squadcast_sdk.schedules.overrides.update(schedule_id="<id>", override_id="<id>", start_time="<value>", end_time="<value>", reason="<value>", overridden_participant={
         "group": [
             {
                 "id": "<id>",

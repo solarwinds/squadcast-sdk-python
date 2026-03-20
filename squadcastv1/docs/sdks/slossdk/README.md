@@ -20,14 +20,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="SLO_getAllSLOs" method="get" path="/v3/slo" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.slos.list_all(owner_id="<id>", offset="<value>", limit="<value>")
+    res = squadcast_sdk.slos.list_all(owner_id="<id>", offset="<value>", limit="<value>")
 
     # Handle response
     print(res)
@@ -73,15 +73,15 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="SLO_createSLO" method="post" path="/v3/slo" -->
 ```python
-from squadcast_sdk import SquadcastSDK
-from squadcast_sdk.utils import parse_datetime
+from squadcast import SquadcastSDK
+from squadcast.utils import parse_datetime
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.slos.create(name="<value>", time_interval_type="rolling", service_ids=[
+    res = squadcast_sdk.slos.create(name="<value>", time_interval_type="rolling", service_ids=[
         "<value 1>",
     ], slis=[], target_slo=6924.37, start_time=parse_datetime("2023-06-03T10:41:05.981Z"), end_time=parse_datetime("2023-11-20T07:09:22.422Z"), duration_in_days=574042, owner_type="<value>", owner_id="<id>", slo_owner_id="<id>", slo_owner_type="squad")
 
@@ -142,15 +142,15 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="SLO_updateSLO" method="put" path="/v3/slo/{sloID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
-from squadcast_sdk.utils import parse_datetime
+from squadcast import SquadcastSDK
+from squadcast.utils import parse_datetime
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.slos.update(slo_id=16112, owner_id_param="<value>", name="<value>", time_interval_type="rolling", service_ids=[
+    res = squadcast_sdk.slos.update(slo_id=16112, owner_id_param="<value>", name="<value>", time_interval_type="rolling", service_ids=[
         "<value 1>",
         "<value 2>",
         "<value 3>",
@@ -217,14 +217,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="SLO_removeSLO" method="delete" path="/v3/slo/{sloID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.slos.remove(slo_id=938544, owner_id="<id>")
+    res = squadcast_sdk.slos.remove(slo_id=938544, owner_id="<id>")
 
     # Handle response
     print(res)
@@ -269,14 +269,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="SLO_getSLOById" method="get" path="/v3/slo/{sloID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.slos.get(slo_id=586718, owner_id="<id>")
+    res = squadcast_sdk.slos.get(slo_id=586718, owner_id="<id>")
 
     # Handle response
     print(res)
@@ -322,14 +322,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="SLO_markSLOAffected" method="post" path="/v3/slo/{sloID}/incident" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.slos.mark_affected(slo_id=294670, owner_id_param="<value>", incident_id="<id>", slis=[
+    res = squadcast_sdk.slos.mark_affected(slo_id=294670, owner_id_param="<value>", incident_id="<id>", slis=[
         "<value 1>",
         "<value 2>",
     ], error_budget_spent=3480.26, owner_type="<value>", owner_id="<id>", org_id="<id>")

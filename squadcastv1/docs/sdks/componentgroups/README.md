@@ -14,14 +14,14 @@ Create Component Group
 
 <!-- UsageSnippet language="python" operationID="ComponentGroups_createComponentGroup" method="post" path="/v4/statuspages/{statuspageID}/groups" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.component_groups.create(statuspage_id="<id>", name="<value>")
+    res = squadcast_sdk.component_groups.create(statuspage_id="<id>", name="<value>")
 
     # Handle response
     print(res)

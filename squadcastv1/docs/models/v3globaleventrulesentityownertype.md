@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3GlobalEventRulesEntityOwnerType
+from squadcast.models import V3GlobalEventRulesEntityOwnerType
 value: V3GlobalEventRulesEntityOwnerType = "team"
 ```
 

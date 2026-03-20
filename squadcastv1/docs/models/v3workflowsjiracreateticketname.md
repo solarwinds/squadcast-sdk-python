@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3WorkflowsJiraCreateTicketName
+from squadcast.models import V3WorkflowsJiraCreateTicketName
 value: V3WorkflowsJiraCreateTicketName = "jira_create_ticket"
 ```
 

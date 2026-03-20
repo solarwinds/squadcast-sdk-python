@@ -3,6 +3,6 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `bearer_auth`      | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `refresh_token_auth`                                              | *str*                                                             | :heavy_check_mark:                                                | Squadcast refresh token used to obtain short-lived bearer tokens. |

@@ -18,14 +18,14 @@ Get a list of all GERs
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_listGlobalEventRules" method="get" path="/v3/global-event-rules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.global_event_rules.list(owner_id="<id>")
+    res = squadcast_sdk.global_event_rules.list(owner_id="<id>")
 
     while res is not None:
         # Handle items
@@ -74,14 +74,14 @@ Create a GER
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_createGlobalEventRule" method="post" path="/v3/global-event-rules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.global_event_rules.create_rule(name="<value>", description="majestically effector headline dampen eek middle like shrill", owner_id="<id>", entity_owner={
+    res = squadcast_sdk.global_event_rules.create_rule(name="<value>", description="majestically effector headline dampen eek middle like shrill", owner_id="<id>", entity_owner={
         "id": "<id>",
         "type": "user",
     })
@@ -130,14 +130,14 @@ Delete a GER by its ID
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_deleteGlobalEventRuleById" method="delete" path="/v3/global-event-rules/{ger_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.global_event_rules.delete_by_id(ger_id=491102)
+    res = squadcast_sdk.global_event_rules.delete_by_id(ger_id=491102)
 
     # Handle response
     print(res)
@@ -180,14 +180,14 @@ Get a GER by its ID
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_getGlobalEventRuleById" method="get" path="/v3/global-event-rules/{ger_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.global_event_rules.get_by_id(ger_id=292040)
+    res = squadcast_sdk.global_event_rules.get_by_id(ger_id=292040)
 
     # Handle response
     print(res)
@@ -230,14 +230,14 @@ Update a GER by its ID
 
 <!-- UsageSnippet language="python" operationID="GlobalEventRules_updateGlobalEventRuleById" method="patch" path="/v3/global-event-rules/{ger_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.global_event_rules.update_by_id(ger_id=885894)
+    res = squadcast_sdk.global_event_rules.update_by_id(ger_id=885894)
 
     # Handle response
     print(res)

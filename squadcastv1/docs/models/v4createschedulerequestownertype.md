@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V4CreateScheduleRequestOwnerType
+from squadcast.models import V4CreateScheduleRequestOwnerType
 value: V4CreateScheduleRequestOwnerType = "user"
 ```
 

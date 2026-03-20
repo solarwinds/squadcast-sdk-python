@@ -15,14 +15,14 @@ Get Org level analytics
 
 <!-- UsageSnippet language="python" operationID="Analytics_getOrgAnalytics" method="get" path="/v3/analyticsv2/organization" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.analytics.get_org_analytics(from_="<value>", to="<value>")
+    res = squadcast_sdk.analytics.get_org_analytics(from_="<value>", to="<value>")
 
     # Handle response
     print(res)
@@ -68,14 +68,14 @@ Get Team level analytics
 
 <!-- UsageSnippet language="python" operationID="Analytics_getTeamAnalytics" method="get" path="/v3/analyticsv2/team" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.analytics.get_team(owner_id="<id>", from_="<value>", to="<value>")
+    res = squadcast_sdk.analytics.get_team(owner_id="<id>", from_="<value>", to="<value>")
 
     # Handle response
     print(res)

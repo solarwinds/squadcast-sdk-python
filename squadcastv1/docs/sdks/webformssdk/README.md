@@ -19,14 +19,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webforms_getAllWebforms" method="get" path="/v3/webform" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.webforms.list(owner_id="<id>")
+    res = squadcast_sdk.webforms.list(owner_id="<id>")
 
     while res is not None:
         # Handle items
@@ -74,14 +74,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webforms_createWebform" method="post" path="/v3/webform" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.webforms.create(owner_id="<id>", name="<value>", is_cname=False, is_captcha_enabled=False, captcha_secret={
+    res = squadcast_sdk.webforms.create(owner_id="<id>", name="<value>", is_cname=False, is_captcha_enabled=False, captcha_secret={
         "site_key": "<value>",
         "secret": "<value>",
     }, form_owner_type="<value>", form_owner_id="<id>", services=[], header="<value>", title="<value>", footer_text="<value>", footer_link="<value>")
@@ -145,14 +145,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webforms_updateWebform" method="put" path="/v3/webform/{webformId}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.webforms.update(webform_id=926692, owner_id="<id>", name="<value>", is_cname=True, is_captcha_enabled=True, captcha_secret={
+    res = squadcast_sdk.webforms.update(webform_id=926692, owner_id="<id>", name="<value>", is_cname=True, is_captcha_enabled=True, captcha_secret={
         "site_key": "<value>",
         "secret": "<value>",
     }, form_owner_type="<value>", form_owner_id="<id>", services=[
@@ -223,14 +223,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webforms_removeWebform" method="delete" path="/v3/webform/{webformId}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.webforms.remove(webform_id=842504, owner_id="<id>")
+    res = squadcast_sdk.webforms.remove(webform_id=842504, owner_id="<id>")
 
     # Handle response
     print(res)
@@ -275,14 +275,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Webforms_getWebformById" method="get" path="/v3/webform/{webformId}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.webforms.get_by_id(webform_id=831002, owner_id="<id>")
+    res = squadcast_sdk.webforms.get_by_id(webform_id=831002, owner_id="<id>")
 
     # Handle response
     print(res)

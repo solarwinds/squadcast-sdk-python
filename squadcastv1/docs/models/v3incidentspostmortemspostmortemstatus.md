@@ -5,7 +5,7 @@ Represents the status of a postmortem.
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3IncidentsPostmortemsPostmortemStatus
+from squadcast.models import V3IncidentsPostmortemsPostmortemStatus
 value: V3IncidentsPostmortemsPostmortemStatus = "in_progress"
 ```
 

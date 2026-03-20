@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3ServicesDeduplicationRulesExpressionBranchOp
+from squadcast.models import V3ServicesDeduplicationRulesExpressionBranchOp
 value: V3ServicesDeduplicationRulesExpressionBranchOp = "is"
 ```
 

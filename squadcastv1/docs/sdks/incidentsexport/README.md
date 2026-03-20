@@ -34,15 +34,15 @@
 
 <!-- UsageSnippet language="python" operationID="Incidents_incidentExportAsync" method="post" path="/v3/incidents/export/async" -->
 ```python
-from squadcast_sdk import SquadcastSDK
-from squadcast_sdk.utils import parse_datetime
+from squadcast import SquadcastSDK
+from squadcast.utils import parse_datetime
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.export.export_async(owner_id="<id>", type_="csv", start_time=parse_datetime("2024-12-29T12:56:54.559Z"), end_time=parse_datetime("2025-08-25T17:31:33.747Z"), incident_filters={
+    res = squadcast_sdk.incidents.export.export_async(owner_id="<id>", type_="csv", start_time=parse_datetime("2024-12-29T12:56:54.559Z"), end_time=parse_datetime("2025-08-25T17:31:33.747Z"), incident_filters={
         "services": [],
         "sources": [],
         "service_owner": {

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3WorkflowsSqMakeHTTPCallUpdateName
+from squadcast.models import V3WorkflowsSqMakeHTTPCallUpdateName
 value: V3WorkflowsSqMakeHTTPCallUpdateName = "sq_make_http_call"
 ```
 

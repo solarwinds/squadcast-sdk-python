@@ -14,14 +14,14 @@ Get Dedup Key Overlay for Alert Source
 
 <!-- UsageSnippet language="python" operationID="Overlay_getDedupKeyOverlayForAlertSource" method="get" path="/v3/services/{serviceID}/overlays/dedup-key/{alertSource}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.overlays.dedup_key.get_for_alert_source(service_id="<id>", alert_source="<value>")
+    res = squadcast_sdk.overlays.dedup_key.get_for_alert_source(service_id="<id>", alert_source="<value>")
 
     # Handle response
     print(res)

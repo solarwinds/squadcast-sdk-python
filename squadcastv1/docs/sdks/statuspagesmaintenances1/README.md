@@ -15,14 +15,14 @@ List Maintenances
 
 <!-- UsageSnippet language="python" operationID="Maintenances_listMaintenances" method="get" path="/v4/statuspages/{statuspageID}/maintenance" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.status_pages.maintenances.list(statuspage_id="<id>", start_time="<value>", end_time="<value>")
+    res = squadcast_sdk.status_pages.maintenances.list(statuspage_id="<id>", start_time="<value>", end_time="<value>")
 
     # Handle response
     print(res)
@@ -67,15 +67,15 @@ Create Maintenance
 
 <!-- UsageSnippet language="python" operationID="Maintenances_createMaintenance" method="post" path="/v4/statuspages/{statuspageID}/maintenance" -->
 ```python
-from squadcast_sdk import SquadcastSDK
-from squadcast_sdk.utils import parse_datetime
+from squadcast import SquadcastSDK
+from squadcast.utils import parse_datetime
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.status_pages.maintenances.create(statuspage_id="<id>", title="<value>", note="<value>", components=[
+    res = squadcast_sdk.status_pages.maintenances.create(statuspage_id="<id>", title="<value>", note="<value>", components=[
         191583,
         227211,
         362920,

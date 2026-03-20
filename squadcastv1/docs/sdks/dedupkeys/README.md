@@ -15,14 +15,14 @@ Get All Dedup Key Overlay by Service
 
 <!-- UsageSnippet language="python" operationID="Overlay_getAllDedupKeyOverlayByService" method="get" path="/v3/services/{serviceID}/overlays/dedup-key" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.dedup_keys.list_by_service(service_id="<id>")
+    res = squadcast_sdk.dedup_keys.list_by_service(service_id="<id>")
 
     # Handle response
     print(res)
@@ -65,14 +65,14 @@ Delete Dedup Key Overlay
 
 <!-- UsageSnippet language="python" operationID="Overlay_deleteDedupKeyOverlay" method="delete" path="/v3/services/{serviceID}/overlays/dedup-key/{alertSource}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.dedup_keys.delete(service_id="<id>", alert_source="<value>")
+    res = squadcast_sdk.dedup_keys.delete(service_id="<id>", alert_source="<value>")
 
     # Handle response
     print(res)

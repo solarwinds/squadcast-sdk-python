@@ -17,14 +17,14 @@
 
 <!-- UsageSnippet language="python" operationID="Postmortems_deletePostmortemByIncident" method="delete" path="/v3/incidents/{incidentID}/postmortem" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.postmortems.remove(incident_id="<id>")
+    res = squadcast_sdk.incidents.postmortems.remove(incident_id="<id>")
 
     # Handle response
     print(res)
@@ -68,14 +68,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Postmortems_getPostmortemByIncident" method="get" path="/v3/incidents/{incidentID}/postmortem" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.postmortems.get_by_incident(incident_id="<id>")
+    res = squadcast_sdk.incidents.postmortems.get_by_incident(incident_id="<id>")
 
     # Handle response
     print(res)
@@ -119,14 +119,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Postmortems_updatePostmortemByIncident" method="put" path="/v3/incidents/{incidentID}/postmortem" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.postmortems.update_by_incident(incident_id="<id>")
+    res = squadcast_sdk.incidents.postmortems.update_by_incident(incident_id="<id>")
 
     # Handle response
     print(res)

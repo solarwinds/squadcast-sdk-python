@@ -23,14 +23,14 @@ List Schedules
 
 <!-- UsageSnippet language="python" operationID="Schedules_listSchedules" method="get" path="/v4/schedules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.list(team_id="<id>")
+    res = squadcast_sdk.schedules.list(team_id="<id>")
 
     while res is not None:
         # Handle items
@@ -78,14 +78,14 @@ Create Schedule
 
 <!-- UsageSnippet language="python" operationID="Schedules_createSchedule" method="post" path="/v4/schedules" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.create(name="<value>", description="fumigate pfft kooky whoa but lighthearted popularity", team_id="<id>", owner_id="<id>", owner_type="user", time_zone="Pacific/Easter", tags=[
+    res = squadcast_sdk.schedules.create(name="<value>", description="fumigate pfft kooky whoa but lighthearted popularity", team_id="<id>", owner_id="<id>", owner_type="user", time_zone="Pacific/Easter", tags=[
         {
             "key": "<key>",
             "value": "<value>",
@@ -131,14 +131,14 @@ Delete Schedule
 
 <!-- UsageSnippet language="python" operationID="Schedules_deleteSchedule" method="delete" path="/v4/schedules/{scheduleID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.delete(schedule_id="<id>")
+    res = squadcast_sdk.schedules.delete(schedule_id="<id>")
 
     # Handle response
     print(res)
@@ -172,14 +172,14 @@ Get Schedule by ID
 
 <!-- UsageSnippet language="python" operationID="Schedules_getScheduleById" method="get" path="/v4/schedules/{scheduleID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.get_by_id(schedule_id="<id>")
+    res = squadcast_sdk.schedules.get_by_id(schedule_id="<id>")
 
     # Handle response
     print(res)
@@ -213,14 +213,14 @@ Update Schedule
 
 <!-- UsageSnippet language="python" operationID="Schedules_updateSchedule" method="put" path="/v4/schedules/{scheduleID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.update(schedule_id="<id>", name="<value>", description="smoothly festival unruly alert now far provided absentmindedly", owner_id="<id>", owner_type="squad", tags=[])
+    res = squadcast_sdk.schedules.update(schedule_id="<id>", name="<value>", description="smoothly festival unruly alert now far provided absentmindedly", owner_id="<id>", owner_type="squad", tags=[])
 
     # Handle response
     print(res)
@@ -259,14 +259,14 @@ Pause/Resume Schedule
 
 <!-- UsageSnippet language="python" operationID="Schedules_pauseresumeSchedule" method="patch" path="/v4/schedules/{scheduleID}/actions" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.pause_resume(schedule_id="<id>")
+    res = squadcast_sdk.schedules.pause_resume(schedule_id="<id>")
 
     # Handle response
     print(res)
@@ -301,14 +301,14 @@ Change Timezone
 
 <!-- UsageSnippet language="python" operationID="Schedules_changeTimezone" method="patch" path="/v4/schedules/{scheduleID}/change-timezone" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.change_timezone(schedule_id="<id>")
+    res = squadcast_sdk.schedules.change_timezone(schedule_id="<id>")
 
     # Handle response
     print(res)
@@ -343,14 +343,14 @@ Clone Schedule
 
 <!-- UsageSnippet language="python" operationID="Schedules_cloneSchedule" method="post" path="/v4/schedules/{scheduleID}/clone" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.clone(schedule_id="<id>", request_body={})
+    res = squadcast_sdk.schedules.clone(schedule_id="<id>", request_body={})
 
     # Handle response
     print(res)
@@ -385,14 +385,14 @@ Get Schedule ICal Link
 
 <!-- UsageSnippet language="python" operationID="Export_getScheduleIcalLink" method="get" path="/v4/schedules/{scheduleID}/ical-link" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.get_ical_link(schedule_id="<id>", my_on_call=False)
+    res = squadcast_sdk.schedules.get_ical_link(schedule_id="<id>", my_on_call=False)
 
     # Handle response
     print(res)
@@ -427,14 +427,14 @@ Create Schedule ICal Link
 
 <!-- UsageSnippet language="python" operationID="Export_createScheduleIcalLink" method="post" path="/v4/schedules/{scheduleID}/ical-link" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.schedules.create_ical_link(schedule_id="<id>", my_on_call=True, request_body={})
+    res = squadcast_sdk.schedules.create_ical_link(schedule_id="<id>", my_on_call=True, request_body={})
 
     # Handle response
     print(res)

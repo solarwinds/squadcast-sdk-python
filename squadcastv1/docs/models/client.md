@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import Client
+from squadcast.models import Client
 value: Client = "web"
 ```
 

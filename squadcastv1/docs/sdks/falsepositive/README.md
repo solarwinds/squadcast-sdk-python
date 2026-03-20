@@ -14,14 +14,14 @@ Value is a boolean (true or false)
 
 <!-- UsageSnippet language="python" operationID="SLO_markSLOFalsePositive" method="patch" path="/v3/slo/{sloID}/incident/{incidentID}/false-positive/{value}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.slos.false_positive.mark(slo_id=825843, incident_id=505067, value=True, owner_id="<id>", request_body={})
+    res = squadcast_sdk.slos.false_positive.mark(slo_id=825843, incident_id=505067, value=True, owner_id="<id>", request_body={})
 
     # Handle response
     print(res)

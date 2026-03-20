@@ -22,14 +22,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_getAllUsers" method="get" path="/v3/users" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.get_all()
+    res = squadcast_sdk.users.get_all()
 
     # Handle response
     print(res)
@@ -72,14 +72,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_addUser" method="post" path="/v3/users" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.add(email="Clovis_Reynolds@hotmail.com", role="account_owner", first_name="Yvonne", last_name="Kozey")
+    res = squadcast_sdk.users.add(email="Clovis_Reynolds@hotmail.com", role="account_owner", first_name="Yvonne", last_name="Kozey")
 
     # Handle response
     print(res)
@@ -125,14 +125,14 @@ Update Org Level Permissions
 
 <!-- UsageSnippet language="python" operationID="Users_updateOrgLevelPermissions" method="put" path="/v3/users/abilities" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.update_org_level_permissions(data=[])
+    res = squadcast_sdk.users.update_org_level_permissions(data=[])
 
     # Handle response
     print(res)
@@ -175,14 +175,14 @@ This API replaces the swap_user for all the entities in Squadcast with user_id p
 
 <!-- UsageSnippet language="python" operationID="Users_deleteUser" method="put" path="/v3/users/delete-user" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.delete(user_id="<id>", swap_user_id="<id>", suppress_incidents=True, reassign_incidents=True)
+    res = squadcast_sdk.users.delete(user_id="<id>", swap_user_id="<id>", suppress_incidents=True, reassign_incidents=True)
 
     # Handle response
     print(res)
@@ -229,14 +229,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_getUserRoles" method="get" path="/v3/users/roles" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.get_roles()
+    res = squadcast_sdk.users.get_roles()
 
     # Handle response
     print(res)
@@ -279,14 +279,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_removeUserFromOrg" method="delete" path="/v3/users/{userID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.remove_from_org(user_id="<id>")
+    res = squadcast_sdk.users.remove_from_org(user_id="<id>")
 
     # Handle response
     print(res)
@@ -330,14 +330,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_getUserById" method="get" path="/v3/users/{userID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.get_by_id(user_id="<id>")
+    res = squadcast_sdk.users.get_by_id(user_id="<id>")
 
     # Handle response
     print(res)
@@ -381,14 +381,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Users_updateUserByID" method="put" path="/v3/users/{userID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.users.update_by_id(user_id="<id>", role="user")
+    res = squadcast_sdk.users.update_by_id(user_id="<id>", role="user")
 
     # Handle response
     print(res)

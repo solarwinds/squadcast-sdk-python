@@ -14,14 +14,14 @@ Get Maintenance By ID
 
 <!-- UsageSnippet language="python" operationID="Maintenances_getMaintenanceById" method="get" path="/v4/statuspages/{statuspageID}/maintenance/{maintenance_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.statuspages.maintenances.get_by_id(statuspage_id="<id>", maintenance_id="<id>")
+    res = squadcast_sdk.statuspages.maintenances.get_by_id(statuspage_id="<id>", maintenance_id="<id>")
 
     # Handle response
     print(res)

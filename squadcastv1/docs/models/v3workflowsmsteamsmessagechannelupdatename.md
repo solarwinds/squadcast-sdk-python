@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3WorkflowsMsTeamsMessageChannelUpdateName
+from squadcast.models import V3WorkflowsMsTeamsMessageChannelUpdateName
 value: V3WorkflowsMsTeamsMessageChannelUpdateName = "msteams_message_channel"
 ```
 

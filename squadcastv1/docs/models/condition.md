@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import Condition
+from squadcast.models import Condition
 value: Condition = "and"
 ```
 

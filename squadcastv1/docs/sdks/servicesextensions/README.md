@@ -14,14 +14,14 @@ Update Slack Extension
 
 <!-- UsageSnippet language="python" operationID="Extensions_updateSlackExtension" method="put" path="/v3/services/{serviceID}/extensions" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.extensions.update(service_id="<id>", channel_id="<id>")
+    res = squadcast_sdk.services.extensions.update(service_id="<id>", channel_id="<id>")
 
     # Handle response
     print(res)

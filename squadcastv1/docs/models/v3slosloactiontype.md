@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```python
-from squadcast_sdk.models import V3SLOSLOActionType
+from squadcast.models import V3SLOSLOActionType
 value: V3SLOSLOActionType = "SERVICE"
 ```
 

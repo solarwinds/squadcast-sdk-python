@@ -22,14 +22,14 @@ Get All Services
 
 <!-- UsageSnippet language="python" operationID="Services_getServices" method="get" path="/v3/services" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.get_all(owner_id="<id>")
+    res = squadcast_sdk.services.get_all(owner_id="<id>")
 
     # Handle response
     print(res)
@@ -74,14 +74,14 @@ Create Service
 
 <!-- UsageSnippet language="python" operationID="Services_createService" method="post" path="/v3/services" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.create(owner_id="<id>", name="<value>", escalation_policy_id="<id>")
+    res = squadcast_sdk.services.create(owner_id="<id>", name="<value>", escalation_policy_id="<id>")
 
     # Handle response
     print(res)
@@ -134,14 +134,14 @@ Get Services By Name
 
 <!-- UsageSnippet language="python" operationID="Services_getServicesByName" method="get" path="/v3/services/by-name" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.get_by_name(name="<value>", owner_id="<id>")
+    res = squadcast_sdk.services.get_by_name(name="<value>", owner_id="<id>")
 
     # Handle response
     print(res)
@@ -185,14 +185,14 @@ Get Service By ID
 
 <!-- UsageSnippet language="python" operationID="Services_getServiceById" method="get" path="/v3/services/{serviceID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.get_by_id(service_id="<id>")
+    res = squadcast_sdk.services.get_by_id(service_id="<id>")
 
     # Handle response
     print(res)
@@ -235,14 +235,14 @@ Update Service
 
 <!-- UsageSnippet language="python" operationID="Services_updateService" method="put" path="/v3/services/{serviceID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.update(service_id="<id>")
+    res = squadcast_sdk.services.update(service_id="<id>")
 
     # Handle response
     print(res)
@@ -294,14 +294,14 @@ Delete Service
 
 <!-- UsageSnippet language="python" operationID="Services_deleteService" method="delete" path="/v3/services/{serviceID}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.delete(service_id="<id>")
+    res = squadcast_sdk.services.delete(service_id="<id>")
 
     # Handle response
     print(res)
@@ -344,14 +344,14 @@ Auto Pause Transient Alerts (APTA)
 
 <!-- UsageSnippet language="python" operationID="Services_createOrUpdateAPTAConfig" method="put" path="/v3/services/{serviceID}/apta-config" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.update_apta_config(service_id="<id>", is_enabled=False, timeout_in_mins=680029)
+    res = squadcast_sdk.services.update_apta_config(service_id="<id>", is_enabled=False, timeout_in_mins=680029)
 
     # Handle response
     print(res)
@@ -396,14 +396,14 @@ Intelligent Alert Grouping (IAG)
 
 <!-- UsageSnippet language="python" operationID="Services_createOrUpdateIAGConfig" method="put" path="/v3/services/{serviceID}/iag-config" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.create_or_update_iag_config(service_id="<id>", is_enabled=True, rolling_window_in_mins=246036)
+    res = squadcast_sdk.services.create_or_update_iag_config(service_id="<id>", is_enabled=True, rolling_window_in_mins=246036)
 
     # Handle response
     print(res)
@@ -448,14 +448,14 @@ Delayed Notification Config
 
 <!-- UsageSnippet language="python" operationID="Services_delayedNotificationConfig" method="put" path="/v3/services/{serviceID}/notification-delay-config" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.services.update_notification_delay_config(service_id="<id>", is_enabled=False)
+    res = squadcast_sdk.services.update_notification_delay_config(service_id="<id>", is_enabled=False)
 
     # Handle response
     print(res)

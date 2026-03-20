@@ -16,14 +16,14 @@ Delete Issue By ID
 
 <!-- UsageSnippet language="python" operationID="Issues_deleteIssueById" method="delete" path="/v4/statuspages/{statuspageID}/issues/{issue_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.issues.delete_by_id(statuspage_id="<id>", issue_id="<id>")
+    res = squadcast_sdk.issues.delete_by_id(statuspage_id="<id>", issue_id="<id>")
 
     # Handle response
     print(res)
@@ -67,14 +67,14 @@ Update Issue
 
 <!-- UsageSnippet language="python" operationID="Issues_updateIssue" method="put" path="/v4/statuspages/{statuspageID}/issues/{issue_id}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.issues.update(statuspage_id="<id>", issue_id="<id>", title="<value>", components=[
+    res = squadcast_sdk.issues.update(statuspage_id="<id>", issue_id="<id>", title="<value>", components=[
         {},
     ], issues=[
         {},
@@ -126,14 +126,14 @@ List Status Page Issue States
 
 <!-- UsageSnippet language="python" operationID="Issues_listStatusPageIssueStates" method="get" path="/v4/statuspages/{statuspageID}/states" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.issues.list(statuspage_id="<id>")
+    res = squadcast_sdk.issues.list(statuspage_id="<id>")
 
     # Handle response
     print(res)

@@ -17,14 +17,14 @@ Create Notes
 
 <!-- UsageSnippet language="python" operationID="Notes_createNotes" method="post" path="/v3/incidents/{IncidentId}/warroom" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.notes.create(incident_id="<id>", message="<value>", attachments=[
+    res = squadcast_sdk.incidents.notes.create(incident_id="<id>", message="<value>", attachments=[
         "<value 1>",
     ])
 
@@ -72,14 +72,14 @@ with SquadcastSDK(
 
 <!-- UsageSnippet language="python" operationID="Notes_getAllNotes" method="get" path="/v3/incidents/{IncidentId}/warroom" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.notes.list(incident_id="<id>")
+    res = squadcast_sdk.incidents.notes.list(incident_id="<id>")
 
     # Handle response
     print(res)
@@ -124,14 +124,14 @@ Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header wi
 
 <!-- UsageSnippet language="python" operationID="Notes_deleteNote" method="delete" path="/v3/incidents/{IncidentId}/warroom/{NoteId}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.notes.delete(incident_id="<id>", note_id="<id>")
+    res = squadcast_sdk.incidents.notes.delete(incident_id="<id>", note_id="<id>")
 
     # Handle response
     print(res)
@@ -175,14 +175,14 @@ This API can be used to update a Note or a Resolution reason associated with an 
 
 <!-- UsageSnippet language="python" operationID="Notes_updateNote" method="put" path="/v3/incidents/{IncidentId}/warroom/{NoteId}" -->
 ```python
-from squadcast_sdk import SquadcastSDK
+from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    bearer_auth="<YOUR_BEARER_TOKEN_HERE>",
-) as ss_client:
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
 
-    res = ss_client.incidents.notes.update(incident_id="<id>", note_id="<id>", message="<value>", attachments=[])
+    res = squadcast_sdk.incidents.notes.update(incident_id="<id>", note_id="<id>", message="<value>", attachments=[])
 
     # Handle response
     print(res)
