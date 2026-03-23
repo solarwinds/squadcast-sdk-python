@@ -98,7 +98,68 @@
 <body><h2 id="python-sdk-changes">Python SDK Changes:</h2>
 
 <ul>
-<li><code>squadcast_sdk.auth.auth_get_access_token()</code>: <strong>Added</strong></li>
+<li><code>squadcast_sdk.webhooks.create()</code>: <code>response</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>data</code> <strong>Added</strong></li>
+</ul></li>
+<li><code>squadcast_sdk.incidents.export.export_async()</code>: <code>response.union(ResponseBody)</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>data</code> <strong>Added</strong></li>
+</ul></li>
+<li><code>squadcast_sdk.incidents.notes.create()</code>: <code>response</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>data</code> <strong>Added</strong></li>
+</ul></li>
+<li><code>squadcast_sdk.postmortems.create()</code>: <code>response</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>data</code> <strong>Added</strong></li>
+</ul></li>
+<li><code>squadcast_sdk.users.get_all()</code>:  <code>response.data[].notification_rules</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.users.add()</code>:  <code>response.data.notification_rules</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.users.get_by_id()</code>:  <code>response.data.notification_rules</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.users.update_by_id()</code>:  <code>response.data.notification_rules</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.services.create()</code>: <code>response</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>data</code> <strong>Added</strong></li>
+</ul></li>
+<li><code>squadcast_sdk.services.overlay.custom_content_templates.get_all()</code>:  <code>response.data[].overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.services.overlay.custom_content_templates.create_or_update()</code>:  <code>response.data.overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.services.overlays.custom_content_templates.get()</code>:  <code>response.data.overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.schedules.list()</code>: <code>response.page_info</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>has_prev</code> <strong>Added</strong></li>
+<li><code>has_previous</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>prev_cursor</code> <strong>Added</strong></li>
+<li><code>previous_cursor</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+</ul></li>
+<li><code>squadcast_sdk.schedules.overrides.list()</code>: <code>response.page_info</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>has_prev</code> <strong>Added</strong></li>
+<li><code>has_previous</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>prev_cursor</code> <strong>Added</strong></li>
+<li><code>previous_cursor</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+</ul></li>
+<li><code>squadcast_sdk.rotations.list_by_schedule()</code>:  <code>response.data</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.squads.list()</code>: <code>response.page_info</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>has_prev</code> <strong>Added</strong></li>
+<li><code>has_previous</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>prev_cursor</code> <strong>Added</strong></li>
+<li><code>previous_cursor</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+</ul></li>
 </ul>
 </body>
 </html>

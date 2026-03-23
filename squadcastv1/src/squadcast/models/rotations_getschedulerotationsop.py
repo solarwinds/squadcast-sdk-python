@@ -3,7 +3,8 @@
 from __future__ import annotations
 from .v4_rotationresponse import V4RotationResponse, V4RotationResponseTypedDict
 import pydantic
-from squadcast.types import BaseModel
+from pydantic import model_serializer
+from squadcast.types import BaseModel, Nullable, UNSET_SENTINEL
 from squadcast.utils import FieldMetadata, PathParamMetadata
 from typing import List
 from typing_extensions import Annotated, TypedDict
@@ -24,10 +25,24 @@ class RotationsGetScheduleRotationsRequest(BaseModel):
 class RotationsGetScheduleRotationsResponseTypedDict(TypedDict):
     r"""The request has succeeded."""
 
-    data: List[V4RotationResponseTypedDict]
+    data: Nullable[List[V4RotationResponseTypedDict]]
 
 
 class RotationsGetScheduleRotationsResponse(BaseModel):
     r"""The request has succeeded."""
 
-    data: List[V4RotationResponse]
+    data: Nullable[List[V4RotationResponse]]
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                m[k] = val
+
+        return m

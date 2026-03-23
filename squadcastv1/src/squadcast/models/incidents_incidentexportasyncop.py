@@ -9,27 +9,13 @@ from squadcast.types import BaseModel
 from typing_extensions import TypedDict
 
 
-class IncidentsIncidentExportAsyncBodyTypedDict(TypedDict):
-    r"""The body type of the operation request or response."""
-
-    data: V3IncidentsIncidentExportAsyncResponseTypedDict
-
-
-class IncidentsIncidentExportAsyncBody(BaseModel):
-    r"""The body type of the operation request or response."""
-
-    data: V3IncidentsIncidentExportAsyncResponse
-
-
 class IncidentsIncidentExportAsyncResponseBodyTypedDict(TypedDict):
     r"""The request has been accepted for processing, but processing has not yet completed."""
 
-    body: IncidentsIncidentExportAsyncBodyTypedDict
-    r"""The body type of the operation request or response."""
+    data: V3IncidentsIncidentExportAsyncResponseTypedDict
 
 
 class IncidentsIncidentExportAsyncResponseBody(BaseModel):
     r"""The request has been accepted for processing, but processing has not yet completed."""
 
-    body: IncidentsIncidentExportAsyncBody
-    r"""The body type of the operation request or response."""
+    data: V3IncidentsIncidentExportAsyncResponse

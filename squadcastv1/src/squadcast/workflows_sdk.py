@@ -146,7 +146,7 @@ class WorkflowsSDK(BaseSDK):
 
         def next_func() -> Optional[models.WorkflowsListWorkflowsResponse]:
             body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
-            page = request.page_number if not request.page_number is None else 1
+            page = request.page_number if isinstance(request.page_number, int) else 1
             next_page = page + 1
 
             if not http_res.text:
@@ -154,7 +154,7 @@ class WorkflowsSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if not request.page_size is None else 0
+            limit = request.page_size if isinstance(request.page_size, int) else 0
             if len(results[0]) < limit:
                 return None
 
@@ -356,7 +356,7 @@ class WorkflowsSDK(BaseSDK):
 
         def next_func() -> Optional[models.WorkflowsListWorkflowsResponse]:
             body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
-            page = request.page_number if not request.page_number is None else 1
+            page = request.page_number if isinstance(request.page_number, int) else 1
             next_page = page + 1
 
             if not http_res.text:
@@ -364,7 +364,7 @@ class WorkflowsSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if not request.page_size is None else 0
+            limit = request.page_size if isinstance(request.page_size, int) else 0
             if len(results[0]) < limit:
                 return None
 

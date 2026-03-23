@@ -469,8 +469,6 @@ if TYPE_CHECKING:
         RequestsStatusTypedDict,
     )
     from .incidents_incidentexportasyncop import (
-        IncidentsIncidentExportAsyncBody,
-        IncidentsIncidentExportAsyncBodyTypedDict,
         IncidentsIncidentExportAsyncResponseBody,
         IncidentsIncidentExportAsyncResponseBodyTypedDict,
     )
@@ -585,8 +583,6 @@ if TYPE_CHECKING:
         MSTeamsGetMsteamsConfigResponseTypedDict,
     )
     from .notes_createnotesop import (
-        NotesCreateNotesBody,
-        NotesCreateNotesBodyTypedDict,
         NotesCreateNotesRequest,
         NotesCreateNotesRequestTypedDict,
         NotesCreateNotesResponse,
@@ -719,8 +715,6 @@ if TYPE_CHECKING:
         OverridesUpdateScheduleOverrideResponseTypedDict,
     )
     from .postmortems_createpostmortemop import (
-        PostmortemsCreatePostmortemBody,
-        PostmortemsCreatePostmortemBodyTypedDict,
         PostmortemsCreatePostmortemRequest,
         PostmortemsCreatePostmortemRequestTypedDict,
         PostmortemsCreatePostmortemResponse,
@@ -915,8 +909,6 @@ if TYPE_CHECKING:
         ServicesCreateOrUpdateIAGConfigResponseTypedDict,
     )
     from .services_createserviceop import (
-        ServicesCreateServiceBody,
-        ServicesCreateServiceBodyTypedDict,
         ServicesCreateServiceRequest,
         ServicesCreateServiceRequestTypedDict,
         ServicesCreateServiceResponse,
@@ -2019,7 +2011,6 @@ if TYPE_CHECKING:
     )
     from .v3_services_overlay_customcontentoverlayresponse import (
         V3ServicesOverlayCustomContentOverlayResponse,
-        V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType,
         V3ServicesOverlayCustomContentOverlayResponseTypedDict,
     )
     from .v3_services_overlay_dedupkeyoverlay import (
@@ -2031,8 +2022,8 @@ if TYPE_CHECKING:
         V3ServicesOverlayOptInForKeyBasedDeduplicationRequestTypedDict,
     )
     from .v3_services_overlay_overlayresponse import (
+        OverlayTemplateType,
         V3ServicesOverlayOverlayResponse,
-        V3ServicesOverlayOverlayResponseOverlayTemplateType,
         V3ServicesOverlayOverlayResponseTypedDict,
     )
     from .v3_services_overlay_rendercustomcontentoverlayrequest import (
@@ -3091,8 +3082,6 @@ if TYPE_CHECKING:
         WebformsUpdateWebformResponseTypedDict,
     )
     from .webhooks_createwebhookop import (
-        WebhooksCreateWebhookBody,
-        WebhooksCreateWebhookBodyTypedDict,
         WebhooksCreateWebhookResponse,
         WebhooksCreateWebhookResponseTypedDict,
     )
@@ -3538,8 +3527,6 @@ __all__ = [
     "IncidentsGetIncidentsStatusByRequestidsMetaTypedDict",
     "IncidentsGetIncidentsStatusByRequestidsResponse",
     "IncidentsGetIncidentsStatusByRequestidsResponseTypedDict",
-    "IncidentsIncidentExportAsyncBody",
-    "IncidentsIncidentExportAsyncBodyTypedDict",
     "IncidentsIncidentExportAsyncResponseBody",
     "IncidentsIncidentExportAsyncResponseBodyTypedDict",
     "IncidentsIncidentExportRequest",
@@ -3616,8 +3603,6 @@ __all__ = [
     "MaintenancesUpdateMaintenanceByIDResponseTypedDict",
     "MessageOverlay",
     "MessageOverlayTypedDict",
-    "NotesCreateNotesBody",
-    "NotesCreateNotesBodyTypedDict",
     "NotesCreateNotesRequest",
     "NotesCreateNotesRequestTypedDict",
     "NotesCreateNotesResponse",
@@ -3682,6 +3667,7 @@ __all__ = [
     "OverlayRenderDedupKeyTemplateRequestTypedDict",
     "OverlayRenderDedupKeyTemplateResponse",
     "OverlayRenderDedupKeyTemplateResponseTypedDict",
+    "OverlayTemplateType",
     "OverlayUpdateDedupKeyOverlayRequest",
     "OverlayUpdateDedupKeyOverlayRequestTypedDict",
     "OverlayUpdateDedupKeyOverlayResponse",
@@ -3709,8 +3695,6 @@ __all__ = [
     "Payload",
     "PayloadTypedDict",
     "Postmortems",
-    "PostmortemsCreatePostmortemBody",
-    "PostmortemsCreatePostmortemBodyTypedDict",
     "PostmortemsCreatePostmortemRequest",
     "PostmortemsCreatePostmortemRequestTypedDict",
     "PostmortemsCreatePostmortemResponse",
@@ -3907,8 +3891,6 @@ __all__ = [
     "ServicesCreateOrUpdateIAGConfigRequestTypedDict",
     "ServicesCreateOrUpdateIAGConfigResponse",
     "ServicesCreateOrUpdateIAGConfigResponseTypedDict",
-    "ServicesCreateServiceBody",
-    "ServicesCreateServiceBodyTypedDict",
     "ServicesCreateServiceRequest",
     "ServicesCreateServiceRequestTypedDict",
     "ServicesCreateServiceResponse",
@@ -4559,7 +4541,6 @@ __all__ = [
     "V3ServicesNotificationDelayConfigTypedDict",
     "V3ServicesOverlayCustomContent",
     "V3ServicesOverlayCustomContentOverlayResponse",
-    "V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType",
     "V3ServicesOverlayCustomContentOverlayResponseTypedDict",
     "V3ServicesOverlayCustomContentTypedDict",
     "V3ServicesOverlayDedupKeyOverlay",
@@ -4567,7 +4548,6 @@ __all__ = [
     "V3ServicesOverlayOptInForKeyBasedDeduplicationRequest",
     "V3ServicesOverlayOptInForKeyBasedDeduplicationRequestTypedDict",
     "V3ServicesOverlayOverlayResponse",
-    "V3ServicesOverlayOverlayResponseOverlayTemplateType",
     "V3ServicesOverlayOverlayResponseTypedDict",
     "V3ServicesOverlayRenderCustomContentOverlayRequest",
     "V3ServicesOverlayRenderCustomContentOverlayRequestTypedDict",
@@ -5176,8 +5156,6 @@ __all__ = [
     "WebformsUpdateWebformRequestTypedDict",
     "WebformsUpdateWebformResponse",
     "WebformsUpdateWebformResponseTypedDict",
-    "WebhooksCreateWebhookBody",
-    "WebhooksCreateWebhookBodyTypedDict",
     "WebhooksCreateWebhookResponse",
     "WebhooksCreateWebhookResponseTypedDict",
     "WebhooksDeleteWebhookRequest",
@@ -5564,8 +5542,6 @@ _dynamic_imports: dict[str, str] = {
     "IncidentsGetIncidentsStatusByRequestidsResponseTypedDict": ".incidents_getincidentsstatusbyrequestidsop",
     "RequestsStatus": ".incidents_getincidentsstatusbyrequestidsop",
     "RequestsStatusTypedDict": ".incidents_getincidentsstatusbyrequestidsop",
-    "IncidentsIncidentExportAsyncBody": ".incidents_incidentexportasyncop",
-    "IncidentsIncidentExportAsyncBodyTypedDict": ".incidents_incidentexportasyncop",
     "IncidentsIncidentExportAsyncResponseBody": ".incidents_incidentexportasyncop",
     "IncidentsIncidentExportAsyncResponseBodyTypedDict": ".incidents_incidentexportasyncop",
     "IncidentsIncidentExportRequest": ".incidents_incidentexportop",
@@ -5638,8 +5614,6 @@ _dynamic_imports: dict[str, str] = {
     "MSTeamsCreateOrUpdateMsteamsConfigurationResponseTypedDict": ".msteams_createorupdatemsteamsconfigurationop",
     "MSTeamsGetMsteamsConfigResponse": ".msteams_getmsteamsconfigop",
     "MSTeamsGetMsteamsConfigResponseTypedDict": ".msteams_getmsteamsconfigop",
-    "NotesCreateNotesBody": ".notes_createnotesop",
-    "NotesCreateNotesBodyTypedDict": ".notes_createnotesop",
     "NotesCreateNotesRequest": ".notes_createnotesop",
     "NotesCreateNotesRequestTypedDict": ".notes_createnotesop",
     "NotesCreateNotesResponse": ".notes_createnotesop",
@@ -5730,8 +5704,6 @@ _dynamic_imports: dict[str, str] = {
     "OverridesUpdateScheduleOverrideRequestTypedDict": ".overrides_updatescheduleoverrideop",
     "OverridesUpdateScheduleOverrideResponse": ".overrides_updatescheduleoverrideop",
     "OverridesUpdateScheduleOverrideResponseTypedDict": ".overrides_updatescheduleoverrideop",
-    "PostmortemsCreatePostmortemBody": ".postmortems_createpostmortemop",
-    "PostmortemsCreatePostmortemBodyTypedDict": ".postmortems_createpostmortemop",
     "PostmortemsCreatePostmortemRequest": ".postmortems_createpostmortemop",
     "PostmortemsCreatePostmortemRequestTypedDict": ".postmortems_createpostmortemop",
     "PostmortemsCreatePostmortemResponse": ".postmortems_createpostmortemop",
@@ -5867,8 +5839,6 @@ _dynamic_imports: dict[str, str] = {
     "ServicesCreateOrUpdateIAGConfigRequestTypedDict": ".services_createorupdateiagconfigop",
     "ServicesCreateOrUpdateIAGConfigResponse": ".services_createorupdateiagconfigop",
     "ServicesCreateOrUpdateIAGConfigResponseTypedDict": ".services_createorupdateiagconfigop",
-    "ServicesCreateServiceBody": ".services_createserviceop",
-    "ServicesCreateServiceBodyTypedDict": ".services_createserviceop",
     "ServicesCreateServiceRequest": ".services_createserviceop",
     "ServicesCreateServiceRequestTypedDict": ".services_createserviceop",
     "ServicesCreateServiceResponse": ".services_createserviceop",
@@ -6536,14 +6506,13 @@ _dynamic_imports: dict[str, str] = {
     "V3ServicesOverlayCustomContent": ".v3_services_overlay_customcontent",
     "V3ServicesOverlayCustomContentTypedDict": ".v3_services_overlay_customcontent",
     "V3ServicesOverlayCustomContentOverlayResponse": ".v3_services_overlay_customcontentoverlayresponse",
-    "V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType": ".v3_services_overlay_customcontentoverlayresponse",
     "V3ServicesOverlayCustomContentOverlayResponseTypedDict": ".v3_services_overlay_customcontentoverlayresponse",
     "V3ServicesOverlayDedupKeyOverlay": ".v3_services_overlay_dedupkeyoverlay",
     "V3ServicesOverlayDedupKeyOverlayTypedDict": ".v3_services_overlay_dedupkeyoverlay",
     "V3ServicesOverlayOptInForKeyBasedDeduplicationRequest": ".v3_services_overlay_optinforkeybaseddeduplicationrequest",
     "V3ServicesOverlayOptInForKeyBasedDeduplicationRequestTypedDict": ".v3_services_overlay_optinforkeybaseddeduplicationrequest",
+    "OverlayTemplateType": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayOverlayResponse": ".v3_services_overlay_overlayresponse",
-    "V3ServicesOverlayOverlayResponseOverlayTemplateType": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayOverlayResponseTypedDict": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayRenderCustomContentOverlayRequest": ".v3_services_overlay_rendercustomcontentoverlayrequest",
     "V3ServicesOverlayRenderCustomContentOverlayRequestTypedDict": ".v3_services_overlay_rendercustomcontentoverlayrequest",
@@ -7227,8 +7196,6 @@ _dynamic_imports: dict[str, str] = {
     "WebformsUpdateWebformRequestTypedDict": ".webforms_updatewebformop",
     "WebformsUpdateWebformResponse": ".webforms_updatewebformop",
     "WebformsUpdateWebformResponseTypedDict": ".webforms_updatewebformop",
-    "WebhooksCreateWebhookBody": ".webhooks_createwebhookop",
-    "WebhooksCreateWebhookBodyTypedDict": ".webhooks_createwebhookop",
     "WebhooksCreateWebhookResponse": ".webhooks_createwebhookop",
     "WebhooksCreateWebhookResponseTypedDict": ".webhooks_createwebhookop",
     "WebhooksDeleteWebhookRequest": ".webhooks_deletewebhookop",

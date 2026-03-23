@@ -8,14 +8,7 @@ from .v3_services_overlay_customcontent import (
 from datetime import datetime
 from pydantic import model_serializer
 from squadcast.types import BaseModel, Nullable, UNSET_SENTINEL
-from typing import Literal
 from typing_extensions import TypedDict
-
-
-V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType = Literal[
-    "message",
-    "description",
-]
 
 
 class V3ServicesOverlayCustomContentOverlayResponseTypedDict(TypedDict):
@@ -26,9 +19,7 @@ class V3ServicesOverlayCustomContentOverlayResponseTypedDict(TypedDict):
     service_id: str
     alert_source_version: str
     alert_source_shortname: str
-    overlay_template_type: (
-        V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType
-    )
+    overlay_template_type: str
     overlay: V3ServicesOverlayCustomContentTypedDict
     created_by: str
     updated_by: str
@@ -50,9 +41,7 @@ class V3ServicesOverlayCustomContentOverlayResponse(BaseModel):
 
     alert_source_shortname: str
 
-    overlay_template_type: (
-        V3ServicesOverlayCustomContentOverlayResponseOverlayTemplateType
-    )
+    overlay_template_type: str
 
     overlay: V3ServicesOverlayCustomContent
 

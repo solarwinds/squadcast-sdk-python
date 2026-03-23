@@ -35,27 +35,13 @@ class PostmortemsCreatePostmortemRequest(BaseModel):
     ]
 
 
-class PostmortemsCreatePostmortemBodyTypedDict(TypedDict):
-    r"""The body type of the operation request or response."""
-
-    data: V3IncidentsPostmortemsPostmortemResponseTypedDict
-
-
-class PostmortemsCreatePostmortemBody(BaseModel):
-    r"""The body type of the operation request or response."""
-
-    data: V3IncidentsPostmortemsPostmortemResponse
-
-
 class PostmortemsCreatePostmortemResponseTypedDict(TypedDict):
     r"""The request has succeeded and a new resource has been created as a result."""
 
-    body: PostmortemsCreatePostmortemBodyTypedDict
-    r"""The body type of the operation request or response."""
+    data: V3IncidentsPostmortemsPostmortemResponseTypedDict
 
 
 class PostmortemsCreatePostmortemResponse(BaseModel):
     r"""The request has succeeded and a new resource has been created as a result."""
 
-    body: PostmortemsCreatePostmortemBody
-    r"""The body type of the operation request or response."""
+    data: V3IncidentsPostmortemsPostmortemResponse

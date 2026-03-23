@@ -12,7 +12,7 @@ from typing import Literal
 from typing_extensions import TypedDict
 
 
-V3ServicesOverlayOverlayResponseOverlayTemplateType = Literal["dedup_key",]
+OverlayTemplateType = Literal["dedup_key",]
 
 
 class V3ServicesOverlayOverlayResponseTypedDict(TypedDict):
@@ -23,7 +23,7 @@ class V3ServicesOverlayOverlayResponseTypedDict(TypedDict):
     service_id: str
     alert_source_version: str
     alert_source_shortname: str
-    overlay_template_type: V3ServicesOverlayOverlayResponseOverlayTemplateType
+    overlay_template_type: OverlayTemplateType
     overlay: V3ServicesOverlayDedupKeyOverlayTypedDict
     created_by: str
     updated_by: str
@@ -45,7 +45,7 @@ class V3ServicesOverlayOverlayResponse(BaseModel):
 
     alert_source_shortname: str
 
-    overlay_template_type: V3ServicesOverlayOverlayResponseOverlayTemplateType
+    overlay_template_type: OverlayTemplateType
 
     overlay: V3ServicesOverlayDedupKeyOverlay
 

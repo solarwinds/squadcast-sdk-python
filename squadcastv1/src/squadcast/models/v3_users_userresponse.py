@@ -24,7 +24,7 @@ class V3UsersUserResponseTypedDict(TypedDict):
     time_zone: str
     title: str
     bio: str
-    notification_rules: List[V3UsersNotificationRuleTypedDict]
+    notification_rules: Nullable[List[V3UsersNotificationRuleTypedDict]]
     user_image: bool
     role_id: NotRequired[str]
     role: NotRequired[str]
@@ -53,7 +53,7 @@ class V3UsersUserResponse(BaseModel):
 
     bio: str
 
-    notification_rules: List[V3UsersNotificationRule]
+    notification_rules: Nullable[List[V3UsersNotificationRule]]
 
     user_image: bool
 
@@ -64,7 +64,7 @@ class V3UsersUserResponse(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(["role_id", "role"])
-        nullable_fields = set(["secondary_emails"])
+        nullable_fields = set(["secondary_emails", "notification_rules"])
         serialized = handler(self)
         m = {}
 
