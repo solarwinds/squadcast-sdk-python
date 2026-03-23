@@ -7,10 +7,11 @@ from .v4_squads_squadresponse import (
     V4SquadsSquadResponseTypedDict,
 )
 import pydantic
-from squadcast.types import BaseModel
+from pydantic import model_serializer
+from squadcast.types import BaseModel, UNSET_SENTINEL
 from squadcast.utils import FieldMetadata, QueryParamMetadata
-from typing import List
-from typing_extensions import Annotated, TypedDict
+from typing import List, Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class SquadsGetAllSquadsRequestTypedDict(TypedDict):
@@ -27,7 +28,7 @@ class SquadsGetAllSquadsResponseTypedDict(TypedDict):
     r"""The request has succeeded."""
 
     data: List[V4SquadsSquadResponseTypedDict]
-    page_info: CommonV4PageInfoTypedDict
+    page_info: NotRequired[CommonV4PageInfoTypedDict]
 
 
 class SquadsGetAllSquadsResponse(BaseModel):
@@ -35,7 +36,25 @@ class SquadsGetAllSquadsResponse(BaseModel):
 
     data: List[V4SquadsSquadResponse]
 
-    page_info: Annotated[CommonV4PageInfo, pydantic.Field(alias="pageInfo")]
+    page_info: Annotated[
+        Optional[CommonV4PageInfo], pydantic.Field(alias="pageInfo")
+    ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["pageInfo"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 try:

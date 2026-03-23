@@ -905,8 +905,8 @@ You can override the default server globally by passing a server index to the `s
 
 | #   | Server                         | Description       |
 | --- | ------------------------------ | ----------------- |
-| 0   | `https://api.eu.squadcast.com` | production EU env |
-| 1   | `https://api.squadcast.com`    | production US env |
+| 0   | `https://api.squadcast.com`    | production US env |
+| 1   | `https://api.eu.squadcast.com` | production EU env |
 
 #### Example
 
@@ -934,7 +934,7 @@ from squadcast import SquadcastSDK
 
 
 with SquadcastSDK(
-    server_url="https://api.squadcast.com",
+    server_url="https://api.eu.squadcast.com",
     refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 

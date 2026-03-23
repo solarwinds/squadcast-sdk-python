@@ -4,7 +4,6 @@ info:
   version: "1.0.0"
   description: "## Overview\nThe Squadcast API provides developers the capability to extend and utilize Squadcast in conjunction with other services. Our API has resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.\n\n> **Note:** Customers using the V2 version of the Squadcast API would need to migrate to Squadcast API V3, as the former would be deprecated shortly.\n\n### Service Regions\n\nSquadcast allows customers to choose the geographic region of the Squadcast data centers that host their account. When signing up, you can choose the service region. Currently, the available options are the United States (US) and Europe (EU).\n\n| Service Region | API Endpoints |\n|---|---|\n| US | Authentication: https://auth.squadcast.com · Other APIs: https://api.squadcast.com |\n| EU | Authentication: https://auth.eu.squadcast.com · Other APIs: https://api.eu.squadcast.com |\n\n### Authentication\n\nIn order to access the API programmatically, HTTP bearer authentication needs to be used. HTTP bearer authentication must be constructed using an `access_token`, passed as the `Authorization` header for each request, for example `Authorization: Bearer eyJleHAiOjE2MzU1OTE1OTIsImp0aSI6Im`.\n\nSteps to procure the `access_token`:\n\n1. Generate a `refresh_token` (API Token) from the Squadcast web app. More details on how to get the `refresh_token` can be found in the Squadcast support documentation.\n2. Call the authentication API with the `refresh_token` to obtain an `access_token`.\n3. Use the `access_token` as a Bearer token in the `Authorization` header for all subsequent API requests.\n\n#### Example — Generating an Access Token\n\n```bash\ncurl --location --request GET 'https://auth.squadcast.com/oauth/access-token' \\\n--header 'X-Refresh-Token: 0d2a1a9a454dxxxxxxxxxxxx'\n```\n\nThe API response will look similar to:\n\n```json\n{\n  \"data\": {\n    \"access_token\": \"eyJhbGciOiJIUxxxxx.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx\",\n    \"expires_at\": 1587412870,\n    \"issued_at\": 1587240070,\n    \"refresh_token\": \"0d2a1a9a454dxxxxxxxxxxxx\",\n    \"type\": \"bearer\"\n  }\n}\n```\n\n### Access Control\n\nThere are three different types of user roles in Squadcast: `account_owner`, `stakeholder`, and `user`. Refresh tokens upon creation are mapped with one of the mentioned user roles, and access to different resources is dependent on the permissions granted to these roles. For more information, please refer to the Squadcast support documentation.\n\n### Authorization\n\nThe access token authorizes users the ability to access different APIs, based on the user roles described above. Pass the access token as a Bearer token in the `Authorization` header of every request."
 tags:
-  - name: "Auth"
   - name: "Analytics"
   - name: "Audit Logs"
   - name: "Escalation Policies"
@@ -55,160 +54,6 @@ tags:
   - name: "Status Pages/Components"
   - name: "Status Pages/Component groups"
 paths:
-  /oauth/access-token:
-    get:
-      operationId: "Auth_getAccessToken"
-      summary: "Get Access Token"
-      description: "Get access token to make authenticated HTTP requests to the Squadcast API.\nSend your refresh token (obtained from the Squadcast web application) in the\n`X-Refresh-Token` header."
-      parameters:
-        - name: "X-Refresh-Token"
-          in: "header"
-          required: true
-          description: "(Required) Send your refresh token obtained from Squadcast web application."
-          schema:
-            type: "string"
-      responses:
-        "200":
-          description: "The request has succeeded."
-          content:
-            application/json:
-              schema:
-                type: "object"
-                required:
-                  - "data"
-                properties:
-                  data:
-                    $ref: "#/components/schemas/V3.Auth.AccessTokenData"
-        "400":
-          description: "The server could not understand the request due to invalid syntax."
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "401":
-          description: "Access is unauthorized."
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "402":
-          description: "Client error"
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "403":
-          description: "Access is forbidden."
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "404":
-          description: "The server cannot find the requested resource."
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "409":
-          description: "The request conflicts with the current state of the server."
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "422":
-          description: "Client error"
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "500":
-          description: "Server error"
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "502":
-          description: "Server error"
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "503":
-          description: "Service unavailable."
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-        "504":
-          description: "Server error"
-          content:
-            application/json:
-              schema:
-                type: "object"
-                properties:
-                  meta:
-                    $ref: "#/components/schemas/Common.V3.ErrorMeta"
-                required:
-                  - "meta"
-      tags:
-        - "Auth"
-      security:
-        - {}
-      servers:
-        - url: "https://auth.squadcast.com"
-          description: "US Authentication"
-        - url: "https://auth.eu.squadcast.com"
-          description: "EU Authentication"
   /v3/analyticsv2/organization:
     get:
       operationId: "Analytics_getOrgAnalytics"
@@ -2456,17 +2301,10 @@ paths:
               schema:
                 type: "object"
                 required:
-                  - "body"
+                  - "data"
                 properties:
-                  body:
-                    type: "object"
-                    required:
-                      - "data"
-                    properties:
-                      data:
-                        $ref: "#/components/schemas/V3.Extensions.Webhooks.WebhookResponse"
-                    description: "The body type of the operation request or response."
-                description: ""
+                  data:
+                    $ref: "#/components/schemas/V3.Extensions.Webhooks.WebhookResponse"
         "400":
           description: "The server could not understand the request due to invalid syntax."
           content:
@@ -7015,17 +6853,10 @@ paths:
               schema:
                 type: "object"
                 required:
-                  - "body"
+                  - "data"
                 properties:
-                  body:
-                    type: "object"
-                    required:
-                      - "data"
-                    properties:
-                      data:
-                        $ref: "#/components/schemas/V3.Incidents.IncidentExportAsyncResponse"
-                    description: "The body type of the operation request or response."
-                description: ""
+                  data:
+                    $ref: "#/components/schemas/V3.Incidents.IncidentExportAsyncResponse"
         "400":
           description: "The server could not understand the request due to invalid syntax."
           content:
@@ -8727,17 +8558,10 @@ paths:
               schema:
                 type: "object"
                 required:
-                  - "body"
+                  - "data"
                 properties:
-                  body:
-                    type: "object"
-                    required:
-                      - "data"
-                    properties:
-                      data:
-                        $ref: "#/components/schemas/V3.Incidents.Notes.NoteResponse"
-                    description: "The body type of the operation request or response."
-                description: ""
+                  data:
+                    $ref: "#/components/schemas/V3.Incidents.Notes.NoteResponse"
         "400":
           description: "The server could not understand the request due to invalid syntax."
           content:
@@ -11784,17 +11608,10 @@ paths:
               schema:
                 type: "object"
                 required:
-                  - "body"
+                  - "data"
                 properties:
-                  body:
-                    type: "object"
-                    required:
-                      - "data"
-                    properties:
-                      data:
-                        $ref: "#/components/schemas/V3.Incidents.Postmortems.PostmortemResponse"
-                    description: "The body type of the operation request or response."
-                description: ""
+                  data:
+                    $ref: "#/components/schemas/V3.Incidents.Postmortems.PostmortemResponse"
         "400":
           description: "The server could not understand the request due to invalid syntax."
           content:
@@ -14357,17 +14174,10 @@ paths:
               schema:
                 type: "object"
                 required:
-                  - "body"
+                  - "data"
                 properties:
-                  body:
-                    type: "object"
-                    required:
-                      - "data"
-                    properties:
-                      data:
-                        $ref: "#/components/schemas/V3.Services.ServiceResponse"
-                    description: "The body type of the operation request or response."
-                description: ""
+                  data:
+                    $ref: "#/components/schemas/V3.Services.ServiceResponse"
         "400":
           description: "The server could not understand the request due to invalid syntax."
           content:
@@ -26665,7 +26475,6 @@ paths:
                 type: "object"
                 required:
                   - "data"
-                  - "pageInfo"
                 properties:
                   data:
                     type: "array"
@@ -27871,7 +27680,6 @@ paths:
                 type: "object"
                 required:
                   - "data"
-                  - "pageInfo"
                 properties:
                   data:
                     type: "array"
@@ -28353,9 +28161,11 @@ paths:
                 type: "object"
                 properties:
                   data:
-                    type: "array"
-                    items:
-                      $ref: "#/components/schemas/V4.RotationResponse"
+                    anyOf:
+                      - type: "array"
+                        items:
+                          $ref: "#/components/schemas/V4.RotationResponse"
+                      - type: "null"
                 required:
                   - "data"
         "400":
@@ -29034,7 +28844,6 @@ paths:
                 type: "object"
                 required:
                   - "data"
-                  - "pageInfo"
                 properties:
                   data:
                     type: "array"
@@ -33872,7 +33681,7 @@ paths:
       x-speakeasy-group: subscribers
       x-speakeasy-name-override: list
 security:
-  - BearerAuth: []
+  - RefreshTokenAuth: []
 components:
   parameters:
     V3.Incidents.IncidentExportRequest.assignedToUserIDsAndTheirSquads:
@@ -34132,18 +33941,18 @@ components:
       required:
         - "pageSize"
         - "hasNext"
-        - "hasPrevious"
+        - "hasPrev"
       properties:
         pageSize:
           type: "integer"
           format: "int32"
         hasNext:
           type: "boolean"
-        hasPrevious:
+        hasPrev:
           type: "boolean"
         nextCursor:
           type: "string"
-        previousCursor:
+        prevCursor:
           type: "string"
     V3.Analytics.AnalyticsResponse:
       type: "object"
@@ -38981,9 +38790,6 @@ components:
           type: "string"
         overlay_template_type:
           type: "string"
-          enum:
-            - "message"
-            - "description"
         overlay:
           $ref: "#/components/schemas/V3.Services.Overlay.CustomContent"
         created_by:
@@ -40206,9 +40012,11 @@ components:
         bio:
           type: "string"
         notification_rules:
-          type: "array"
-          items:
-            $ref: "#/components/schemas/V3.Users.NotificationRule"
+          anyOf:
+            - type: "array"
+              items:
+                $ref: "#/components/schemas/V3.Users.NotificationRule"
+            - type: "null"
         user_image:
           type: "boolean"
         role_id:
@@ -43975,13 +43783,22 @@ components:
           items:
             $ref: "#/components/schemas/V4.Tag"
   securitySchemes:
-    BearerAuth:
-      type: "http"
-      scheme: "bearer"
+    RefreshTokenAuth:
+      type: http
+      scheme: custom
+      x-speakeasy-custom-security-scheme:
+        schema:
+          type: object
+          properties:
+            refreshToken:
+              type: string
+              description: Squadcast refresh token used to obtain short-lived bearer tokens.
+          required:
+            - refreshToken
 servers:
-  - url: "https://api.eu.squadcast.com"
-    description: "production EU env"
-    variables: {}
   - url: "https://api.squadcast.com"
     description: "production US env"
+    variables: {}
+  - url: "https://api.eu.squadcast.com"
+    description: "production EU env"
     variables: {}

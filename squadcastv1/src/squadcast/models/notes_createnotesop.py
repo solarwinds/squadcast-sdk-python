@@ -35,27 +35,13 @@ class NotesCreateNotesRequest(BaseModel):
     ]
 
 
-class NotesCreateNotesBodyTypedDict(TypedDict):
-    r"""The body type of the operation request or response."""
-
-    data: V3IncidentsNotesNoteResponseTypedDict
-
-
-class NotesCreateNotesBody(BaseModel):
-    r"""The body type of the operation request or response."""
-
-    data: V3IncidentsNotesNoteResponse
-
-
 class NotesCreateNotesResponseTypedDict(TypedDict):
     r"""The request has succeeded and a new resource has been created as a result."""
 
-    body: NotesCreateNotesBodyTypedDict
-    r"""The body type of the operation request or response."""
+    data: V3IncidentsNotesNoteResponseTypedDict
 
 
 class NotesCreateNotesResponse(BaseModel):
     r"""The request has succeeded and a new resource has been created as a result."""
 
-    body: NotesCreateNotesBody
-    r"""The body type of the operation request or response."""
+    data: V3IncidentsNotesNoteResponse

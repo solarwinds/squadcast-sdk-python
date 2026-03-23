@@ -30,27 +30,13 @@ class ServicesCreateServiceRequest(BaseModel):
     ]
 
 
-class ServicesCreateServiceBodyTypedDict(TypedDict):
-    r"""The body type of the operation request or response."""
-
-    data: V3ServicesServiceResponseTypedDict
-
-
-class ServicesCreateServiceBody(BaseModel):
-    r"""The body type of the operation request or response."""
-
-    data: V3ServicesServiceResponse
-
-
 class ServicesCreateServiceResponseTypedDict(TypedDict):
     r"""The request has succeeded and a new resource has been created as a result."""
 
-    body: ServicesCreateServiceBodyTypedDict
-    r"""The body type of the operation request or response."""
+    data: V3ServicesServiceResponseTypedDict
 
 
 class ServicesCreateServiceResponse(BaseModel):
     r"""The request has succeeded and a new resource has been created as a result."""
 
-    body: ServicesCreateServiceBody
-    r"""The body type of the operation request or response."""
+    data: V3ServicesServiceResponse

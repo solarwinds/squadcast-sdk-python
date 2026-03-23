@@ -16,10 +16,10 @@ from typing import Callable, Dict, Optional, Tuple, Union
 
 
 SERVERS = [
-    "https://api.eu.squadcast.com",
-    # production EU env
     "https://api.squadcast.com",
     # production US env
+    "https://api.eu.squadcast.com",
+    # production EU env
 ]
 """Contains the list of servers available to the SDK"""
 

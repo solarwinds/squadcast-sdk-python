@@ -163,7 +163,7 @@ class SchedulesSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if not request.page_size is None else 0
+            limit = request.page_size if isinstance(request.page_size, int) else 0
             if len(results[0]) < limit:
                 return None
 
@@ -345,7 +345,7 @@ class SchedulesSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if not request.page_size is None else 0
+            limit = request.page_size if isinstance(request.page_size, int) else 0
             if len(results[0]) < limit:
                 return None
 

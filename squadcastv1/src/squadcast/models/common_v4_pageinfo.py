@@ -11,9 +11,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class CommonV4PageInfoTypedDict(TypedDict):
     page_size: int
     has_next: bool
-    has_previous: bool
+    has_prev: bool
     next_cursor: NotRequired[str]
-    previous_cursor: NotRequired[str]
+    prev_cursor: NotRequired[str]
 
 
 class CommonV4PageInfo(BaseModel):
@@ -21,17 +21,15 @@ class CommonV4PageInfo(BaseModel):
 
     has_next: Annotated[bool, pydantic.Field(alias="hasNext")]
 
-    has_previous: Annotated[bool, pydantic.Field(alias="hasPrevious")]
+    has_prev: Annotated[bool, pydantic.Field(alias="hasPrev")]
 
     next_cursor: Annotated[Optional[str], pydantic.Field(alias="nextCursor")] = None
 
-    previous_cursor: Annotated[
-        Optional[str], pydantic.Field(alias="previousCursor")
-    ] = None
+    prev_cursor: Annotated[Optional[str], pydantic.Field(alias="prevCursor")] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["nextCursor", "previousCursor"])
+        optional_fields = set(["nextCursor", "prevCursor"])
         serialized = handler(self)
         m = {}
 

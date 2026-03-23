@@ -9,27 +9,13 @@ from squadcast.types import BaseModel
 from typing_extensions import TypedDict
 
 
-class WebhooksCreateWebhookBodyTypedDict(TypedDict):
-    r"""The body type of the operation request or response."""
-
-    data: V3ExtensionsWebhooksWebhookResponseTypedDict
-
-
-class WebhooksCreateWebhookBody(BaseModel):
-    r"""The body type of the operation request or response."""
-
-    data: V3ExtensionsWebhooksWebhookResponse
-
-
 class WebhooksCreateWebhookResponseTypedDict(TypedDict):
     r"""The request has succeeded and a new resource has been created as a result."""
 
-    body: WebhooksCreateWebhookBodyTypedDict
-    r"""The body type of the operation request or response."""
+    data: V3ExtensionsWebhooksWebhookResponseTypedDict
 
 
 class WebhooksCreateWebhookResponse(BaseModel):
     r"""The request has succeeded and a new resource has been created as a result."""
 
-    body: WebhooksCreateWebhookBody
-    r"""The body type of the operation request or response."""
+    data: V3ExtensionsWebhooksWebhookResponse
