@@ -1,6 +1,6 @@
-# squadcast_sdk
+# Incident Response SDK for Python
 
-Developer-friendly & type-safe Python SDK specifically catered to leverage *squadcast_sdk* API.
+Developer-friendly & type-safe Python SDK specifically catered to leverage *Incident Response* API.
 
 [![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=squadcast-sdk&utm_campaign=python)
 [![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
@@ -8,7 +8,6 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *squa
 <!-- Start Summary [summary] -->
 ## Summary
 
-Squadcast: ## Overview
 The Squadcast API provides developers the capability to extend and utilize Squadcast in conjunction with other services. Our API has resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
 > **Note:** Customers using the V2 version of the Squadcast API would need to migrate to Squadcast API V3, as the former would be deprecated shortly.
@@ -65,7 +64,7 @@ The access token authorizes users the ability to access different APIs, based on
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [squadcast_sdk](#squadcastsdk)
+* [Incident Response SDK for Python](#incident-response-sdk-for-python)
   * [SDK Installation](#sdk-installation)
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)
