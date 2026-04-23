@@ -36374,6 +36374,17 @@ components:
             - "start_time"
             - "stop_time"
       description: "Represents the response structure for rebuilding a project in CircleCI."
+    V3.Incidents.IncidentActions.EventWebhookTrigger:
+      type: "object"
+      required:
+        - "event_class"
+        - "event_type"
+      properties:
+        event_class:
+          type: "string"
+        event_type:
+          type: "string"
+      description: "Represents a webhook trigger with event class and type."
     V3.Incidents.IncidentActions.IncidentActionErrorMeta:
       type: "object"
       required:
@@ -36459,7 +36470,7 @@ components:
         triggers:
           type: "array"
           items:
-            type: "string"
+            $ref: "#/components/schemas/V3.Incidents.IncidentActions.EventWebhookTrigger"
         urls:
           type: "array"
           items:
@@ -38335,10 +38346,14 @@ components:
       type: "object"
       required:
         - "name"
+        - "owner_id"
         - "escalation_policy_id"
       properties:
         name:
           type: "string"
+        owner_id:
+          type: "string"
+          description: "The owner_id is required for POST operations"
         escalation_policy_id:
           type: "string"
         description:
@@ -38855,8 +38870,6 @@ components:
           type: "string"
         overlay_template_type:
           type: "string"
-          enum:
-            - "dedup_key"
         overlay:
           $ref: "#/components/schemas/V3.Services.Overlay.DedupKeyOverlay"
         created_by:
@@ -39677,7 +39690,6 @@ components:
         - "description"
         - "slug"
         - "members"
-        - "roles"
         - "default"
       properties:
         id:
@@ -39767,7 +39779,6 @@ components:
         - "description"
         - "slug"
         - "members"
-        - "roles"
         - "default"
         - "organization"
       properties:
@@ -41868,11 +41879,11 @@ components:
       type: "object"
       required:
         - "rotationID"
-        - "participants"
+        - "participantGroups"
       properties:
         rotationID:
           type: "integer"
-        participants:
+        participantGroups:
           type: "array"
           items:
             $ref: "#/components/schemas/V4.ParticipantGroup"
@@ -42689,7 +42700,6 @@ components:
         - "isPublic"
         - "timezone"
         - "domainName"
-        - "customDomainName"
         - "contactEmail"
         - "themeColor"
         - "allowComponentsSubscription"
@@ -43374,7 +43384,6 @@ components:
         - "name"
         - "isPublic"
         - "domainName"
-        - "customDomainName"
         - "timezone"
         - "logoUrl"
         - "components"
@@ -43631,7 +43640,6 @@ components:
         - "isPublic"
         - "timezone"
         - "domainName"
-        - "customDomainName"
         - "contactEmail"
         - "themeColor"
         - "allowComponentsSubscription"

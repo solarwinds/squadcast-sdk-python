@@ -98,68 +98,31 @@
 <body><h2 id="python-sdk-changes">Python SDK Changes:</h2>
 
 <ul>
-<li><code>squadcast_sdk.webhooks.create()</code>: <code>response</code> <strong>Changed</strong> (Breaking ⚠️)
+<li><code>squadcast_sdk.incidents.actions.webhook.trigger()</code>:  <code>response.data.triggers[]</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.services.create()</code>: <code>request</code> <strong>Changed</strong> (Breaking ⚠️)
 
 <ul>
-<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>data</code> <strong>Added</strong></li>
+<li><code>owner_id_param</code> <strong>Added</strong> (Breaking ⚠️)</li>
+<li><code>owner_id</code> <strong>Changed</strong></li>
 </ul></li>
-<li><code>squadcast_sdk.incidents.export.export_async()</code>: <code>response.union(ResponseBody)</code> <strong>Changed</strong> (Breaking ⚠️)
+<li><code>squadcast_sdk.services.overlays.dedup_key.update()</code>:  <code>response.union(class (0)).data.overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.dedup_keys.list_by_service()</code>:  <code>response.data[].overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.overlays.dedup_key.get_for_alert_source()</code>:  <code>response.data.overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>squadcast_sdk.rotations.get_participants()</code>: <code>response.data</code> <strong>Changed</strong> (Breaking ⚠️)
 
 <ul>
-<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>data</code> <strong>Added</strong></li>
+<li><code>participant_groups</code> <strong>Added</strong></li>
+<li><code>participants</code> <strong>Removed</strong> (Breaking ⚠️)</li>
 </ul></li>
-<li><code>squadcast_sdk.incidents.notes.create()</code>: <code>response</code> <strong>Changed</strong> (Breaking ⚠️)
-
-<ul>
-<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>data</code> <strong>Added</strong></li>
-</ul></li>
-<li><code>squadcast_sdk.postmortems.create()</code>: <code>response</code> <strong>Changed</strong> (Breaking ⚠️)
-
-<ul>
-<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>data</code> <strong>Added</strong></li>
-</ul></li>
-<li><code>squadcast_sdk.users.get_all()</code>:  <code>response.data[].notification_rules</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>squadcast_sdk.users.add()</code>:  <code>response.data.notification_rules</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>squadcast_sdk.users.get_by_id()</code>:  <code>response.data.notification_rules</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>squadcast_sdk.users.update_by_id()</code>:  <code>response.data.notification_rules</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>squadcast_sdk.services.create()</code>: <code>response</code> <strong>Changed</strong> (Breaking ⚠️)
-
-<ul>
-<li><code>body</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>data</code> <strong>Added</strong></li>
-</ul></li>
-<li><code>squadcast_sdk.services.overlay.custom_content_templates.get_all()</code>:  <code>response.data[].overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>squadcast_sdk.services.overlay.custom_content_templates.create_or_update()</code>:  <code>response.data.overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>squadcast_sdk.services.overlays.custom_content_templates.get()</code>:  <code>response.data.overlay_template_type</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>squadcast_sdk.schedules.list()</code>: <code>response.page_info</code> <strong>Changed</strong> (Breaking ⚠️)
-
-<ul>
-<li><code>has_prev</code> <strong>Added</strong></li>
-<li><code>has_previous</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>prev_cursor</code> <strong>Added</strong></li>
-<li><code>previous_cursor</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-</ul></li>
-<li><code>squadcast_sdk.schedules.overrides.list()</code>: <code>response.page_info</code> <strong>Changed</strong> (Breaking ⚠️)
-
-<ul>
-<li><code>has_prev</code> <strong>Added</strong></li>
-<li><code>has_previous</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>prev_cursor</code> <strong>Added</strong></li>
-<li><code>previous_cursor</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-</ul></li>
-<li><code>squadcast_sdk.rotations.list_by_schedule()</code>:  <code>response.data</code> <strong>Changed</strong> (Breaking ⚠️)</li>
-<li><code>squadcast_sdk.squads.list()</code>: <code>response.page_info</code> <strong>Changed</strong> (Breaking ⚠️)
-
-<ul>
-<li><code>has_prev</code> <strong>Added</strong></li>
-<li><code>has_previous</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-<li><code>prev_cursor</code> <strong>Added</strong></li>
-<li><code>previous_cursor</code> <strong>Removed</strong> (Breaking ⚠️)</li>
-</ul></li>
+<li><code>squadcast_sdk.teams.create()</code>:  <code>response.data.roles</code> <strong>Changed</strong></li>
+<li><code>squadcast_sdk.teams.get()</code>:  <code>response.data.roles</code> <strong>Changed</strong></li>
+<li><code>squadcast_sdk.teams.update()</code>:  <code>response.data.roles</code> <strong>Changed</strong></li>
+<li><code>squadcast_sdk.teams.roles.create()</code>:  <code>response.data.roles</code> <strong>Changed</strong></li>
+<li><code>squadcast_sdk.teams.roles.update()</code>:  <code>response.data.roles</code> <strong>Changed</strong></li>
+<li><code>squadcast_sdk.teams.get_all()</code>:  <code>response.data[].roles</code> <strong>Changed</strong></li>
+<li><code>squadcast_sdk.status_pages.list()</code>:  <code>response.data[].custom_domain_name</code> <strong>Changed</strong></li>
+<li><code>squadcast_sdk.status_pages.get_by_id()</code>:  <code>response.data.custom_domain_name</code> <strong>Changed</strong></li>
+<li><code>squadcast_sdk.status_pages.update()</code>:  <code>response.data.custom_domain_name</code> <strong>Changed</strong></li>
 </ul>
 </body>
 </html>

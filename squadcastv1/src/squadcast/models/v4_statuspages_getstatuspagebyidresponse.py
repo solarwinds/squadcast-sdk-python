@@ -26,7 +26,6 @@ class V4StatusPagesGetStatusPageByIDResponseTypedDict(TypedDict):
     is_public: bool
     timezone: str
     domain_name: str
-    custom_domain_name: str
     contact_email: str
     theme_color: V4StatusPagesGetStatusPageByIDResponseThemeColorTypedDict
     allow_components_subscription: bool
@@ -36,6 +35,7 @@ class V4StatusPagesGetStatusPageByIDResponseTypedDict(TypedDict):
     owner_id: str
     team_id: str
     description: NotRequired[str]
+    custom_domain_name: NotRequired[str]
 
 
 class V4StatusPagesGetStatusPageByIDResponse(BaseModel):
@@ -50,8 +50,6 @@ class V4StatusPagesGetStatusPageByIDResponse(BaseModel):
     timezone: str
 
     domain_name: Annotated[str, pydantic.Field(alias="domainName")]
-
-    custom_domain_name: Annotated[str, pydantic.Field(alias="customDomainName")]
 
     contact_email: Annotated[str, pydantic.Field(alias="contactEmail")]
 
@@ -80,9 +78,13 @@ class V4StatusPagesGetStatusPageByIDResponse(BaseModel):
 
     description: Optional[str] = None
 
+    custom_domain_name: Annotated[
+        Optional[str], pydantic.Field(alias="customDomainName")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["description"])
+        optional_fields = set(["description", "customDomainName"])
         serialized = handler(self)
         m = {}
 

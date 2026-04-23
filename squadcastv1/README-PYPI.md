@@ -1,6 +1,6 @@
-# squadcast_sdk
+# Incident Response SDK for Python
 
-Developer-friendly & type-safe Python SDK specifically catered to leverage *squadcast_sdk* API.
+Developer-friendly & type-safe Python SDK specifically catered to leverage *Incident Response* API.
 
 [![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=squadcast-sdk&utm_campaign=python)
 [![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
@@ -65,7 +65,7 @@ The access token authorizes users the ability to access different APIs, based on
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [squadcast_sdk](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#squadcastsdk)
+* [Incident Response SDK for Python](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#incident-response-sdk-for-python)
   * [SDK Installation](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#sdk-installation)
   * [IDE Support](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#ide-support)
   * [SDK Example Usage](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#sdk-example-usage)

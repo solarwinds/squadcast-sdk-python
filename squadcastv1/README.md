@@ -8,6 +8,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *Inci
 <!-- Start Summary [summary] -->
 ## Summary
 
+Squadcast: ## Overview
 The Squadcast API provides developers the capability to extend and utilize Squadcast in conjunction with other services. Our API has resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
 > **Note:** Customers using the V2 version of the Squadcast API would need to migrate to Squadcast API V3, as the former would be deprecated shortly.

@@ -9,19 +9,22 @@ from .v3_services_serviceresponse import (
     V3ServicesServiceResponse,
     V3ServicesServiceResponseTypedDict,
 )
+import pydantic
 from squadcast.types import BaseModel
 from squadcast.utils import FieldMetadata, QueryParamMetadata, RequestMetadata
 from typing_extensions import Annotated, TypedDict
 
 
 class ServicesCreateServiceRequestTypedDict(TypedDict):
-    owner_id: str
+    owner_id_param: str
     v3_services_create_service_request: V3ServicesCreateServiceRequestTypedDict
 
 
 class ServicesCreateServiceRequest(BaseModel):
-    owner_id: Annotated[
-        str, FieldMetadata(query=QueryParamMetadata(style="form", explode=False))
+    owner_id_param: Annotated[
+        str,
+        pydantic.Field(alias="owner_id"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=False)),
     ]
 
     v3_services_create_service_request: Annotated[

@@ -1611,6 +1611,10 @@ if TYPE_CHECKING:
         V3IncidentsIncidentActionsCircleCIRebuildResponse,
         V3IncidentsIncidentActionsCircleCIRebuildResponseTypedDict,
     )
+    from .v3_incidents_incidentactions_eventwebhooktrigger import (
+        V3IncidentsIncidentActionsEventWebhookTrigger,
+        V3IncidentsIncidentActionsEventWebhookTriggerTypedDict,
+    )
     from .v3_incidents_incidentactions_rebuildcircleciprojectrequest import (
         V3IncidentsIncidentActionsRebuildCircleCIProjectRequest,
         V3IncidentsIncidentActionsRebuildCircleCIProjectRequestTypedDict,
@@ -2022,7 +2026,6 @@ if TYPE_CHECKING:
         V3ServicesOverlayOptInForKeyBasedDeduplicationRequestTypedDict,
     )
     from .v3_services_overlay_overlayresponse import (
-        OverlayTemplateType,
         V3ServicesOverlayOverlayResponse,
         V3ServicesOverlayOverlayResponseTypedDict,
     )
@@ -3667,7 +3670,6 @@ __all__ = [
     "OverlayRenderDedupKeyTemplateRequestTypedDict",
     "OverlayRenderDedupKeyTemplateResponse",
     "OverlayRenderDedupKeyTemplateResponseTypedDict",
-    "OverlayTemplateType",
     "OverlayUpdateDedupKeyOverlayRequest",
     "OverlayUpdateDedupKeyOverlayRequestTypedDict",
     "OverlayUpdateDedupKeyOverlayResponse",
@@ -4300,6 +4302,8 @@ __all__ = [
     "V3IncidentsIncidentActionsCircleCIErrorMetaTypedDict",
     "V3IncidentsIncidentActionsCircleCIRebuildResponse",
     "V3IncidentsIncidentActionsCircleCIRebuildResponseTypedDict",
+    "V3IncidentsIncidentActionsEventWebhookTrigger",
+    "V3IncidentsIncidentActionsEventWebhookTriggerTypedDict",
     "V3IncidentsIncidentActionsRebuildCircleCIProjectRequest",
     "V3IncidentsIncidentActionsRebuildCircleCIProjectRequestTypedDict",
     "V3IncidentsIncidentActionsWebhookActionResponse",
@@ -6277,6 +6281,8 @@ _dynamic_imports: dict[str, str] = {
     "PreviousTypedDict": ".v3_incidents_incidentactions_circlecirebuildresponse",
     "V3IncidentsIncidentActionsCircleCIRebuildResponse": ".v3_incidents_incidentactions_circlecirebuildresponse",
     "V3IncidentsIncidentActionsCircleCIRebuildResponseTypedDict": ".v3_incidents_incidentactions_circlecirebuildresponse",
+    "V3IncidentsIncidentActionsEventWebhookTrigger": ".v3_incidents_incidentactions_eventwebhooktrigger",
+    "V3IncidentsIncidentActionsEventWebhookTriggerTypedDict": ".v3_incidents_incidentactions_eventwebhooktrigger",
     "V3IncidentsIncidentActionsRebuildCircleCIProjectRequest": ".v3_incidents_incidentactions_rebuildcircleciprojectrequest",
     "V3IncidentsIncidentActionsRebuildCircleCIProjectRequestTypedDict": ".v3_incidents_incidentactions_rebuildcircleciprojectrequest",
     "URL": ".v3_incidents_incidentactions_webhookactionresponse",
@@ -6511,7 +6517,6 @@ _dynamic_imports: dict[str, str] = {
     "V3ServicesOverlayDedupKeyOverlayTypedDict": ".v3_services_overlay_dedupkeyoverlay",
     "V3ServicesOverlayOptInForKeyBasedDeduplicationRequest": ".v3_services_overlay_optinforkeybaseddeduplicationrequest",
     "V3ServicesOverlayOptInForKeyBasedDeduplicationRequestTypedDict": ".v3_services_overlay_optinforkeybaseddeduplicationrequest",
-    "OverlayTemplateType": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayOverlayResponse": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayOverlayResponseTypedDict": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayRenderCustomContentOverlayRequest": ".v3_services_overlay_rendercustomcontentoverlayrequest",
