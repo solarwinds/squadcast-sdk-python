@@ -338,7 +338,7 @@ with SquadcastSDK(
 
 * [bulk_acknowledge](docs/sdks/incidents/README.md#bulk_acknowledge) - Bulk Acknowledge Incidents
 * [export_incidents](docs/sdks/incidents/README.md#export_incidents) - Incident Export
-* [incidents_merge_incidents](docs/sdks/incidents/README.md#incidents_merge_incidents) - Merge Incidents
+* [merge](docs/sdks/incidents/README.md#merge) - Merge Incidents
 * [bulk_update_priority](docs/sdks/incidents/README.md#bulk_update_priority) - Bulk Incidents Priority Update
 * [bulk_resolve](docs/sdks/incidents/README.md#bulk_resolve) - Bulk Resolve Incidents
 * [get_by_id](docs/sdks/incidents/README.md#get_by_id) - Get Incident by ID
@@ -347,7 +347,7 @@ with SquadcastSDK(
 * [update_priority](docs/sdks/incidents/README.md#update_priority) - Incident Priority Update
 * [reassign](docs/sdks/incidents/README.md#reassign) - Reassign Incident
 * [resolve](docs/sdks/incidents/README.md#resolve) - Resolve Incident
-* [incidents_unmerge_incident](docs/sdks/incidents/README.md#incidents_unmerge_incident) - Unmerge Incident
+* [unmerge](docs/sdks/incidents/README.md#unmerge) - Unmerge Incident
 * [get_status_by_request_ids](docs/sdks/incidents/README.md#get_status_by_request_ids) - Get Incidents Status By RequestIDs
 
 #### [Incidents.Actions](docs/sdks/incidentsactions/README.md)
@@ -602,10 +602,6 @@ with SquadcastSDK(
 * [create](docs/sdks/squadsv4/README.md#create) - Create Squad
 * [update_name](docs/sdks/squadsv4/README.md#update_name) - Update Squad Name
 
-### [StatusPagesSubscribers](docs/sdks/statuspagessubscribers/README.md)
-
-* [status_pages_delete_subscriber_by_id](docs/sdks/statuspagessubscribers/README.md#status_pages_delete_subscriber_by_id) - Delete Subscriber By ID
-
 ### [Statuspages.Maintenances](docs/sdks/statuspagesmaintenances2/README.md)
 
 * [get_by_id](docs/sdks/statuspagesmaintenances2/README.md#get_by_id) - Get Maintenance By ID
@@ -639,6 +635,10 @@ with SquadcastSDK(
 
 * [list](docs/sdks/statuspagesmaintenances1/README.md#list) - List Maintenances
 * [create](docs/sdks/statuspagesmaintenances1/README.md#create) - Create Maintenance
+
+#### [StatusPages.Subscribers](docs/sdks/statuspagessubscribers/README.md)
+
+* [delete_by_id](docs/sdks/statuspagessubscribers/README.md#delete_by_id) - Delete Subscriber By ID
 
 ### [Subscribers](docs/sdks/subscribers/README.md)
 

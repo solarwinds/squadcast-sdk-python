@@ -7137,6 +7137,7 @@ paths:
               anyOf:
                 - $ref: "#/components/schemas/V3.Incidents.MergeIntoExistingParentRequest"
                 - $ref: "#/components/schemas/V3.Incidents.MergeIntoNewParentRequest"
+      x-speakeasy-name-override: merge
   /v3/incidents/postmortem:
     get:
       operationId: "Postmortems_getAllPostmortems"
@@ -12809,6 +12810,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/V3.Incidents.UnmergeIncidentRequest"
+      x-speakeasy-name-override: unmerge
   /v3/incidents/{incidentID}/unsnooze:
     put:
       operationId: "SnoozeNotifications_unsnoozeIncidentNotifications"
@@ -34131,6 +34133,8 @@ paths:
                   - "meta"
       tags:
         - "Status Pages/Subscribers"
+      x-speakeasy-group: statusPages.subscribers
+      x-speakeasy-name-override: deleteById
 security:
   - RefreshTokenAuth: []
 components:

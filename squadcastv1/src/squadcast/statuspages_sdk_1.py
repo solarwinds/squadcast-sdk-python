@@ -9,6 +9,7 @@ from squadcast.statuspages_componentgroups import StatusPagesComponentGroups
 from squadcast.statuspages_components import StatusPagesComponents
 from squadcast.statuspages_issues import StatusPagesIssues
 from squadcast.statuspages_maintenances_1 import StatusPagesMaintenances1
+from squadcast.statuspages_subscribers import StatusPagesSubscribers
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
@@ -19,6 +20,7 @@ class StatusPagesSDK1(BaseSDK):
     component_groups: StatusPagesComponentGroups
     issues: StatusPagesIssues
     maintenances: StatusPagesMaintenances1
+    subscribers: StatusPagesSubscribers
 
     def __init__(
         self, sdk_config: SDKConfiguration, parent_ref: Optional[object] = None
@@ -38,6 +40,9 @@ class StatusPagesSDK1(BaseSDK):
             self.sdk_configuration, parent_ref=self.parent_ref
         )
         self.maintenances = StatusPagesMaintenances1(
+            self.sdk_configuration, parent_ref=self.parent_ref
+        )
+        self.subscribers = StatusPagesSubscribers(
             self.sdk_configuration, parent_ref=self.parent_ref
         )
 

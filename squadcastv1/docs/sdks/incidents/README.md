@@ -6,7 +6,7 @@
 
 * [bulk_acknowledge](#bulk_acknowledge) - Bulk Acknowledge Incidents
 * [export_incidents](#export_incidents) - Incident Export
-* [incidents_merge_incidents](#incidents_merge_incidents) - Merge Incidents
+* [merge](#merge) - Merge Incidents
 * [bulk_update_priority](#bulk_update_priority) - Bulk Incidents Priority Update
 * [bulk_resolve](#bulk_resolve) - Bulk Resolve Incidents
 * [get_by_id](#get_by_id) - Get Incident by ID
@@ -15,7 +15,7 @@
 * [update_priority](#update_priority) - Incident Priority Update
 * [reassign](#reassign) - Reassign Incident
 * [resolve](#resolve) - Resolve Incident
-* [incidents_unmerge_incident](#incidents_unmerge_incident) - Unmerge Incident
+* [unmerge](#unmerge) - Unmerge Incident
 * [get_status_by_request_ids](#get_status_by_request_ids) - Get Incidents Status By RequestIDs
 
 ## bulk_acknowledge
@@ -153,7 +153,7 @@ with SquadcastSDK(
 | errors.GatewayTimeoutError      | 504                             | application/json                |
 | errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
 
-## incidents_merge_incidents
+## merge
 
 - This endpoint merges incidents under an existing parent incident or a newly created parent incident. A parent can have at most 100 child incidents in total.
 - All selected child incidents must belong to the team specified by `owner_id` and must not be suppressed, already merged as a child, or a parent with child incidents.
@@ -173,7 +173,7 @@ with SquadcastSDK(
     refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
-    res = squadcast_sdk.incidents.incidents_merge_incidents(request={
+    res = squadcast_sdk.incidents.merge(request={
         "owner_id": "<id>",
         "children": [
             "<value 1>",
@@ -649,7 +649,7 @@ with SquadcastSDK(
 | errors.GatewayTimeoutError      | 504                             | application/json                |
 | errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
 
-## incidents_unmerge_incident
+## unmerge
 
 - This endpoint unmerges a child incident from its parent incident.
 - The incident must currently be a child of a parent incident, and the parent incident must not be resolved or suppressed.
@@ -668,7 +668,7 @@ with SquadcastSDK(
     refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
-    res = squadcast_sdk.incidents.incidents_unmerge_incident(incident_id="<id>", send_notification=False, assign_me=True)
+    res = squadcast_sdk.incidents.unmerge(incident_id="<id>", send_notification=False, assign_me=True)
 
     # Handle response
     print(res)

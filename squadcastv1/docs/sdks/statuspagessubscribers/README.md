@@ -1,12 +1,12 @@
-# StatusPagesSubscribers
+# StatusPages.Subscribers
 
 ## Overview
 
 ### Available Operations
 
-* [status_pages_delete_subscriber_by_id](#status_pages_delete_subscriber_by_id) - Delete Subscriber By ID
+* [delete_by_id](#delete_by_id) - Delete Subscriber By ID
 
-## status_pages_delete_subscriber_by_id
+## delete_by_id
 
 Delete Subscriber By ID
 
@@ -21,7 +21,7 @@ with SquadcastSDK(
     refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
 ) as squadcast_sdk:
 
-    res = squadcast_sdk.status_pages_subscribers.status_pages_delete_subscriber_by_id(statuspage_id="<id>", subscriber_id="<id>")
+    res = squadcast_sdk.status_pages.subscribers.delete_by_id(statuspage_id="<id>", subscriber_id="<id>")
 
     # Handle response
     print(res)

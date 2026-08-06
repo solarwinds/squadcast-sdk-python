@@ -44,7 +44,6 @@ if TYPE_CHECKING:
     from squadcast.snoozenotifications import SnoozeNotifications
     from squadcast.squads_sdk import SquadsSDK
     from squadcast.squadsv4 import SquadsV4
-    from squadcast.status_pages_subscribers import StatusPagesSubscribers
     from squadcast.statuspages_sdk_1 import StatusPagesSDK1
     from squadcast.statuspages_sdk_2 import StatuspagesSDK2
     from squadcast.subscribers import Subscribers
@@ -147,7 +146,6 @@ class SquadcastSDK(BaseSDK):
     maintenances: "Maintenances"
     statuspages: "StatuspagesSDK2"
     subscribers: "Subscribers"
-    status_pages_subscribers: "StatusPagesSubscribers"
     _sub_sdk_map = {
         "analytics": ("squadcast.analytics", "Analytics"),
         "audit_logs": ("squadcast.auditlogs", "AuditLogs"),
@@ -198,10 +196,6 @@ class SquadcastSDK(BaseSDK):
         "maintenances": ("squadcast.maintenances", "Maintenances"),
         "statuspages": ("squadcast.statuspages_sdk_2", "StatuspagesSDK2"),
         "subscribers": ("squadcast.subscribers", "Subscribers"),
-        "status_pages_subscribers": (
-            "squadcast.status_pages_subscribers",
-            "StatusPagesSubscribers",
-        ),
     }
 
     def __init__(

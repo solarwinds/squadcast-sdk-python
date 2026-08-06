@@ -9,7 +9,7 @@ from typing import Any, Mapping, Optional
 
 
 class StatusPagesSubscribers(BaseSDK):
-    def status_pages_delete_subscriber_by_id(
+    def delete_by_id(
         self,
         *,
         statuspage_id: str,
@@ -146,7 +146,7 @@ class StatusPagesSubscribers(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def status_pages_delete_subscriber_by_id_async(
+    async def delete_by_id_async(
         self,
         *,
         statuspage_id: str,

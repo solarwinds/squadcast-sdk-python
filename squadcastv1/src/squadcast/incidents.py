@@ -765,7 +765,7 @@ class Incidents(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    def incidents_merge_incidents(
+    def merge(
         self,
         *,
         request: Union[
@@ -912,7 +912,7 @@ class Incidents(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def incidents_merge_incidents_async(
+    async def merge_async(
         self,
         *,
         request: Union[
@@ -3383,7 +3383,7 @@ class Incidents(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    def incidents_unmerge_incident(
+    def unmerge(
         self,
         *,
         incident_id: str,
@@ -3538,7 +3538,7 @@ class Incidents(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
-    async def incidents_unmerge_incident_async(
+    async def unmerge_async(
         self,
         *,
         incident_id: str,
