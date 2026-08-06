@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Iterable, List, Mapping, Optional
 
 
 class TeamsMembers(BaseSDK):
@@ -75,23 +75,11 @@ class TeamsMembers(BaseSDK):
                 operation_id="Teams_getAllTeamMembers",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Teams"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -224,23 +212,11 @@ class TeamsMembers(BaseSDK):
                 operation_id="Teams_getAllTeamMembers",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Teams"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -312,7 +288,7 @@ class TeamsMembers(BaseSDK):
         *,
         team_id: str,
         user_id: str,
-        role_ids: List[str],
+        role_ids: Iterable[str],
         role: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -347,7 +323,7 @@ class TeamsMembers(BaseSDK):
             team_id=team_id,
             v3_teams_add_team_member_request=models.V3TeamsAddTeamMemberRequest(
                 user_id=user_id,
-                role_ids=role_ids,
+                role_ids=utils.unmarshal(role_ids, List[str]),
                 role=role,
             ),
         )
@@ -391,23 +367,11 @@ class TeamsMembers(BaseSDK):
                 operation_id="Teams_addTeamMember",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Teams"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -477,7 +441,7 @@ class TeamsMembers(BaseSDK):
         *,
         team_id: str,
         user_id: str,
-        role_ids: List[str],
+        role_ids: Iterable[str],
         role: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -512,7 +476,7 @@ class TeamsMembers(BaseSDK):
             team_id=team_id,
             v3_teams_add_team_member_request=models.V3TeamsAddTeamMemberRequest(
                 user_id=user_id,
-                role_ids=role_ids,
+                role_ids=utils.unmarshal(role_ids, List[str]),
                 role=role,
             ),
         )
@@ -556,23 +520,11 @@ class TeamsMembers(BaseSDK):
                 operation_id="Teams_addTeamMember",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Teams"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

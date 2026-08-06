@@ -5,6 +5,6 @@ Request body for reassigning an incident.
 
 ## Fields
 
-| Field                                        | Type                                         | Required                                     | Description                                  |
-| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
-| `reassign_to`                                | [models.ReassignTo](../models/reassignto.md) | :heavy_check_mark:                           | N/A                                          |
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `reassign_to`                                                  | [models.V3IncidentsAssignee](../models/v3incidentsassignee.md) | :heavy_check_mark:                                             | Assignment target for an incident.                             |

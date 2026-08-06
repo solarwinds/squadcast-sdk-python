@@ -7,7 +7,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, IO, List, Mapping, Optional, Union
+from typing import Any, Dict, IO, Iterable, List, Mapping, Optional, Union
 
 
 class EscalationPoliciesSDK(BaseSDK):
@@ -83,23 +83,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_getEscalationPolicyByTeam",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -115,8 +103,8 @@ class EscalationPoliciesSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.get_by_team(
@@ -124,6 +112,9 @@ class EscalationPoliciesSDK(BaseSDK):
                 page_number=next_page,
                 page_size=page_size,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -265,23 +256,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_getEscalationPolicyByTeam",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -297,8 +276,8 @@ class EscalationPoliciesSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.get_by_team(
@@ -306,6 +285,9 @@ class EscalationPoliciesSDK(BaseSDK):
                 page_number=next_page,
                 page_size=page_size,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -384,13 +366,13 @@ class EscalationPoliciesSDK(BaseSDK):
         repetition: int,
         repeat_after: int,
         rules: Union[
-            List[models.V3EscalationPoliciesEscalationPolicyRule],
-            List[models.V3EscalationPoliciesEscalationPolicyRuleTypedDict],
+            Iterable[models.V3EscalationPoliciesEscalationPolicyRule],
+            Iterable[models.V3EscalationPoliciesEscalationPolicyRuleTypedDict],
         ],
         enable_incident_reminders: bool,
         incident_reminder_rules: Union[
-            List[models.V3EscalationPoliciesIncidentReminderRule],
-            List[models.V3EscalationPoliciesIncidentReminderRuleTypedDict],
+            Iterable[models.V3EscalationPoliciesIncidentReminderRule],
+            Iterable[models.V3EscalationPoliciesIncidentReminderRuleTypedDict],
         ],
         enable_incident_retrigger: bool,
         retrigger_after: int,
@@ -493,23 +475,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_createEscalationPolicies",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -585,13 +555,13 @@ class EscalationPoliciesSDK(BaseSDK):
         repetition: int,
         repeat_after: int,
         rules: Union[
-            List[models.V3EscalationPoliciesEscalationPolicyRule],
-            List[models.V3EscalationPoliciesEscalationPolicyRuleTypedDict],
+            Iterable[models.V3EscalationPoliciesEscalationPolicyRule],
+            Iterable[models.V3EscalationPoliciesEscalationPolicyRuleTypedDict],
         ],
         enable_incident_reminders: bool,
         incident_reminder_rules: Union[
-            List[models.V3EscalationPoliciesIncidentReminderRule],
-            List[models.V3EscalationPoliciesIncidentReminderRuleTypedDict],
+            Iterable[models.V3EscalationPoliciesIncidentReminderRule],
+            Iterable[models.V3EscalationPoliciesIncidentReminderRuleTypedDict],
         ],
         enable_incident_retrigger: bool,
         retrigger_after: int,
@@ -694,23 +664,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_createEscalationPolicies",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -843,23 +801,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_removeEscalationPolicy",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -991,23 +937,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_removeEscalationPolicy",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1139,23 +1073,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_getEscalationPolicyById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1288,23 +1210,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_getEscalationPolicyById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1376,7 +1286,7 @@ class EscalationPoliciesSDK(BaseSDK):
         *,
         escalation_policy_id: str,
         v3_escalation_policies_update_escalation_policy_request: Union[
-            bytes, IO[bytes], io.BufferedReader
+            bytes, IO[bytes], io.IOBase
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1428,7 +1338,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 False,
                 False,
                 "raw",
-                Union[bytes, IO[bytes], io.BufferedReader],
+                Union[bytes, IO[bytes], io.IOBase],
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1449,23 +1359,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_updateEscalationPolicy",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1537,7 +1435,7 @@ class EscalationPoliciesSDK(BaseSDK):
         *,
         escalation_policy_id: str,
         v3_escalation_policies_update_escalation_policy_request: Union[
-            bytes, IO[bytes], io.BufferedReader
+            bytes, IO[bytes], io.IOBase
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1589,7 +1487,7 @@ class EscalationPoliciesSDK(BaseSDK):
                 False,
                 False,
                 "raw",
-                Union[bytes, IO[bytes], io.BufferedReader],
+                Union[bytes, IO[bytes], io.IOBase],
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1610,23 +1508,11 @@ class EscalationPoliciesSDK(BaseSDK):
                 operation_id="EscalationPolicies_updateEscalationPolicy",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Escalation Policies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union
 
 
 class Rotations(BaseSDK):
@@ -72,23 +72,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_getScheduleRotations",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -181,23 +169,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_getScheduleRotations",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -237,13 +213,17 @@ class Rotations(BaseSDK):
         change_participants_frequency: int,
         change_participants_unit: str,
         participant_groups: Union[
-            List[models.V4ParticipantGroup], List[models.V4ParticipantGroupTypedDict]
+            Iterable[models.V4ParticipantGroup],
+            Iterable[models.V4ParticipantGroupTypedDict],
         ],
         color: Optional[str] = None,
         custom_period_frequency: Optional[int] = None,
         custom_period_unit: Optional[str] = None,
         shift_time_slots: Optional[
-            Union[List[models.V4ShiftTimeSlot], List[models.V4ShiftTimeSlotTypedDict]]
+            Union[
+                Iterable[models.V4ShiftTimeSlot],
+                Iterable[models.V4ShiftTimeSlotTypedDict],
+            ]
         ] = None,
         end_date: Optional[str] = None,
         ends_after_iterations: Optional[int] = None,
@@ -343,23 +323,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_createRotation",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -399,13 +367,17 @@ class Rotations(BaseSDK):
         change_participants_frequency: int,
         change_participants_unit: str,
         participant_groups: Union[
-            List[models.V4ParticipantGroup], List[models.V4ParticipantGroupTypedDict]
+            Iterable[models.V4ParticipantGroup],
+            Iterable[models.V4ParticipantGroupTypedDict],
         ],
         color: Optional[str] = None,
         custom_period_frequency: Optional[int] = None,
         custom_period_unit: Optional[str] = None,
         shift_time_slots: Optional[
-            Union[List[models.V4ShiftTimeSlot], List[models.V4ShiftTimeSlotTypedDict]]
+            Union[
+                Iterable[models.V4ShiftTimeSlot],
+                Iterable[models.V4ShiftTimeSlotTypedDict],
+            ]
         ] = None,
         end_date: Optional[str] = None,
         ends_after_iterations: Optional[int] = None,
@@ -505,23 +477,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_createRotation",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -617,23 +577,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_deleteRotation",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -728,23 +676,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_deleteRotation",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -839,23 +775,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_getScheduleRotationById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -951,23 +875,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_getScheduleRotationById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1011,7 +923,10 @@ class Rotations(BaseSDK):
         custom_period_frequency: Optional[int] = None,
         custom_period_unit: Optional[str] = None,
         shift_time_slots: Optional[
-            Union[List[models.V4ShiftTimeSlot], List[models.V4ShiftTimeSlotTypedDict]]
+            Union[
+                Iterable[models.V4ShiftTimeSlot],
+                Iterable[models.V4ShiftTimeSlotTypedDict],
+            ]
         ] = None,
         end_date: Optional[str] = None,
         ends_after_iterations: Optional[int] = None,
@@ -1109,23 +1024,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_updateRotation",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1169,7 +1072,10 @@ class Rotations(BaseSDK):
         custom_period_frequency: Optional[int] = None,
         custom_period_unit: Optional[str] = None,
         shift_time_slots: Optional[
-            Union[List[models.V4ShiftTimeSlot], List[models.V4ShiftTimeSlotTypedDict]]
+            Union[
+                Iterable[models.V4ShiftTimeSlot],
+                Iterable[models.V4ShiftTimeSlotTypedDict],
+            ]
         ] = None,
         end_date: Optional[str] = None,
         ends_after_iterations: Optional[int] = None,
@@ -1267,23 +1173,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_updateRotation",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1379,23 +1273,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_getRotationParticipants",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1491,23 +1373,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_getRotationParticipants",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1543,7 +1413,8 @@ class Rotations(BaseSDK):
         schedule_id: str,
         rotation_id: str,
         participant_groups: Union[
-            List[models.V4ParticipantGroup], List[models.V4ParticipantGroupTypedDict]
+            Iterable[models.V4ParticipantGroup],
+            Iterable[models.V4ParticipantGroupTypedDict],
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1619,23 +1490,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_updateRotationParticipants",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1671,7 +1530,8 @@ class Rotations(BaseSDK):
         schedule_id: str,
         rotation_id: str,
         participant_groups: Union[
-            List[models.V4ParticipantGroup], List[models.V4ParticipantGroupTypedDict]
+            Iterable[models.V4ParticipantGroup],
+            Iterable[models.V4ParticipantGroupTypedDict],
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1747,23 +1607,11 @@ class Rotations(BaseSDK):
                 operation_id="Rotations_updateRotationParticipants",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Rotation"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

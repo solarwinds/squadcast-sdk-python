@@ -6,7 +6,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class WebformsSDK(BaseSDK):
@@ -82,23 +82,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_getAllWebforms",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -112,8 +100,8 @@ class WebformsSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -121,6 +109,9 @@ class WebformsSDK(BaseSDK):
                 page_number=next_page,
                 page_size=page_size,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -261,23 +252,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_getAllWebforms",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -291,8 +270,8 @@ class WebformsSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -300,6 +279,9 @@ class WebformsSDK(BaseSDK):
                 page_number=next_page,
                 page_size=page_size,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -382,7 +364,8 @@ class WebformsSDK(BaseSDK):
         form_owner_type: str,
         form_owner_id: str,
         services: Union[
-            List[models.V3WebformsWFService], List[models.V3WebformsWFServiceTypedDict]
+            Iterable[models.V3WebformsWFService],
+            Iterable[models.V3WebformsWFServiceTypedDict],
         ],
         header: str,
         title: str,
@@ -397,12 +380,12 @@ class WebformsSDK(BaseSDK):
         ] = None,
         input_field: Optional[
             Union[
-                List[models.V3WebformsWFInputField],
-                List[models.V3WebformsWFInputFieldTypedDict],
+                Iterable[models.V3WebformsWFInputField],
+                Iterable[models.V3WebformsWFInputFieldTypedDict],
             ]
         ] = None,
         logo_url: Optional[str] = None,
-        email_on: Optional[List[str]] = None,
+        email_on: Optional[Iterable[str]] = None,
         description: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -472,7 +455,7 @@ class WebformsSDK(BaseSDK):
             logo_url=logo_url,
             footer_text=footer_text,
             footer_link=footer_link,
-            email_on=email_on,
+            email_on=utils.unmarshal(email_on, Optional[List[str]]),
             description=description,
         )
 
@@ -515,23 +498,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_createWebform",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -612,7 +583,8 @@ class WebformsSDK(BaseSDK):
         form_owner_type: str,
         form_owner_id: str,
         services: Union[
-            List[models.V3WebformsWFService], List[models.V3WebformsWFServiceTypedDict]
+            Iterable[models.V3WebformsWFService],
+            Iterable[models.V3WebformsWFServiceTypedDict],
         ],
         header: str,
         title: str,
@@ -627,12 +599,12 @@ class WebformsSDK(BaseSDK):
         ] = None,
         input_field: Optional[
             Union[
-                List[models.V3WebformsWFInputField],
-                List[models.V3WebformsWFInputFieldTypedDict],
+                Iterable[models.V3WebformsWFInputField],
+                Iterable[models.V3WebformsWFInputFieldTypedDict],
             ]
         ] = None,
         logo_url: Optional[str] = None,
-        email_on: Optional[List[str]] = None,
+        email_on: Optional[Iterable[str]] = None,
         description: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -702,7 +674,7 @@ class WebformsSDK(BaseSDK):
             logo_url=logo_url,
             footer_text=footer_text,
             footer_link=footer_link,
-            email_on=email_on,
+            email_on=utils.unmarshal(email_on, Optional[List[str]]),
             description=description,
         )
 
@@ -745,23 +717,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_createWebform",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -843,7 +803,8 @@ class WebformsSDK(BaseSDK):
         form_owner_type: str,
         form_owner_id: str,
         services: Union[
-            List[models.V3WebformsWFService], List[models.V3WebformsWFServiceTypedDict]
+            Iterable[models.V3WebformsWFService],
+            Iterable[models.V3WebformsWFServiceTypedDict],
         ],
         header: str,
         title: str,
@@ -858,12 +819,12 @@ class WebformsSDK(BaseSDK):
         ] = None,
         input_field: Optional[
             Union[
-                List[models.V3WebformsWFInputField],
-                List[models.V3WebformsWFInputFieldTypedDict],
+                Iterable[models.V3WebformsWFInputField],
+                Iterable[models.V3WebformsWFInputFieldTypedDict],
             ]
         ] = None,
         logo_url: Optional[str] = None,
-        email_on: Optional[List[str]] = None,
+        email_on: Optional[Iterable[str]] = None,
         description: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -936,7 +897,7 @@ class WebformsSDK(BaseSDK):
                 logo_url=logo_url,
                 footer_text=footer_text,
                 footer_link=footer_link,
-                email_on=email_on,
+                email_on=utils.unmarshal(email_on, Optional[List[str]]),
                 description=description,
             ),
         )
@@ -980,23 +941,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_updateWebform",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1078,7 +1027,8 @@ class WebformsSDK(BaseSDK):
         form_owner_type: str,
         form_owner_id: str,
         services: Union[
-            List[models.V3WebformsWFService], List[models.V3WebformsWFServiceTypedDict]
+            Iterable[models.V3WebformsWFService],
+            Iterable[models.V3WebformsWFServiceTypedDict],
         ],
         header: str,
         title: str,
@@ -1093,12 +1043,12 @@ class WebformsSDK(BaseSDK):
         ] = None,
         input_field: Optional[
             Union[
-                List[models.V3WebformsWFInputField],
-                List[models.V3WebformsWFInputFieldTypedDict],
+                Iterable[models.V3WebformsWFInputField],
+                Iterable[models.V3WebformsWFInputFieldTypedDict],
             ]
         ] = None,
         logo_url: Optional[str] = None,
-        email_on: Optional[List[str]] = None,
+        email_on: Optional[Iterable[str]] = None,
         description: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1171,7 +1121,7 @@ class WebformsSDK(BaseSDK):
                 logo_url=logo_url,
                 footer_text=footer_text,
                 footer_link=footer_link,
-                email_on=email_on,
+                email_on=utils.unmarshal(email_on, Optional[List[str]]),
                 description=description,
             ),
         )
@@ -1215,23 +1165,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_updateWebform",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1367,23 +1305,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_removeWebform",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1519,23 +1445,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_removeWebform",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1671,23 +1585,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_getWebformById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1823,23 +1725,11 @@ class WebformsSDK(BaseSDK):
                 operation_id="Webforms_getWebformById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Webforms"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

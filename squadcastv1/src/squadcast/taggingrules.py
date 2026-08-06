@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union
 
 
 class TaggingRules(BaseSDK):
@@ -72,23 +72,11 @@ class TaggingRules(BaseSDK):
                 operation_id="TaggingRules_getTaggingRules",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services/Tagging Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -218,23 +206,11 @@ class TaggingRules(BaseSDK):
                 operation_id="TaggingRules_getTaggingRules",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services/Tagging Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -306,8 +282,8 @@ class TaggingRules(BaseSDK):
         *,
         service_id: str,
         rules: Union[
-            List[models.V3ServicesTaggingRulesTagRule],
-            List[models.V3ServicesTaggingRulesTagRuleTypedDict],
+            Iterable[models.V3ServicesTaggingRulesTagRule],
+            Iterable[models.V3ServicesTaggingRulesTagRuleTypedDict],
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -381,23 +357,11 @@ class TaggingRules(BaseSDK):
                 operation_id="TaggingRules_createOrUpdateTaggingRules",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services/Tagging Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -469,8 +433,8 @@ class TaggingRules(BaseSDK):
         *,
         service_id: str,
         rules: Union[
-            List[models.V3ServicesTaggingRulesTagRule],
-            List[models.V3ServicesTaggingRulesTagRuleTypedDict],
+            Iterable[models.V3ServicesTaggingRulesTagRule],
+            Iterable[models.V3ServicesTaggingRulesTagRuleTypedDict],
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -544,23 +508,11 @@ class TaggingRules(BaseSDK):
                 operation_id="TaggingRules_createOrUpdateTaggingRules",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services/Tagging Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

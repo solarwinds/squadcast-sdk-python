@@ -16,7 +16,7 @@ from squadcast.suppressionrules import SuppressionRules
 from squadcast.taggingrules import TaggingRules
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union
 
 
 class ServicesSDK(BaseSDK):
@@ -137,23 +137,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_getServices",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -287,23 +275,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_getServices",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -371,8 +347,9 @@ class ServicesSDK(BaseSDK):
     def create(
         self,
         *,
-        owner_id: str,
+        owner_id_param: str,
         name: str,
+        owner_id: str,
         escalation_policy_id: str,
         description: Optional[str] = None,
         email_prefix: Optional[str] = None,
@@ -384,8 +361,8 @@ class ServicesSDK(BaseSDK):
         ] = None,
         tags: Optional[
             Union[
-                List[models.V3ServicesServiceTag],
-                List[models.V3ServicesServiceTagTypedDict],
+                Iterable[models.V3ServicesServiceTag],
+                Iterable[models.V3ServicesServiceTagTypedDict],
             ]
         ] = None,
         auto_pause_transient_alerts_config: Optional[
@@ -413,8 +390,9 @@ class ServicesSDK(BaseSDK):
     ) -> models.ServicesCreateServiceResponse:
         r"""Create Service
 
-        :param owner_id:
+        :param owner_id_param:
         :param name:
+        :param owner_id: The owner_id is required for POST operations
         :param escalation_policy_id:
         :param description:
         :param email_prefix:
@@ -440,9 +418,10 @@ class ServicesSDK(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ServicesCreateServiceRequest(
-            owner_id=owner_id,
+            owner_id_param=owner_id_param,
             v3_services_create_service_request=models.V3ServicesCreateServiceRequest(
                 name=name,
+                owner_id=owner_id,
                 escalation_policy_id=escalation_policy_id,
                 description=description,
                 email_prefix=email_prefix,
@@ -509,23 +488,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_createService",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -595,8 +562,9 @@ class ServicesSDK(BaseSDK):
     async def create_async(
         self,
         *,
-        owner_id: str,
+        owner_id_param: str,
         name: str,
+        owner_id: str,
         escalation_policy_id: str,
         description: Optional[str] = None,
         email_prefix: Optional[str] = None,
@@ -608,8 +576,8 @@ class ServicesSDK(BaseSDK):
         ] = None,
         tags: Optional[
             Union[
-                List[models.V3ServicesServiceTag],
-                List[models.V3ServicesServiceTagTypedDict],
+                Iterable[models.V3ServicesServiceTag],
+                Iterable[models.V3ServicesServiceTagTypedDict],
             ]
         ] = None,
         auto_pause_transient_alerts_config: Optional[
@@ -637,8 +605,9 @@ class ServicesSDK(BaseSDK):
     ) -> models.ServicesCreateServiceResponse:
         r"""Create Service
 
-        :param owner_id:
+        :param owner_id_param:
         :param name:
+        :param owner_id: The owner_id is required for POST operations
         :param escalation_policy_id:
         :param description:
         :param email_prefix:
@@ -664,9 +633,10 @@ class ServicesSDK(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ServicesCreateServiceRequest(
-            owner_id=owner_id,
+            owner_id_param=owner_id_param,
             v3_services_create_service_request=models.V3ServicesCreateServiceRequest(
                 name=name,
+                owner_id=owner_id,
                 escalation_policy_id=escalation_policy_id,
                 description=description,
                 email_prefix=email_prefix,
@@ -733,23 +703,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_createService",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -882,23 +840,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_getServicesByName",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1031,23 +977,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_getServicesByName",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1177,23 +1111,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_getServiceById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1323,23 +1245,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_getServiceById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1422,8 +1332,8 @@ class ServicesSDK(BaseSDK):
         ] = None,
         tags: Optional[
             Union[
-                List[models.V3ServicesServiceTag],
-                List[models.V3ServicesServiceTagTypedDict],
+                Iterable[models.V3ServicesServiceTag],
+                Iterable[models.V3ServicesServiceTagTypedDict],
             ]
         ] = None,
         auto_pause_transient_alerts_config: Optional[
@@ -1537,23 +1447,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_updateService",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1636,8 +1534,8 @@ class ServicesSDK(BaseSDK):
         ] = None,
         tags: Optional[
             Union[
-                List[models.V3ServicesServiceTag],
-                List[models.V3ServicesServiceTagTypedDict],
+                Iterable[models.V3ServicesServiceTag],
+                Iterable[models.V3ServicesServiceTagTypedDict],
             ]
         ] = None,
         auto_pause_transient_alerts_config: Optional[
@@ -1751,23 +1649,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_updateService",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1897,23 +1783,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_deleteService",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2042,23 +1916,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_deleteService",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2202,23 +2064,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_createOrUpdateAPTAConfig",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2363,23 +2213,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_createOrUpdateAPTAConfig",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2524,23 +2362,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_createOrUpdateIAGConfig",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2685,23 +2511,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_createOrUpdateIAGConfig",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2886,23 +2700,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_delayedNotificationConfig",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -3087,23 +2889,11 @@ class ServicesSDK(BaseSDK):
                 operation_id="Services_delayedNotificationConfig",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

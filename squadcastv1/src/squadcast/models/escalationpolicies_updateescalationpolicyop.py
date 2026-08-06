@@ -17,7 +17,7 @@ class EscalationPoliciesUpdateEscalationPolicyRequestTypedDict(TypedDict):
     escalation_policy_id: str
     r"""(Required) escalation policy ID"""
     v3_escalation_policies_update_escalation_policy_request: Union[
-        bytes, IO[bytes], io.BufferedReader
+        bytes, IO[bytes], io.IOBase
     ]
 
 
@@ -30,7 +30,7 @@ class EscalationPoliciesUpdateEscalationPolicyRequest(BaseModel):
     r"""(Required) escalation policy ID"""
 
     v3_escalation_policies_update_escalation_policy_request: Annotated[
-        Union[bytes, IO[bytes], io.BufferedReader],
+        Union[bytes, IO[bytes], io.IOBase],
         FieldMetadata(request=RequestMetadata(media_type="text/plain")),
     ]
 

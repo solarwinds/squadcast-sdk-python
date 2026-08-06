@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union
 
 
 class Msteams2(BaseSDK):
@@ -24,8 +24,8 @@ class Msteams2(BaseSDK):
         tenant_id: str,
         from_id: str,
         connected_teams: Union[
-            List[models.V3ExtensionsMSTeamsConnectedTeams],
-            List[models.V3ExtensionsMSTeamsConnectedTeamsTypedDict],
+            Iterable[models.V3ExtensionsMSTeamsConnectedTeams],
+            Iterable[models.V3ExtensionsMSTeamsConnectedTeamsTypedDict],
         ],
         custom_incident_alert_state: Optional[
             Union[
@@ -132,23 +132,11 @@ class Msteams2(BaseSDK):
                 operation_id="MSTeams_createOrUpdateMsteamsConfiguration",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Extensions/MSTeams"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -230,8 +218,8 @@ class Msteams2(BaseSDK):
         tenant_id: str,
         from_id: str,
         connected_teams: Union[
-            List[models.V3ExtensionsMSTeamsConnectedTeams],
-            List[models.V3ExtensionsMSTeamsConnectedTeamsTypedDict],
+            Iterable[models.V3ExtensionsMSTeamsConnectedTeams],
+            Iterable[models.V3ExtensionsMSTeamsConnectedTeamsTypedDict],
         ],
         custom_incident_alert_state: Optional[
             Union[
@@ -338,23 +326,11 @@ class Msteams2(BaseSDK):
                 operation_id="MSTeams_createOrUpdateMsteamsConfiguration",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Extensions/MSTeams"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

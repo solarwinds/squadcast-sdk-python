@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Iterable, List, Mapping, Optional
 
 
 class Dependencies(BaseSDK):
@@ -13,7 +13,7 @@ class Dependencies(BaseSDK):
         self,
         *,
         service_id: str,
-        dependencies: List[str],
+        dependencies: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -41,7 +41,7 @@ class Dependencies(BaseSDK):
         request = models.DependenciesCreateOrUpdateDependenciesRequest(
             service_id=service_id,
             v3_services_dependencies_create_or_update_dependencies_request=models.V3ServicesDependenciesCreateOrUpdateDependenciesRequest(
-                dependencies=dependencies,
+                dependencies=utils.unmarshal(dependencies, List[str]),
             ),
         )
 
@@ -84,23 +84,11 @@ class Dependencies(BaseSDK):
                 operation_id="Dependencies_createOrUpdateDependencies",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services/Dependencies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -171,7 +159,7 @@ class Dependencies(BaseSDK):
         self,
         *,
         service_id: str,
-        dependencies: List[str],
+        dependencies: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -199,7 +187,7 @@ class Dependencies(BaseSDK):
         request = models.DependenciesCreateOrUpdateDependenciesRequest(
             service_id=service_id,
             v3_services_dependencies_create_or_update_dependencies_request=models.V3ServicesDependenciesCreateOrUpdateDependenciesRequest(
-                dependencies=dependencies,
+                dependencies=utils.unmarshal(dependencies, List[str]),
             ),
         )
 
@@ -242,23 +230,11 @@ class Dependencies(BaseSDK):
                 operation_id="Dependencies_createOrUpdateDependencies",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services/Dependencies"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

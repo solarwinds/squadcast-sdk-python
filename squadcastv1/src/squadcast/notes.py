@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Iterable, List, Mapping, Optional
 
 
 class Notes(BaseSDK):
@@ -14,7 +14,7 @@ class Notes(BaseSDK):
         *,
         incident_id: str,
         message: str,
-        attachments: List[str],
+        attachments: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -44,7 +44,7 @@ class Notes(BaseSDK):
             incident_id=incident_id,
             v3_incidents_notes_create_note_request=models.V3IncidentsNotesCreateNoteRequest(
                 message=message,
-                attachments=attachments,
+                attachments=utils.unmarshal(attachments, List[str]),
             ),
         )
 
@@ -87,23 +87,11 @@ class Notes(BaseSDK):
                 operation_id="Notes_createNotes",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Notes"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -173,7 +161,7 @@ class Notes(BaseSDK):
         *,
         incident_id: str,
         message: str,
-        attachments: List[str],
+        attachments: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -203,7 +191,7 @@ class Notes(BaseSDK):
             incident_id=incident_id,
             v3_incidents_notes_create_note_request=models.V3IncidentsNotesCreateNoteRequest(
                 message=message,
-                attachments=attachments,
+                attachments=utils.unmarshal(attachments, List[str]),
             ),
         )
 
@@ -246,23 +234,11 @@ class Notes(BaseSDK):
                 operation_id="Notes_createNotes",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Notes"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -393,23 +369,11 @@ class Notes(BaseSDK):
                 operation_id="Notes_getAllNotes",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Notes"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -540,23 +504,11 @@ class Notes(BaseSDK):
                 operation_id="Notes_getAllNotes",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Notes"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -691,23 +643,11 @@ class Notes(BaseSDK):
                 operation_id="Notes_deleteNote",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Notes"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -843,23 +783,11 @@ class Notes(BaseSDK):
                 operation_id="Notes_deleteNote",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Notes"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -931,7 +859,7 @@ class Notes(BaseSDK):
         incident_id: str,
         note_id: str,
         message: str,
-        attachments: List[str],
+        attachments: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -965,7 +893,7 @@ class Notes(BaseSDK):
             note_id=note_id,
             v3_incidents_notes_update_note_request=models.V3IncidentsNotesUpdateNoteRequest(
                 message=message,
-                attachments=attachments,
+                attachments=utils.unmarshal(attachments, List[str]),
             ),
         )
 
@@ -1008,23 +936,11 @@ class Notes(BaseSDK):
                 operation_id="Notes_updateNote",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Notes"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1095,7 +1011,7 @@ class Notes(BaseSDK):
         incident_id: str,
         note_id: str,
         message: str,
-        attachments: List[str],
+        attachments: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1129,7 +1045,7 @@ class Notes(BaseSDK):
             note_id=note_id,
             v3_incidents_notes_update_note_request=models.V3IncidentsNotesUpdateNoteRequest(
                 message=message,
-                attachments=attachments,
+                attachments=utils.unmarshal(attachments, List[str]),
             ),
         )
 
@@ -1172,23 +1088,11 @@ class Notes(BaseSDK):
                 operation_id="Notes_updateNote",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Notes"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

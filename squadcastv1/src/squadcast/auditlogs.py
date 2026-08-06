@@ -7,7 +7,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class AuditLogs(BaseSDK):
@@ -18,11 +18,11 @@ class AuditLogs(BaseSDK):
         page_number: int,
         start_date: date,
         end_date: date,
-        action: Optional[List[str]] = None,
-        resource: Optional[List[str]] = None,
-        actor: Optional[List[str]] = None,
-        team: Optional[List[str]] = None,
-        client: Optional[List[models.Client]] = None,
+        action: Optional[Iterable[str]] = None,
+        resource: Optional[Iterable[str]] = None,
+        actor: Optional[Iterable[str]] = None,
+        team: Optional[Iterable[str]] = None,
+        client: Optional[Iterable[models.Client]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -62,11 +62,11 @@ class AuditLogs(BaseSDK):
             page_number=page_number,
             start_date=start_date,
             end_date=end_date,
-            action=action,
-            resource=resource,
-            actor=actor,
-            team=team,
-            client=client,
+            action=utils.unmarshal(action, Optional[List[str]]),
+            resource=utils.unmarshal(resource, Optional[List[str]]),
+            actor=utils.unmarshal(actor, Optional[List[str]]),
+            team=utils.unmarshal(team, Optional[List[str]]),
+            client=utils.unmarshal(client, Optional[List[models.Client]]),
         )
 
         req = self._build_request(
@@ -101,23 +101,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_listAuditLogs",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -131,8 +119,8 @@ class AuditLogs(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size
-            if len(results[0]) < limit:
+            limit_ = request.page_size
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -146,6 +134,9 @@ class AuditLogs(BaseSDK):
                 team=team,
                 client=client,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -221,11 +212,11 @@ class AuditLogs(BaseSDK):
         page_number: int,
         start_date: date,
         end_date: date,
-        action: Optional[List[str]] = None,
-        resource: Optional[List[str]] = None,
-        actor: Optional[List[str]] = None,
-        team: Optional[List[str]] = None,
-        client: Optional[List[models.Client]] = None,
+        action: Optional[Iterable[str]] = None,
+        resource: Optional[Iterable[str]] = None,
+        actor: Optional[Iterable[str]] = None,
+        team: Optional[Iterable[str]] = None,
+        client: Optional[Iterable[models.Client]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -265,11 +256,11 @@ class AuditLogs(BaseSDK):
             page_number=page_number,
             start_date=start_date,
             end_date=end_date,
-            action=action,
-            resource=resource,
-            actor=actor,
-            team=team,
-            client=client,
+            action=utils.unmarshal(action, Optional[List[str]]),
+            resource=utils.unmarshal(resource, Optional[List[str]]),
+            actor=utils.unmarshal(actor, Optional[List[str]]),
+            team=utils.unmarshal(team, Optional[List[str]]),
+            client=utils.unmarshal(client, Optional[List[models.Client]]),
         )
 
         req = self._build_request_async(
@@ -304,23 +295,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_listAuditLogs",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -334,8 +313,8 @@ class AuditLogs(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size
-            if len(results[0]) < limit:
+            limit_ = request.page_size
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -349,6 +328,9 @@ class AuditLogs(BaseSDK):
                 team=team,
                 client=client,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -495,23 +477,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_exportAuditLogs",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -656,23 +626,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_exportAuditLogs",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -808,23 +766,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_listAuditLogsExportHistory",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -838,14 +784,17 @@ class AuditLogs(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size
-            if len(results[0]) < limit:
+            limit_ = request.page_size
+            if len(results[0]) < limit_:
                 return None
 
             return self.list_export_history(
                 page_size=page_size,
                 page_number=next_page,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -983,23 +932,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_listAuditLogsExportHistory",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1013,14 +950,17 @@ class AuditLogs(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size
-            if len(results[0]) < limit:
+            limit_ = request.page_size
+            if len(results[0]) < limit_:
                 return None
 
             return self.list_export_history(
                 page_size=page_size,
                 page_number=next_page,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -1155,23 +1095,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_getAuditLogsExportHistoryById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1304,23 +1232,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_getAuditLogsExportHistoryById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1453,23 +1369,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_getAuditLogById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1602,23 +1506,11 @@ class AuditLogs(BaseSDK):
                 operation_id="AuditLogs_getAuditLogById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Audit Logs"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

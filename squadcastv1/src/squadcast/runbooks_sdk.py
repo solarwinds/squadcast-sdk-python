@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union
 
 
 class RunbooksSDK(BaseSDK):
@@ -13,7 +13,7 @@ class RunbooksSDK(BaseSDK):
         self,
         *,
         incident_id: str,
-        runbooks: List[str],
+        runbooks: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -41,7 +41,7 @@ class RunbooksSDK(BaseSDK):
         request = models.RunbooksAttachRunbooksRequest(
             incident_id=incident_id,
             v3_incidents_runbooks_attach_runbooks_request=models.V3IncidentsRunbooksAttachRunbooksRequest(
-                runbooks=runbooks,
+                runbooks=utils.unmarshal(runbooks, List[str]),
             ),
         )
 
@@ -84,23 +84,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_attachRunbooks",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -171,7 +159,7 @@ class RunbooksSDK(BaseSDK):
         self,
         *,
         incident_id: str,
-        runbooks: List[str],
+        runbooks: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -199,7 +187,7 @@ class RunbooksSDK(BaseSDK):
         request = models.RunbooksAttachRunbooksRequest(
             incident_id=incident_id,
             v3_incidents_runbooks_attach_runbooks_request=models.V3IncidentsRunbooksAttachRunbooksRequest(
-                runbooks=runbooks,
+                runbooks=utils.unmarshal(runbooks, List[str]),
             ),
         )
 
@@ -242,23 +230,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_attachRunbooks",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -384,23 +360,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_getAllRunbooksByTeam",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -526,23 +490,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_getAllRunbooksByTeam",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -613,7 +565,9 @@ class RunbooksSDK(BaseSDK):
         self,
         *,
         name: str,
-        steps: Union[List[models.V3RunbooksStep], List[models.V3RunbooksStepTypedDict]],
+        steps: Union[
+            Iterable[models.V3RunbooksStep], Iterable[models.V3RunbooksStepTypedDict]
+        ],
         owner_id: str,
         entity_owner: Optional[
             Union[models.CommonV3EntityOwner, models.CommonV3EntityOwnerTypedDict]
@@ -691,23 +645,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_createRunbook",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -778,7 +720,9 @@ class RunbooksSDK(BaseSDK):
         self,
         *,
         name: str,
-        steps: Union[List[models.V3RunbooksStep], List[models.V3RunbooksStepTypedDict]],
+        steps: Union[
+            Iterable[models.V3RunbooksStep], Iterable[models.V3RunbooksStepTypedDict]
+        ],
         owner_id: str,
         entity_owner: Optional[
             Union[models.CommonV3EntityOwner, models.CommonV3EntityOwnerTypedDict]
@@ -856,23 +800,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_createRunbook",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1005,23 +937,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_removeRunbook",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1153,23 +1073,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_removeRunbook",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1301,23 +1209,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_getRunbookById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1450,23 +1346,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_getRunbookById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1538,7 +1422,9 @@ class RunbooksSDK(BaseSDK):
         *,
         runbook_id: str,
         name: str,
-        steps: Union[List[models.V3RunbooksStep], List[models.V3RunbooksStepTypedDict]],
+        steps: Union[
+            Iterable[models.V3RunbooksStep], Iterable[models.V3RunbooksStepTypedDict]
+        ],
         entity_owner: Optional[
             Union[models.CommonV3EntityOwner, models.CommonV3EntityOwnerTypedDict]
         ] = None,
@@ -1621,23 +1507,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_updateRunbook",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1709,7 +1583,9 @@ class RunbooksSDK(BaseSDK):
         *,
         runbook_id: str,
         name: str,
-        steps: Union[List[models.V3RunbooksStep], List[models.V3RunbooksStepTypedDict]],
+        steps: Union[
+            Iterable[models.V3RunbooksStep], Iterable[models.V3RunbooksStepTypedDict]
+        ],
         entity_owner: Optional[
             Union[models.CommonV3EntityOwner, models.CommonV3EntityOwnerTypedDict]
         ] = None,
@@ -1792,23 +1668,11 @@ class RunbooksSDK(BaseSDK):
                 operation_id="Runbooks_updateRunbook",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Runbooks"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

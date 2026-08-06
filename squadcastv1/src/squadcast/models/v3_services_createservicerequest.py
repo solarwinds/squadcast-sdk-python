@@ -24,6 +24,8 @@ from typing_extensions import NotRequired, TypedDict
 
 class V3ServicesCreateServiceRequestTypedDict(TypedDict):
     name: str
+    owner_id: str
+    r"""The owner_id is required for POST operations"""
     escalation_policy_id: str
     description: NotRequired[str]
     email_prefix: NotRequired[str]
@@ -39,6 +41,9 @@ class V3ServicesCreateServiceRequestTypedDict(TypedDict):
 
 class V3ServicesCreateServiceRequest(BaseModel):
     name: str
+
+    owner_id: str
+    r"""The owner_id is required for POST operations"""
 
     escalation_policy_id: str
 
