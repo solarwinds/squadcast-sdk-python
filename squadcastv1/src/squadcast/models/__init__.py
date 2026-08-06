@@ -488,6 +488,12 @@ if TYPE_CHECKING:
         IncidentsMarkIncidentSloFalsePositiveResponse,
         IncidentsMarkIncidentSloFalsePositiveResponseTypedDict,
     )
+    from .incidents_mergeincidentsop import (
+        IncidentsMergeIncidentsRequest,
+        IncidentsMergeIncidentsRequestTypedDict,
+        IncidentsMergeIncidentsResponse,
+        IncidentsMergeIncidentsResponseTypedDict,
+    )
     from .incidents_reassignincidentop import (
         IncidentsReassignIncidentRequest,
         IncidentsReassignIncidentRequestTypedDict,
@@ -499,6 +505,12 @@ if TYPE_CHECKING:
         IncidentsResolveIncidentRequestTypedDict,
         IncidentsResolveIncidentResponse,
         IncidentsResolveIncidentResponseTypedDict,
+    )
+    from .incidents_unmergeincidentop import (
+        IncidentsUnmergeIncidentRequest,
+        IncidentsUnmergeIncidentRequestTypedDict,
+        IncidentsUnmergeIncidentResponse,
+        IncidentsUnmergeIncidentResponseTypedDict,
     )
     from .issues_createissueop import (
         IssuesCreateIssueRequest,
@@ -1068,6 +1080,12 @@ if TYPE_CHECKING:
         StatusPagesDeleteStatusPageByIDResponse,
         StatusPagesDeleteStatusPageByIDResponseTypedDict,
     )
+    from .statuspages_deletesubscriberbyidop import (
+        StatusPagesDeleteSubscriberByIDRequest,
+        StatusPagesDeleteSubscriberByIDRequestTypedDict,
+        StatusPagesDeleteSubscriberByIDResponse,
+        StatusPagesDeleteSubscriberByIDResponseTypedDict,
+    )
     from .statuspages_getstatuspagebyidop import (
         StatusPagesGetStatusPageByIDRequest,
         StatusPagesGetStatusPageByIDRequestTypedDict,
@@ -1557,6 +1575,11 @@ if TYPE_CHECKING:
         V3IncidentsAssignedTo,
         V3IncidentsAssignedToTypedDict,
     )
+    from .v3_incidents_assignee import (
+        V3IncidentsAssignee,
+        V3IncidentsAssigneeType,
+        V3IncidentsAssigneeTypedDict,
+    )
     from .v3_incidents_assignto import V3IncidentsAssignTo, V3IncidentsAssignToTypedDict
     from .v3_incidents_bulkincidentidsrequest import (
         V3IncidentsBulkIncidentIDsRequest,
@@ -1610,6 +1633,10 @@ if TYPE_CHECKING:
         PreviousTypedDict,
         V3IncidentsIncidentActionsCircleCIRebuildResponse,
         V3IncidentsIncidentActionsCircleCIRebuildResponseTypedDict,
+    )
+    from .v3_incidents_incidentactions_eventwebhooktrigger import (
+        V3IncidentsIncidentActionsEventWebhookTrigger,
+        V3IncidentsIncidentActionsEventWebhookTriggerTypedDict,
     )
     from .v3_incidents_incidentactions_rebuildcircleciprojectrequest import (
         V3IncidentsIncidentActionsRebuildCircleCIProjectRequest,
@@ -1687,6 +1714,24 @@ if TYPE_CHECKING:
         V3IncidentsMergeIncidentEntityReference,
         V3IncidentsMergeIncidentEntityReferenceTypedDict,
     )
+    from .v3_incidents_mergeincidentsresponse import (
+        V3IncidentsMergeIncidentsResponse,
+        V3IncidentsMergeIncidentsResponseTypedDict,
+    )
+    from .v3_incidents_mergeintoexistingparentrequest import (
+        V3IncidentsMergeIntoExistingParentRequest,
+        V3IncidentsMergeIntoExistingParentRequestTypedDict,
+    )
+    from .v3_incidents_mergeintonewparentrequest import (
+        V3IncidentsMergeIntoNewParentRequest,
+        V3IncidentsMergeIntoNewParentRequestTypedDict,
+    )
+    from .v3_incidents_mergenewparentincidentrequest import (
+        V3IncidentsMergeNewParentIncidentRequest,
+        V3IncidentsMergeNewParentIncidentRequestTags,
+        V3IncidentsMergeNewParentIncidentRequestTagsTypedDict,
+        V3IncidentsMergeNewParentIncidentRequestTypedDict,
+    )
     from .v3_incidents_notes_createnoterequest import (
         V3IncidentsNotesCreateNoteRequest,
         V3IncidentsNotesCreateNoteRequestTypedDict,
@@ -1745,8 +1790,6 @@ if TYPE_CHECKING:
         V3IncidentsPostmortemsUpdatePostmortemRequestTypedDict,
     )
     from .v3_incidents_reassignincidentrequest import (
-        ReassignTo,
-        ReassignToTypedDict,
         V3IncidentsReassignIncidentRequest,
         V3IncidentsReassignIncidentRequestTypedDict,
     )
@@ -1876,6 +1919,14 @@ if TYPE_CHECKING:
         V3IncidentsTagsUpdateTagRequestTags,
         V3IncidentsTagsUpdateTagRequestTagsTypedDict,
         V3IncidentsTagsUpdateTagRequestTypedDict,
+    )
+    from .v3_incidents_unmergeincidentrequest import (
+        V3IncidentsUnmergeIncidentRequest,
+        V3IncidentsUnmergeIncidentRequestTypedDict,
+    )
+    from .v3_incidents_unmergeincidentresponse import (
+        V3IncidentsUnmergeIncidentResponse,
+        V3IncidentsUnmergeIncidentResponseTypedDict,
     )
     from .v3_runbooks_createrunbookrequest import (
         V3RunbooksCreateRunbookRequest,
@@ -2022,7 +2073,6 @@ if TYPE_CHECKING:
         V3ServicesOverlayOptInForKeyBasedDeduplicationRequestTypedDict,
     )
     from .v3_services_overlay_overlayresponse import (
-        OverlayTemplateType,
         V3ServicesOverlayOverlayResponse,
         V3ServicesOverlayOverlayResponseTypedDict,
     )
@@ -2843,6 +2893,10 @@ if TYPE_CHECKING:
         V4StatusPagesDeleteStatusPageByIDResponse,
         V4StatusPagesDeleteStatusPageByIDResponseTypedDict,
     )
+    from .v4_statuspages_deletesubscriberbyidresponse import (
+        V4StatusPagesDeleteSubscriberByIDResponse,
+        V4StatusPagesDeleteSubscriberByIDResponseTypedDict,
+    )
     from .v4_statuspages_getstatuspagebyidresponse import (
         V4StatusPagesGetStatusPageByIDResponse,
         V4StatusPagesGetStatusPageByIDResponseThemeColor,
@@ -3539,6 +3593,10 @@ __all__ = [
     "IncidentsMarkIncidentSloFalsePositiveRequestTypedDict",
     "IncidentsMarkIncidentSloFalsePositiveResponse",
     "IncidentsMarkIncidentSloFalsePositiveResponseTypedDict",
+    "IncidentsMergeIncidentsRequest",
+    "IncidentsMergeIncidentsRequestTypedDict",
+    "IncidentsMergeIncidentsResponse",
+    "IncidentsMergeIncidentsResponseTypedDict",
     "IncidentsReassignIncidentRequest",
     "IncidentsReassignIncidentRequestTypedDict",
     "IncidentsReassignIncidentResponse",
@@ -3547,6 +3605,10 @@ __all__ = [
     "IncidentsResolveIncidentRequestTypedDict",
     "IncidentsResolveIncidentResponse",
     "IncidentsResolveIncidentResponseTypedDict",
+    "IncidentsUnmergeIncidentRequest",
+    "IncidentsUnmergeIncidentRequestTypedDict",
+    "IncidentsUnmergeIncidentResponse",
+    "IncidentsUnmergeIncidentResponseTypedDict",
     "Insights",
     "InsightsTypedDict",
     "IssuesCreateIssueRequest",
@@ -3667,7 +3729,6 @@ __all__ = [
     "OverlayRenderDedupKeyTemplateRequestTypedDict",
     "OverlayRenderDedupKeyTemplateResponse",
     "OverlayRenderDedupKeyTemplateResponseTypedDict",
-    "OverlayTemplateType",
     "OverlayUpdateDedupKeyOverlayRequest",
     "OverlayUpdateDedupKeyOverlayRequestTypedDict",
     "OverlayUpdateDedupKeyOverlayResponse",
@@ -3722,8 +3783,6 @@ __all__ = [
     "PreviousSuccessfulBuild",
     "PreviousSuccessfulBuildTypedDict",
     "PreviousTypedDict",
-    "ReassignTo",
-    "ReassignToTypedDict",
     "RequestsStatus",
     "RequestsStatusTypedDict",
     "ResolutionReason",
@@ -3973,6 +4032,10 @@ __all__ = [
     "StatusPagesDeleteStatusPageByIDRequestTypedDict",
     "StatusPagesDeleteStatusPageByIDResponse",
     "StatusPagesDeleteStatusPageByIDResponseTypedDict",
+    "StatusPagesDeleteSubscriberByIDRequest",
+    "StatusPagesDeleteSubscriberByIDRequestTypedDict",
+    "StatusPagesDeleteSubscriberByIDResponse",
+    "StatusPagesDeleteSubscriberByIDResponseTypedDict",
     "StatusPagesGetStatusPageByIDRequest",
     "StatusPagesGetStatusPageByIDRequestTypedDict",
     "StatusPagesGetStatusPageByIDResponse",
@@ -4277,6 +4340,9 @@ __all__ = [
     "V3IncidentsAssignToTypedDict",
     "V3IncidentsAssignedTo",
     "V3IncidentsAssignedToTypedDict",
+    "V3IncidentsAssignee",
+    "V3IncidentsAssigneeType",
+    "V3IncidentsAssigneeTypedDict",
     "V3IncidentsBulkIncidentIDsRequest",
     "V3IncidentsBulkIncidentIDsRequestTypedDict",
     "V3IncidentsBulkIncidentsPriorityUpdateRequest",
@@ -4300,6 +4366,8 @@ __all__ = [
     "V3IncidentsIncidentActionsCircleCIErrorMetaTypedDict",
     "V3IncidentsIncidentActionsCircleCIRebuildResponse",
     "V3IncidentsIncidentActionsCircleCIRebuildResponseTypedDict",
+    "V3IncidentsIncidentActionsEventWebhookTrigger",
+    "V3IncidentsIncidentActionsEventWebhookTriggerTypedDict",
     "V3IncidentsIncidentActionsRebuildCircleCIProjectRequest",
     "V3IncidentsIncidentActionsRebuildCircleCIProjectRequestTypedDict",
     "V3IncidentsIncidentActionsWebhookActionResponse",
@@ -4338,6 +4406,16 @@ __all__ = [
     "V3IncidentsLogsTypedDict",
     "V3IncidentsMergeIncidentEntityReference",
     "V3IncidentsMergeIncidentEntityReferenceTypedDict",
+    "V3IncidentsMergeIncidentsResponse",
+    "V3IncidentsMergeIncidentsResponseTypedDict",
+    "V3IncidentsMergeIntoExistingParentRequest",
+    "V3IncidentsMergeIntoExistingParentRequestTypedDict",
+    "V3IncidentsMergeIntoNewParentRequest",
+    "V3IncidentsMergeIntoNewParentRequestTypedDict",
+    "V3IncidentsMergeNewParentIncidentRequest",
+    "V3IncidentsMergeNewParentIncidentRequestTags",
+    "V3IncidentsMergeNewParentIncidentRequestTagsTypedDict",
+    "V3IncidentsMergeNewParentIncidentRequestTypedDict",
     "V3IncidentsNotesCreateNoteRequest",
     "V3IncidentsNotesCreateNoteRequestTypedDict",
     "V3IncidentsNotesNoteResponse",
@@ -4436,6 +4514,10 @@ __all__ = [
     "V3IncidentsTagsUpdateTagRequestTags",
     "V3IncidentsTagsUpdateTagRequestTagsTypedDict",
     "V3IncidentsTagsUpdateTagRequestTypedDict",
+    "V3IncidentsUnmergeIncidentRequest",
+    "V3IncidentsUnmergeIncidentRequestTypedDict",
+    "V3IncidentsUnmergeIncidentResponse",
+    "V3IncidentsUnmergeIncidentResponseTypedDict",
     "V3RunbooksCreateRunbookRequest",
     "V3RunbooksCreateRunbookRequestTypedDict",
     "V3RunbooksRunbookResponse",
@@ -5009,6 +5091,8 @@ __all__ = [
     "V4StatusPagesCreateStatusPageResponseTypedDict",
     "V4StatusPagesDeleteStatusPageByIDResponse",
     "V4StatusPagesDeleteStatusPageByIDResponseTypedDict",
+    "V4StatusPagesDeleteSubscriberByIDResponse",
+    "V4StatusPagesDeleteSubscriberByIDResponseTypedDict",
     "V4StatusPagesGetStatusPageByIDResponse",
     "V4StatusPagesGetStatusPageByIDResponseThemeColor",
     "V4StatusPagesGetStatusPageByIDResponseThemeColorTypedDict",
@@ -5554,6 +5638,10 @@ _dynamic_imports: dict[str, str] = {
     "IncidentsMarkIncidentSloFalsePositiveRequestTypedDict": ".incidents_markincidentslofalsepositiveop",
     "IncidentsMarkIncidentSloFalsePositiveResponse": ".incidents_markincidentslofalsepositiveop",
     "IncidentsMarkIncidentSloFalsePositiveResponseTypedDict": ".incidents_markincidentslofalsepositiveop",
+    "IncidentsMergeIncidentsRequest": ".incidents_mergeincidentsop",
+    "IncidentsMergeIncidentsRequestTypedDict": ".incidents_mergeincidentsop",
+    "IncidentsMergeIncidentsResponse": ".incidents_mergeincidentsop",
+    "IncidentsMergeIncidentsResponseTypedDict": ".incidents_mergeincidentsop",
     "IncidentsReassignIncidentRequest": ".incidents_reassignincidentop",
     "IncidentsReassignIncidentRequestTypedDict": ".incidents_reassignincidentop",
     "IncidentsReassignIncidentResponse": ".incidents_reassignincidentop",
@@ -5562,6 +5650,10 @@ _dynamic_imports: dict[str, str] = {
     "IncidentsResolveIncidentRequestTypedDict": ".incidents_resolveincidentop",
     "IncidentsResolveIncidentResponse": ".incidents_resolveincidentop",
     "IncidentsResolveIncidentResponseTypedDict": ".incidents_resolveincidentop",
+    "IncidentsUnmergeIncidentRequest": ".incidents_unmergeincidentop",
+    "IncidentsUnmergeIncidentRequestTypedDict": ".incidents_unmergeincidentop",
+    "IncidentsUnmergeIncidentResponse": ".incidents_unmergeincidentop",
+    "IncidentsUnmergeIncidentResponseTypedDict": ".incidents_unmergeincidentop",
     "IssuesCreateIssueRequest": ".issues_createissueop",
     "IssuesCreateIssueRequestTypedDict": ".issues_createissueop",
     "IssuesCreateIssueResponse": ".issues_createissueop",
@@ -5947,6 +6039,10 @@ _dynamic_imports: dict[str, str] = {
     "StatusPagesDeleteStatusPageByIDRequestTypedDict": ".statuspages_deletestatuspagebyidop",
     "StatusPagesDeleteStatusPageByIDResponse": ".statuspages_deletestatuspagebyidop",
     "StatusPagesDeleteStatusPageByIDResponseTypedDict": ".statuspages_deletestatuspagebyidop",
+    "StatusPagesDeleteSubscriberByIDRequest": ".statuspages_deletesubscriberbyidop",
+    "StatusPagesDeleteSubscriberByIDRequestTypedDict": ".statuspages_deletesubscriberbyidop",
+    "StatusPagesDeleteSubscriberByIDResponse": ".statuspages_deletesubscriberbyidop",
+    "StatusPagesDeleteSubscriberByIDResponseTypedDict": ".statuspages_deletesubscriberbyidop",
     "StatusPagesGetStatusPageByIDRequest": ".statuspages_getstatuspagebyidop",
     "StatusPagesGetStatusPageByIDRequestTypedDict": ".statuspages_getstatuspagebyidop",
     "StatusPagesGetStatusPageByIDResponse": ".statuspages_getstatuspagebyidop",
@@ -6244,6 +6340,9 @@ _dynamic_imports: dict[str, str] = {
     "V3IncidentsAptaMessageResponseTypedDict": ".v3_incidents_apta_messageresponse",
     "V3IncidentsAssignedTo": ".v3_incidents_assignedto",
     "V3IncidentsAssignedToTypedDict": ".v3_incidents_assignedto",
+    "V3IncidentsAssignee": ".v3_incidents_assignee",
+    "V3IncidentsAssigneeType": ".v3_incidents_assignee",
+    "V3IncidentsAssigneeTypedDict": ".v3_incidents_assignee",
     "V3IncidentsAssignTo": ".v3_incidents_assignto",
     "V3IncidentsAssignToTypedDict": ".v3_incidents_assignto",
     "V3IncidentsBulkIncidentIDsRequest": ".v3_incidents_bulkincidentidsrequest",
@@ -6277,6 +6376,8 @@ _dynamic_imports: dict[str, str] = {
     "PreviousTypedDict": ".v3_incidents_incidentactions_circlecirebuildresponse",
     "V3IncidentsIncidentActionsCircleCIRebuildResponse": ".v3_incidents_incidentactions_circlecirebuildresponse",
     "V3IncidentsIncidentActionsCircleCIRebuildResponseTypedDict": ".v3_incidents_incidentactions_circlecirebuildresponse",
+    "V3IncidentsIncidentActionsEventWebhookTrigger": ".v3_incidents_incidentactions_eventwebhooktrigger",
+    "V3IncidentsIncidentActionsEventWebhookTriggerTypedDict": ".v3_incidents_incidentactions_eventwebhooktrigger",
     "V3IncidentsIncidentActionsRebuildCircleCIProjectRequest": ".v3_incidents_incidentactions_rebuildcircleciprojectrequest",
     "V3IncidentsIncidentActionsRebuildCircleCIProjectRequestTypedDict": ".v3_incidents_incidentactions_rebuildcircleciprojectrequest",
     "URL": ".v3_incidents_incidentactions_webhookactionresponse",
@@ -6321,6 +6422,16 @@ _dynamic_imports: dict[str, str] = {
     "V3IncidentsLogsTypedDict": ".v3_incidents_logs",
     "V3IncidentsMergeIncidentEntityReference": ".v3_incidents_mergeincidententityreference",
     "V3IncidentsMergeIncidentEntityReferenceTypedDict": ".v3_incidents_mergeincidententityreference",
+    "V3IncidentsMergeIncidentsResponse": ".v3_incidents_mergeincidentsresponse",
+    "V3IncidentsMergeIncidentsResponseTypedDict": ".v3_incidents_mergeincidentsresponse",
+    "V3IncidentsMergeIntoExistingParentRequest": ".v3_incidents_mergeintoexistingparentrequest",
+    "V3IncidentsMergeIntoExistingParentRequestTypedDict": ".v3_incidents_mergeintoexistingparentrequest",
+    "V3IncidentsMergeIntoNewParentRequest": ".v3_incidents_mergeintonewparentrequest",
+    "V3IncidentsMergeIntoNewParentRequestTypedDict": ".v3_incidents_mergeintonewparentrequest",
+    "V3IncidentsMergeNewParentIncidentRequest": ".v3_incidents_mergenewparentincidentrequest",
+    "V3IncidentsMergeNewParentIncidentRequestTags": ".v3_incidents_mergenewparentincidentrequest",
+    "V3IncidentsMergeNewParentIncidentRequestTagsTypedDict": ".v3_incidents_mergenewparentincidentrequest",
+    "V3IncidentsMergeNewParentIncidentRequestTypedDict": ".v3_incidents_mergenewparentincidentrequest",
     "V3IncidentsNotesCreateNoteRequest": ".v3_incidents_notes_createnoterequest",
     "V3IncidentsNotesCreateNoteRequestTypedDict": ".v3_incidents_notes_createnoterequest",
     "User": ".v3_incidents_notes_noteresponse",
@@ -6352,8 +6463,6 @@ _dynamic_imports: dict[str, str] = {
     "V3IncidentsPostmortemsTotalPostmortemCountTypedDict": ".v3_incidents_postmortems_totalpostmortemcount",
     "V3IncidentsPostmortemsUpdatePostmortemRequest": ".v3_incidents_postmortems_updatepostmortemrequest",
     "V3IncidentsPostmortemsUpdatePostmortemRequestTypedDict": ".v3_incidents_postmortems_updatepostmortemrequest",
-    "ReassignTo": ".v3_incidents_reassignincidentrequest",
-    "ReassignToTypedDict": ".v3_incidents_reassignincidentrequest",
     "V3IncidentsReassignIncidentRequest": ".v3_incidents_reassignincidentrequest",
     "V3IncidentsReassignIncidentRequestTypedDict": ".v3_incidents_reassignincidentrequest",
     "V3IncidentsRelevantPeopleLog": ".v3_incidents_relevantpeoplelog",
@@ -6427,6 +6536,10 @@ _dynamic_imports: dict[str, str] = {
     "V3IncidentsTagsUpdateTagRequestTags": ".v3_incidents_tags_updatetagrequest",
     "V3IncidentsTagsUpdateTagRequestTagsTypedDict": ".v3_incidents_tags_updatetagrequest",
     "V3IncidentsTagsUpdateTagRequestTypedDict": ".v3_incidents_tags_updatetagrequest",
+    "V3IncidentsUnmergeIncidentRequest": ".v3_incidents_unmergeincidentrequest",
+    "V3IncidentsUnmergeIncidentRequestTypedDict": ".v3_incidents_unmergeincidentrequest",
+    "V3IncidentsUnmergeIncidentResponse": ".v3_incidents_unmergeincidentresponse",
+    "V3IncidentsUnmergeIncidentResponseTypedDict": ".v3_incidents_unmergeincidentresponse",
     "V3RunbooksCreateRunbookRequest": ".v3_runbooks_createrunbookrequest",
     "V3RunbooksCreateRunbookRequestTypedDict": ".v3_runbooks_createrunbookrequest",
     "V3RunbooksRunbookResponse": ".v3_runbooks_runbookresponse",
@@ -6511,7 +6624,6 @@ _dynamic_imports: dict[str, str] = {
     "V3ServicesOverlayDedupKeyOverlayTypedDict": ".v3_services_overlay_dedupkeyoverlay",
     "V3ServicesOverlayOptInForKeyBasedDeduplicationRequest": ".v3_services_overlay_optinforkeybaseddeduplicationrequest",
     "V3ServicesOverlayOptInForKeyBasedDeduplicationRequestTypedDict": ".v3_services_overlay_optinforkeybaseddeduplicationrequest",
-    "OverlayTemplateType": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayOverlayResponse": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayOverlayResponseTypedDict": ".v3_services_overlay_overlayresponse",
     "V3ServicesOverlayRenderCustomContentOverlayRequest": ".v3_services_overlay_rendercustomcontentoverlayrequest",
@@ -7049,6 +7161,8 @@ _dynamic_imports: dict[str, str] = {
     "V4StatusPagesCreateStatusPageResponseTypedDict": ".v4_statuspages_createstatuspageresponse",
     "V4StatusPagesDeleteStatusPageByIDResponse": ".v4_statuspages_deletestatuspagebyidresponse",
     "V4StatusPagesDeleteStatusPageByIDResponseTypedDict": ".v4_statuspages_deletestatuspagebyidresponse",
+    "V4StatusPagesDeleteSubscriberByIDResponse": ".v4_statuspages_deletesubscriberbyidresponse",
+    "V4StatusPagesDeleteSubscriberByIDResponseTypedDict": ".v4_statuspages_deletesubscriberbyidresponse",
     "V4StatusPagesGetStatusPageByIDResponse": ".v4_statuspages_getstatuspagebyidresponse",
     "V4StatusPagesGetStatusPageByIDResponseThemeColor": ".v4_statuspages_getstatuspagebyidresponse",
     "V4StatusPagesGetStatusPageByIDResponseThemeColorTypedDict": ".v4_statuspages_getstatuspagebyidresponse",

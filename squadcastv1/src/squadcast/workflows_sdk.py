@@ -9,7 +9,7 @@ from squadcast.logs import Logs
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
 from squadcast.workflows_actions import WorkflowsActions
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class WorkflowsSDK(BaseSDK):
@@ -36,12 +36,12 @@ class WorkflowsSDK(BaseSDK):
         page_size: Optional[int] = None,
         page_number: Optional[int] = None,
         search: Optional[str] = None,
-        event: Optional[List[str]] = None,
-        actions: Optional[List[str]] = None,
-        tags: Optional[List[str]] = None,
-        owner: Optional[List[str]] = None,
-        created_by: Optional[List[str]] = None,
-        updated_by: Optional[List[str]] = None,
+        event: Optional[Iterable[str]] = None,
+        actions: Optional[Iterable[str]] = None,
+        tags: Optional[Iterable[str]] = None,
+        owner: Optional[Iterable[str]] = None,
+        created_by: Optional[Iterable[str]] = None,
+        updated_by: Optional[Iterable[str]] = None,
         enabled: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -83,12 +83,12 @@ class WorkflowsSDK(BaseSDK):
             page_size=page_size,
             page_number=page_number,
             search=search,
-            event=event,
-            actions=actions,
-            tags=tags,
-            owner=owner,
-            created_by=created_by,
-            updated_by=updated_by,
+            event=utils.unmarshal(event, Optional[List[str]]),
+            actions=utils.unmarshal(actions, Optional[List[str]]),
+            tags=utils.unmarshal(tags, Optional[List[str]]),
+            owner=utils.unmarshal(owner, Optional[List[str]]),
+            created_by=utils.unmarshal(created_by, Optional[List[str]]),
+            updated_by=utils.unmarshal(updated_by, Optional[List[str]]),
             enabled=enabled,
         )
 
@@ -124,23 +124,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_listWorkflows",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -154,8 +142,8 @@ class WorkflowsSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -171,6 +159,9 @@ class WorkflowsSDK(BaseSDK):
                 updated_by=updated_by,
                 enabled=enabled,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -246,12 +237,12 @@ class WorkflowsSDK(BaseSDK):
         page_size: Optional[int] = None,
         page_number: Optional[int] = None,
         search: Optional[str] = None,
-        event: Optional[List[str]] = None,
-        actions: Optional[List[str]] = None,
-        tags: Optional[List[str]] = None,
-        owner: Optional[List[str]] = None,
-        created_by: Optional[List[str]] = None,
-        updated_by: Optional[List[str]] = None,
+        event: Optional[Iterable[str]] = None,
+        actions: Optional[Iterable[str]] = None,
+        tags: Optional[Iterable[str]] = None,
+        owner: Optional[Iterable[str]] = None,
+        created_by: Optional[Iterable[str]] = None,
+        updated_by: Optional[Iterable[str]] = None,
         enabled: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -293,12 +284,12 @@ class WorkflowsSDK(BaseSDK):
             page_size=page_size,
             page_number=page_number,
             search=search,
-            event=event,
-            actions=actions,
-            tags=tags,
-            owner=owner,
-            created_by=created_by,
-            updated_by=updated_by,
+            event=utils.unmarshal(event, Optional[List[str]]),
+            actions=utils.unmarshal(actions, Optional[List[str]]),
+            tags=utils.unmarshal(tags, Optional[List[str]]),
+            owner=utils.unmarshal(owner, Optional[List[str]]),
+            created_by=utils.unmarshal(created_by, Optional[List[str]]),
+            updated_by=utils.unmarshal(updated_by, Optional[List[str]]),
             enabled=enabled,
         )
 
@@ -334,23 +325,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_listWorkflows",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -364,8 +343,8 @@ class WorkflowsSDK(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -381,6 +360,9 @@ class WorkflowsSDK(BaseSDK):
                 updated_by=updated_by,
                 enabled=enabled,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -460,8 +442,8 @@ class WorkflowsSDK(BaseSDK):
             models.V3WorkflowsCreateWorkflowFilterTypedDict,
         ],
         actions: Union[
-            List[models.V3WorkflowsActionRequest],
-            List[models.V3WorkflowsActionRequestTypedDict],
+            Iterable[models.V3WorkflowsActionRequest],
+            Iterable[models.V3WorkflowsActionRequestTypedDict],
         ],
         description: Optional[str] = None,
         owner_type: Optional[models.V3WorkflowsCreateWorkflowRequestOwnerType] = None,
@@ -469,7 +451,10 @@ class WorkflowsSDK(BaseSDK):
             Union[models.V3WorkflowsEntityOwner, models.V3WorkflowsEntityOwnerTypedDict]
         ] = None,
         tags: Optional[
-            Union[List[models.V3WorkflowsTag], List[models.V3WorkflowsTagTypedDict]]
+            Union[
+                Iterable[models.V3WorkflowsTag],
+                Iterable[models.V3WorkflowsTagTypedDict],
+            ]
         ] = None,
         enabled: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -560,23 +545,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_createWorkflow",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -654,8 +627,8 @@ class WorkflowsSDK(BaseSDK):
             models.V3WorkflowsCreateWorkflowFilterTypedDict,
         ],
         actions: Union[
-            List[models.V3WorkflowsActionRequest],
-            List[models.V3WorkflowsActionRequestTypedDict],
+            Iterable[models.V3WorkflowsActionRequest],
+            Iterable[models.V3WorkflowsActionRequestTypedDict],
         ],
         description: Optional[str] = None,
         owner_type: Optional[models.V3WorkflowsCreateWorkflowRequestOwnerType] = None,
@@ -663,7 +636,10 @@ class WorkflowsSDK(BaseSDK):
             Union[models.V3WorkflowsEntityOwner, models.V3WorkflowsEntityOwnerTypedDict]
         ] = None,
         tags: Optional[
-            Union[List[models.V3WorkflowsTag], List[models.V3WorkflowsTagTypedDict]]
+            Union[
+                Iterable[models.V3WorkflowsTag],
+                Iterable[models.V3WorkflowsTagTypedDict],
+            ]
         ] = None,
         enabled: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -754,23 +730,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_createWorkflow",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -842,7 +806,7 @@ class WorkflowsSDK(BaseSDK):
         *,
         owner_id: str,
         enabled: bool,
-        workflow_ids: List[int],
+        workflow_ids: Iterable[int],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -873,7 +837,7 @@ class WorkflowsSDK(BaseSDK):
         request = models.V3WorkflowsBulkEnableDisableWorkflowsRequest(
             owner_id=owner_id,
             enabled=enabled,
-            workflow_ids=workflow_ids,
+            workflow_ids=utils.unmarshal(workflow_ids, List[int]),
         )
 
         req = self._build_request(
@@ -915,23 +879,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_bulkEnabledisableWorkflows",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1002,7 +954,7 @@ class WorkflowsSDK(BaseSDK):
         *,
         owner_id: str,
         enabled: bool,
-        workflow_ids: List[int],
+        workflow_ids: Iterable[int],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1033,7 +985,7 @@ class WorkflowsSDK(BaseSDK):
         request = models.V3WorkflowsBulkEnableDisableWorkflowsRequest(
             owner_id=owner_id,
             enabled=enabled,
-            workflow_ids=workflow_ids,
+            workflow_ids=utils.unmarshal(workflow_ids, List[int]),
         )
 
         req = self._build_request_async(
@@ -1075,23 +1027,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_bulkEnabledisableWorkflows",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1222,23 +1162,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_deleteWorkflow",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1369,23 +1297,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_deleteWorkflow",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1516,23 +1432,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_getWorkflowById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1664,23 +1568,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_getWorkflowById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1764,7 +1656,10 @@ class WorkflowsSDK(BaseSDK):
             ]
         ] = None,
         tags: Optional[
-            Union[List[models.V3WorkflowsTag], List[models.V3WorkflowsTagTypedDict]]
+            Union[
+                Iterable[models.V3WorkflowsTag],
+                Iterable[models.V3WorkflowsTagTypedDict],
+            ]
         ] = None,
         trigger: Optional[models.V3WorkflowsWorkflowTrigger] = None,
         filters: Optional[
@@ -1775,8 +1670,8 @@ class WorkflowsSDK(BaseSDK):
         ] = None,
         actions: Optional[
             Union[
-                List[models.V3WorkflowsActionRequest],
-                List[models.V3WorkflowsActionRequestTypedDict],
+                Iterable[models.V3WorkflowsActionRequest],
+                Iterable[models.V3WorkflowsActionRequestTypedDict],
             ]
         ] = None,
         enabled: Optional[bool] = None,
@@ -1878,23 +1773,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_updateWorkflow",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1978,7 +1861,10 @@ class WorkflowsSDK(BaseSDK):
             ]
         ] = None,
         tags: Optional[
-            Union[List[models.V3WorkflowsTag], List[models.V3WorkflowsTagTypedDict]]
+            Union[
+                Iterable[models.V3WorkflowsTag],
+                Iterable[models.V3WorkflowsTagTypedDict],
+            ]
         ] = None,
         trigger: Optional[models.V3WorkflowsWorkflowTrigger] = None,
         filters: Optional[
@@ -1989,8 +1875,8 @@ class WorkflowsSDK(BaseSDK):
         ] = None,
         actions: Optional[
             Union[
-                List[models.V3WorkflowsActionRequest],
-                List[models.V3WorkflowsActionRequestTypedDict],
+                Iterable[models.V3WorkflowsActionRequest],
+                Iterable[models.V3WorkflowsActionRequestTypedDict],
             ]
         ] = None,
         enabled: Optional[bool] = None,
@@ -2092,23 +1978,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_updateWorkflow",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2179,7 +2053,7 @@ class WorkflowsSDK(BaseSDK):
         self,
         *,
         workflow_id: str,
-        action_order: Optional[List[int]] = None,
+        action_order: Optional[Iterable[int]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2209,7 +2083,7 @@ class WorkflowsSDK(BaseSDK):
         request = models.WorkflowsUpdateActionsOrderRequest(
             workflow_id=workflow_id,
             v3_workflows_update_actions_order_request=models.V3WorkflowsUpdateActionsOrderRequest(
-                action_order=action_order,
+                action_order=utils.unmarshal(action_order, Optional[List[int]]),
             ),
         )
 
@@ -2252,23 +2126,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_updateActionsOrder",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2339,7 +2201,7 @@ class WorkflowsSDK(BaseSDK):
         self,
         *,
         workflow_id: str,
-        action_order: Optional[List[int]] = None,
+        action_order: Optional[Iterable[int]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2369,7 +2231,7 @@ class WorkflowsSDK(BaseSDK):
         request = models.WorkflowsUpdateActionsOrderRequest(
             workflow_id=workflow_id,
             v3_workflows_update_actions_order_request=models.V3WorkflowsUpdateActionsOrderRequest(
-                action_order=action_order,
+                action_order=utils.unmarshal(action_order, Optional[List[int]]),
             ),
         )
 
@@ -2412,23 +2274,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_updateActionsOrder",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2563,23 +2413,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_deleteWorkflowAction",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2713,23 +2551,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_deleteWorkflowAction",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2879,23 +2705,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_updateWorkflowAction",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -3046,23 +2860,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_updateWorkflowAction",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -3206,23 +3008,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_enabledisableWorkflow",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -3365,23 +3155,11 @@ class WorkflowsSDK(BaseSDK):
                 operation_id="Workflows_enabledisableWorkflow",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

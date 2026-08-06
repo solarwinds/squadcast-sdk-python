@@ -1,0 +1,12 @@
+# V3IncidentsMergeIntoNewParentRequest
+
+Request body for merging incidents under a newly created parent incident.
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `owner_id`                                                                                               | *str*                                                                                                    | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `children`                                                                                               | List[*str*]                                                                                              | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `new_incident`                                                                                           | [models.V3IncidentsMergeNewParentIncidentRequest](../models/v3incidentsmergenewparentincidentrequest.md) | :heavy_check_mark:                                                                                       | Details used to create a new parent incident while merging incidents.                                    |

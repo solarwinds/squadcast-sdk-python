@@ -8,7 +8,7 @@ from squadcast._hooks import HookContext
 from squadcast.globaleventrules_rulesets import GlobalEventRulesRulesets
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class GlobalEventRules(BaseSDK):
@@ -32,7 +32,7 @@ class GlobalEventRules(BaseSDK):
         owner_id: str,
         page_size: Optional[int] = None,
         page_number: Optional[int] = None,
-        filters_owner_id: Optional[List[str]] = None,
+        filters_owner_id: Optional[Iterable[str]] = None,
         filters_search: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -67,7 +67,7 @@ class GlobalEventRules(BaseSDK):
             owner_id=owner_id,
             page_size=page_size,
             page_number=page_number,
-            filters_owner_id=filters_owner_id,
+            filters_owner_id=utils.unmarshal(filters_owner_id, Optional[List[str]]),
             filters_search=filters_search,
         )
 
@@ -103,23 +103,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_listGlobalEventRules",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -135,8 +123,8 @@ class GlobalEventRules(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -146,6 +134,9 @@ class GlobalEventRules(BaseSDK):
                 filters_owner_id=filters_owner_id,
                 filters_search=filters_search,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -220,7 +211,7 @@ class GlobalEventRules(BaseSDK):
         owner_id: str,
         page_size: Optional[int] = None,
         page_number: Optional[int] = None,
-        filters_owner_id: Optional[List[str]] = None,
+        filters_owner_id: Optional[Iterable[str]] = None,
         filters_search: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -255,7 +246,7 @@ class GlobalEventRules(BaseSDK):
             owner_id=owner_id,
             page_size=page_size,
             page_number=page_number,
-            filters_owner_id=filters_owner_id,
+            filters_owner_id=utils.unmarshal(filters_owner_id, Optional[List[str]]),
             filters_search=filters_search,
         )
 
@@ -291,23 +282,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_listGlobalEventRules",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -323,8 +302,8 @@ class GlobalEventRules(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -334,6 +313,9 @@ class GlobalEventRules(BaseSDK):
                 filters_owner_id=filters_owner_id,
                 filters_search=filters_search,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -488,23 +470,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_createGlobalEventRule",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -657,23 +627,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_createGlobalEventRule",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -805,23 +763,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_deleteGlobalEventRuleById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -952,23 +898,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_deleteGlobalEventRuleById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1099,23 +1033,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_getGlobalEventRuleById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1247,23 +1169,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_getGlobalEventRuleById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1420,23 +1330,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_updateGlobalEventRuleById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1593,23 +1491,11 @@ class GlobalEventRules(BaseSDK):
                 operation_id="GlobalEventRules_updateGlobalEventRuleById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

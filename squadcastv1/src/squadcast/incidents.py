@@ -17,9 +17,9 @@ from squadcast.incidents_postmortems import IncidentsPostmortems
 from squadcast.incidents_snoozenotifications import IncidentsSnoozeNotifications
 from squadcast.incidents_tags import IncidentsTags
 from squadcast.notes import Notes
-from squadcast.types import OptionalNullable, UNSET
+from squadcast.types import BaseModel, OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union, cast
 
 
 class Incidents(BaseSDK):
@@ -78,7 +78,7 @@ class Incidents(BaseSDK):
     def bulk_acknowledge(
         self,
         *,
-        incident_ids: List[str],
+        incident_ids: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -106,7 +106,7 @@ class Incidents(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.V3IncidentsBulkIncidentIDsRequest(
-            incident_ids=incident_ids,
+            incident_ids=utils.unmarshal(incident_ids, List[str]),
         )
 
         req = self._build_request(
@@ -144,23 +144,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_bulkAcknowledgeIncidents",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -230,7 +218,7 @@ class Incidents(BaseSDK):
     async def bulk_acknowledge_async(
         self,
         *,
-        incident_ids: List[str],
+        incident_ids: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -258,7 +246,7 @@ class Incidents(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.V3IncidentsBulkIncidentIDsRequest(
-            incident_ids=incident_ids,
+            incident_ids=utils.unmarshal(incident_ids, List[str]),
         )
 
         req = self._build_request_async(
@@ -296,23 +284,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_bulkAcknowledgeIncidents",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -386,18 +362,18 @@ class Incidents(BaseSDK):
         end_time: datetime,
         type_: models.V3IncidentsExportFormat,
         owner_id: str,
-        status: Optional[List[str]] = None,
-        services: Optional[List[str]] = None,
-        sources: Optional[List[str]] = None,
-        assigned_to: Optional[List[str]] = None,
-        assigned_to_user_i_ds_and_their_squads: Optional[List[str]] = None,
+        status: Optional[Iterable[str]] = None,
+        services: Optional[Iterable[str]] = None,
+        sources: Optional[Iterable[str]] = None,
+        assigned_to: Optional[Iterable[str]] = None,
+        assigned_to_user_i_ds_and_their_squads: Optional[Iterable[str]] = None,
         service_owner: Optional[str] = None,
-        priority: Optional[List[models.V3IncidentsIncidentPriority]] = None,
-        tags: Optional[List[str]] = None,
+        priority: Optional[Iterable[models.V3IncidentsIncidentPriority]] = None,
+        tags: Optional[Iterable[str]] = None,
         slo_affecting: Optional[
             models.V3IncidentsIncidentExportRequestSloAffecting
         ] = None,
-        slos: Optional[List[int]] = None,
+        slos: Optional[Iterable[int]] = None,
         is_starred: Optional[models.V3IncidentsIncidentExportRequestIsStarred] = None,
         text_filter: Optional[str] = None,
         notes: Optional[models.V3IncidentsIncidentExportRequestNotes] = None,
@@ -472,16 +448,20 @@ class Incidents(BaseSDK):
             end_time=end_time,
             type=type_,
             owner_id=owner_id,
-            status=status,
-            services=services,
-            sources=sources,
-            assigned_to=assigned_to,
-            assigned_to_user_i_ds_and_their_squads=assigned_to_user_i_ds_and_their_squads,
+            status=utils.unmarshal(status, Optional[List[str]]),
+            services=utils.unmarshal(services, Optional[List[str]]),
+            sources=utils.unmarshal(sources, Optional[List[str]]),
+            assigned_to=utils.unmarshal(assigned_to, Optional[List[str]]),
+            assigned_to_user_i_ds_and_their_squads=utils.unmarshal(
+                assigned_to_user_i_ds_and_their_squads, Optional[List[str]]
+            ),
             service_owner=service_owner,
-            priority=priority,
-            tags=tags,
+            priority=utils.unmarshal(
+                priority, Optional[List[models.V3IncidentsIncidentPriority]]
+            ),
+            tags=utils.unmarshal(tags, Optional[List[str]]),
             slo_affecting=slo_affecting,
-            slos=slos,
+            slos=utils.unmarshal(slos, Optional[List[int]]),
             is_starred=is_starred,
             text_filter=text_filter,
             notes=notes,
@@ -521,23 +501,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_incidentExport",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -599,18 +567,18 @@ class Incidents(BaseSDK):
         end_time: datetime,
         type_: models.V3IncidentsExportFormat,
         owner_id: str,
-        status: Optional[List[str]] = None,
-        services: Optional[List[str]] = None,
-        sources: Optional[List[str]] = None,
-        assigned_to: Optional[List[str]] = None,
-        assigned_to_user_i_ds_and_their_squads: Optional[List[str]] = None,
+        status: Optional[Iterable[str]] = None,
+        services: Optional[Iterable[str]] = None,
+        sources: Optional[Iterable[str]] = None,
+        assigned_to: Optional[Iterable[str]] = None,
+        assigned_to_user_i_ds_and_their_squads: Optional[Iterable[str]] = None,
         service_owner: Optional[str] = None,
-        priority: Optional[List[models.V3IncidentsIncidentPriority]] = None,
-        tags: Optional[List[str]] = None,
+        priority: Optional[Iterable[models.V3IncidentsIncidentPriority]] = None,
+        tags: Optional[Iterable[str]] = None,
         slo_affecting: Optional[
             models.V3IncidentsIncidentExportRequestSloAffecting
         ] = None,
-        slos: Optional[List[int]] = None,
+        slos: Optional[Iterable[int]] = None,
         is_starred: Optional[models.V3IncidentsIncidentExportRequestIsStarred] = None,
         text_filter: Optional[str] = None,
         notes: Optional[models.V3IncidentsIncidentExportRequestNotes] = None,
@@ -685,16 +653,20 @@ class Incidents(BaseSDK):
             end_time=end_time,
             type=type_,
             owner_id=owner_id,
-            status=status,
-            services=services,
-            sources=sources,
-            assigned_to=assigned_to,
-            assigned_to_user_i_ds_and_their_squads=assigned_to_user_i_ds_and_their_squads,
+            status=utils.unmarshal(status, Optional[List[str]]),
+            services=utils.unmarshal(services, Optional[List[str]]),
+            sources=utils.unmarshal(sources, Optional[List[str]]),
+            assigned_to=utils.unmarshal(assigned_to, Optional[List[str]]),
+            assigned_to_user_i_ds_and_their_squads=utils.unmarshal(
+                assigned_to_user_i_ds_and_their_squads, Optional[List[str]]
+            ),
             service_owner=service_owner,
-            priority=priority,
-            tags=tags,
+            priority=utils.unmarshal(
+                priority, Optional[List[models.V3IncidentsIncidentPriority]]
+            ),
+            tags=utils.unmarshal(tags, Optional[List[str]]),
             slo_affecting=slo_affecting,
-            slos=slos,
+            slos=utils.unmarshal(slos, Optional[List[int]]),
             is_starred=is_starred,
             text_filter=text_filter,
             notes=notes,
@@ -734,23 +706,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_incidentExport",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -805,10 +765,304 @@ class Incidents(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
+    def merge(
+        self,
+        *,
+        request: Union[
+            models.IncidentsMergeIncidentsRequest,
+            models.IncidentsMergeIncidentsRequestTypedDict,
+        ],
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.IncidentsMergeIncidentsResponse:
+        r"""Merge Incidents
+
+        - This endpoint merges incidents under an existing parent incident or a newly created parent incident. A parent can have at most 100 child incidents in total.
+        - All selected child incidents must belong to the team specified by `owner_id` and must not be suppressed, already merged as a child, or a parent with child incidents.
+        - An existing parent incident must belong to the same team and must not be suppressed or already merged as a child.
+        - When using an existing parent, the parent and child incidents must all be resolved or all be open (`triggered` or `acknowledged`).
+        - When creating a new parent, provide at least two open child incidents and the `new_incident` details instead of `parent_incident_id`.
+        - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
+
+        :param request: The request object to send.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.IncidentsMergeIncidentsRequest)
+        request = cast(models.IncidentsMergeIncidentsRequest, request)
+
+        req = self._build_request(
+            method="POST",
+            path="/v3/incidents/merge",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "json", models.IncidentsMergeIncidentsRequest
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="Incidents_mergeIncidents",
+                oauth2_scopes=None,
+                security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.IncidentsMergeIncidentsResponse, http_res
+            )
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.BadRequestErrorData, http_res
+            )
+            raise errors.BadRequestError(response_data, http_res)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.UnauthorizedErrorData, http_res
+            )
+            raise errors.UnauthorizedError(response_data, http_res)
+        if utils.match_response(http_res, "402", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.PaymentRequiredErrorData, http_res
+            )
+            raise errors.PaymentRequiredError(response_data, http_res)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = unmarshal_json_response(errors.ForbiddenErrorData, http_res)
+            raise errors.ForbiddenError(response_data, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(errors.NotFoundErrorData, http_res)
+            raise errors.NotFoundError(response_data, http_res)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = unmarshal_json_response(errors.ConflictErrorData, http_res)
+            raise errors.ConflictError(response_data, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.UnprocessableEntityErrorData, http_res
+            )
+            raise errors.UnprocessableEntityError(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.InternalServerErrorData, http_res
+            )
+            raise errors.InternalServerError(response_data, http_res)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.BadGatewayErrorData, http_res
+            )
+            raise errors.BadGatewayError(response_data, http_res)
+        if utils.match_response(http_res, "503", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.ServiceUnavailableErrorData, http_res
+            )
+            raise errors.ServiceUnavailableError(response_data, http_res)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.GatewayTimeoutErrorData, http_res
+            )
+            raise errors.GatewayTimeoutError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.SDKDefaultError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.SDKDefaultError("API error occurred", http_res, http_res_text)
+
+        raise errors.SDKDefaultError("Unexpected response received", http_res)
+
+    async def merge_async(
+        self,
+        *,
+        request: Union[
+            models.IncidentsMergeIncidentsRequest,
+            models.IncidentsMergeIncidentsRequestTypedDict,
+        ],
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.IncidentsMergeIncidentsResponse:
+        r"""Merge Incidents
+
+        - This endpoint merges incidents under an existing parent incident or a newly created parent incident. A parent can have at most 100 child incidents in total.
+        - All selected child incidents must belong to the team specified by `owner_id` and must not be suppressed, already merged as a child, or a parent with child incidents.
+        - An existing parent incident must belong to the same team and must not be suppressed or already merged as a child.
+        - When using an existing parent, the parent and child incidents must all be resolved or all be open (`triggered` or `acknowledged`).
+        - When creating a new parent, provide at least two open child incidents and the `new_incident` details instead of `parent_incident_id`.
+        - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
+
+        :param request: The request object to send.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        if not isinstance(request, BaseModel):
+            request = utils.unmarshal(request, models.IncidentsMergeIncidentsRequest)
+        request = cast(models.IncidentsMergeIncidentsRequest, request)
+
+        req = self._build_request_async(
+            method="POST",
+            path="/v3/incidents/merge",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request, False, False, "json", models.IncidentsMergeIncidentsRequest
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="Incidents_mergeIncidents",
+                oauth2_scopes=None,
+                security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.IncidentsMergeIncidentsResponse, http_res
+            )
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.BadRequestErrorData, http_res
+            )
+            raise errors.BadRequestError(response_data, http_res)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.UnauthorizedErrorData, http_res
+            )
+            raise errors.UnauthorizedError(response_data, http_res)
+        if utils.match_response(http_res, "402", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.PaymentRequiredErrorData, http_res
+            )
+            raise errors.PaymentRequiredError(response_data, http_res)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = unmarshal_json_response(errors.ForbiddenErrorData, http_res)
+            raise errors.ForbiddenError(response_data, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(errors.NotFoundErrorData, http_res)
+            raise errors.NotFoundError(response_data, http_res)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = unmarshal_json_response(errors.ConflictErrorData, http_res)
+            raise errors.ConflictError(response_data, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.UnprocessableEntityErrorData, http_res
+            )
+            raise errors.UnprocessableEntityError(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.InternalServerErrorData, http_res
+            )
+            raise errors.InternalServerError(response_data, http_res)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.BadGatewayErrorData, http_res
+            )
+            raise errors.BadGatewayError(response_data, http_res)
+        if utils.match_response(http_res, "503", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.ServiceUnavailableErrorData, http_res
+            )
+            raise errors.ServiceUnavailableError(response_data, http_res)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.GatewayTimeoutErrorData, http_res
+            )
+            raise errors.GatewayTimeoutError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.SDKDefaultError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.SDKDefaultError("API error occurred", http_res, http_res_text)
+
+        raise errors.SDKDefaultError("Unexpected response received", http_res)
+
     def bulk_update_priority(
         self,
         *,
-        incident_ids: List[str],
+        incident_ids: Iterable[str],
         priority: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -839,7 +1093,7 @@ class Incidents(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.V3IncidentsBulkIncidentsPriorityUpdateRequest(
-            incident_ids=incident_ids,
+            incident_ids=utils.unmarshal(incident_ids, List[str]),
             priority=priority,
         )
 
@@ -882,23 +1136,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_bulkIncidentsPriorityUpdate",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -967,7 +1209,7 @@ class Incidents(BaseSDK):
     async def bulk_update_priority_async(
         self,
         *,
-        incident_ids: List[str],
+        incident_ids: Iterable[str],
         priority: str,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -998,7 +1240,7 @@ class Incidents(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.V3IncidentsBulkIncidentsPriorityUpdateRequest(
-            incident_ids=incident_ids,
+            incident_ids=utils.unmarshal(incident_ids, List[str]),
             priority=priority,
         )
 
@@ -1041,23 +1283,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_bulkIncidentsPriorityUpdate",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1126,7 +1356,7 @@ class Incidents(BaseSDK):
     def bulk_resolve(
         self,
         *,
-        incident_ids: List[str],
+        incident_ids: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1154,7 +1384,7 @@ class Incidents(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.V3IncidentsBulkIncidentIDsRequest(
-            incident_ids=incident_ids,
+            incident_ids=utils.unmarshal(incident_ids, List[str]),
         )
 
         req = self._build_request(
@@ -1192,23 +1422,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_bulkResolveIncidents",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1278,7 +1496,7 @@ class Incidents(BaseSDK):
     async def bulk_resolve_async(
         self,
         *,
-        incident_ids: List[str],
+        incident_ids: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1306,7 +1524,7 @@ class Incidents(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.V3IncidentsBulkIncidentIDsRequest(
-            incident_ids=incident_ids,
+            incident_ids=utils.unmarshal(incident_ids, List[str]),
         )
 
         req = self._build_request_async(
@@ -1344,23 +1562,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_bulkResolveIncidents",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1493,23 +1699,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_getIncidentById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1642,23 +1836,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_getIncidentById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1791,23 +1973,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_acknowledgeIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1940,23 +2110,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_acknowledgeIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2093,23 +2251,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_markIncidentSloFalsePositive",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2246,23 +2392,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_markIncidentSloFalsePositive",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2408,23 +2542,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_incidentPriorityUpdate",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2570,23 +2692,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_incidentPriorityUpdate",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2657,7 +2767,9 @@ class Incidents(BaseSDK):
         self,
         *,
         incident_id: str,
-        reassign_to: Union[models.ReassignTo, models.ReassignToTypedDict],
+        reassign_to: Union[
+            models.V3IncidentsAssignee, models.V3IncidentsAssigneeTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2670,7 +2782,7 @@ class Incidents(BaseSDK):
         - `type` can be either `user` or `escalationpolicy` or `squad`
 
         :param incident_id:
-        :param reassign_to:
+        :param reassign_to: Assignment target for an incident.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2689,7 +2801,9 @@ class Incidents(BaseSDK):
         request = models.IncidentsReassignIncidentRequest(
             incident_id=incident_id,
             v3_incidents_reassign_incident_request=models.V3IncidentsReassignIncidentRequest(
-                reassign_to=utils.get_pydantic_model(reassign_to, models.ReassignTo),
+                reassign_to=utils.get_pydantic_model(
+                    reassign_to, models.V3IncidentsAssignee
+                ),
             ),
         )
 
@@ -2732,23 +2846,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_reassignIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2819,7 +2921,9 @@ class Incidents(BaseSDK):
         self,
         *,
         incident_id: str,
-        reassign_to: Union[models.ReassignTo, models.ReassignToTypedDict],
+        reassign_to: Union[
+            models.V3IncidentsAssignee, models.V3IncidentsAssigneeTypedDict
+        ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2832,7 +2936,7 @@ class Incidents(BaseSDK):
         - `type` can be either `user` or `escalationpolicy` or `squad`
 
         :param incident_id:
-        :param reassign_to:
+        :param reassign_to: Assignment target for an incident.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2851,7 +2955,9 @@ class Incidents(BaseSDK):
         request = models.IncidentsReassignIncidentRequest(
             incident_id=incident_id,
             v3_incidents_reassign_incident_request=models.V3IncidentsReassignIncidentRequest(
-                reassign_to=utils.get_pydantic_model(reassign_to, models.ReassignTo),
+                reassign_to=utils.get_pydantic_model(
+                    reassign_to, models.V3IncidentsAssignee
+                ),
             ),
         )
 
@@ -2894,23 +3000,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_reassignIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -3062,23 +3156,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_resolveIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -3230,23 +3312,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_resolveIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -3313,10 +3383,320 @@ class Incidents(BaseSDK):
 
         raise errors.SDKDefaultError("Unexpected response received", http_res)
 
+    def unmerge(
+        self,
+        *,
+        incident_id: str,
+        send_notification: bool,
+        assign_me: bool,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.IncidentsUnmergeIncidentResponse:
+        r"""Unmerge Incident
+
+        - This endpoint unmerges a child incident from its parent incident.
+        - The incident must currently be a child of a parent incident, and the parent incident must not be resolved or suppressed.
+        - `send_notification`: if `true`, sends notifications for the unmerged incident.
+        - `assign_me`: if `true`, assigns the unmerged incident to the requesting user. If `false`, the incident keeps its last assignee, provided that assignee still exists; otherwise the request fails and `assign_me` must be set to `true`.
+        - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
+
+        :param incident_id:
+        :param send_notification:
+        :param assign_me:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.IncidentsUnmergeIncidentRequest(
+            incident_id=incident_id,
+            v3_incidents_unmerge_incident_request=models.V3IncidentsUnmergeIncidentRequest(
+                send_notification=send_notification,
+                assign_me=assign_me,
+            ),
+        )
+
+        req = self._build_request(
+            method="PUT",
+            path="/v3/incidents/{incidentID}/unmerge",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.v3_incidents_unmerge_incident_request,
+                False,
+                False,
+                "json",
+                models.V3IncidentsUnmergeIncidentRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="Incidents_unmergeIncident",
+                oauth2_scopes=None,
+                security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.IncidentsUnmergeIncidentResponse, http_res
+            )
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.BadRequestErrorData, http_res
+            )
+            raise errors.BadRequestError(response_data, http_res)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.UnauthorizedErrorData, http_res
+            )
+            raise errors.UnauthorizedError(response_data, http_res)
+        if utils.match_response(http_res, "402", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.PaymentRequiredErrorData, http_res
+            )
+            raise errors.PaymentRequiredError(response_data, http_res)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = unmarshal_json_response(errors.ForbiddenErrorData, http_res)
+            raise errors.ForbiddenError(response_data, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(errors.NotFoundErrorData, http_res)
+            raise errors.NotFoundError(response_data, http_res)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = unmarshal_json_response(errors.ConflictErrorData, http_res)
+            raise errors.ConflictError(response_data, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.UnprocessableEntityErrorData, http_res
+            )
+            raise errors.UnprocessableEntityError(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.InternalServerErrorData, http_res
+            )
+            raise errors.InternalServerError(response_data, http_res)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.BadGatewayErrorData, http_res
+            )
+            raise errors.BadGatewayError(response_data, http_res)
+        if utils.match_response(http_res, "503", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.ServiceUnavailableErrorData, http_res
+            )
+            raise errors.ServiceUnavailableError(response_data, http_res)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.GatewayTimeoutErrorData, http_res
+            )
+            raise errors.GatewayTimeoutError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.SDKDefaultError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.SDKDefaultError("API error occurred", http_res, http_res_text)
+
+        raise errors.SDKDefaultError("Unexpected response received", http_res)
+
+    async def unmerge_async(
+        self,
+        *,
+        incident_id: str,
+        send_notification: bool,
+        assign_me: bool,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.IncidentsUnmergeIncidentResponse:
+        r"""Unmerge Incident
+
+        - This endpoint unmerges a child incident from its parent incident.
+        - The incident must currently be a child of a parent incident, and the parent incident must not be resolved or suppressed.
+        - `send_notification`: if `true`, sends notifications for the unmerged incident.
+        - `assign_me`: if `true`, assigns the unmerged incident to the requesting user. If `false`, the incident keeps its last assignee, provided that assignee still exists; otherwise the request fails and `assign_me` must be set to `true`.
+        - Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
+
+        :param incident_id:
+        :param send_notification:
+        :param assign_me:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.IncidentsUnmergeIncidentRequest(
+            incident_id=incident_id,
+            v3_incidents_unmerge_incident_request=models.V3IncidentsUnmergeIncidentRequest(
+                send_notification=send_notification,
+                assign_me=assign_me,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="PUT",
+            path="/v3/incidents/{incidentID}/unmerge",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.v3_incidents_unmerge_incident_request,
+                False,
+                False,
+                "json",
+                models.V3IncidentsUnmergeIncidentRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="Incidents_unmergeIncident",
+                oauth2_scopes=None,
+                security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.IncidentsUnmergeIncidentResponse, http_res
+            )
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.BadRequestErrorData, http_res
+            )
+            raise errors.BadRequestError(response_data, http_res)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.UnauthorizedErrorData, http_res
+            )
+            raise errors.UnauthorizedError(response_data, http_res)
+        if utils.match_response(http_res, "402", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.PaymentRequiredErrorData, http_res
+            )
+            raise errors.PaymentRequiredError(response_data, http_res)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = unmarshal_json_response(errors.ForbiddenErrorData, http_res)
+            raise errors.ForbiddenError(response_data, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(errors.NotFoundErrorData, http_res)
+            raise errors.NotFoundError(response_data, http_res)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = unmarshal_json_response(errors.ConflictErrorData, http_res)
+            raise errors.ConflictError(response_data, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.UnprocessableEntityErrorData, http_res
+            )
+            raise errors.UnprocessableEntityError(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.InternalServerErrorData, http_res
+            )
+            raise errors.InternalServerError(response_data, http_res)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.BadGatewayErrorData, http_res
+            )
+            raise errors.BadGatewayError(response_data, http_res)
+        if utils.match_response(http_res, "503", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.ServiceUnavailableErrorData, http_res
+            )
+            raise errors.ServiceUnavailableError(response_data, http_res)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.GatewayTimeoutErrorData, http_res
+            )
+            raise errors.GatewayTimeoutError(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.SDKDefaultError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.SDKDefaultError("API error occurred", http_res, http_res_text)
+
+        raise errors.SDKDefaultError("Unexpected response received", http_res)
+
     def get_status_by_request_ids(
         self,
         *,
-        request_ids: List[str],
+        request_ids: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3353,7 +3733,7 @@ class Incidents(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.V3IncidentsIngestionStatusRequest(
-            request_ids=request_ids,
+            request_ids=utils.unmarshal(request_ids, List[str]),
         )
 
         req = self._build_request(
@@ -3391,23 +3771,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_getIncidentsStatusByRequestids",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -3477,7 +3845,7 @@ class Incidents(BaseSDK):
     async def get_status_by_request_ids_async(
         self,
         *,
-        request_ids: List[str],
+        request_ids: Iterable[str],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3514,7 +3882,7 @@ class Incidents(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.V3IncidentsIngestionStatusRequest(
-            request_ids=request_ids,
+            request_ids=utils.unmarshal(request_ids, List[str]),
         )
 
         req = self._build_request_async(
@@ -3552,23 +3920,11 @@ class Incidents(BaseSDK):
                 operation_id="Incidents_getIncidentsStatusByRequestids",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

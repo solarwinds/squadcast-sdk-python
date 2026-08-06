@@ -2,7 +2,7 @@ overlay: 1.0.0
 x-speakeasy-jsonpath: rfc9535
 info:
   title: Speakeasy Modifications
-  version: 0.0.4
+  version: 0.0.6
   x-speakeasy-metadata:
     after: ""
     before: ""
@@ -2325,4 +2325,32 @@ actions:
       before: sdk.Audit Logs.AuditLogs_exportAuditLogs()
       created_at: 1762929290570
       reviewed_at: 1762929301240
+      type: method-name
+  - target: $["paths"]["/v4/statuspages/{statuspageID}/subscribers/{subscriberID}"]["delete"]
+    update:
+      x-speakeasy-group: statusPages.subscribers
+      x-speakeasy-name-override: deleteById
+    x-speakeasy-metadata:
+      after: sdk.statusPages.subscribers.deleteById()
+      before: sdk.Status Pages/Subscribers.StatusPages_deleteSubscriberById()
+      created_at: 1785997276404
+      reviewed_at: 1785997296805
+      type: method-name
+  - target: $["paths"]["/v3/incidents/merge"]["post"]
+    update:
+      x-speakeasy-name-override: merge
+    x-speakeasy-metadata:
+      after: sdk.incidents.merge()
+      before: sdk.Incidents.Incidents_mergeIncidents()
+      created_at: 1785997276404
+      reviewed_at: 1785997296805
+      type: method-name
+  - target: $["paths"]["/v3/incidents/{incidentID}/unmerge"]["put"]
+    update:
+      x-speakeasy-name-override: unmerge
+    x-speakeasy-metadata:
+      after: sdk.incidents.unmerge()
+      before: sdk.Incidents.Incidents_unmergeIncident()
+      created_at: 1785997276404
+      reviewed_at: 1785997296805
       type: method-name

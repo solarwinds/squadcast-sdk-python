@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import pydantic
-from squadcast.types import BaseModel
-from typing import List
-from typing_extensions import Annotated, TypedDict
+from pydantic import model_serializer
+from squadcast.types import BaseModel, UNSET_SENTINEL
+from typing import List, Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class V4StatusPagesStatusPageComponentTypedDict(TypedDict):
@@ -57,7 +58,6 @@ class V4StatusPagesStatusPageTypedDict(TypedDict):
     name: str
     is_public: bool
     domain_name: str
-    custom_domain_name: str
     timezone: str
     logo_url: str
     components: List[V4StatusPagesStatusPageComponentTypedDict]
@@ -72,6 +72,7 @@ class V4StatusPagesStatusPageTypedDict(TypedDict):
     status_maintenance: StatusMaintenanceTypedDict
     owner_type: str
     owner_id: str
+    custom_domain_name: NotRequired[str]
 
 
 class V4StatusPagesStatusPage(BaseModel):
@@ -82,8 +83,6 @@ class V4StatusPagesStatusPage(BaseModel):
     is_public: Annotated[bool, pydantic.Field(alias="isPublic")]
 
     domain_name: Annotated[str, pydantic.Field(alias="domainName")]
-
-    custom_domain_name: Annotated[str, pydantic.Field(alias="customDomainName")]
 
     timezone: str
 
@@ -118,6 +117,26 @@ class V4StatusPagesStatusPage(BaseModel):
     owner_type: Annotated[str, pydantic.Field(alias="ownerType")]
 
     owner_id: Annotated[str, pydantic.Field(alias="ownerID")]
+
+    custom_domain_name: Annotated[
+        Optional[str], pydantic.Field(alias="customDomainName")
+    ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["customDomainName"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 try:

@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union
 
 
 class IncidentsPostmortems(BaseSDK):
@@ -75,23 +75,11 @@ class IncidentsPostmortems(BaseSDK):
                 operation_id="Postmortems_deletePostmortemByIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Postmortems"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -224,23 +212,11 @@ class IncidentsPostmortems(BaseSDK):
                 operation_id="Postmortems_deletePostmortemByIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Postmortems"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -373,23 +349,11 @@ class IncidentsPostmortems(BaseSDK):
                 operation_id="Postmortems_getPostmortemByIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Postmortems"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -522,23 +486,11 @@ class IncidentsPostmortems(BaseSDK):
                 operation_id="Postmortems_getPostmortemByIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Postmortems"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -613,14 +565,16 @@ class IncidentsPostmortems(BaseSDK):
         postmortem: Optional[str] = None,
         follow_ups: Optional[
             Union[
-                List[models.V3IncidentsPostmortemsPostmortemFollowUp],
-                List[models.V3IncidentsPostmortemsPostmortemFollowUpTypedDict],
+                Iterable[models.V3IncidentsPostmortemsPostmortemFollowUp],
+                Iterable[models.V3IncidentsPostmortemsPostmortemFollowUpTypedDict],
             ]
         ] = None,
         new_attachments: Optional[
             Union[
-                List[models.V3IncidentsPostmortemsPostmortemAttachmentRequest],
-                List[models.V3IncidentsPostmortemsPostmortemAttachmentRequestTypedDict],
+                Iterable[models.V3IncidentsPostmortemsPostmortemAttachmentRequest],
+                Iterable[
+                    models.V3IncidentsPostmortemsPostmortemAttachmentRequestTypedDict
+                ],
             ]
         ] = None,
         title: Optional[str] = None,
@@ -716,23 +670,11 @@ class IncidentsPostmortems(BaseSDK):
                 operation_id="Postmortems_updatePostmortemByIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Postmortems"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -807,14 +749,16 @@ class IncidentsPostmortems(BaseSDK):
         postmortem: Optional[str] = None,
         follow_ups: Optional[
             Union[
-                List[models.V3IncidentsPostmortemsPostmortemFollowUp],
-                List[models.V3IncidentsPostmortemsPostmortemFollowUpTypedDict],
+                Iterable[models.V3IncidentsPostmortemsPostmortemFollowUp],
+                Iterable[models.V3IncidentsPostmortemsPostmortemFollowUpTypedDict],
             ]
         ] = None,
         new_attachments: Optional[
             Union[
-                List[models.V3IncidentsPostmortemsPostmortemAttachmentRequest],
-                List[models.V3IncidentsPostmortemsPostmortemAttachmentRequestTypedDict],
+                Iterable[models.V3IncidentsPostmortemsPostmortemAttachmentRequest],
+                Iterable[
+                    models.V3IncidentsPostmortemsPostmortemAttachmentRequestTypedDict
+                ],
             ]
         ] = None,
         title: Optional[str] = None,
@@ -910,23 +854,11 @@ class IncidentsPostmortems(BaseSDK):
                 operation_id="Postmortems_updatePostmortemByIncident",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Incidents/Postmortems"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

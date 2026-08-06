@@ -1,6 +1,6 @@
-# squadcast_sdk
+# Incident Response SDK for Python
 
-Developer-friendly & type-safe Python SDK specifically catered to leverage *squadcast_sdk* API.
+Developer-friendly & type-safe Python SDK specifically catered to leverage *Incident Response* API.
 
 [![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=squadcast-sdk&utm_campaign=python)
 [![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
@@ -65,7 +65,7 @@ The access token authorizes users the ability to access different APIs, based on
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [squadcast_sdk](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#squadcastsdk)
+* [Incident Response SDK for Python](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#incident-response-sdk-for-python)
   * [SDK Installation](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#sdk-installation)
   * [IDE Support](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#ide-support)
   * [SDK Example Usage](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/#sdk-example-usage)
@@ -338,6 +338,7 @@ with SquadcastSDK(
 
 * [bulk_acknowledge](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#bulk_acknowledge) - Bulk Acknowledge Incidents
 * [export_incidents](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#export_incidents) - Incident Export
+* [incidents_merge_incidents](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#incidents_merge_incidents) - Merge Incidents
 * [bulk_update_priority](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#bulk_update_priority) - Bulk Incidents Priority Update
 * [bulk_resolve](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#bulk_resolve) - Bulk Resolve Incidents
 * [get_by_id](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#get_by_id) - Get Incident by ID
@@ -346,6 +347,7 @@ with SquadcastSDK(
 * [update_priority](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#update_priority) - Incident Priority Update
 * [reassign](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#reassign) - Reassign Incident
 * [resolve](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#resolve) - Resolve Incident
+* [incidents_unmerge_incident](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#incidents_unmerge_incident) - Unmerge Incident
 * [get_status_by_request_ids](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidents/README.md#get_status_by_request_ids) - Get Incidents Status By RequestIDs
 
 #### [Incidents.Actions](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/incidentsactions/README.md)
@@ -599,6 +601,10 @@ with SquadcastSDK(
 
 * [create](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadsv4/README.md#create) - Create Squad
 * [update_name](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/squadsv4/README.md#update_name) - Update Squad Name
+
+### [StatusPagesSubscribers](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/statuspagessubscribers/README.md)
+
+* [status_pages_delete_subscriber_by_id](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/statuspagessubscribers/README.md#status_pages_delete_subscriber_by_id) - Delete Subscriber By ID
 
 ### [Statuspages.Maintenances](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/docs/sdks/statuspagesmaintenances2/README.md)
 
@@ -886,9 +892,9 @@ with SquadcastSDK(
 
 
 **Inherit from [`SquadcastSDKError`](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast/errors/squadcastsdkerror.py)**:
-* [`CommonV4Error`](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 230 methods.*
-* [`ResponseBodyError1`](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
-* [`ResponseBodyError2`](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
+* [`CommonV4Error`](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 233 methods.*
+* [`ResponseBodyError1`](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 233 methods.*
+* [`ResponseBodyError2`](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 233 methods.*
 * [`ResponseValidationError`](https://github.com/solarwinds/squadcast-sdk-python/blob/master/squadcastv1/./src/squadcast/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

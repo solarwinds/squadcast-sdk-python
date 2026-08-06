@@ -1,9 +1,10 @@
-# ReassignTo
+# V3IncidentsUnmergeIncidentResponse
+
+Result of unmerging an incident.
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *str*              | :heavy_check_mark: | N/A                |
-| `type`             | *str*              | :heavy_check_mark: | N/A                |
+| `message`          | *str*              | :heavy_check_mark: | N/A                |

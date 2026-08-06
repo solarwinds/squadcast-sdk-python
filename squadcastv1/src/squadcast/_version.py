@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "squadcast_sdk"
-__version__: str = "1.0.2"
+__version__: str = "1.1.1"
 __openapi_doc_version__: str = "1.0.0"
-__gen_version__: str = "2.869.10"
-__user_agent__: str = "speakeasy-sdk/python 1.0.2 2.869.10 1.0.0 squadcast_sdk"
+__gen_version__: str = "2.926.8"
+__user_agent__: str = "speakeasy-sdk/python 1.1.1 2.926.8 1.0.0 squadcast_sdk"
 
 try:
     if __package__ is not None:

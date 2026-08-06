@@ -10,13 +10,15 @@ from typing_extensions import Annotated, TypedDict
 
 class V4GetRotationParticipantsResponseTypedDict(TypedDict):
     rotation_id: int
-    participants: List[V4ParticipantGroupTypedDict]
+    participant_groups: List[V4ParticipantGroupTypedDict]
 
 
 class V4GetRotationParticipantsResponse(BaseModel):
     rotation_id: Annotated[int, pydantic.Field(alias="rotationID")]
 
-    participants: List[V4ParticipantGroup]
+    participant_groups: Annotated[
+        List[V4ParticipantGroup], pydantic.Field(alias="participantGroups")
+    ]
 
 
 try:

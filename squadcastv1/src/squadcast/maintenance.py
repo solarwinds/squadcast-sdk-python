@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union
 
 
 class Maintenance(BaseSDK):
@@ -15,8 +15,8 @@ class Maintenance(BaseSDK):
         service_id: str,
         on_maintenance: bool,
         service_maintenance: Union[
-            List[models.V3ServicesMaintenanceModeServiceMaintenance],
-            List[models.V3ServicesMaintenanceModeServiceMaintenanceTypedDict],
+            Iterable[models.V3ServicesMaintenanceModeServiceMaintenance],
+            Iterable[models.V3ServicesMaintenanceModeServiceMaintenanceTypedDict],
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -93,23 +93,11 @@ class Maintenance(BaseSDK):
                 operation_id="MaintenanceMode_createOrUpdateMaintenanceMode",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services/Maintenance Mode"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -182,8 +170,8 @@ class Maintenance(BaseSDK):
         service_id: str,
         on_maintenance: bool,
         service_maintenance: Union[
-            List[models.V3ServicesMaintenanceModeServiceMaintenance],
-            List[models.V3ServicesMaintenanceModeServiceMaintenanceTypedDict],
+            Iterable[models.V3ServicesMaintenanceModeServiceMaintenance],
+            Iterable[models.V3ServicesMaintenanceModeServiceMaintenanceTypedDict],
         ],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -260,23 +248,11 @@ class Maintenance(BaseSDK):
                 operation_id="MaintenanceMode_createOrUpdateMaintenanceMode",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Services/Maintenance Mode"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

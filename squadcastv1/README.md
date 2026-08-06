@@ -8,6 +8,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *Inci
 <!-- Start Summary [summary] -->
 ## Summary
 
+Squadcast: ## Overview
 The Squadcast API provides developers the capability to extend and utilize Squadcast in conjunction with other services. Our API has resource-oriented URLs, accepts JSON-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
 > **Note:** Customers using the V2 version of the Squadcast API would need to migrate to Squadcast API V3, as the former would be deprecated shortly.
@@ -337,6 +338,7 @@ with SquadcastSDK(
 
 * [bulk_acknowledge](docs/sdks/incidents/README.md#bulk_acknowledge) - Bulk Acknowledge Incidents
 * [export_incidents](docs/sdks/incidents/README.md#export_incidents) - Incident Export
+* [merge](docs/sdks/incidents/README.md#merge) - Merge Incidents
 * [bulk_update_priority](docs/sdks/incidents/README.md#bulk_update_priority) - Bulk Incidents Priority Update
 * [bulk_resolve](docs/sdks/incidents/README.md#bulk_resolve) - Bulk Resolve Incidents
 * [get_by_id](docs/sdks/incidents/README.md#get_by_id) - Get Incident by ID
@@ -345,6 +347,7 @@ with SquadcastSDK(
 * [update_priority](docs/sdks/incidents/README.md#update_priority) - Incident Priority Update
 * [reassign](docs/sdks/incidents/README.md#reassign) - Reassign Incident
 * [resolve](docs/sdks/incidents/README.md#resolve) - Resolve Incident
+* [unmerge](docs/sdks/incidents/README.md#unmerge) - Unmerge Incident
 * [get_status_by_request_ids](docs/sdks/incidents/README.md#get_status_by_request_ids) - Get Incidents Status By RequestIDs
 
 #### [Incidents.Actions](docs/sdks/incidentsactions/README.md)
@@ -633,6 +636,10 @@ with SquadcastSDK(
 * [list](docs/sdks/statuspagesmaintenances1/README.md#list) - List Maintenances
 * [create](docs/sdks/statuspagesmaintenances1/README.md#create) - Create Maintenance
 
+#### [StatusPages.Subscribers](docs/sdks/statuspagessubscribers/README.md)
+
+* [delete_by_id](docs/sdks/statuspagessubscribers/README.md#delete_by_id) - Delete Subscriber By ID
+
 ### [Subscribers](docs/sdks/subscribers/README.md)
 
 * [list](docs/sdks/subscribers/README.md#list) - List Subscribers
@@ -885,9 +892,9 @@ with SquadcastSDK(
 
 
 **Inherit from [`SquadcastSDKError`](./src/squadcast/errors/squadcastsdkerror.py)**:
-* [`CommonV4Error`](./src/squadcast/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 230 methods.*
-* [`ResponseBodyError1`](./src/squadcast/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
-* [`ResponseBodyError2`](./src/squadcast/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 230 methods.*
+* [`CommonV4Error`](./src/squadcast/errors/commonv4error.py): The server could not understand the request due to invalid syntax. Applicable to 32 of 233 methods.*
+* [`ResponseBodyError1`](./src/squadcast/errors/responsebodyerror1.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 233 methods.*
+* [`ResponseBodyError2`](./src/squadcast/errors/responsebodyerror2.py): Represents a CircleCI error response for a 400 status code. Status code `400`. Applicable to 1 of 233 methods.*
 * [`ResponseValidationError`](./src/squadcast/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>

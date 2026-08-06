@@ -81,23 +81,11 @@ class Logs(BaseSDK):
                 operation_id="Workflows_getWorkflowLogs",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -111,8 +99,8 @@ class Logs(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.get(
@@ -120,6 +108,9 @@ class Logs(BaseSDK):
                 page_size=page_size,
                 page_number=next_page,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -259,23 +250,11 @@ class Logs(BaseSDK):
                 operation_id="Workflows_getWorkflowLogs",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Workflows"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -289,8 +268,8 @@ class Logs(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size if isinstance(request.page_size, int) else 0
-            if len(results[0]) < limit:
+            limit_ = request.page_size if isinstance(request.page_size, int) else 0
+            if len(results[0]) < limit_:
                 return None
 
             return self.get(
@@ -298,6 +277,9 @@ class Logs(BaseSDK):
                 page_size=page_size,
                 page_number=next_page,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None

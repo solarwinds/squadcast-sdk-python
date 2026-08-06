@@ -6,6 +6,7 @@
 
 * [bulk_acknowledge](#bulk_acknowledge) - Bulk Acknowledge Incidents
 * [export_incidents](#export_incidents) - Incident Export
+* [merge](#merge) - Merge Incidents
 * [bulk_update_priority](#bulk_update_priority) - Bulk Incidents Priority Update
 * [bulk_resolve](#bulk_resolve) - Bulk Resolve Incidents
 * [get_by_id](#get_by_id) - Get Incident by ID
@@ -14,6 +15,7 @@
 * [update_priority](#update_priority) - Incident Priority Update
 * [reassign](#reassign) - Reassign Incident
 * [resolve](#resolve) - Resolve Incident
+* [unmerge](#unmerge) - Unmerge Incident
 * [get_status_by_request_ids](#get_status_by_request_ids) - Get Incidents Status By RequestIDs
 
 ## bulk_acknowledge
@@ -140,6 +142,75 @@ with SquadcastSDK(
 
 | Error Type                      | Status Code                     | Content Type                    |
 | ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.PaymentRequiredError     | 402                             | application/json                |
+| errors.ForbiddenError           | 403                             | application/json                |
+| errors.NotFoundError            | 404                             | application/json                |
+| errors.ConflictError            | 409                             | application/json                |
+| errors.UnprocessableEntityError | 422                             | application/json                |
+| errors.InternalServerError      | 500                             | application/json                |
+| errors.BadGatewayError          | 502                             | application/json                |
+| errors.ServiceUnavailableError  | 503                             | application/json                |
+| errors.GatewayTimeoutError      | 504                             | application/json                |
+| errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
+
+## merge
+
+- This endpoint merges incidents under an existing parent incident or a newly created parent incident. A parent can have at most 100 child incidents in total.
+- All selected child incidents must belong to the team specified by `owner_id` and must not be suppressed, already merged as a child, or a parent with child incidents.
+- An existing parent incident must belong to the same team and must not be suppressed or already merged as a child.
+- When using an existing parent, the parent and child incidents must all be resolved or all be open (`triggered` or `acknowledged`).
+- When creating a new parent, provide at least two open child incidents and the `new_incident` details instead of `parent_incident_id`.
+- Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="Incidents_mergeIncidents" method="post" path="/v3/incidents/merge" -->
+```python
+from squadcast import SquadcastSDK
+
+
+with SquadcastSDK(
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
+
+    res = squadcast_sdk.incidents.merge(request={
+        "owner_id": "<id>",
+        "children": [
+            "<value 1>",
+            "<value 2>",
+        ],
+        "new_incident": {
+            "message": "<value>",
+            "assignee": {
+                "id": "<id>",
+                "type": "escalationpolicy",
+            },
+            "service_id": "<id>",
+        },
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `request`                                                                               | [models.IncidentsMergeIncidentsRequest](../../models/incidentsmergeincidentsrequest.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
+| `retries`                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                        | :heavy_minus_sign:                                                                      | Configuration to override the default retry behavior of the client.                     |
+
+### Response
+
+**[models.IncidentsMergeIncidentsResponse](../../models/incidentsmergeincidentsresponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.BadRequestError          | 400                             | application/json                |
+| errors.UnauthorizedError        | 401                             | application/json                |
 | errors.PaymentRequiredError     | 402                             | application/json                |
 | errors.ForbiddenError           | 403                             | application/json                |
 | errors.NotFoundError            | 404                             | application/json                |
@@ -484,7 +555,7 @@ with SquadcastSDK(
 
     res = squadcast_sdk.incidents.reassign(incident_id="<id>", reassign_to={
         "id": "<id>",
-        "type": "<value>",
+        "type": "escalationpolicy",
     })
 
     # Handle response
@@ -497,7 +568,7 @@ with SquadcastSDK(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `incident_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `reassign_to`                                                       | [models.ReassignTo](../../models/reassignto.md)                     | :heavy_check_mark:                                                  | N/A                                                                 |
+| `reassign_to`                                                       | [models.V3IncidentsAssignee](../../models/v3incidentsassignee.md)   | :heavy_check_mark:                                                  | Assignment target for an incident.                                  |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -560,6 +631,62 @@ with SquadcastSDK(
 ### Response
 
 **[models.IncidentsResolveIncidentResponse](../../models/incidentsresolveincidentresponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.BadRequestError          | 400                             | application/json                |
+| errors.UnauthorizedError        | 401                             | application/json                |
+| errors.PaymentRequiredError     | 402                             | application/json                |
+| errors.ForbiddenError           | 403                             | application/json                |
+| errors.NotFoundError            | 404                             | application/json                |
+| errors.ConflictError            | 409                             | application/json                |
+| errors.UnprocessableEntityError | 422                             | application/json                |
+| errors.InternalServerError      | 500                             | application/json                |
+| errors.BadGatewayError          | 502                             | application/json                |
+| errors.ServiceUnavailableError  | 503                             | application/json                |
+| errors.GatewayTimeoutError      | 504                             | application/json                |
+| errors.SDKDefaultError          | 4XX, 5XX                        | \*/\*                           |
+
+## unmerge
+
+- This endpoint unmerges a child incident from its parent incident.
+- The incident must currently be a child of a parent incident, and the parent incident must not be resolved or suppressed.
+- `send_notification`: if `true`, sends notifications for the unmerged incident.
+- `assign_me`: if `true`, assigns the unmerged incident to the requesting user. If `false`, the incident keeps its last assignee, provided that assignee still exists; otherwise the request fails and `assign_me` must be set to `true`.
+- Requires `access_token` as a `Bearer {{token}}` in the `Authorization` header.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="Incidents_unmergeIncident" method="put" path="/v3/incidents/{incidentID}/unmerge" -->
+```python
+from squadcast import SquadcastSDK
+
+
+with SquadcastSDK(
+    refresh_token_auth="<YOUR_REFRESH_TOKEN_AUTH_HERE>",
+) as squadcast_sdk:
+
+    res = squadcast_sdk.incidents.unmerge(incident_id="<id>", send_notification=False, assign_me=True)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `incident_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `send_notification`                                                 | *bool*                                                              | :heavy_check_mark:                                                  | N/A                                                                 |
+| `assign_me`                                                         | *bool*                                                              | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.IncidentsUnmergeIncidentResponse](../../models/incidentsunmergeincidentresponse.md)**
 
 ### Errors
 

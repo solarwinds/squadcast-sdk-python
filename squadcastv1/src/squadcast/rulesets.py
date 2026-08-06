@@ -5,7 +5,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import List, Mapping, Optional
+from typing import Iterable, List, Mapping, Optional
 
 
 class Rulesets(BaseSDK):
@@ -15,7 +15,7 @@ class Rulesets(BaseSDK):
         ger_id: int,
         alert_source_version: str,
         alert_source_shortname: str,
-        ordering: Optional[List[int]] = None,
+        ordering: Optional[Iterable[int]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -49,7 +49,7 @@ class Rulesets(BaseSDK):
             alert_source_version=alert_source_version,
             alert_source_shortname=alert_source_shortname,
             v3_global_event_rules_reorder_ruleset_request=models.V3GlobalEventRulesReorderRulesetRequest(
-                ordering=ordering,
+                ordering=utils.unmarshal(ordering, Optional[List[int]]),
             ),
         )
 
@@ -92,9 +92,11 @@ class Rulesets(BaseSDK):
                 operation_id="GlobalEventRules_reorderRuleset",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules/Rulesets"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -117,7 +119,7 @@ class Rulesets(BaseSDK):
         ger_id: int,
         alert_source_version: str,
         alert_source_shortname: str,
-        ordering: Optional[List[int]] = None,
+        ordering: Optional[Iterable[int]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -151,7 +153,7 @@ class Rulesets(BaseSDK):
             alert_source_version=alert_source_version,
             alert_source_shortname=alert_source_shortname,
             v3_global_event_rules_reorder_ruleset_request=models.V3GlobalEventRulesReorderRulesetRequest(
-                ordering=ordering,
+                ordering=utils.unmarshal(ordering, Optional[List[int]]),
             ),
         )
 
@@ -194,9 +196,11 @@ class Rulesets(BaseSDK):
                 operation_id="GlobalEventRules_reorderRuleset",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Global Event Rules/Rulesets"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

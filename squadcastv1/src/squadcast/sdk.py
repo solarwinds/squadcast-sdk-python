@@ -243,7 +243,9 @@ class SquadcastSDK(BaseSDK):
         ), "The provided async_client must implement the AsyncHttpClient protocol."
 
         security: Any = None
-        if callable(refresh_token_auth):
+        if refresh_token_auth is None:
+            security = None
+        elif callable(refresh_token_auth):
             # pylint: disable=unnecessary-lambda-assignment
             security = lambda: models.Security(refresh_token_auth=refresh_token_auth())
         else:

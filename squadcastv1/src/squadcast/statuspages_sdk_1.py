@@ -9,9 +9,10 @@ from squadcast.statuspages_componentgroups import StatusPagesComponentGroups
 from squadcast.statuspages_components import StatusPagesComponents
 from squadcast.statuspages_issues import StatusPagesIssues
 from squadcast.statuspages_maintenances_1 import StatusPagesMaintenances1
+from squadcast.statuspages_subscribers import StatusPagesSubscribers
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class StatusPagesSDK1(BaseSDK):
@@ -19,6 +20,7 @@ class StatusPagesSDK1(BaseSDK):
     component_groups: StatusPagesComponentGroups
     issues: StatusPagesIssues
     maintenances: StatusPagesMaintenances1
+    subscribers: StatusPagesSubscribers
 
     def __init__(
         self, sdk_config: SDKConfiguration, parent_ref: Optional[object] = None
@@ -38,6 +40,9 @@ class StatusPagesSDK1(BaseSDK):
             self.sdk_configuration, parent_ref=self.parent_ref
         )
         self.maintenances = StatusPagesMaintenances1(
+            self.sdk_configuration, parent_ref=self.parent_ref
+        )
+        self.subscribers = StatusPagesSubscribers(
             self.sdk_configuration, parent_ref=self.parent_ref
         )
 
@@ -113,23 +118,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_listStatusPages",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -143,8 +136,8 @@ class StatusPagesSDK1(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size
-            if len(results[0]) < limit:
+            limit_ = request.page_size
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -153,6 +146,9 @@ class StatusPagesSDK1(BaseSDK):
                 filters_is_public=filters_is_public,
                 team_id=team_id,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -293,23 +289,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_listStatusPages",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -323,8 +307,8 @@ class StatusPagesSDK1(BaseSDK):
             results = JSONPath("$.data").parse(body)
             if len(results) == 0 or len(results[0]) == 0:
                 return None
-            limit = request.page_size
-            if len(results[0]) < limit:
+            limit_ = request.page_size
+            if len(results[0]) < limit_:
                 return None
 
             return self.list(
@@ -333,6 +317,9 @@ class StatusPagesSDK1(BaseSDK):
                 filters_is_public=filters_is_public,
                 team_id=team_id,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -423,8 +410,8 @@ class StatusPagesSDK1(BaseSDK):
         ] = None,
         components: Optional[
             Union[
-                List[models.V4StatusPagesNewStatusPageComponentList],
-                List[models.V4StatusPagesNewStatusPageComponentListTypedDict],
+                Iterable[models.V4StatusPagesNewStatusPageComponentList],
+                Iterable[models.V4StatusPagesNewStatusPageComponentListTypedDict],
             ]
         ] = None,
         allow_webhook_subscription: Optional[bool] = None,
@@ -531,23 +518,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_createStatusPage",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -636,8 +611,8 @@ class StatusPagesSDK1(BaseSDK):
         ] = None,
         components: Optional[
             Union[
-                List[models.V4StatusPagesNewStatusPageComponentList],
-                List[models.V4StatusPagesNewStatusPageComponentListTypedDict],
+                Iterable[models.V4StatusPagesNewStatusPageComponentList],
+                Iterable[models.V4StatusPagesNewStatusPageComponentListTypedDict],
             ]
         ] = None,
         allow_webhook_subscription: Optional[bool] = None,
@@ -744,23 +719,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_createStatusPage",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -890,23 +853,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_deleteStatusPageById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1036,23 +987,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_deleteStatusPageById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1182,23 +1121,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_getStatusPageById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1328,23 +1255,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_getStatusPageById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1435,8 +1350,8 @@ class StatusPagesSDK1(BaseSDK):
         allow_webhook_subscription: Optional[bool] = None,
         components: Optional[
             Union[
-                List[models.V4StatusPagesUpdateStatusPageByIDRequestComponent2],
-                List[
+                Iterable[models.V4StatusPagesUpdateStatusPageByIDRequestComponent2],
+                Iterable[
                     models.V4StatusPagesUpdateStatusPageByIDRequestComponent2TypedDict
                 ],
             ]
@@ -1555,23 +1470,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_updateStatusPageById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1662,8 +1565,8 @@ class StatusPagesSDK1(BaseSDK):
         allow_webhook_subscription: Optional[bool] = None,
         components: Optional[
             Union[
-                List[models.V4StatusPagesUpdateStatusPageByIDRequestComponent2],
-                List[
+                Iterable[models.V4StatusPagesUpdateStatusPageByIDRequestComponent2],
+                Iterable[
                     models.V4StatusPagesUpdateStatusPageByIDRequestComponent2TypedDict
                 ],
             ]
@@ -1782,23 +1685,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_updateStatusPageById",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1928,23 +1819,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_listStatusPageStatuses",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -2074,23 +1953,11 @@ class StatusPagesSDK1(BaseSDK):
                 operation_id="StatusPages_listStatusPageStatuses",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

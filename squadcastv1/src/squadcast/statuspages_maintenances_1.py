@@ -6,7 +6,7 @@ from squadcast import errors, models, utils
 from squadcast._hooks import HookContext
 from squadcast.types import OptionalNullable, UNSET
 from squadcast.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Iterable, List, Mapping, Optional
 
 
 class StatusPagesMaintenances1(BaseSDK):
@@ -79,23 +79,11 @@ class StatusPagesMaintenances1(BaseSDK):
                 operation_id="Maintenances_listMaintenances",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages/Maintenances"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -231,23 +219,11 @@ class StatusPagesMaintenances1(BaseSDK):
                 operation_id="Maintenances_listMaintenances",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages/Maintenances"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -320,7 +296,7 @@ class StatusPagesMaintenances1(BaseSDK):
         statuspage_id: str,
         title: str,
         note: str,
-        components: List[int],
+        components: Iterable[int],
         start_time: datetime,
         end_time: datetime,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -356,7 +332,7 @@ class StatusPagesMaintenances1(BaseSDK):
             v4_status_pages_maintenances_create_maintenance_request=models.V4StatusPagesMaintenancesCreateMaintenanceRequest(
                 title=title,
                 note=note,
-                components=components,
+                components=utils.unmarshal(components, List[int]),
                 start_time=start_time,
                 end_time=end_time,
             ),
@@ -401,23 +377,11 @@ class StatusPagesMaintenances1(BaseSDK):
                 operation_id="Maintenances_createMaintenance",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages/Maintenances"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -490,7 +454,7 @@ class StatusPagesMaintenances1(BaseSDK):
         statuspage_id: str,
         title: str,
         note: str,
-        components: List[int],
+        components: Iterable[int],
         start_time: datetime,
         end_time: datetime,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -526,7 +490,7 @@ class StatusPagesMaintenances1(BaseSDK):
             v4_status_pages_maintenances_create_maintenance_request=models.V4StatusPagesMaintenancesCreateMaintenanceRequest(
                 title=title,
                 note=note,
-                components=components,
+                components=utils.unmarshal(components, List[int]),
                 start_time=start_time,
                 end_time=end_time,
             ),
@@ -571,23 +535,11 @@ class StatusPagesMaintenances1(BaseSDK):
                 operation_id="Maintenances_createMaintenance",
                 oauth2_scopes=None,
                 security_source=self.sdk_configuration.security,
+                tags=["Status Pages/Maintenances"],
+                extensions=None,
             ),
             request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "402",
-                "403",
-                "404",
-                "409",
-                "422",
-                "4XX",
-                "500",
-                "502",
-                "503",
-                "504",
-                "5XX",
-            ],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
